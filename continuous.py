@@ -165,6 +165,7 @@ def main():
     else:
         controls()
         subprocess.run([sys.executable,str(ROOT/"checks/scrutiny.py")],check=True)
+        subprocess.run([sys.executable,str(ROOT/"checks/thresholds.py")],check=True)
         print("Verified exact maxima:",read_cases(check=True))
         for path in sorted(ROUNDS.glob("*.json")):
             receipt=load(path)

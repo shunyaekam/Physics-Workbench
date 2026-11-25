@@ -54,6 +54,8 @@ def run():
     call([sys.executable,"-m","unittest","-q"])
     call([sys.executable,"checks/scrutiny.py"])
     call([sys.executable,"continuous.py","run"],timeout=480)
+    call([sys.executable,"review_papers.py"],timeout=240)
+    call([sys.executable,"literature.py"],timeout=210)
     git("add","--","campaign","papers")
     if git("diff","--cached","--quiet",check=False).returncode==1:
         git("commit","-qm","Advance audited physics search and update working papers")

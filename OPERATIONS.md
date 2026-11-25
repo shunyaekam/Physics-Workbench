@@ -6,6 +6,10 @@ Each cycle runs the regression tests and independent scrutiny suite, advances a 
 
 The Coulomb search adds near-contact distances to the constraints of a Legendre-polynomial linear program. Rationalizing its coefficients gives a candidate minorant. Exact Bernstein subdivision and an independent symbolic Sturm root count both have to accept it. A failed sphere search is recorded in its round without a bound. Baseline improvements are comparisons against our own certificates. Establishing priority would need a separate literature review.
 
+Once per ISO week the literature worker queries the arXiv API for recent papers in quantum physics, mathematical physics, and statistical mechanics whose abstracts mention conjectures or open questions. It records versioned source links and extracts a candidate subproblem for a local proposer and critic. These leads enter campaign/intake with unreviewed status. Historical priority and applicability require reading the paper; exact result promotion requires a compatible checker.
+
+When either manuscript changes, the worker asks the local model for a concrete counterexample. It tests the proposed triple directly, compares the referee prediction with the exact matrix, reruns the exhaustive controls, and replays the finite support certificates. Reports in campaign/reviews identify the exact draft hashes and retain invalid referee inputs. A model outage leaves review pending.
+
 Every independently certified dimension/copy maximum updates the data table in the second manuscript and rebuilds its PDF. A strictly negative rank-two result creates a separate draft for review and saves the witness. Unchanged maxima produce no new paper. The finite campaign and manuscripts address restricted questions. Changing the problem statement, starting another discipline, and external submission require editorial judgment.
 
 ## Locations

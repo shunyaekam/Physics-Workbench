@@ -1,0 +1,40 @@
+{
+  "problem": {
+    "id": "arxiv-2611.30969v1",
+    "title": "Wigner negativity costs phase-space area: A conjectured refinement of the Lieb--Solovej inequality at R\u00e9nyi order one half",
+    "question": "Extract a small falsifiable subproblem from this attributed abstract sentence: We conjecture that the Wigner logarithmic negativity of any single-mode state is bounded by the amount by which the R\u00e9nyi-$1/2$ entropy of its Husimi function exceeds the coherent-state value, with equality only for coherent states.",
+    "scope": "Intake only. Verify definitions in the full text and check later work before accepting the conjecture.",
+    "source": "https://arxiv.org/abs/2611.30969v1",
+    "prior_art": "https://arxiv.org/abs/2611.30969v1",
+    "checked_on": "2026-11-25",
+    "status": "unreviewed_lead"
+  },
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "seed": 42,
+  "status": "needs_review",
+  "key": "06d353d62acfc23b900b662c7b1b52a81c6d9c449ce1d1f78695b24e887faa69",
+  "proposal": {
+    "prompt": "{\"question\": \"Extract a small falsifiable subproblem from this attributed abstract sentence: We conjecture that the Wigner logarithmic negativity of any single-mode state is bounded by the amount by which the R\\u00e9nyi-$1/2$ entropy of its Husimi function exceeds the coherent-state value, with equality only for coherent states.\", \"scope\": \"Intake only. Verify definitions in the full text and check later work before accepting the conjecture.\", \"sources_for_human_check\": [\"https://arxiv.org/abs/2611.30969v1\", \"https://arxiv.org/abs/2611.30969v1\"], \"checked_evidence\": [], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}",
+    "text": {
+      "subclaim": "The Husimi function of any single-mode state has R\u00e9nyi-$1/2$ entropy greater than or equal to the coherent-state value.",
+      "assumptions": "1) assume the Wigner logarithmic negativity is bounded by the amount by which the R\u00e9nyi-$1/2$ entropy of its Husimi function exceeds the coherent-state value (conjecture).",
+      "derivation": "Step 1: Assume that a single-mode state has a Husimi function H. Step 2: Compute the R\u00e9nyi-$1/2$ entropy of H, denoted by S(H). Step 3: Note that if the Wigner logarithmic negativity of the state is bounded, then S(H) must be greater than or equal to the coherent-state value (from conjecture).",
+      "falsifier": "To check this subclaim, one could compute the Husimi function and R\u00e9nyi-$1/2$ entropy for a variety of single-mode states and verify that they indeed satisfy S(H) >= coherent-state value.",
+      "next_check": "Check if any state with zero Wigner logarithmic negativity has zero R\u00e9nyi-$1/2$ entropy."
+    },
+    "tokens_in": 223,
+    "tokens_out": 276
+  },
+  "critique": {
+    "prompt": "Audit this untrusted proposal. Derive a boundary case, identify the earliest unsupported step and check whether the subclaim would imply the target. State remaining evidence needed. You cannot execute code or access cited sources.\n{\"packet\": {\"question\": \"Extract a small falsifiable subproblem from this attributed abstract sentence: We conjecture that the Wigner logarithmic negativity of any single-mode state is bounded by the amount by which the R\\u00e9nyi-$1/2$ entropy of its Husimi function exceeds the coherent-state value, with equality only for coherent states.\", \"scope\": \"Intake only. Verify definitions in the full text and check later work before accepting the conjecture.\", \"sources_for_human_check\": [\"https://arxiv.org/abs/2611.30969v1\", \"https://arxiv.org/abs/2611.30969v1\"], \"checked_evidence\": [], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}, \"proposal\": {\"subclaim\": \"The Husimi function of any single-mode state has R\\u00e9nyi-$1/2$ entropy greater than or equal to the coherent-state value.\", \"assumptions\": \"1) assume the Wigner logarithmic negativity is bounded by the amount by which the R\\u00e9nyi-$1/2$ entropy of its Husimi function exceeds the coherent-state value (conjecture).\", \"derivation\": \"Step 1: Assume that a single-mode state has a Husimi function H. Step 2: Compute the R\\u00e9nyi-$1/2$ entropy of H, denoted by S(H). Step 3: Note that if the Wigner logarithmic negativity of the state is bounded, then S(H) must be greater than or equal to the coherent-state value (from conjecture).\", \"falsifier\": \"To check this subclaim, one could compute the Husimi function and R\\u00e9nyi-$1/2$ entropy for a variety of single-mode states and verify that they indeed satisfy S(H) >= coherent-state value.\", \"next_check\": \"Check if any state with zero Wigner logarithmic negativity has zero R\\u00e9nyi-$1/2$ entropy.\"}}",
+    "text": {
+      "boundary_case": "A single-mode state with zero Wigner logarithmic negativity",
+      "gap": "The subclaim implies the target: If the Husimi function of a single-mode state has R\u00e9nyi-$1/2$ entropy greater than or equal to the coherent-state value, then the state has zero Winger logarithmic negativity.",
+      "scope_match": "Check if any state with zero Winger logarithmic negativity has zero R\u00e9nyi-$1/2$ entropy.",
+      "next_check": "Prove that this subclaim is false by providing an example of a single-mode state with non-zero Husimi function and R\u00e9nyi-$1/2$ entropy equal to the coherent-state value, but still having zero Winger logarithmic negativity."
+    },
+    "tokens_in": 538,
+    "tokens_out": 182
+  }
+}

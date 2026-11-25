@@ -1,0 +1,47 @@
+{
+  "manuscript_sha256": {
+    "coordinate-supports.tex": "51dbefa3e946267df0e4d1d53fbe08189a65b196c443f041652eb844de771bdd",
+    "finite-maxima.tex": "0c818112b7d3188258f7059ad06f33015d11643018c4440556fd9d4912cccad3"
+  },
+  "model": "llama3.2:3b",
+  "prompt": "You are a referee. Try to falsify the three-word compression or distance-threshold argument. Supply three DISTINCT length-three ternary words, at alpha=2/5. State your predicted sign class of the smallest eigenvalue of the diagonal block. Your objection will be tested by exact arithmetic. The finite values in the companion paper need their own independent replay.",
+  "raw": "{ \"objection\": \"The final answer is not obtained by exact arithmetic as claimed in the paper. The provided document seems to be incomplete or has errors. However, I will attempt to provide a response based on the information available.\" , \"words\": [ \"100\", \"120\", \"112\" ], \"prediction\": \"PSD\" }",
+  "prediction_scope": "the submitted three-word case only",
+  "dense_integer_matrix": [
+    [
+      27,
+      -18,
+      12
+    ],
+    [
+      -18,
+      27,
+      12
+    ],
+    [
+      12,
+      12,
+      27
+    ]
+  ],
+  "exact": "indefinite",
+  "reviewer_prediction_matched": false,
+  "theorem_matched": true,
+  "scrutiny.py": [
+    "Dense tensor, 512 supports: 97 PSD including empty",
+    "All anchored ternary supports, k = 1 maxima: (2, 0)",
+    "All anchored ternary supports, k = 2 maxima: (4, 3)",
+    "All anchored ternary supports, k = 3 maxima: (8, 6)",
+    "Corruptions rejected: 5"
+  ],
+  "thresholds.py": [
+    "12040 exact matrix/threshold comparisons passed"
+  ],
+  "independently_replayed_maxima": {
+    "4,4": 16,
+    "5,3": 10,
+    "6,3": 12,
+    "7,3": 14,
+    "8,3": 16
+  }
+}

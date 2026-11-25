@@ -4,3 +4,4 @@ __pycache__/
 .lock-*
 .venv/
 .runtime/
+*.retry

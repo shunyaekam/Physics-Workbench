@@ -1,11 +1,12 @@
 \documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[left=1in,right=1in,top=0.84in,bottom=0.84in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{hidelinks}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\F}{\mathbb F_2}
 \title{Positive coordinate compressions of tensor powers of a partially transposed Werner state}
-\author{Physics Workbench\\\small AI-assisted working manuscript, version 1}
+\author{Physics Workbench\\\small AI-assisted working manuscript, version 2}
 \date{November 25, 2026}
 \begin{document}
 \maketitle
@@ -51,8 +52,25 @@ For four symbols encode the anchor as zero and the other three as the nonzero ve
 For two copies view words as edges between row and column symbols. If three distinct rows occur, selecting one edge per row must give three different columns. Thus different row neighborhoods are disjoint. At least three columns occur, so transposing shows that different column neighborhoods are disjoint as well. The support is a matching of size at most $d$. If fewer than three rows occur there must also be fewer than three columns by the transposed argument. A two-by-two box and a full matching attain their respective sizes.
 \end{proof}
 
+\section{How far does positivity extend?}
+Let $K(\alpha)=I-\alpha|\Omega\rangle\langle\Omega|$, with $0\le\alpha\le1/2$, and put $t=\alpha/(1-\alpha)$. On the fully diagonal sector the sign matrix is replaced, up to the positive factor $(1-\alpha)^k$, by $B(t)_{xy}=(-t)^{h(x,y)}$, with unit diagonal. The other sectors are again positive multiples of principal submatrices. If $B(t)$ is positive semidefinite, then so is $B(s)$ for $0\le s\le t$. For $t>0$ use the entrywise product with $(s/t)^{h(x,y)}$. This latter kernel is positive semidefinite: it is a principal submatrix of the tensor power of a matrix with diagonal one and off-diagonal $s/t$. The case $t=0$ is immediate.
+
+\begin{theorem}
+On a three-word support with pair distances $a,b,c$, positivity holds throughout this parameter interval if $a+b+c$ is even. Otherwise it holds exactly up to the unique root $t\in(0,1)$ of
+\[
+t^{2a}+t^{2b}+t^{2c}+2t^{a+b+c}=1.
+\]
+For an alphabet of at least three symbols and minimum separation at least $\ell\ge1$, the smallest such critical value for odd $\ell\le k$ is $2^{-1/\ell}$. For even $\ell<k$ it is the root obtained from $(a,b,c)=(\ell,\ell,\ell+1)$. For $\ell=k$ even every eligible triple stays positive semidefinite through the endpoint.
+\end{theorem}
+\begin{proof}
+For even sum the endpoint triangle is balanced and positivity descends in $t$. For odd sum, every minor of order one or two is nonnegative and the full determinant is one minus the left side displayed above. That side increases strictly from zero to five, giving the threshold and positivity at equality.
+
+For fixed $0<t<1$ the left side decreases when any distance increases. For odd $\ell$, the distances $(\ell,\ell,\ell)$ are attained by using three distinct symbols in each of $\ell$ positions and a common symbol elsewhere. The root satisfies $t^\ell=1/2$. For even $\ell$ and odd total distance, at least one distance exceeds $\ell$. In sorted order the distances dominate $(\ell,\ell,\ell+1)$. This tight triple is realized by $\ell-1$ all-distinct positions and two more positions, each separating a different single word from the other two. If $\ell=k$ all distances must equal $k$. For even $k$ the triple is then balanced.
+\end{proof}
+As an example, for two copies and separation one the sharp critical parameter is $\alpha=1/3$. For three copies and separation two, use distances $(2,2,3)$ and solve $2t^4+t^6+2t^7=1$. A negative expectation above either threshold can have rank three. The rank-two requirement for distillability still applies.
+
 \section{Checks and implications}
-The program \texttt{checks/scrutiny.py} constructs the two-copy qutrit matrix by a dense Kronecker product. Exact integer Schur complements classify all 512 Alice supports. Exactly 97, including the empty support, pass, agreeing with the parity criterion on every input. A separate anchored subset enumeration gives unrestricted maxima $2,4,8$ for one to three copies, and maxima $3,6$ outside binary boxes for two and three copies. Independent coordinate permutations act transitively on anchor words. The finite checks exercise the derivation; the dimension and counting arguments establish the statements for arbitrary $k$.
+The program \texttt{checks/scrutiny.py} constructs the two-copy qutrit matrix by a dense Kronecker product. Exact integer Schur complements classify all 512 Alice supports. Exactly 97, including the empty support, pass, agreeing with the parity criterion on every input. A separate anchored subset enumeration gives unrestricted maxima $2,4,8$ for one to three copies, and maxima $3,6$ outside binary boxes for two and three copies. Independent coordinate permutations act transitively on anchor words. A second control checks 12,040 three-word matrix/threshold comparisons at four rational parameter values. The finite checks exercise the derivation; the dimension and counting arguments establish the statements for arbitrary $k$.
 
 By exchanging the parties, an endpoint search for negative expectation can discard candidates whose row or column support is admissible. The negative rank-three direction from Theorem~\ref{parity} leaves the rank-two question open. All claims concern the specified product basis. The authorship label denotes machine-assisted drafting and internal checking. External expert review and priority assessment remain pending.
 \begin{thebibliography}{9}
