@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:25:13+00:00",
+  "updated_at": "2026-11-25T19:28:16+00:00",
   "counts": {
     "leads": 3,
     "problems": 2,
@@ -201,6 +201,18 @@
     }
   ],
   "finite": [
+    {
+      "id": "table2-audit",
+      "title": "Five distances in a spin-chain preprint",
+      "status": "table_audit",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/zhang-table2.md",
+      "detail": "5 of 12 even-length entries exceed the minimum under Eq. (9). One 92-spin entry gives 9 where Table 2 reports 12. The note includes a hand-checkable example.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v2#S4.T2",
+        "exact_results": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins-table2.json",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/zhang_table.py"
+      }
+    },
     {
       "id": "chain-13-global",
       "title": "13-spin chain \u00b7 all arrangements",
