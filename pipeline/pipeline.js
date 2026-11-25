@@ -130,7 +130,7 @@ function render(data,origin) {
   feed=data;
   const branchButton = $('branch').querySelector('button');
   if(branchButton) branchButton.disabled=false;
-  $('openCount').textContent=data.problems.length;
+  $('openCount').textContent=data.problems.filter(item => item.status === 'under_investigation').length;
   $('partialCount').textContent=data.partial_results.length;
   $('solvedCount').textContent=data.solutions.length;
   $('fresh').textContent=origin+' · '+new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(data.updated_at));
