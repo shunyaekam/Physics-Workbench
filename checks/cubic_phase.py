@@ -3,11 +3,11 @@
 Run from any directory. All integrations are numerical diagnostics.
 Definitions and normalization appear in the companion local-stability note.
 """
-from math import pi, sqrt
+from math import factorial, pi, sqrt
 
 import numpy as np
 from scipy.integrate import quad
-from scipy.special import ai_zeros, airy, roots_hermitenorm
+from scipy.special import ai_zeros, airy, eval_hermite, roots_hermite, roots_hermitenorm
 
 
 def fourier_norm(envelope, phase):
@@ -79,3 +79,16 @@ if __name__ == '__main__':
     print(f'Independent check at (0.25, 1.25): W={w_direct:.8f}, H={h_direct:.8f}')
     if max(abs(w-w_direct), abs(h-h_direct)) > 0.002:
         raise ArithmeticError('Independent non-Gaussian check failed')
+
+    # Compute four Fock amplitudes from the original coordinate wavefunction
+    # and check the coefficient of the Gaussian identity's linear response.
+    x, weight = roots_hermite(100)
+    for kappa in (0.001, 0.002, 0.004):
+        phase = np.exp(1j*kappa*x**3)
+        c0, c1, c2, c3 = [
+            (weight @ (eval_hermite(j, x)*phase))/sqrt(pi*2**j*factorial(j))
+            for j in range(4)]
+        witness = sqrt(6)*c0**2*c3 - 3*sqrt(2)*c0*c1*c2 + 2*c1**3
+        if abs(witness/kappa - 3j/sqrt(2)) > 0.002:
+            raise ArithmeticError('Weak cubic-phase coefficient check failed')
+    print('First four Fock amplitudes reproduce the weak-phase slope.')
