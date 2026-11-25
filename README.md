@@ -1,5 +1,7 @@
 # Physics Workbench
 
+[Browse the public research catalogue](https://shunyaekam.github.io/Physics-Workbench/) to read the manuscripts and inspect the verification scope for each result.
+
 [Discovery docket and evidence levels](discovery/README.md) · [Screened external targets](discovery/targets.json) · [Lean formalization coverage](formal/receipt.json)
 
 Four research notes address Gagatsos’s Wigner–Husimi proposal. The [single-rail paper](papers/single-rail-wigner.pdf) proves the conjecture for coherent and mixed optical qubits. The [Rényi-order paper](papers/renyi-obstructions.pdf) proves exclusions and gives lower-order positive results. The [sparse-state paper](papers/sparse-fock-coherence.pdf) proves that a violation within levels zero to five requires at least three-level coherence. Read the [audit and sprint results](checks/optical-sprint.md) and [overnight research status](campaign/fock-pairs/status.md).

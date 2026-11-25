@@ -56,7 +56,7 @@ def refresh(seconds=45):
             accepted[name] = digest
             by_level.setdefault(n,[]).append(m)
     lines = [r"\paragraph{Replayed excited-level subspaces.}",
-             f"The current private draft includes {len(accepted)} fully covered excited-level pairs.",
+             f"The current working paper includes {len(accepted)} fully covered excited-level pairs.",
              r"Each row gives the larger photon count and all certified smaller counts.",
              r"\begin{center}\begin{tabular}{rl}Larger count & Smaller counts\\\hline"]
     lines += [f"{n} & {spans(ms)} " + r"\\" for n,ms in by_level.items()]
