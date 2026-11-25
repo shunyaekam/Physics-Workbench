@@ -15,8 +15,8 @@ Every independently certified dimension/copy maximum updates the data table in t
 ## Locations
 
 - The editable checkout is in Documents/Physics-Workbench. A separate runtime checkout in Library/Application Support/Physics Workbench/checkout isolates unattended commits from user changes.
-- The launch agent stores one short rolling log and its predecessor in Library/Application Support/Physics Workbench. The newest committed receipt is in campaign/rounds. Each receipt records the seed, allocated and evaluated trials, exact scores, search progress, model fallback where applicable, and source-code fingerprints.
-- The worker pushes the dedicated checkout and fast-forwards the editable main checkout when its tracked files are clean. If you have local edits, GitHub can continue advancing and the next clean sync catches up. A conflicting remote merge is aborted and logged. Commits and evidence are preserved.
+- The launch agent stores one short rolling log and its predecessor in Library/Application Support/Physics Workbench. The newest committed receipt is in [campaign/rounds on research](https://github.com/shunyaekam/Physics-Workbench/tree/research/campaign/rounds). Each receipt records the seed, allocated and evaluated trials, exact scores, search progress, model fallback where applicable, and source-code fingerprints.
+- The worker pushes batches and draft updates to the research branch. The public catalogue on main changes through an editorial commit. The worker fast-forwards the editable main checkout and, when present, its .runtime/research worktree from their respective branches when their tracked files are clean. If you have local edits, GitHub can continue advancing and the next clean sync catches up. A conflicting remote merge is aborted and logged. Commits and evidence are preserved.
 - Login, network and GitHub credentials determine when sync can occur. A sleeping or logged-out Mac resumes on a later available tick. The schedule uses local compute without hosted GitHub runners.
 
 ## Commands

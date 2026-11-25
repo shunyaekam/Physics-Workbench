@@ -15,7 +15,7 @@ function filter(save) {
     paper.hidden = !match;
     if (match) count++;
   });
-  document.querySelector('#count').textContent = count + (count === 1 ? ' result' : ' results');
+  document.querySelector('#count').textContent = count + (count === 1 ? ' manuscript' : ' manuscripts');
   document.querySelector('#empty').hidden = count !== 0;
   if (save) {
     const url = new URL(location.href);
