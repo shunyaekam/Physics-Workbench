@@ -1,0 +1,31 @@
+{
+  "problem_id": "golay43",
+  "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+  "input_hash": "39553bb455a8ddb3d7c6622f2be6dbe22f41e7ac98f82125da3da5db8b5b509b",
+  "context": {
+    "question": "Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?",
+    "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+    "locator": "Ganesan, Appendix A.4, explicit 43-gate challenge; Open Quantum Problems A50",
+    "experiment": "Reverse a trial 43-gate schedule on the exact target stabilizer. Start with systematic changes to the public 44-gate seed, then search different axes, wire pairs and orders.",
+    "known": "44 entanglers in six layers is an explicit deposited circuit. The originating agent already tried 43 and reported an unsuccessful 92-million-neighbor delete-two/insert-one screen.",
+    "scope": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
+    "evidence_path": null,
+    "evidence_excerpt": "",
+    "evidence_sha": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+  },
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "status": "critique_pending",
+  "proposal": {
+    "prompt": "You are the solver. Use only the supplied facts. Suggest one precise falsifiable witness or lemma for the ORIGINAL question. Identify its logical scope and a reproducible failure test. Never assume execution.\n{\"question\": \"Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?\", \"source\": \"https://arxiv.org/html/2610.35579v1#A1.SS4\", \"locator\": \"Ganesan, Appendix A.4, explicit 43-gate challenge; Open Quantum Problems A50\", \"experiment\": \"Reverse a trial 43-gate schedule on the exact target stabilizer. Start with systematic changes to the public 44-gate seed, then search different axes, wire pairs and orders.\", \"known\": \"44 entanglers in six layers is an explicit deposited circuit. The originating agent already tried 43 and reported an unsuccessful 92-million-neighbor delete-two/insert-one screen.\", \"scope\": \"One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.\", \"evidence_path\": null, \"evidence_excerpt\": \"\", \"evidence_sha\": \"12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126\"}",
+    "text": {
+      "target_implication": "Ganesan, Appendix A.4",
+      "proposed_object": "44-gate challenge",
+      "derivation": "(systematic 43-gate schedules with a public 44-gate seed)",
+      "decisive_check": "reverse trial schedule for all possible 3-body cuts of each layer and verify that the 0-qubit is not entangled with any qubit in the lower layers. If no such schedule exists, then there is a lower bound on the number of CNOT gates required to prepare the logical zero."
+    },
+    "tokens_in": 348,
+    "tokens_out": 125
+  },
+  "updated_at": "2026-11-25T20:11:09.121406+00:00"
+}

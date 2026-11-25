@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T20:06:05+00:00",
+  "updated_at": "2026-11-25T20:11:10+00:00",
   "counts": {
     "leads": 4,
     "problems": 4,
-    "attempts": 472190,
+    "attempts": 522752,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 376439,
-    "coherent-cats": 6400,
-    "coherent-bands": 2026,
-    "three-level": 4024,
+    "werner": 378649,
+    "coherent-cats": 6528,
+    "coherent-bands": 2058,
+    "three-level": 4088,
     "agent-witnesses": 1,
-    "transport-polygons": 320,
-    "golay-circuits": 82980
+    "transport-polygons": 448,
+    "golay-circuits": 130980
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -172,42 +172,51 @@
       "id": "golay-search",
       "title": "43-gate Golay circuit search",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay43/002.json",
-      "detail": "82,980 trials. Best reverse circuit leaves 2 mixed qubits; zero is required.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay43/003.json",
+      "detail": "130,980 trials. Best reverse circuit leaves 2 mixed qubits; zero is required.",
       "problem_id": "golay43"
     },
     {
       "id": "polygon-search",
       "title": "Quantum transport polygon search",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/001.json",
-      "detail": "320 finite spectrum/exponent pairs checked across published batches.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/002.json",
+      "detail": "448 finite spectrum/exponent pairs checked across published batches.",
       "problem_id": "transport-polygon"
     },
     {
-      "id": "round-80",
-      "title": "Research round 80",
+      "id": "round-81",
+      "title": "Research round 81",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000080.json",
-      "detail": "8,833 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000081.json",
+      "detail": "2,210 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T19:59:23.459935+00:00"
+      "updated_at": "2026-11-25T20:11:00.496525+00:00"
     },
     {
-      "id": "coherent-bands-00000064",
+      "id": "coherent-bands-00000065",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000064.json",
-      "detail": "31 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000065.json",
+      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000063",
+      "id": "three-level-batch-00000064",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000063.json",
-      "detail": "64 states tested on photon levels 0, 1, 4.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000064.json",
+      "detail": "64 states tested on photon levels 0, 1, 5.",
       "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "lane-golay43-39553bb455a8ddb3",
+      "title": "golay43 agent handoff",
+      "status": "critique_pending",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/golay43-39553bb455a8ddb3.json",
+      "detail": "AI research proposal and critique workflow.",
+      "problem_id": "golay43",
+      "updated_at": "2026-11-25T20:11:09.121406+00:00"
     },
     {
       "id": "lane-gagatsos-2026-c1-0d2d2ea554d9a90c",
@@ -372,9 +381,13 @@
     {
       "id": "chain-108-f2401f3d9ff1cf46d58d96aa959",
       "title": "108-spin chain \u00b7 F240\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 670?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-108-f2401f3d9ff1cf46d58d96aa959.json",
+      "detail": "Starting energy 670. Best energy after exactly one, two and three flips, respectively: 794, 870, 978. All 210,043 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 978. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     },
     {
       "id": "chain-110-33f83762f128df55064b5b7be79c",
