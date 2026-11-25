@@ -1,0 +1,57 @@
+{
+  "id": "chain-112-a0496a493faeccc8afc3d50e738f",
+  "n": 112,
+  "seed_hex": "A0496A493FAECCC8AFC3D50E738F",
+  "baseline": 728,
+  "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+  "domain": "up to three flips from the published sequence",
+  "bit_convention": "0 is +1; 1 is -1; open chain",
+  "shells": [
+    {
+      "flips": 0,
+      "cases": 1,
+      "minimum": 728,
+      "minimizers": 1,
+      "witness_bits": "1010000001001001011010100100100100111111101011101100110011001000101011111100001111010101000011100111001110001111"
+    },
+    {
+      "flips": 1,
+      "cases": 112,
+      "minimum": 828,
+      "minimizers": 1,
+      "witness_bits": "1010000001001001011010100100100100111111101011101100110011001000101011111100001111010101000011100011001110001111"
+    },
+    {
+      "flips": 2,
+      "cases": 6216,
+      "minimum": 984,
+      "minimizers": 1,
+      "witness_bits": "1010000001001001011010100100100100111111101011101100110011001000101011111100001111010101000011100011000110001111"
+    },
+    {
+      "flips": 3,
+      "cases": 227920,
+      "minimum": 1012,
+      "minimizers": 1,
+      "witness_bits": "1010000001001001011110100100100100111111101011101100110011001000101011111100001111010101000011100011000110001111"
+    }
+  ],
+  "checked": 234249,
+  "minimum": 728,
+  "escape": {
+    "peak": 1012,
+    "rise": 284,
+    "reachable_below_peak": 22,
+    "flips_from_left": [
+      98,
+      103,
+      20
+    ],
+    "path_energies": [
+      728,
+      828,
+      984,
+      1012
+    ]
+  }
+}
