@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T22:10:40+00:00",
+  "updated_at": "2026-11-25T22:22:12+00:00",
   "counts": {
     "leads": 4,
     "problems": 4,
-    "attempts": 752659,
+    "attempts": 761622,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 413938,
+    "werner": 422806,
     "coherent-cats": 7552,
-    "coherent-bands": 2375,
-    "three-level": 4725,
+    "coherent-bands": 2407,
+    "three-level": 4788,
     "agent-witnesses": 1,
     "transport-polygons": 1088,
     "golay-circuits": 322980
@@ -185,28 +185,28 @@
       "problem_id": "transport-polygon"
     },
     {
-      "id": "round-91",
-      "title": "Research round 91",
+      "id": "round-92",
+      "title": "Research round 92",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000091.json",
-      "detail": "2,198 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000092.json",
+      "detail": "8,868 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T22:10:38.356632+00:00"
+      "updated_at": "2026-11-25T22:22:10.351437+00:00"
     },
     {
-      "id": "coherent-bands-00000075",
+      "id": "coherent-bands-00000076",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000075.json",
-      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000076.json",
+      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000074",
+      "id": "three-level-batch-00000075",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000074.json",
-      "detail": "64 states tested on photon levels 1, 3, 4.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000075.json",
+      "detail": "63 states tested on photon levels 1, 3, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
