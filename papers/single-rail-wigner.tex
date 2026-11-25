@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[left=0.9in,right=0.9in,top=0.72in,bottom=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{hidelinks}
+\newtheorem{theorem}{Theorem}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Var}{\operatorname{Var}}
+\title{A sharp Wigner-negativity bound for a single optical qubit}
+\author{Physics Workbench\\\small AI-assisted research note}
+\date{November 25, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We prove Gagatsos's conjectured order-one-half Wigner--Husimi inequality for every state of one optical mode supported on zero and one photon, including arbitrary coherences and mixed states. A common noncentral Gaussian radius represents both sides for a pure state. The large-displacement argument uses the deficit in Gaussian Poincar\'e, and a finite rational coefficient certificate handles small displacement.
+\end{abstract}
+\begin{theorem}
+Let $\rho$ be supported on $\operatorname{span}\{|0\rangle,|1\rangle\}$. With $[x,p]=i$ and $Q=\langle\alpha|\rho|\alpha\rangle/(2\pi)$, $\alpha=(x+ip)/\sqrt2$, one has
+\[
+ \int |W|\,dx\,dp\ \le\ H(\rho):=\frac{1}{8\pi}\left(\int\sqrt Q\,dx\,dp\right)^2 .
+\]
+Equality holds exactly for vacuum.
+\end{theorem}
+This is Conjecture 1 of Gagatsos \cite{gag} on the optical single-rail qubit. The Wigner negativity of this subspace has been studied analytically \cite{romero}. Its pure states include coherent superpositions with a negative Wigner region, even arbitrarily close to vacuum.
+
+\section{One random radius}
+Apart from vacuum, rotation and an overall phase put a pure state in the form $(b|0\rangle+|1\rangle)/\sqrt{1+b^2}$, $b\ge0$. In the complex $\alpha$ plane with measure $d^2\alpha$, the normalized Husimi density is $e^{-|\alpha|^2}|b+\alpha|^2/[\pi(1+b^2)]$ and the normalized Wigner density is $2e^{-2|\alpha|^2}(|b+2\alpha|^2-1)/[\pi(1+b^2)]$. These follow by taking coherent-state overlaps and the displaced-parity matrix elements in the zero--one basis. The Jacobian $dx\,dp=2d^2\alpha$ makes the prefactor of the squared square-root integral $1/(4\pi)$ in these complex coordinates.
+
+Let $X,Y$ be independent standard normal variables, $R=((b+X)^2+Y^2)^{1/2}$, $t=b^2/2$, $m=\E R$ and $d=\E(1-R^2)_+$. The variable $2\alpha$ in the vacuum Wigner density and the variable $\alpha$ in the normalized square root of the vacuum Husimi density have the same Gaussian law. Since $\E R^2=b^2+2$, this gives
+\[
+ (1+b^2)H=m^2,\qquad (1+b^2)\|W\|_1=\E|R^2-1|=1+2t+2d .
+\]
+Thus the desired strict inequality is $m^2>1+2t+2d$.
+
+In polar coordinates the density of $S=R^2/2$ is $e^{-t-s}\sum_{k\ge0}(ts)^k/(k!)^2$ on $s>0$ (expand the angular integral of $e^{2\sqrt{ts}\cos\theta}$). Equivalently, conditional on $K\sim\mathrm{Poisson}(t)$, $S$ has gamma shape $K+1$ and unit scale. With $(a)_k=\Gamma(a+k)/\Gamma(a)$,
+\begin{equation}\label{mean}
+ m=\sqrt{\pi/2}\,e^{-t}P(t),\qquad P(t)=\sum_{k\ge0}\frac{(3/2)_k}{(k!)^2}t^k .
+\end{equation}
+Dropping $e^{-s}\le1$ on $0<s<1/2$ bounds $\E[(1-2S)_+\mid K=k]$ by $1/[2^{k+1}(k+2)!]$. Successive bounds have ratio $1/[2(k+3)]\le 1/6$. Averaging gives
+\begin{equation}\label{neg}
+ d\le\tfrac14 e^{-5t/6}.
+\end{equation}
+
+\section{A uniform estimate for $t\ge2$}
+For a Gaussian Sobolev function $f$,
+\[
+ 2\Var(f)\le \E|\nabla f|^2+|\E\nabla f|^2.
+\]
+Indeed, in the orthonormal multivariate Hermite expansion the variance is the sum of squared nonconstant coefficients. The gradient energy weights each by its total degree, and the degree-one sum is $|\E\nabla f|^2$ by Gaussian integration by parts. This proves the inequality for polynomials and then by Gaussian Sobolev closure for the Lipschitz radius.
+
+Apply it to $f=R$, whose gradient has norm one almost everywhere. The mean of the $Y$-component vanishes by symmetry. Cauchy--Schwarz applied to the other component yields
+\[
+ 1-\Var R\ge\tfrac12(1-|\E\nabla R|^2)
+ \ge \tfrac12\E[Y^2/R^2]=\frac{1-e^{-t}}{4t}.
+\]
+For the last equality, integrate $\E[Y^2e^{-sR^2}]=(1+2s)^{-2}e^{-b^2s/(1+2s)}$ over $s\ge0$, using $v=s/(1+2s)$. For $t\ge2$, $2t e^{-5t/6}$ decreases and $1-e^{-t}$ increases. At $t=2$ the former is below $4/5$ and the latter above it (the exponential series gives $e^{5/3}>5$, $e^2>5$). Hence $1-\Var R>\tfrac12e^{-5t/6}\ge2d$. Substituting $\Var R=2+2t-m^2$ proves the claim.
+
+\section{An exact finite certificate for $0\le t\le2$}
+By \eqref{mean} and \eqref{neg} it suffices to prove
+\[
+ \tfrac{157}{100}P(t)^2>(1+2t)e^{2t}+\tfrac12e^{7t/6},\qquad \pi>3.14.
+\]
+For a reproducible integer check, set $v_j=(2j+1){2j\choose j}$ and $C_k=\sum_{j=0}^k{k\choose j}v_jv_{k-j}$. The coefficient of $P^2$ at degree $k$ is $C_k/(4^k k!)$. For $k=0,\ldots,16$ the following integer comparisons all hold:
+\[
+ 157\,6^k C_k > [100(k+1)+1]48^k+50\,28^k .
+\]
+Equivalently the degree-$k$ surplus exceeds $2^k/(100 k!)$. At degree zero the surplus is exactly $7/100$. These seventeen comparisons can be checked by Pascal's rule; the accompanying Lean file evaluates them in the kernel. The right-hand tail at $t\le2$ is bounded by $\sum_{k\ge17}(k+3/2)4^k/k!$. Consecutive terms have ratio below $1/4$, and $(4/3)(37/2)4^{17}/17!<1/100$. Every omitted coefficient on the left is nonnegative. This proves strict inequality on the closed interval, including the one-photon endpoint $b=0$.
+
+\paragraph{Mixed states and equality.}
+In a pure-state decomposition the Wigner norm is convex and $H$ concave by the integral triangle inequality on the vector of square-root Husimi densities weighted by square-root probabilities \cite{gag}. Every nonvacuum state has a nonvacuum pure component with positive weight. The bound is strict there, while vacuum gives $\|W\|_1=H=1$. This finishes the proof. A common displacement translates both integrals, giving the same result for every displacement of this class.
+
+\begin{thebibliography}{9}
+\bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Conjecture 1 and Proposition 1 (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.
+\bibitem{romero} K. M. Fonseca Romero, \emph{Analytic Wigner Negativity for Mixtures and Superpositions of the Lowest Fock States}, Int. J. Theor. Phys. (2026). \href{https://doi.org/10.1007/s10773-025-06241-w}{doi:10.1007/s10773-025-06241-w}.
+\end{thebibliography}
+\end{document}

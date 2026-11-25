@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[left=0.9in,right=0.9in,top=0.72in,bottom=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{hidelinks}
+\newtheorem{theorem}{Theorem}
+\newcommand{\D}{\Delta}
+\title{Which Husimi entropy orders can bound Wigner negativity?}
+\author{Physics Workbench\\\small AI-assisted research note}
+\date{November 25, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+For one optical mode, consider the proposed bound of Wigner logarithmic negativity by the excess Husimi R\'enyi entropy above vacuum. A single photon violates it at every positive order below $a_*=0.288703\ldots$. At every fixed order above one half, including Shannon and min-entropy, a sequence of pure states violates it while its mean photon number tends to zero. This proves the dilute-superposition prediction of Gagatsos and raises the lower exclusion from the heuristic large-number-state estimate of approximately $0.17$. The possible interval left by these obstructions is $[a_*,1/2]$.
+\end{abstract}
+
+Use the complex coherent amplitude $z$ as phase-space coordinate, with normalized densities $q(z)=\langle z|\rho|z\rangle/\pi$ and $W$ in $d^2z$. Put $h_a(q)=(1-a)^{-1}\log\int q^a$ and $\D_a=h_a(q)-h_a(q_0)$, with the usual Shannon and min-entropy definitions at $1$ and $\infty$. Entropy differences eliminate the constant coordinate Jacobian. Gagatsos asks at which orders $\log\|W\|_1\le\D_a$ holds for every state \cite{gag}. The author gives finite examples and the dilute-cat mechanism, and describes the exclusion at all higher orders as heuristic.
+
+\begin{theorem}For the single photon the bound fails precisely for $0<a<a_*$, where $a_*$ is the unique root in $(0,1)$ of
+\[
+ \log\Gamma(1+a)-a\log a=(1-a)\log(4e^{-1/2}-1).
+\]
+In particular $0.28870<a_*<0.28871$.
+\end{theorem}
+For number state $n$, integrating $q_n=\pi^{-1}e^{-|z|^2}|z|^{2n}/n!$ gives
+\[
+ \D_a(n)=\frac{\log\Gamma(1+an)-a\log(n!)-an\log a}{1-a}.
+\]
+For $n\ge1$ its numerator $f(a)$ has $f(1)=0$ and
+$f''(a)=n^2\sum_{j\ge1}(na+j)^{-2}-n/a<0$, by comparing the sum with the integral from zero to infinity. Thus the negative secant slope $f(a)/(1-a)$ increases strictly, with its continuous extension at $a=1$ and limit at infinity. For $n=1$ it tends to zero at order zero, and at order $1/2$ it equals $\log(\pi/2)$. The known one-photon value $\|W_1\|_1=4e^{-1/2}-1$ \cite{kenfack} lies strictly between $1$ and $\pi/2$. This proves the root and the sign characterization. The accompanying certificate encloses the two endpoint signs using the Stirling remainder $-1/(360x^3)<\log\Gamma(x+1)-(x+1/2)\log x+x-\tfrac12\log(2\pi)-1/(12x)<0$, shifting both gamma arguments by an integer so the constant cancels \cite{dlmf}.
+
+\begin{theorem}For every fixed $a\in(1/2,\infty]$, the bound fails for pure states arbitrarily close in trace distance to vacuum with arbitrarily small mean photon number. The same sequence works eventually for each fixed order.
+\end{theorem}
+For $L>1$ real, let $t=L^{-2}$ and $|\psi_L\rangle=(|0\rangle+t|L\rangle)/\sqrt N$, where $N=1+t^2+2te^{-L^2/2}$. The trace distance to vacuum is $t\sqrt{1-e^{-L^2}}/\sqrt N$, and the mean photon number is $t^2L^2/N$.
+
+\paragraph{Interference contributes at first order.}
+Write $w_u(z)=2\pi^{-1}e^{-2|z-u|^2}$. The Wigner density multiplied by $N$ is
+\[
+ w_0+t^2w_L+2t w_{L/2}\cos(2L\operatorname{Im}z).
+\]
+On the strip $|\operatorname{Re}z-L/2|\le L/4$, the two endpoint Gaussians have exponentially small mass. Outside it the midpoint Gaussian has exponentially small mass. Using $\big||u+v|-|u|-|v|\big|\le2\min(|u|,|v|)$ on each region gives
+\[
+ N\|W\|_1=1+t^2+2t\int w_{L/2}|\cos(2L\operatorname{Im}z)|\,d^2z+O(e^{-cL^2})
+\]
+for an absolute $c>0$. The integral tends to $2/\pi$ by the absolutely convergent Fourier series of $|\cos|$ and the Gaussian characteristic function. Hence $\log\|W\|_1=(4/\pi)t+o(t)$.
+
+\paragraph{Husimi overlap is small at every fixed order above one half.}
+Write $q=|A+tB|^2/N$ for coherent amplitudes of modulus $|A|=\pi^{-1/2}e^{-|z|^2/2}$ and $|B|=\pi^{-1/2}e^{-|z-L|^2/2}$. For $p=2a>1$,
+\[
+ \big||u+v|^p-|u|^p-|v|^p\big|
+ \le C_p(|u|^{p-1}|v|+|u||v|^{p-1}).
+\]
+This follows by the mean value theorem, taking the larger modulus first. Both mixed Gaussian integrals decay like $\exp[-(p-1)L^2/(2p)]$ by completing the square. For each fixed finite $a\ne1$ this gives
+\[
+ \D_a=\frac{\log(1+t^{2a})-a\log(1+t^2)}{1-a}+O_a(e^{-c_a L^2})
+       =o(t).
+\]
+Here $c_a>0$ may depend on the order. The expansion does not require uniformity as $a\downarrow1/2$.
+
+At Shannon order, compare to $g=(|A|^2+t^2|B|^2)/(1+t^2)$. Relative entropy positivity gives $h(q)\le-\int q\log g$. Since $g\ge|A|^2/(1+t^2)$ and $g\le1/\pi$, $|\log g|\le \log(\pi(1+t^2))+|z|^2$. The difference $|q-g|$ is bounded by $2t|AB|/N+2te^{-L^2/2}g/N$. Integrating against the polynomial bound gives $h(q)\le h(g)+O(e^{-cL^2})$ for some $c>0$. The entropy of the incoherent mixture is at most $h(q_0)$ plus the binary entropy of $t^2/(1+t^2)$, by introducing the classical mixture label. Thus $\D_1\le O(t^2|\log t|)=o(t)$ as an upper bound. At order infinity, evaluating $q$ at $z=0$ gives $\D_\infty\le\log N=O(t^2)$. In each case the positive first-order Wigner term proves strict violation for all sufficiently large $L$.
+
+\section*{Two classes with positive results below order one half}
+For $0<a\le1/2$, $\exp\D_a$ is concave in the density matrix. Indeed $\|q\|_a=(\int q^a)^{1/a}$ is concave on nonnegative functions by the reverse triangle inequality (normalize each function to unit quasi-norm and use concavity of $x^a$). Raising it to the positive power $a/(1-a)\le1$ preserves concavity; the vacuum factor is constant. Thus positive bounds on pure states extend to their mixtures.
+
+\paragraph{An exact order threshold at a photon cutoff.}
+Among photon-number-diagonal states supported on $0,\ldots,144$, the tested inequality holds universally for $a\in[a_*,1/2]$ and there is a counterexample for $0<a<a_*$ (a single photon witnesses the failure). For every $2\le n\le144$ the accompanying interval table encloses a crossing strictly below $0.28870$. Strict monotonicity of $\D_a(n)$, the preceding concavity, and Theorem 1 give the assertion. Here is how the finite certificate works. In the variable $u=4|z|^2$, the norm is $\tfrac12\int e^{-u/2}|L_n(u)|du$. Rational sign changes isolate all $n$ Laguerre roots; the degree proves completeness. For $T=L_n+2T'$ (backward solution on polynomial coefficients), $G=e^{-u/2}T$ has derivative $-e^{-u/2}L_n/2$. Sum its absolute changes over the root intervals, including $0$ and $\infty$. The displaced-parity bound $|e^{-u/2}L_n|\le1$ controls the root-location error. The two endpoint signs of each entropy comparison use the same Stirling bounds as Theorem 1.
+
+\paragraph{A coherent example class at $a=29/100$.}
+Every optical qubit supported on zero and one photon satisfies the inequality at this order. Write its pure states as $(b|0\rangle+|1\rangle)/\sqrt{1+s}$, $s=b^2$, up to phase rotation and including vacuum as a limit. For $s\le64$ the compact-interval certificate below proves strict positivity of $\D_a-\log\|W\|_1$. For all $s\ge24$ the following analytic estimate in fact holds uniformly for $29/100\le a\le1/2$.
+
+Let $X$ be unit-mean exponential. Relative to the vacuum Husimi integral, the numerator is the expectation of $|1+\sqrt{X/(as)}e^{i\theta}|^{2a}$ over $X$ and uniform angle, divided by $(1+1/s)^a$. For radius $r<1$ the angular average is $\sum_{j\ge0}{a\choose j}^2r^{2j}\ge1+a^2r^2$ by the binomial series. For $r>1$ factor out $r^{2a}$ to see the average is at least one. Consequently the numerator is at least
+\[
+ 1+a/s-(a/s)(1+as)e^{-as}.
+\]
+The second-order Taylor remainder gives
+$1+a/s-(1+1/s)^a\ge a(1-a)(1+1/s)^{-2}/(2s^2)$.
+The single-rail Wigner formula gives $\|W\|_1=1+2d/(1+s)$ with $d\le e^{-5s/12}/4$ as in the companion single-rail proof. Since $(1+x)^{1-a}\le1+x$ and $(1+1/s)^a\le2$ for $s\ge1$, a sufficient condition is
+\[
+ \frac{a(1-a)}{2}(1+1/s)^{-2}>as(1+as)e^{-as}+s e^{-5s/12}.
+\]
+For $s\ge24$, the left side is at least $(29/400)(24/25)^2$. The terms on the right decrease with $as\ge6.96$ and $s\ge24$, respectively. Their sum is below $6.96(7.96)/1000+24/10000$ since $e^{6.96}>1000$ and $e^{10}>10000$ by summing their first fifteen Taylor terms. These rational bounds separate strictly.
+
+\paragraph{Compact-interval certificate.}
+For $s\in[l,h]$, let $F_a(v)=e^{-v}\sum_{k\ge0}(1+a)_k v^k/(k!)^2$. Then
+\[
+ (1-a)\D_a=\log\Gamma(1+a)-a\log a+\log F_a(as)-a\log(1+s).
+\]
+This follows by expanding the noncentral complex Gaussian radial density in the Husimi integral. $F_a$ increases, being the Poisson mean of the increasing sequence $(1+a)_k/k!$. The quantity $d$ decreases, being the Poisson mean at $s/2$ of $\mathbb E(1-2S_k)_+$ for gamma variables $S_k$ of shape $k+1$. Adding an independent exponential couples successive shapes. Evaluate the increasing and decreasing terms at opposite endpoints to bound the entire cell. Positive hypergeometric series have geometric upper tail bounds once their term ratios fall below one. For $d$, integrate the degree-11 and degree-12 Taylor bounds for $e^{-u}$ against $(1-2u)u^k/k!$ on $[0,1/2]$ and bound the remaining Poisson terms by a geometric series. Logarithms and exponentials are rounded outward. At $a=29/100$ all 2,242 final cells in $[0,64]$ have strictly positive lower residual. Their endpoints and subdivisions are replayable. The pure-state proof and concavity cover the complete mixed optical qubit. The vacuum realizes equality.
+
+\paragraph{Remaining issue.} The single-photon threshold specifies exactly where that witness stops violating the bound. Establishing the inequality, or finding a different violating state, for orders in $[a_*,1/2]$ remains a separate problem. The construction for high orders uses a diverging separation with vanishing occupation and supplies no violation at order one half.
+
+\begin{thebibliography}{9}
+\bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Secs. VI--VII, especially open question (iv) (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.
+\bibitem{kenfack} A. Kenfack and K. {\.{Z}}yczkowski, J. Opt. B \textbf{6}, 396 (2004). \href{https://arxiv.org/abs/quant-ph/0406015}{arXiv:quant-ph/0406015}.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions, \href{https://dlmf.nist.gov/5.11}{\S5.11}, Stirling expansion with remainder on the positive real axis.
+\end{thebibliography}
+\end{document}

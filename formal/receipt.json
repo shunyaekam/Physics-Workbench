@@ -1,5 +1,13 @@
 {
   "toolchain": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "single_rail": {
+    "source_sha256": "6a203355f88967107fb4ae70ef3311981266d18fd8940704e82f5fe556378aa4",
+    "axiom_report": [
+      "'Workbench.SingleRail.lowCoefficients' does not depend on any axioms",
+      "'Workbench.SingleRail.tailBound' does not depend on any axioms"
+    ],
+    "scope": "Seventeen integer coefficient comparisons and one tail comparison"
+  },
   "source_sha256": "128b56a7c418cf68fd8a8c976e1e34104d95e6ed29bba37c93ce4a0cb98d7ac7",
   "axiom_report": [
     "'Workbench.triangle_parity' depends on axioms: [propext]",

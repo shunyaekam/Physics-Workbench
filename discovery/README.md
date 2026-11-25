@@ -1,6 +1,6 @@
 # Discovery docket
 
-**One analytic special case of an externally posed conjecture.** The [phase-invariant light paper](../papers/phase-invariant-wigner.pdf) proves Gagatsos's Conjecture 1 for every photon-number-diagonal state. The conjecture for all single-mode states remains open in the sources reviewed. The earlier Werner studies concern internally posed structural and computational questions.
+The sharp order-one-half conjecture now has proofs here for two classes, [arbitrary photon-number mixtures](../papers/phase-invariant-wigner.pdf) and [the full zero–one-photon qubit](../papers/single-rail-wigner.pdf). A [separate note](../papers/renyi-obstructions.pdf) bounds the possible orders for a universal extension. The order-one-half conjecture for arbitrary states remains open in the sources reviewed. The [sprint audit](../checks/optical-sprint.md) records verification scope, prior work, and differences between the claims.
 
 ## From a lead to a result
 

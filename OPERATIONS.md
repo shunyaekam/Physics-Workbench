@@ -42,3 +42,9 @@ python3 ops/install.py
 ```
 
 The scientific checks use Python with the pinned NumPy, SciPy and SymPy versions. PDF rebuilding uses Tectonic. The service installer is for macOS and expects a configured Git remote, GitHub push access and the dependencies available to the invoking Python interpreter.
+
+## Optical entropy sprint
+
+Each ten-minute worker cycle also advances an interval proof on the optical qubit at orders from 0.29 through 0.50. It writes the next disjoint cells, their universal sign, and the unfinished stack. The analytic argument in the Rényi paper covers squared amplitude ratios of 24 and above. Read the [current status](campaign/single-rail/status.md). The first available cycle on each local date creates or updates that date’s report. On a sleeping or offline Mac, the local schedule and remote upload resume when available.
+
+Run `python3 renyi_scan.py`, `python3 single_rail_regions.py`, `python3 order_bands.py replay` and `python3 formal/replay.py` to reproduce the finite tables, continuum cover, ongoing band and named Lean certificates.

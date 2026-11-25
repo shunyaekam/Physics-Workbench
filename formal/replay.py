@@ -31,7 +31,14 @@ def replay():
                      "'Workbench.Fock.baseMoments' does not depend on any axioms"]
     if fock_report.splitlines() != fock_expected:
         raise ValueError("Unexpected Fock axiom report: " + fock_report)
-    return {"toolchain": version, "source_sha256": hashlib.sha256(file.read_bytes()).hexdigest(),
+    rail = HERE / "SingleRail.lean"
+    rail_report = subprocess.check_output([lean, "-DwarningAsError=true", rail.name], cwd=HERE, text=True)
+    rail_expected = [f"'Workbench.SingleRail.{name}' does not depend on any axioms"
+                     for name in ("lowCoefficients", "tailBound")]
+    if rail_report.splitlines() != rail_expected:
+        raise ValueError("Unexpected single-rail axiom report: " + rail_report)
+    return {"toolchain": version, "single_rail": {"source_sha256": hashlib.sha256(rail.read_bytes()).hexdigest(),
+            "axiom_report": rail_expected, "scope": "Seventeen integer coefficient comparisons and one tail comparison"}, "source_sha256": hashlib.sha256(file.read_bytes()).hexdigest(),
             "axiom_report": expected, "scope": "Hamming parity and the anchored triangle equivalence only",
             "fock": {"source_sha256": hashlib.sha256(fock.read_bytes()).hexdigest(),
                      "axiom_report": fock_expected,
