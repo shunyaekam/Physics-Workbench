@@ -62,6 +62,4 @@ def poll():
 
 
 if __name__=="__main__":
-    from source_watch import poll as poll_sponsor
-    poll_sponsor()
     poll()

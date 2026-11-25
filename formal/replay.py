@@ -1,4 +1,4 @@
-"""Replay only the two named combinatorial lemmas with the pinned Lean kernel."""
+"""Replay the named Werner and Fock arithmetic lemmas with the pinned Lean kernel."""
 import hashlib
 import json
 import os
@@ -25,8 +25,17 @@ def replay():
     expected = [f"'{name}' depends on axioms: [propext]" for name in CLAIMS]
     if result.stdout.splitlines() != expected:
         raise ValueError("Unexpected axiom report: " + result.stdout)
+    fock = HERE / "FockMoment.lean"
+    fock_report = subprocess.check_output([lean, "-DwarningAsError=true", fock.name], cwd=HERE, text=True)
+    fock_expected = ["'Workbench.Fock.fourthMoment_step' depends on axioms: [propext, Quot.sound]",
+                     "'Workbench.Fock.baseMoments' does not depend on any axioms"]
+    if fock_report.splitlines() != fock_expected:
+        raise ValueError("Unexpected Fock axiom report: " + fock_report)
     return {"toolchain": version, "source_sha256": hashlib.sha256(file.read_bytes()).hexdigest(),
-            "axiom_report": expected, "scope": "Hamming parity and the anchored triangle equivalence only"}
+            "axiom_report": expected, "scope": "Hamming parity and the anchored triangle equivalence only",
+            "fock": {"source_sha256": hashlib.sha256(fock.read_bytes()).hexdigest(),
+                     "axiom_report": fock_expected,
+                     "scope": "Positive two-step polynomial difference for every n and two base moments"}}
 
 
 if __name__ == "__main__":

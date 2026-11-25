@@ -5,5 +5,13 @@
     "'Workbench.triangle_parity' depends on axioms: [propext]",
     "'Workbench.anchor_iff_all' depends on axioms: [propext]"
   ],
-  "scope": "Hamming parity and the anchored triangle equivalence only"
+  "scope": "Hamming parity and the anchored triangle equivalence only",
+  "fock": {
+    "source_sha256": "8395bd0cd25ee5acacb0349fe8289ab506c50a59e05fc3c581c09dce2e59b7f1",
+    "axiom_report": [
+      "'Workbench.Fock.fourthMoment_step' depends on axioms: [propext, Quot.sound]",
+      "'Workbench.Fock.baseMoments' does not depend on any axioms"
+    ],
+    "scope": "Positive two-step polynomial difference for every n and two base moments"
+  }
 }

@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{hidelinks,pdftitle={A sharp Wigner--Husimi bound for phase-invariant light}}
+\newtheorem{theorem}{Theorem}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\title{A sharp Wigner--Husimi bound for phase-invariant light}
+\author{Physics Workbench\\\small AI-assisted research note}
+\date{November 25, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Gagatsos conjectured an upper bound on single-mode Wigner negativity in terms of the Husimi distribution. We prove the conjectured inequality for every photon-number-diagonal state, with no cutoff on photon number. The vacuum is the unique state in this class attaining finite equality. The proof bounds a Laguerre absolute integral by an exactly computable fourth moment and compares that moment with the Husimi integral by induction.
+\end{abstract}
+
+\section{What can a heterodyne distribution tell us?}
+Let $W_\rho$ be the Wigner function and $Q_\rho$ the probability density of an ideal heterodyne measurement on one optical mode. We use $[x,p]=i$, $z=(x,p)$, $\alpha=(x+ip)/\sqrt{2}$ and $Q_\rho(z)=\langle\alpha|\rho|\alpha\rangle/(2\pi)$. Both distributions have integral one in $d^2z=dx\,dp$. If $W_\rho$ is integrable, its negative volume is $(\|W_\rho\|_1-1)/2$. Define
+\[
+ H(\rho)=\frac{1}{8\pi}\left(\int_{\R^2}\sqrt{Q_\rho(z)}\,d^2z\right)^2.
+\]
+Gagatsos conjectured $\|W_\rho\|_1\le H(\rho)$ for every single-mode state and proved $\|W_\rho\|_1\le 2H(\rho)$ in general \cite{gagatsos}. States with nonnegative Wigner functions already obey the conjecture by the Lieb--Solovej bound cited there. Excited photon-number states have negative Wigner regions \cite{kenfack}.
+
+\begin{theorem}
+For every state invariant under all optical phase rotations, $\|W_\rho\|_1\le H(\rho)$ in the extended nonnegative reals. When $H(\rho)<\infty$, equality holds exactly for the vacuum. The constant $1/(8\pi)$ is sharp.
+\end{theorem}
+Phase rotation acts on $\ket n$ by $e^{-in\theta}$. Invariance for every $\theta$ forces every off-diagonal density-matrix element to vanish. Thus the class consists precisely of arbitrary probability mixtures of photon-number states.
+
+\section{An all-orders estimate for a number state}
+Write $r=|z|$, and let $L_n$ be the ordinary Laguerre polynomial with $L_n(0)=1$. The number-state densities are
+\[
+ W_n(z)=\frac{(-1)^n}{\pi}e^{-r^2} L_n(2r^2),\qquad
+ Q_n(z)=\frac{e^{-r^2/2}}{2\pi n!}\left(\frac{r^2}{2}\right)^n.
+\]
+In polar coordinates substitute $u=2r^2$ in the Wigner integral and $v=r^2/2$ in the Husimi integral. The resulting quantities are
+\begin{equation}\label{radial}
+ A_n=\frac12\int_0^\infty e^{-u/2}|L_n(u)|\,du,\qquad
+ B_n=H(\ket n\!\langle n|)=\frac{2^n\Gamma(1+n/2)^2}{n!}.
+\end{equation}
+In particular $A_0=B_0=1$. For $f_n(u)=e^{-u/2}L_n(u)$ the Laguerre orthogonality relation gives $\int f_n^2=1$. Let $M_n=\int_0^\infty u^4 f_n(u)^2\,du$. For $a>0$, Cauchy--Schwarz with weight $1+(u/a)^4$ gives
+\[
+ 4A_n^2\le \left(1+\frac{M_n}{a^4}\right)
+ \int_0^\infty\frac{du}{1+(u/a)^4}
+ =\left(1+\frac{M_n}{a^4}\right)\frac{\pi a}{2\sqrt{2}} .
+\]
+Here the last integral follows from the beta integral. Taking $a=(3M_n)^{1/4}$ and raising to the fourth power yields
+\begin{equation}\label{bound}
+ A_n^8\le \frac{\pi^4}{1728}M_n .
+\end{equation}
+
+To evaluate $M_n$, apply the three-term recurrence \cite{dlmf}
+\[
+ uL_j=-(j+1)L_{j+1}+(2j+1)L_j-jL_{j-1}
+\]
+twice and take the squared norm of $u^2L_n$ in $L^2(e^{-u}du)$. In order of Laguerre indices $n-2,\ldots,n+2$, the coefficients are
+\[
+ n(n-1),\quad -4n^2,\quad 6n^2+6n+2,\quad -4(n+1)^2,\quad(n+1)(n+2).
+\]
+Negative indices are omitted and their coefficients vanish. Summing squares gives
+\[
+ M_n=70n^4+140n^3+170n^2+100n+24.
+\]
+The gamma recurrence in \eqref{radial} gives $B_{n+2}/B_n=(n+2)/(n+1)$. Consequently $B_{n+2}^8/M_{n+2}>B_n^8/M_n$ whenever
+\[
+ D(n)=(n+2)^8 M_n-(n+1)^8 M_{n+2}>0.
+\]
+The coefficients of $D$ in increasing powers of $n$ are
+\[
+ (3000,20324,60606,102244,107730,74088,33516,9672,1620,120).
+\]
+Every coefficient is positive. For the odd base, $M_1=504$, $B_1=\pi/2$ and $1728\cdot3^4>2^8\cdot504$; hence $B_1^8>\pi^4 M_1/1728$. For the even base, $M_2=3144$, $B_2=2$ and $1728\cdot 2^8>100\cdot3144$. Here $3<\pi<22/7$ implies $\pi^4<100$. Induction on each parity and \eqref{bound} give $A_n<B_n$ for every $n\ge 1$.
+
+\section{Arbitrary photon-number statistics}
+Let $\rho=\sum_{n\ge0}p_n\ket n\!\langle n|$. Both phase-space functions are linear in $\rho$; pointwise convergence follows from trace-norm convergence and the bounded displaced parity and coherent projectors defining them. The triangle inequality and Tonelli's theorem give $\|W_\rho\|_1\le\sum_n p_n A_n$. To bound the other side, apply the integral triangle inequality for the Euclidean norm to the vector with components $\sqrt{p_nQ_n(z)}$, $0\le n\le N$. This gives
+\[
+ \left(\sum_{n=0}^N p_n\left[\int \sqrt{Q_n}\right]^2\right)^{1/2}
+ \le \int\sqrt{\sum_{n=0}^N p_nQ_n}\le\int\sqrt{Q_\rho}.
+\]
+Taking $N\to\infty$ and squaring proves
+\[
+ \|W_\rho\|_1\le\sum_n p_n A_n\le\sum_n p_n B_n\le H(\rho).
+\]
+If $H(\rho)$ is finite and some $p_n>0$ for $n\ge1$, the middle inequality is strict. The vacuum saturates it as well as both endpoint bounds. This proves the theorem.
+
+\paragraph{Physical check.}
+For one photon, $L_1(u)=1-u$. Splitting \eqref{radial} at $u=1$ gives $A_1=4e^{-1/2}-1$, whereas $B_1=\pi/2$. The Wigner negative volume is $2e^{-1/2}-1\approx0.2131$ and the heterodyne upper bound is $(\pi/2-1)/2\approx0.2854$. This one-photon value is known \cite{kenfack}. The theorem establishes the bound for every photon count and every probability distribution over counts. It leaves the general question for photon-number coherences open. Applying the same displacement to the whole state simply translates both integrals.
+
+\begin{thebibliography}{9}
+\bibitem{gagatsos} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Conjecture 1, Eq. (7), and Propositions 1--2 (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.
+\bibitem{kenfack} A. Kenfack and K. {\.{Z}}yczkowski, \emph{Negativity of the Wigner function as an indicator of nonclassicality}, J. Opt. B \textbf{6}, 396--404 (2004). \href{https://arxiv.org/abs/quant-ph/0406015}{arXiv:quant-ph/0406015}.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions, \href{https://dlmf.nist.gov/18.3}{\S18.3} and \href{https://dlmf.nist.gov/18.9}{\S18.9}, Laguerre orthogonality and recurrence.
+\end{thebibliography}
+\end{document}

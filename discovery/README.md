@@ -1,6 +1,6 @@
 # Discovery docket
 
-**New externally posed conjectures resolved by this workbench: 0.** The two existing manuscripts are an internally proposed structural result and a computational companion. Both are working drafts. An externally authored conjecture can be open and scientifically important while its associated workbench experiments still have only benchmark value.
+**One analytic special case of an externally posed conjecture.** The [phase-invariant light paper](../papers/phase-invariant-wigner.pdf) proves Gagatsos's Conjecture 1 for every photon-number-diagonal state. The conjecture for all single-mode states remains open in the sources reviewed. The earlier Werner studies concern internally posed structural and computational questions.
 
 ## From a lead to a result
 
@@ -24,8 +24,9 @@ At round ten, the best four-copy witness (5/7788) had 1, 1, 8 and 1 distinct loc
 | Universal coordinate-support results | Written derivations and finite falsification tests; Lean 4 checks the parity identity and anchored-triple equivalence | Enables a principled exclusion in our witness search. The full operator reduction, size theorem and parameter thresholds have written proofs. Priority and practical speed-up are unestablished. |
 | Finite support maxima | Witness, complete branching cover and independently checked coloring upper bounds | Exact for the stated finite cases assuming the graph reduction. Companion verification data, with modest standalone significance. |
 | Thomson minorants | Bernstein positivity and a separate exact Sturm count | An internal bound improved. Comparison against the best applicable published LP and higher-order bounds is outstanding. [Prior LP framework](https://arxiv.org/abs/1906.03062) |
+| Sharp Wigner–Husimi inequality for phase-invariant light | Written all-orders proof, Lean arithmetic step and an independent moment calculation | A sharp bound on Wigner negativity from ideal heterodyne statistics for arbitrary photon-number mixtures. [Verification and literature review](../checks/phase-invariant-wigner.md). |
 | Wigner–Husimi residuals | Coherent and squeezed-vacuum controls, odd-cat single-photon limit and refined floating-point quadrature | Triage only. Positive candidates require rigorous integration enclosures and independently checked physical conventions. |
 
-See [the live dossiers](targets.json) and [the Lean receipt](../formal/receipt.json). Run `python3 formal/replay.py` with the pinned Lean toolchain and `python3 continuous.py audit` for the existing exact arithmetic audits. The formal code imports Lean core. Both declarations report propositional extensionality as their sole axiom. Bend2 is another proof environment and has no role in these results.
+See [the live dossiers](targets.json) and [the Lean receipt](../formal/receipt.json). Run `python3 formal/replay.py` with the pinned Lean toolchain and `python3 continuous.py audit` for the existing exact arithmetic audits. The formal code imports Lean core. Both Werner declarations report propositional extensionality as their sole axiom. Bend2 is another proof environment and has no role in these results.
 
-[OpenProblems.net screening](sources/openproblems.md) traces a Rule 30 proof lead to its sponsor and records dispositions for Yang–Mills and Navier–Stokes. The literature worker checks the Rule 30 kit revision weekly.
+[OpenProblems.net screening](sources/openproblems.md) traces a Rule 30 proof lead to its sponsor and records dispositions for Yang–Mills and Navier–Stokes. Rule 30 is archived. Scheduled intake is restricted to physics.
