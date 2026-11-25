@@ -3,6 +3,7 @@ from datetime import datetime
 from fractions import Fraction as F
 from functools import lru_cache
 import json
+from time import monotonic
 
 from lab import write
 from single_rail_regions import DEST, enclose
@@ -20,10 +21,12 @@ def vacuum_offset(a):
     return scaled(transcendental(a, "log"), 1/(a-1))
 
 
-def process(shell, budget, state=None):
+def process(shell, budget, state=None, deadline=None):
     state = state or dict(shell=shell, domain=[str(LOW), str(HIGH)], tested=0,
                           positive=0, negative=[], unresolved=[], pending=[[0, 0, 0, 0]])
     while budget and state["pending"]:
+        if deadline is not None and monotonic() >= deadline:
+            break
         ds, i, da, j = tile = state["pending"].pop()
         l, h = shell+F(i, 2**ds), shell+F(i+1, 2**ds)
         u = LOW+(HIGH-LOW)*F(j, 2**da)
@@ -53,7 +56,7 @@ def advance():
         saved = json.loads(path.read_text()) if path.exists() else None
         if saved and not saved["pending"]:
             continue
-        state = process(shell, TILES_PER_ROUND, saved)
+        state = process(shell, TILES_PER_ROUND, saved, deadline=monotonic()+55)
         write(path, state)
         print("Renyi band", shell, "certified positive/negative, unresolved, pending:",
               state["positive"], *(len(state[k]) for k in ("negative", "unresolved", "pending")))
