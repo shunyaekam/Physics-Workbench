@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:13:45+00:00",
+  "updated_at": "2026-11-25T19:25:13+00:00",
   "counts": {
     "leads": 3,
     "problems": 2,
-    "attempts": 372659,
+    "attempts": 375080,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 360974,
-    "coherent-cats": 6016,
-    "coherent-bands": 1900,
-    "three-level": 3768,
+    "werner": 363171,
+    "coherent-cats": 6144,
+    "coherent-bands": 1932,
+    "three-level": 3832,
     "agent-witnesses": 1
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
@@ -128,28 +128,28 @@
   "candidates": [],
   "activity": [
     {
-      "id": "round-76",
-      "title": "Research round 76",
+      "id": "round-77",
+      "title": "Research round 77",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000076.json",
-      "detail": "8,836 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000077.json",
+      "detail": "2,197 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T19:12:23.348229+00:00"
+      "updated_at": "2026-11-25T19:23:58.326637+00:00"
     },
     {
-      "id": "coherent-bands-00000060",
+      "id": "coherent-bands-00000061",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000060.json",
-      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000061.json",
+      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000059",
+      "id": "three-level-batch-00000060",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000059.json",
-      "detail": "64 states tested on photon levels 2, 4, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000060.json",
+      "detail": "64 states tested on photon levels 3, 4, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
@@ -198,6 +198,137 @@
         "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
         "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md"
       }
+    }
+  ],
+  "finite": [
+    {
+      "id": "chain-13-global",
+      "title": "13-spin chain \u00b7 all arrangements",
+      "status": "reproduced_benchmark",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-13-global.json",
+      "detail": "Lowest energy 6. Exactly 4 arrangements attain it among all 8,192. Reproduces a known minimum.",
+      "evidence": {
+        "source": "https://oeis.org/A102780/b102780.txt",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-16-global",
+      "title": "16-spin chain \u00b7 all arrangements",
+      "status": "reproduced_benchmark",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-16-global.json",
+      "detail": "Lowest energy 24. Exactly 32 arrangements attain it among all 65,536. Reproduces a known minimum.",
+      "evidence": {
+        "source": "https://oeis.org/A102780/b102780.txt",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-99-0cf30c003783cbcc8da92aad4",
+      "title": "99-spin chain \u00b7 0CF3\u2026",
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-99-0cf30c003783cbcc8da92aad4.json",
+      "detail": "Starting energy 553. Best energy after exactly one, two and three flips, respectively: 649, 713, 797. All 161,800 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 797. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-107-a78785b8d72aea6d99decdfd004",
+      "title": "107-spin chain \u00b7 A787\u2026",
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-107-a78785b8d72aea6d99decdfd004.json",
+      "detail": "Starting energy 673. Best energy after exactly one, two and three flips, respectively: 781, 881, 969. All 204,264 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 969. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-92-ee01c0e77667dd34dae94b5",
+      "title": "92-spin chain \u00b7 EE01\u2026",
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-92-ee01c0e77667dd34dae94b5.json",
+      "detail": "Starting energy 490. Best energy after exactly one, two and three flips, respectively: 638, 650, 726. All 129,859 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 726. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-92-bb5495b2233288618fbc1e0",
+      "title": "92-spin chain \u00b7 BB54\u2026",
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-92-bb5495b2233288618fbc1e0.json",
+      "detail": "Starting energy 490. Best energy after exactly one, two and three flips, respectively: 638, 650, 726. All 129,859 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 726. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
+    },
+    {
+      "id": "chain-98-993a76393cdb4bcf78ff00aa8",
+      "title": "98-spin chain \u00b7 993A\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 529?"
+    },
+    {
+      "id": "chain-104-0f80f3c20aab1844295b6ed666",
+      "title": "104-spin chain \u00b7 0F80\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 600?"
+    },
+    {
+      "id": "chain-106-696d27ca748c66071eafdd1177c",
+      "title": "106-spin chain \u00b7 696D\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 645?"
+    },
+    {
+      "id": "chain-108-f2401f3d9ff1cf46d58d96aa959",
+      "title": "108-spin chain \u00b7 F240\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 670?"
+    },
+    {
+      "id": "chain-110-33f83762f128df55064b5b7be79c",
+      "title": "110-spin chain \u00b7 33F8\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 707?"
+    },
+    {
+      "id": "chain-112-a0496a493faeccc8afc3d50e738f",
+      "title": "112-spin chain \u00b7 A049\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 728?"
+    },
+    {
+      "id": "chain-114-b6c3648db19c8c387a9eaa8578000",
+      "title": "114-spin chain \u00b7 B6C3\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 777?"
+    },
+    {
+      "id": "chain-116-52df72096b92dcc87407044c8e1d5",
+      "title": "116-spin chain \u00b7 52DF\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 802?"
+    },
+    {
+      "id": "chain-118-e003fb9f87c674e5cd6d34ccb2ad54",
+      "title": "118-spin chain \u00b7 E003\u2026",
+      "status": "queued",
+      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
+      "detail": "Can one, two or three flips beat the published energy of 807?"
     }
   ]
 }

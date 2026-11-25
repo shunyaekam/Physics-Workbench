@@ -23,6 +23,7 @@ const systems = {
 };
 const boards = [
   ['problems','Problems','The externally posed questions admitted to our solver queue.'],
+  ['finite','Finite spin chains','Small chains are checked in full. Larger chains are checked within three flips of an arrangement from the paper. Each finished card links to exact energies and example arrangements.'],
   ['leads','Intake','Source leads awaiting admission. Several papers can mention the same problem.'],
   ['activity','Solving','Recent solver batches and AI handoffs. Each record links to the underlying calculation or transcript.'],
   ['candidates','Candidates','Search outputs flagged for a rigorous check.'],
@@ -46,7 +47,7 @@ function link(label, url) {
   if (typeof url === 'string' && url.startsWith('https://')) a.href = url;
   return a;
 }
-let system = 'ours', selected = [0,0], section = 'problems', feed;
+let system = 'ours', selected = [0,0], section = location.hash === '#finite' ? 'finite' : 'problems', feed;
 function map() {
   const stations = systems[system];
   $('ours').setAttribute('aria-pressed',system === 'ours');
@@ -98,7 +99,7 @@ function record(item) {
     details.append(element('summary','What would settle it?'),element('p',item.decisive_test));
     card.append(details);
   }
-  card.append(link(section === 'problems' || section === 'leads' ? 'Primary source' : 'Open evidence',item.url));
+  card.append(link(section === 'problems' || section === 'leads' || item.status === 'queued' ? 'Primary source' : 'Open evidence',item.url));
   if (item.receipt) card.append(link('Intake record',item.receipt));
   if (item.review_url) card.append(link('Math review',item.review_url));
   if (item.priority_url && item.priority_url !== item.url) card.append(link('Priority audit',item.priority_url));
@@ -113,6 +114,10 @@ function updateRecords() {
   for (const button of $('filters').children) button.setAttribute('aria-pressed',button.dataset.key === section);
   const board = $('records');
   board.replaceChildren(element('p',boards.find(b=>b[0]===section)[2],'boardnote'));
+  if (section==='finite') {
+    const finished=feed.finite.filter(item=>item.status!=='queued').length;
+    board.append(element('p',finished+' of '+feed.finite.length+' finite calculations finished.','boardnote'));
+  }
   if (section==='activity') board.append(element('p',feed.counts.attempts.toLocaleString()+' recorded search evaluations. Repeated states can occur.','boardnote'));
   if (feed[section].length) {
     const grid=element('div',undefined,'recordgrid');
@@ -125,7 +130,8 @@ function updateRecords() {
     board.append(box);
   }
 }
-function render(data,origin) {
+function render(data) {
+  if (!Array.isArray(data.finite)) data = {...data,finite:[]};
   if(data.schema_version !== 1 || !data.counts || !boards.every(([key])=>Array.isArray(data[key]))) throw new Error('Unsupported feed');
   feed=data;
   const branchButton = $('branch').querySelector('button');
@@ -133,7 +139,7 @@ function render(data,origin) {
   $('openCount').textContent=data.problems.filter(item => item.status === 'under_investigation').length;
   $('partialCount').textContent=data.partial_results.length;
   $('solvedCount').textContent=data.solutions.length;
-  $('fresh').textContent=origin+' · '+new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(data.updated_at));
+
   $('filters').replaceChildren();
   for(const [key,label] of boards) {
     const button=element('button',label);
@@ -153,19 +159,36 @@ async function getFeed(url) {
     return await response.json();
   } finally {clearTimeout(timer);}
 }
+const liveUrl='https://raw.githubusercontent.com/shunyaekam/Physics-Workbench/research/campaign/pipeline.json';
+const pollMillis=60_000;
+let loading=false;
+function showFreshness(origin) {
+  const time = new Date(feed.updated_at);
+  const stale = Date.now() - time.getTime() > 30 * pollMillis;
+  const checked = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  $('fresh').textContent = origin+' · last batch '+time.toLocaleString()+
+    (stale ? ' · over 30 minutes old' : '')+' · checked '+checked;
+}
 async function refresh() {
+  if (loading) return;
+  loading=true;
   $('refresh').disabled=true;
   try {
-    if(!feed) {
-      try {render(await getFeed('snapshot.json'),'Saved snapshot');} catch { /* Try the research branch below. */ }
+    if (!feed) {
+      try {render(await getFeed('snapshot.json')); showFreshness('Saved snapshot');} catch { /* Try the live feed. */ }
     }
-    try {
-      const data=await getFeed('https://raw.githubusercontent.com/shunyaekam/Physics-Workbench/research/campaign/pipeline.json');
-      if(!feed || Date.parse(data.updated_at)>=Date.parse(feed.updated_at)) render(data,'Research branch');
-    } catch {
-      $('fresh').textContent=feed ? 'Latest fetch unavailable · showing '+new Date(feed.updated_at).toLocaleString() : 'Campaign records unavailable. Use the Research feed link below.';
-    }
-  } finally {$('refresh').disabled=false;}
+    const data = await getFeed(liveUrl+'?minute='+Math.floor(Date.now()/pollMillis));
+    if (!Number.isFinite(Date.parse(data.updated_at))) throw new Error('Missing batch time');
+    if (!feed || Date.parse(data.updated_at)>Date.parse(feed.updated_at)) render(data);
+    if (data.updated_at===feed.updated_at) showFreshness('Connected');
+    else showFreshness('Showing newer saved data');
+  } catch {
+    if (feed) showFreshness('Feed unavailable · showing saved data');
+    else $('fresh').textContent='Campaign records unavailable. Retrying automatically.';
+  } finally {loading=false; $('refresh').disabled=false;}
 }
 $('refresh').onclick=refresh;
+$('viewFinite').onclick=()=>{section='finite'; if(feed) updateRecords();};
+document.addEventListener('visibilitychange',()=>{if(!document.hidden) refresh();});
+setInterval(()=>{if(!document.hidden) refresh();},pollMillis);
 map();refresh();
