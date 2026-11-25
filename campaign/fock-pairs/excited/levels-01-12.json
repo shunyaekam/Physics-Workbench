@@ -1,0 +1,17 @@
+{
+  "m": 1,
+  "n": 12,
+  "tested": 1,
+  "positive": 0,
+  "unresolved": [],
+  "pending": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ]
+}
