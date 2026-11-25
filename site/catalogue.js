@@ -10,7 +10,7 @@ function filter(save) {
   let count = 0;
   papers.forEach((paper, i) => {
     const match = (!area.value || area.value === paper.dataset.area)
-      && (!method.value || method.value === paper.dataset.method)
+      && (!method.value || method.value === paper.dataset.method || (method.value === 'Partial Lean' && paper.dataset.lean === 'true'))
       && words.every(word => searchable[i].includes(word));
     paper.hidden = !match;
     if (match) count++;

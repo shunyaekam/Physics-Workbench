@@ -1,27 +1,28 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T23:02:31+00:00",
+  "updated_at": "2026-11-25T23:06:30+00:00",
   "counts": {
     "leads": 3,
     "problems": 5,
-    "attempts": 53280199871,
+    "attempts": 53280217427,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 429454,
+    "werner": 438275,
     "coherent-cats": 7936,
-    "coherent-bands": 2503,
-    "three-level": 4980,
+    "coherent-bands": 2534,
+    "three-level": 5044,
     "agent-witnesses": 1,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
     "golay-graphs": 1068000,
     "golay-repairs": 269543351,
     "golay-splices": 3612328434,
-    "golay-splice-tails": 49396491144
+    "golay-splice-tails": 49396491144,
+    "schmidt-seven-pairs": 8640
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -185,6 +186,14 @@
   "candidates": [],
   "activity": [
     {
+      "id": "schmidt-pair-search",
+      "title": "Rank-seven frames in local dimension 16",
+      "status": "under_investigation",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000015.json",
+      "detail": "8,640 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "problem_id": "e27-schmidt"
+    },
+    {
       "id": "golay-splice-tails",
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
@@ -233,29 +242,38 @@
       "problem_id": "transport-polygon"
     },
     {
-      "id": "round-95",
-      "title": "Research round 95",
+      "id": "round-96",
+      "title": "Research round 96",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000095.json",
-      "detail": "2,211 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000096.json",
+      "detail": "8,821 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T22:56:28.586119+00:00"
+      "updated_at": "2026-11-25T23:05:05.227105+00:00"
     },
     {
-      "id": "coherent-bands-00000079",
+      "id": "coherent-bands-00000080",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000079.json",
-      "detail": "32 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000080.json",
+      "detail": "31 states tested on photon levels 0, 2, 4, 8, 16, 24.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000078",
+      "id": "three-level-batch-00000079",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000078.json",
-      "detail": "64 states tested on photon levels 2, 3, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000079.json",
+      "detail": "64 states tested on photon levels 2, 4, 5.",
       "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "lane-e27-schmidt-959b891423c6a7bb",
+      "title": "e27-schmidt agent handoff",
+      "status": "critique_pending",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-959b891423c6a7bb.json",
+      "detail": "AI research proposal and critique workflow.",
+      "problem_id": "e27-schmidt",
+      "updated_at": "2026-11-25T23:05:12.893240+00:00"
     },
     {
       "id": "lane-transport-polygon-f8365a5893e30b97",
@@ -283,15 +301,6 @@
       "detail": "Model-selected levels 0, 1, 2, 3, 4, 5, 6, 7. Refined Wigner minus Husimi residuals -0.757329 and -0.757364.",
       "problem_id": "gagatsos-2026-c1",
       "updated_at": "2026-11-25T19:12:21.408997+00:00"
-    },
-    {
-      "id": "lane-werner-endpoint-7ea99313545e03f9",
-      "title": "Undistillable entanglement agent handoff",
-      "status": "needs_math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/werner-endpoint-7ea99313545e03f9.json",
-      "detail": "AI research proposal and critique workflow.",
-      "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T19:05:30.031482+00:00"
     }
   ],
   "exclusions": [
