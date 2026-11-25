@@ -1,0 +1,43 @@
+{
+  "problem": {
+    "id": "sphere-11",
+    "family": "thomson",
+    "n": 11,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "40.5964505",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "seed": 42,
+  "status": "needs_review",
+  "key": "4b3d8de78dfebd50ac5349d5ef2ad8bf98e0abc90391395aa36b319a3c26558c",
+  "proposal": {
+    "prompt": "{\"question\": \"Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.\", \"scope\": \"Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.\", \"sources_for_human_check\": [\"https://arxiv.org/abs/math/0607446\", \"https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html\"], \"checked_evidence\": [{\"witness_key\": \"855d2c216ee927a688e4385d387f9a5dd33c1953a3b6ba84b4d62ea1f3a942e7\", \"result\": {\"lower\": \"5062494437/125000000\", \"upper\": \"2029822525409549/50000000000000\", \"configuration_lower\": \"4059645050819043/100000000000000\", \"status\": \"bounds_checked\"}}, {\"witness_key\": \"a0f9d3d8f3331a1a6b8e8ebdf274ce28d44a068131942a50eadfe38efd7dce81\", \"result\": {\"lower\": \"5062494437/125000000\", \"upper\": \"4059645050819091/100000000000000\", \"configuration_lower\": \"1014911262704759/25000000000000\", \"status\": \"bounds_checked\"}}, {\"witness_key\": \"e1a02d03b38fba146f94eb93904a8006eeaaa382d0c02cabed4b20aaac2be890\", \"result\": {\"lower\": \"80982188441/2000000000\", \"upper\": \"4059645050819099/100000000000000\", \"configuration_lower\": \"1014911262704761/25000000000000\", \"status\": \"bounds_checked\"}}], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}",
+    "text": {
+      "subclaim": "The minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions is bounded below by 5062494437/125000000",
+      "assumptions": "The problem is constrained to 11 points on the unit sphere in 3D space.",
+      "derivation": "Using the properties of the inverse pair distance function and the fact that the points are on a unit sphere, we can derive an upper bound for the sum of inverse pair distances. This upper bound is then compared to a lower bound, resulting in the stated bound.",
+      "falsifier": "An independently executable check can be performed by verifying the bounds using a computational algorithm or a numerical method.",
+      "next_check": "Using a computational algorithm to find an exact solution for the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions."
+    },
+    "tokens_in": 502,
+    "tokens_out": 196
+  },
+  "critique": {
+    "prompt": "Audit this untrusted proposal. Derive a boundary case, identify the earliest unsupported step and check whether the subclaim would imply the target. State remaining evidence needed. You cannot execute code or access cited sources.\n{\"packet\": {\"question\": \"Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.\", \"scope\": \"Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.\", \"sources_for_human_check\": [\"https://arxiv.org/abs/math/0607446\", \"https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html\"], \"checked_evidence\": [{\"witness_key\": \"855d2c216ee927a688e4385d387f9a5dd33c1953a3b6ba84b4d62ea1f3a942e7\", \"result\": {\"lower\": \"5062494437/125000000\", \"upper\": \"2029822525409549/50000000000000\", \"configuration_lower\": \"4059645050819043/100000000000000\", \"status\": \"bounds_checked\"}}, {\"witness_key\": \"a0f9d3d8f3331a1a6b8e8ebdf274ce28d44a068131942a50eadfe38efd7dce81\", \"result\": {\"lower\": \"5062494437/125000000\", \"upper\": \"4059645050819091/100000000000000\", \"configuration_lower\": \"1014911262704759/25000000000000\", \"status\": \"bounds_checked\"}}, {\"witness_key\": \"e1a02d03b38fba146f94eb93904a8006eeaaa382d0c02cabed4b20aaac2be890\", \"result\": {\"lower\": \"80982188441/2000000000\", \"upper\": \"4059645050819099/100000000000000\", \"configuration_lower\": \"1014911262704761/25000000000000\", \"status\": \"bounds_checked\"}}], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}, \"proposal\": {\"subclaim\": \"The minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions is bounded below by 5062494437/125000000\", \"assumptions\": \"The problem is constrained to 11 points on the unit sphere in 3D space.\", \"derivation\": \"Using the properties of the inverse pair distance function and the fact that the points are on a unit sphere, we can derive an upper bound for the sum of inverse pair distances. This upper bound is then compared to a lower bound, resulting in the stated bound.\", \"falsifier\": \"An independently executable check can be performed by verifying the bounds using a computational algorithm or a numerical method.\", \"next_check\": \"Using a computational algorithm to find an exact solution for the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.\"}}",
+    "text": {
+      "boundary_case": "Consider 11 points on the surface of a sphere with radius r. The distance between two points on the surface is equal to the angle subtended by those points at the center of the sphere, multiplied by r. If all points are equally spaced around the sphere, then the maximum distance between any two points will occur when they are diametrically opposite, i.e., 2r. Therefore, the minimum sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions can be found by placing them at regular intervals around a great circle (a circle on the sphere that is centered at one of its poles). In this case, the distance between any two points will be less than or equal to 2r. Since r = 1, the maximum possible value for the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions is 22.",
+      "gap": "The subclaim states that the minimum sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions is bounded below by 5062494437/125000000. However, this bound assumes that the 11 points are placed at regular intervals around a great circle, which may not be the case. Therefore, this subclaim does not imply the target.",
+      "scope_match": "No, there seems to be some discrepancies in the 'checked_evidence' key of the proposal. The first evidence shows the upper bound being 2029822525409549/50000000000000 while the second evidence also shows an upper bound as 4059645050819091/100000000000000. It would seem more reasonable for both these values to be lower bounds, rather than upper bounds.",
+      "next_check": "Use numerical methods or computational algorithms to find the exact minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions."
+    },
+    "tokens_in": 735,
+    "tokens_out": 401
+  }
+}

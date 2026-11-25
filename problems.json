@@ -1,0 +1,121 @@
+[
+  {
+    "id": "sphere-2",
+    "family": "thomson",
+    "n": 2,
+    "role": "control",
+    "question": "Bound the minimum of the sum of inverse pair distances over 2 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://arxiv.org/abs/math/0607446",
+    "scope": "Exact antipodal solution.",
+    "baseline": "0.5000000",
+    "priority": 1,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "sphere-10",
+    "family": "thomson",
+    "n": 10,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 10 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "32.7169494",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "sphere-11",
+    "family": "thomson",
+    "n": 11,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "40.5964505",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "sphere-13",
+    "family": "thomson",
+    "n": 13,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 13 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "58.8532306",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "sphere-14",
+    "family": "thomson",
+    "n": 14,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 14 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "69.3063633",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "werner-control",
+    "family": "werner",
+    "d": 3,
+    "copies": 1,
+    "alpha": [
+      2,
+      3
+    ],
+    "role": "control",
+    "question": "Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (2/3) |Omega><Omega|) tensor-powered 1 times, for unnormalized Omega=sum_i |ii> in local dimension 3.",
+    "source": "https://psi.inc/research/oqp-batch-2026/",
+    "prior_art": "https://www.mefyi.com/papers/werner-states-copies/",
+    "scope": "Known negative one-copy control.",
+    "baseline": "-1/3",
+    "priority": 1,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "werner-4",
+    "family": "werner",
+    "d": 3,
+    "copies": 4,
+    "alpha": [
+      1,
+      2
+    ],
+    "role": "research",
+    "question": "Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 4 times, for unnormalized Omega=sum_i |ii> in local dimension 3.",
+    "source": "https://psi.inc/research/oqp-batch-2026/",
+    "prior_art": "https://www.mefyi.com/papers/werner-states-copies/",
+    "scope": "Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.",
+    "baseline": "0",
+    "priority": 3,
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "werner-5",
+    "family": "werner",
+    "d": 3,
+    "copies": 5,
+    "alpha": [
+      1,
+      2
+    ],
+    "role": "research",
+    "question": "Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 5 times, for unnormalized Omega=sum_i |ii> in local dimension 3.",
+    "source": "https://psi.inc/research/oqp-batch-2026/",
+    "prior_art": "https://www.mefyi.com/papers/werner-states-copies/",
+    "scope": "Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.",
+    "baseline": "0",
+    "priority": 3,
+    "checked_on": "2026-11-25"
+  }
+]

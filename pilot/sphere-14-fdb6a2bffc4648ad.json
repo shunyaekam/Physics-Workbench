@@ -1,0 +1,124 @@
+{
+  "problem": {
+    "id": "sphere-14",
+    "family": "thomson",
+    "n": 14,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 14 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "69.3063633",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  "seed": 42,
+  "engine": "baseline",
+  "model_digest": null,
+  "implementation": {
+    "search.py": "2e8959dad8f19684eda5ab47e7da4d9711581da358ab4ce101d88a8f5e1e8d65",
+    "verify.py": "51614c44612bbe25e9c1efce9e29308358ceb5bba7b376e2d086c1dc5540371a",
+    "lab.py": "a44ff93cfc2b6f235579cae937d5687dab3aa418c50a23d52d567521c721fd8a"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "key": "fdb6a2bffc4648ad7145277941814b7744346abb9e422da2322db41827464220",
+  "history": [],
+  "time": "2026-11-25T05:52:54.802264+00:00",
+  "params": {
+    "degree": 5,
+    "restarts": 2,
+    "jitter_pct": 20
+  },
+  "witness": {
+    "points": [
+      [
+        -1,
+        2339449,
+        -13720
+      ],
+      [
+        -1,
+        -2452426,
+        3221842
+      ],
+      [
+        -1,
+        562623,
+        -6018767
+      ],
+      [
+        -1,
+        2379649,
+        6505745
+      ],
+      [
+        -1,
+        -3047968,
+        -1841238
+      ],
+      [
+        -1,
+        7517916,
+        -5063883
+      ],
+      [
+        1,
+        -3906395,
+        6576715
+      ],
+      [
+        1,
+        -6015936,
+        -5973785
+      ],
+      [
+        -1,
+        9075404,
+        3115756
+      ],
+      [
+        1,
+        -9741097,
+        1312333
+      ],
+      [
+        1,
+        571687,
+        -5322846
+      ],
+      [
+        1,
+        1791205,
+        4220571
+      ],
+      [
+        1,
+        -2339450,
+        13720
+      ],
+      [
+        1,
+        3262338,
+        -728890
+      ]
+    ],
+    "coeff": [
+      851531243,
+      574368145,
+      344631142,
+      176315710,
+      69712637,
+      16805644
+    ]
+  },
+  "result": {
+    "lower": "69216510167/1000000000",
+    "upper": "1386127265932539/20000000000000",
+    "configuration_lower": "1732659082415651/25000000000000",
+    "status": "bounds_checked"
+  }
+}

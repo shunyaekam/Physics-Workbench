@@ -1,0 +1,48 @@
+{
+  "problem": {
+    "id": "werner-4",
+    "family": "werner",
+    "d": 3,
+    "copies": 4,
+    "alpha": [
+      1,
+      2
+    ],
+    "role": "research",
+    "question": "Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 4 times, for unnormalized Omega=sum_i |ii> in local dimension 3.",
+    "source": "https://psi.inc/research/oqp-batch-2026/",
+    "prior_art": "https://www.mefyi.com/papers/werner-states-copies/",
+    "scope": "Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.",
+    "baseline": "0",
+    "priority": 3,
+    "checked_on": "2026-11-25"
+  },
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "seed": 42,
+  "status": "needs_review",
+  "key": "d6a95055db71cc94fa78e7032680426e96990a972b3ccc7a879baf1459a50577",
+  "proposal": {
+    "prompt": "{\"question\": \"Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 4 times, for unnormalized Omega=sum_i |ii> in local dimension 3.\", \"scope\": \"Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.\", \"sources_for_human_check\": [\"https://psi.inc/research/oqp-batch-2026/\", \"https://www.mefyi.com/papers/werner-states-copies/\"], \"checked_evidence\": [{\"witness_key\": \"51f3cdf6ebb5bb58912c1be209f02faea463193bcdf763fa77353ccfe8a1ecbe\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}, {\"witness_key\": \"70a58d8f275b75577c75e94bb97e5a14380ed01f5cfab3955e2abf7bf3a5cafc\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}, {\"witness_key\": \"79dafdfc8b46c369654a9d6a9feb82717d5ffc15543361a90678fe78196a3399\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}",
+    "text": {
+      "subclaim": "The Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|) tensor-powered 4 times, for unnormalized \u03a9=\u2211i|ii> in local dimension 3, is conjecturally false.",
+      "assumptions": "Assume the existence of a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|) tensor-powered 4 times, for unnormalized \u03a9=\u2211i|ii> in local dimension 3.",
+      "derivation": "The derivation is as follows: \n\n*   Assume there exists a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|) tensor-powered 4 times, for unnormalized \u03a9=\u2211i|ii> in local dimension 3.\n\n*   Then, by definition of Schmidt-rank, this vector must have a non-negative expectation value on all positive partial transpose tensors. \n\n*   However, the tensor (I - (1/2) |\u03a9><\u03a9|) has a negative expectation value on any positive partial transpose tensor, since it represents the difference between the identity and a projector onto the subspace of states that are orthogonal to \u03a9. \n\n*   Therefore, our assumption is false, and there does not exist a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|) tensor-powered 4 times, for unnormalized \u03a9=\u2211i|ii> in local dimension 3.",
+      "falsifier": "The falsifier is the existence of any positive partial transpose tensor that has a non-negative expectation value on (I - (1/2) |\u03a9><\u03a9|).",
+      "next_check": "An independently executable check would be to compute the expectation values of all positive partial transpose tensors on (I - (1/2) |\u03a9><\u03a9|) for an unnormalized \u03a9=\u2211i|ii> in local dimension 3 and verify that they are all non-negative. If any such tensor has a negative expectation value, then our conjecture is false."
+    },
+    "tokens_in": 427,
+    "tokens_out": 472
+  },
+  "critique": {
+    "prompt": "Audit this untrusted proposal. Derive a boundary case, identify the earliest unsupported step and check whether the subclaim would imply the target. State remaining evidence needed. You cannot execute code or access cited sources.\n{\"packet\": {\"question\": \"Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 4 times, for unnormalized Omega=sum_i |ii> in local dimension 3.\", \"scope\": \"Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.\", \"sources_for_human_check\": [\"https://psi.inc/research/oqp-batch-2026/\", \"https://www.mefyi.com/papers/werner-states-copies/\"], \"checked_evidence\": [{\"witness_key\": \"51f3cdf6ebb5bb58912c1be209f02faea463193bcdf763fa77353ccfe8a1ecbe\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}, {\"witness_key\": \"70a58d8f275b75577c75e94bb97e5a14380ed01f5cfab3955e2abf7bf3a5cafc\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}, {\"witness_key\": \"79dafdfc8b46c369654a9d6a9feb82717d5ffc15543361a90678fe78196a3399\", \"result\": {\"score\": \"0\", \"norm2\": 2, \"status\": \"nonnegative_sample\"}}], \"request\": \"Produce a scoped, falsifiable advance. Specify assumptions, one lemma or witness, a short derivation, the easiest way it could fail, and an independently executable check. Use only supplied facts. Treat URLs as pointers. Label unverified statements as conjectural.\"}, \"proposal\": {\"subclaim\": \"The Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\\u03a9><\\u03a9|) tensor-powered 4 times, for unnormalized \\u03a9=\\u2211i|ii> in local dimension 3, is conjecturally false.\", \"assumptions\": \"Assume the existence of a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\\u03a9><\\u03a9|) tensor-powered 4 times, for unnormalized \\u03a9=\\u2211i|ii> in local dimension 3.\", \"derivation\": \"The derivation is as follows: \\n\\n*   Assume there exists a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\\u03a9><\\u03a9|) tensor-powered 4 times, for unnormalized \\u03a9=\\u2211i|ii> in local dimension 3.\\n\\n*   Then, by definition of Schmidt-rank, this vector must have a non-negative expectation value on all positive partial transpose tensors. \\n\\n*   However, the tensor (I - (1/2) |\\u03a9><\\u03a9|) has a negative expectation value on any positive partial transpose tensor, since it represents the difference between the identity and a projector onto the subspace of states that are orthogonal to \\u03a9. \\n\\n*   Therefore, our assumption is false, and there does not exist a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\\u03a9><\\u03a9|) tensor-powered 4 times, for unnormalized \\u03a9=\\u2211i|ii> in local dimension 3.\", \"falsifier\": \"The falsifier is the existence of any positive partial transpose tensor that has a non-negative expectation value on (I - (1/2) |\\u03a9><\\u03a9|).\", \"next_check\": \"An independently executable check would be to compute the expectation values of all positive partial transpose tensors on (I - (1/2) |\\u03a9><\\u03a9|) for an unnormalized \\u03a9=\\u2211i|ii> in local dimension 3 and verify that they are all non-negative. If any such tensor has a negative expectation value, then our conjecture is false.\"}}",
+    "text": {
+      "boundary_case": "Consider the case where Omega is a basis state |0> in local dimension 3. In this case, (I - (1/2) |\u03a9><\u03a9|) = I and the expectation value on any positive partial transpose tensor is simply the trace of that tensor.",
+      "gap": "The earliest unsupported step appears to be the assumption in step 2 that a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|) tensor-powered 4 times is conjecturally false. The claim seems to be supported by the fact that any positive partial transpose tensor has a non-negative expectation value on this tensor.",
+      "scope_match": "The subclaim 'There does not exist a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|)' is actually the negation of what the proposal is claiming. The actual claim should be: There exists no Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|)",
+      "next_check": "The remaining evidence needed to support this subclaim would be independent verification that there does not exist a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |\u03a9><\u03a9|)"
+    },
+    "tokens_in": 1015,
+    "tokens_out": 319
+  }
+}

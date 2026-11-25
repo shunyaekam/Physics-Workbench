@@ -1,0 +1,140 @@
+{
+  "problem": {
+    "id": "sphere-11",
+    "family": "thomson",
+    "n": 11,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "40.5964505",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  "seed": 42,
+  "engine": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "implementation": {
+    "search.py": "2e8959dad8f19684eda5ab47e7da4d9711581da358ab4ce101d88a8f5e1e8d65",
+    "verify.py": "51614c44612bbe25e9c1efce9e29308358ceb5bba7b376e2d086c1dc5540371a",
+    "lab.py": "a44ff93cfc2b6f235579cae937d5687dab3aa418c50a23d52d567521c721fd8a"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "key": "a0f9d3d8f3331a1a6b8e8ebdf274ce28d44a068131942a50eadfe38efd7dce81",
+  "history": [
+    {
+      "key": "e1a02d03b38fba146f94eb93904a8006eeaaa382d0c02cabed4b20aaac2be890",
+      "params": {
+        "degree": 5,
+        "restarts": 2,
+        "jitter_pct": 20
+      },
+      "result": {
+        "lower": "80982188441/2000000000",
+        "upper": "4059645050819099/100000000000000",
+        "configuration_lower": "1014911262704761/25000000000000",
+        "status": "bounds_checked"
+      },
+      "error": null
+    }
+  ],
+  "time": "2026-11-25T05:52:58.686751+00:00",
+  "prompt": "Design one bounded computational experiment. Return integer search parameters as JSON. For sphere instances maximize the lower bound and minimize the upper bound. degree is the Legendre LP degree, restarts and jitter_pct control the geometry search. For Werner states minimize the exact score; support is the number of nonzero entries per factor, mutate_pct is the percentage of local edits, samples is the trial budget. Use previous attempts to choose a different useful experiment.\n{\"problem\": {\"id\": \"sphere-11\", \"family\": \"thomson\", \"n\": 11, \"role\": \"research\", \"question\": \"Bound the minimum of the sum of inverse pair distances over 11 distinct points on the unit sphere in three dimensions.\", \"source\": \"https://arxiv.org/abs/math/0607446\", \"prior_art\": \"https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html\", \"scope\": \"Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.\", \"baseline\": \"40.5964505\", \"priority\": 2, \"checked_on\": \"2026-11-25\"}, \"prior_attempts\": [{\"key\": \"e1a02d03b38fba146f94eb93904a8006eeaaa382d0c02cabed4b20aaac2be890\", \"params\": {\"degree\": 5, \"restarts\": 2, \"jitter_pct\": 20}, \"result\": {\"lower\": \"80982188441/2000000000\", \"upper\": \"4059645050819099/100000000000000\", \"configuration_lower\": \"1014911262704761/25000000000000\", \"status\": \"bounds_checked\"}, \"error\": null}], \"parameters\": {\"degree\": [1, 12, 5], \"restarts\": [1, 6, 2], \"jitter_pct\": [0, 80, 20]}}",
+  "response": {
+    "model": "llama3.2:3b",
+    "response": "{\"degree\": 12, \"restarts\": 6, \"jitter_pct\": 80}",
+    "done_reason": "stop",
+    "prompt_eval_count": 447,
+    "eval_count": 22
+  },
+  "params": {
+    "degree": 12,
+    "restarts": 6,
+    "jitter_pct": 80
+  },
+  "witness": {
+    "points": [
+      [
+        1,
+        447932,
+        -7158601
+      ],
+      [
+        -1,
+        -157402,
+        4872041
+      ],
+      [
+        -1,
+        -5150426,
+        -5219482
+      ],
+      [
+        -1,
+        4821163,
+        1217020
+      ],
+      [
+        -1,
+        533396,
+        -2500097
+      ],
+      [
+        1,
+        7687487,
+        -3892085
+      ],
+      [
+        1,
+        -2734929,
+        5579048
+      ],
+      [
+        1,
+        -4637766,
+        -1014434
+      ],
+      [
+        1,
+        4831509,
+        5116377
+      ],
+      [
+        1,
+        1183157,
+        -245934
+      ],
+      [
+        -1,
+        -5880316,
+        2000373
+      ]
+    ],
+    "coeff": [
+      829220733,
+      514912703,
+      269692476,
+      109367648,
+      26826113,
+      0,
+      0,
+      3683829,
+      3159440,
+      936849,
+      0,
+      0,
+      0
+    ]
+  },
+  "result": {
+    "lower": "5062494437/125000000",
+    "upper": "4059645050819091/100000000000000",
+    "configuration_lower": "1014911262704759/25000000000000",
+    "status": "bounds_checked"
+  }
+}

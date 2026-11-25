@@ -1,0 +1,78 @@
+{
+  "problem": {
+    "id": "werner-5",
+    "family": "werner",
+    "d": 3,
+    "copies": 5,
+    "alpha": [
+      1,
+      2
+    ],
+    "role": "research",
+    "question": "Find a Schmidt-rank-at-most-two vector with negative expectation on (I - (1/2) |Omega><Omega|) tensor-powered 5 times, for unnormalized Omega=sum_i |ii> in local dimension 3.",
+    "source": "https://psi.inc/research/oqp-batch-2026/",
+    "prior_art": "https://www.mefyi.com/papers/werner-states-copies/",
+    "scope": "Tests distillability of this state at this copy count. The search covers sparse real integer factors. Larger copy counts, complex factors, and the existence of all-copy NPT bound entanglement are separate questions.",
+    "baseline": "0",
+    "priority": 3,
+    "checked_on": "2026-11-25"
+  },
+  "seed": 42,
+  "engine": "baseline",
+  "model_digest": null,
+  "implementation": {
+    "search.py": "2e8959dad8f19684eda5ab47e7da4d9711581da358ab4ce101d88a8f5e1e8d65",
+    "verify.py": "51614c44612bbe25e9c1efce9e29308358ceb5bba7b376e2d086c1dc5540371a",
+    "lab.py": "a44ff93cfc2b6f235579cae937d5687dab3aa418c50a23d52d567521c721fd8a"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "key": "5dd451766905b086cea3380dd21b1de0e0520e1dd96d2b96574106b6e09fb4aa",
+  "history": [],
+  "time": "2026-11-25T05:52:54.869255+00:00",
+  "params": {
+    "samples": 120,
+    "support": 2,
+    "mutate_pct": 60
+  },
+  "witness": {
+    "terms": [
+      [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "score": "0",
+    "norm2": 2,
+    "status": "nonnegative_sample"
+  }
+}

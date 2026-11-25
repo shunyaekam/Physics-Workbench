@@ -1,0 +1,59 @@
+{
+  "problem": {
+    "id": "sphere-2",
+    "family": "thomson",
+    "n": 2,
+    "role": "control",
+    "question": "Bound the minimum of the sum of inverse pair distances over 2 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://arxiv.org/abs/math/0607446",
+    "scope": "Exact antipodal solution.",
+    "baseline": "0.5000000",
+    "priority": 1,
+    "checked_on": "2026-11-25"
+  },
+  "seed": 42,
+  "engine": "baseline",
+  "model_digest": null,
+  "implementation": {
+    "search.py": "2e8959dad8f19684eda5ab47e7da4d9711581da358ab4ce101d88a8f5e1e8d65",
+    "verify.py": "51614c44612bbe25e9c1efce9e29308358ceb5bba7b376e2d086c1dc5540371a",
+    "lab.py": "a44ff93cfc2b6f235579cae937d5687dab3aa418c50a23d52d567521c721fd8a"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "key": "d9566f983e65ef8a1b80b86f95b06d5cff99dc1627c6e723edb606d5659d33b1",
+  "history": [],
+  "time": "2026-11-25T05:52:54.702955+00:00",
+  "params": {
+    "degree": 5,
+    "restarts": 2,
+    "jitter_pct": 20
+  },
+  "witness": {
+    "points": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ]
+    ],
+    "coeff": [
+      500000000
+    ]
+  },
+  "result": {
+    "lower": "1/2",
+    "upper": "1/2",
+    "configuration_lower": "1/2",
+    "status": "bounds_coincide"
+  }
+}

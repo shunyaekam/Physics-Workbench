@@ -1,0 +1,170 @@
+{
+  "problem": {
+    "id": "sphere-14",
+    "family": "thomson",
+    "n": 14,
+    "role": "research",
+    "question": "Bound the minimum of the sum of inverse pair distances over 14 distinct points on the unit sphere in three dimensions.",
+    "source": "https://arxiv.org/abs/math/0607446",
+    "prior_art": "https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html",
+    "scope": "Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.",
+    "baseline": "69.3063633",
+    "priority": 2,
+    "checked_on": "2026-11-25"
+  },
+  "seed": 43,
+  "engine": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "implementation": {
+    "search.py": "2e8959dad8f19684eda5ab47e7da4d9711581da358ab4ce101d88a8f5e1e8d65",
+    "verify.py": "51614c44612bbe25e9c1efce9e29308358ceb5bba7b376e2d086c1dc5540371a",
+    "lab.py": "a44ff93cfc2b6f235579cae937d5687dab3aa418c50a23d52d567521c721fd8a"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "key": "908d374c31db31a993d9a5a4dbb2a73e79596a38b52193f6964e33ba20b0dc43",
+  "history": [
+    {
+      "key": "005e41be6de7093e357562935354d9bf7ef9e4815a359df4bab7ac8444aadafa",
+      "params": {
+        "degree": 5,
+        "restarts": 2,
+        "jitter_pct": 20
+      },
+      "result": {
+        "lower": "69216510167/1000000000",
+        "upper": "1386127265932539/20000000000000",
+        "configuration_lower": "1732659082415651/25000000000000",
+        "status": "bounds_checked"
+      },
+      "error": null
+    },
+    {
+      "key": "fdb6a2bffc4648ad7145277941814b7744346abb9e422da2322db41827464220",
+      "params": {
+        "degree": 5,
+        "restarts": 2,
+        "jitter_pct": 20
+      },
+      "result": {
+        "lower": "69216510167/1000000000",
+        "upper": "1386127265932539/20000000000000",
+        "configuration_lower": "1732659082415651/25000000000000",
+        "status": "bounds_checked"
+      },
+      "error": null
+    }
+  ],
+  "time": "2026-11-25T05:53:09.446688+00:00",
+  "prompt": "Design one bounded computational experiment. Return integer search parameters as JSON. For sphere instances maximize the lower bound and minimize the upper bound. degree is the Legendre LP degree, restarts and jitter_pct control the geometry search. For Werner states minimize the exact score; support is the number of nonzero entries per factor, mutate_pct is the percentage of local edits, samples is the trial budget. Use previous attempts to choose a different useful experiment.\n{\"problem\": {\"id\": \"sphere-14\", \"family\": \"thomson\", \"n\": 14, \"role\": \"research\", \"question\": \"Bound the minimum of the sum of inverse pair distances over 14 distinct points on the unit sphere in three dimensions.\", \"source\": \"https://arxiv.org/abs/math/0607446\", \"prior_art\": \"https://www-wales.ch.cam.ac.uk/~wales/CCD/Thomson/table.html\", \"scope\": \"Finite-instance global energy bounds. Cambridge publishes a rounded candidate energy. Matching it reproduces a configuration energy to its printed precision.\", \"baseline\": \"69.3063633\", \"priority\": 2, \"checked_on\": \"2026-11-25\"}, \"prior_attempts\": [{\"key\": \"005e41be6de7093e357562935354d9bf7ef9e4815a359df4bab7ac8444aadafa\", \"params\": {\"degree\": 5, \"restarts\": 2, \"jitter_pct\": 20}, \"result\": {\"lower\": \"69216510167/1000000000\", \"upper\": \"1386127265932539/20000000000000\", \"configuration_lower\": \"1732659082415651/25000000000000\", \"status\": \"bounds_checked\"}, \"error\": null}, {\"key\": \"fdb6a2bffc4648ad7145277941814b7744346abb9e422da2322db41827464220\", \"params\": {\"degree\": 5, \"restarts\": 2, \"jitter_pct\": 20}, \"result\": {\"lower\": \"69216510167/1000000000\", \"upper\": \"1386127265932539/20000000000000\", \"configuration_lower\": \"1732659082415651/25000000000000\", \"status\": \"bounds_checked\"}, \"error\": null}], \"parameters\": {\"degree\": [1, 12, 5], \"restarts\": [1, 6, 2], \"jitter_pct\": [0, 80, 20]}}",
+  "response": {
+    "model": "llama3.2:3b",
+    "response": "{ \"degree\": 12, \"restarts\": 1, \"jitter_pct\": 80}",
+    "done_reason": "stop",
+    "prompt_eval_count": 567,
+    "eval_count": 26
+  },
+  "params": {
+    "degree": 12,
+    "restarts": 1,
+    "jitter_pct": 80
+  },
+  "witness": {
+    "points": [
+      [
+        -1,
+        2148534,
+        1148346
+      ],
+      [
+        -1,
+        -8965240,
+        -4323234
+      ],
+      [
+        -1,
+        -1368837,
+        -3352651
+      ],
+      [
+        -1,
+        5876175,
+        7594372
+      ],
+      [
+        -1,
+        -3594719,
+        1194474
+      ],
+      [
+        1,
+        3191491,
+        -3926399
+      ],
+      [
+        1,
+        -994192,
+        4696631
+      ],
+      [
+        1,
+        -1756360,
+        -8120057
+      ],
+      [
+        1,
+        -7215083,
+        3516738
+      ],
+      [
+        -1,
+        -1458138,
+        6500148
+      ],
+      [
+        -1,
+        4014318,
+        -4938639
+      ],
+      [
+        -1,
+        9419610,
+        -108226
+      ],
+      [
+        1,
+        -2148534,
+        -1148346
+      ],
+      [
+        1,
+        2929921,
+        1306413
+      ]
+    ],
+    "coeff": [
+      851294701,
+      572147148,
+      340958322,
+      172927904,
+      68311996,
+      16416731,
+      0,
+      0,
+      2424660,
+      2425487,
+      927490,
+      0,
+      0
+    ]
+  },
+  "result": {
+    "lower": "553856317/8000000",
+    "upper": "866329541207837/12500000000000",
+    "configuration_lower": "3465318164831303/50000000000000",
+    "status": "bounds_checked"
+  }
+}
