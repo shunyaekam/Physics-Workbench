@@ -53,6 +53,7 @@ def run():
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
     call([sys.executable,"checks/scrutiny.py"])
+    call([sys.executable,"formal/replay.py"])
     call([sys.executable,"continuous.py","run"],timeout=480)
     call([sys.executable,"review_papers.py"],timeout=240)
     call([sys.executable,"literature.py"],timeout=210)

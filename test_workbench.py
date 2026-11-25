@@ -46,6 +46,13 @@ class CertificateChecks(unittest.TestCase):
         expected=Q(int(vec@op@vec),q**k*int(vec@vec))
         self.assertEqual(Q(werner(dict(d=d,copies=k,alpha=[p,q]),w)['score']),expected)
 
+    def test_multicopy_search_rejects_padded_incumbent(self):
+        from complex_search import matrix,search,varied_on_every_site
+        padded=[[[[i,1,0]],[[i,1,0]]] for i in (0,1)]
+        self.assertFalse(varied_on_every_site(matrix(padded,3,4),3,4))
+        r=search(3,4,211,150,padded)
+        self.assertTrue(varied_on_every_site(matrix(r["witness"],3,4),3,4))
+
     def test_werner_sign_controls(self):
         c=dict(d=3,copies=1,alpha=[2,3])
         w={'terms':[[[[0,1]],[[0,1]]],[[[1,1]],[[1,1]]]]}

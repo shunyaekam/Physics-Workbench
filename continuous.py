@@ -86,6 +86,9 @@ def audit_score(r):
     w=r["witness"]
     score=Fraction(r["score"])
     require(direct(w,r["d"],r["k"])==score==partial_traces(w,r["d"],r["k"]),"score failed independent replay")
+    if r.get("arm")=="full-site-variation-v1":
+        from complex_search import matrix,varied_on_every_site
+        require(varied_on_every_site(matrix(w,r["d"],r["k"]),r["d"],r["k"]),"fixed-site witness in multicopy arm")
 
 
 def model_plan(number,history):
@@ -117,6 +120,17 @@ def round_once(nodes):
     hist=[load(p) for p in previous[-3:]]
     controls()
     plan,model=model_plan(number,[{str(r["k"]):r["score"] for r in h["quantum"]} for h in hist])
+    from discovery_queue import select
+    dispatch=select(number,hist)
+    wigner_runs=[]
+    if dispatch["primary"]=="gagatsos-2026-c1":
+        # Different Sobol blocks per round, including after a pause or restart.
+        from wigner_search import search as search_wigner
+        for block in range(4*number-3,4*number+1):
+            wigner_runs.append(search_wigner(block))
+        plan={name:min(n,1500) for name,n in plan.items()}
+    if any(r["status"]=="needs_interval_check" for r in wigner_runs):
+        write(DATA/f"wigner-needs-enclosure-{number}.json",wigner_runs)
     results=[]
     for k in (4,5):
         incumbent=next((r["witness"] for r in hist[-1]["quantum"] if r["k"]==k),None) if hist else None
@@ -139,12 +153,13 @@ def round_once(nodes):
         sphere=experiment(n,degree,seed)
     except ValueError as exc:
         sphere={"n":n,"degree":degree,"seed":seed,"error":str(exc)}
-    frontier=advance_frontier(nodes)
+    frontier=(advance_frontier(nodes) if dispatch["support_benchmark_due"] else
+              {"status":"support enumeration deferred to eighth-round benchmark slot"})
     render()
     receipt=dict(round=number,utc=datetime.now(timezone.utc).isoformat(),allocation=plan,model=model,
                  code={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in
-                       ("supports.py","archive_supports.py","complex_search.py","continuous.py","sphere_bounds.py")},
-                 quantum=results,sphere=sphere,frontier=frontier)
+                       ("supports.py","archive_supports.py","complex_search.py","continuous.py","sphere_bounds.py","wigner_search.py","discovery_queue.py","discovery/targets.json")},
+                 quantum=results,sphere=sphere,frontier=frontier,dispatch=dispatch,wigner=wigner_runs)
     write(ROUNDS/f"{number:08}.json",receipt)
     print("Round",number,"direct/partial trace scores:",[r["score"] for r in results],frontier,flush=True)
 

@@ -77,24 +77,39 @@ def partial_traces(terms,d,k,p=1,q=2):
     return Fraction(total,q**k*norm)
 
 
+def varied_on_every_site(cells,d,k):
+    # A fixed basis label on both parties peels off a positive scalar. We also
+    # focus this search arm on supports varying on each party at each site.
+    for side in (0,1):
+        words=[digits(i,d,k) for i in {pair[side] for pair in cells}]
+        if any(len(set(site))<2 for site in zip(*words)):
+            return False
+    return True
+
+
+def correlated_labels(rng,d,k):
+    # Make an odd triple while changing symbols on every copy. Coordinate-wise
+    # permutations can be shared on both parties without enforcing Hermiticity.
+    rainbow=rng.choice(list(range(1,k+1,2)))
+    sites=set(rng.sample(range(k),rainbow))
+    labels=[0,0,0]
+    for site in range(k):
+        a,b,c=rng.sample(range(d),3)
+        col=[a,b,c] if site in sites else [a,a,b]
+        rng.shuffle(col)
+        for j,val in enumerate(col):
+            labels[j]+=val*d**site
+    return labels+[rng.randrange(d**k)]
+
+
 def search(d,k,seed,trials,previous=None):
     rng=Random(seed)
-    size=d**k
-    best=previous
+    best=previous if previous and varied_on_every_site(matrix(previous,d,k),d,k) else None
     value=direct(best,d,k) if best else None
     tested=0
+    excluded_fixed=0
     for _ in range(trials):
-        # Build on both parties' odd triples. A shared-coordinate permutation
-        # preserves the problem; other copies vary to escape one-copy cases.
-        a=rng.randrange(size)
-        stride=d**rng.randrange(k)
-        start=a-(a//stride%d)*stride
-        ids=[start+j*stride for j in range(3)]+[rng.randrange(size)]
-        if rng.randrange(2):
-            axis=rng.choice([d**i for i in range(k) if d**i!=stride])
-            for n in (1,2):
-                src=ids[n]
-                ids[n]=src+((src//axis%d+1)%d-src//axis%d)*axis
+        ids=correlated_labels(rng,d,k)
         def factor():
             subset=rng.sample(sorted(set(ids)),rng.randint(2,3))
             return [[j,rng.choice([-3,-1,1,3]),rng.randrange(-2,3)] for j in subset]
@@ -110,6 +125,9 @@ def search(d,k,seed,trials,previous=None):
                 t[idx]=max(-65536,min(65536,t[idx]+rng.choice([-2,-1,1,2])))
         try:
             nonzero=matrix(candidate,d,k)
+            if not varied_on_every_site(nonzero,d,k):
+                excluded_fixed+=1
+                continue
             for side in (0,1):
                 words=[digits(i,d,k) for i in {pair[side] for pair in nonzero}]
                 if not any(sum(len(set(t))==3 for t in zip(*triple))%2
@@ -124,8 +142,9 @@ def search(d,k,seed,trials,previous=None):
             if str(e)=="zero vector":
                 continue
             raise
+    require(best is not None,"no eligible multicopy witness")
     require(value==partial_traces(best,d,k),"independent contractions disagree")
-    return dict(d=d,k=k,seed=seed,trials=trials,evaluated=tested,witness=best,score=str(value))
+    return dict(d=d,k=k,seed=seed,trials=trials,evaluated=tested,excluded_fixed_site=excluded_fixed,arm="full-site-variation-v1",witness=best,score=str(value))
 
 
 def controls():
