@@ -208,6 +208,17 @@ def build(root, now):
     activity.extend(sorted(lane_rows,key=lambda x:x["updated_at"],reverse=True)[:4])
 
     finite = []
+    table_audit = root/"campaign/finite-spins-table2.json"
+    if table_audit.is_file():
+        even_rows = [r for r in load(table_audit) if r["n"] % 2 == 0]
+        gaps = [r for r in even_rows if r["reported"] != r["exact"]]
+        finite.append(row("table2-audit","Five distances in a spin-chain preprint","table_audit",
+                          artifact(root,"checks/zhang-table2.md"),
+                          f"{len(gaps)} of {len(even_rows)} even-length entries exceed the minimum under Eq. (9). "
+                          "One 92-spin entry gives 9 where Table 2 reports 12. The note includes a hand-checkable example.",
+                          evidence={"source":"https://arxiv.org/html/2504.00987v2#S4.T2",
+                                    "exact_results":artifact(root,"campaign/finite-spins-table2.json"),
+                                    "replay":artifact(root,"checks/zhang_table.py")}))
     for n, seed, baseline in JOBS:
         ident = job_id(n, seed)
         path = root/"campaign/finite-spins"/(ident + ".json")
