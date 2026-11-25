@@ -1,0 +1,188 @@
+{
+  "round": 8,
+  "utc": "2026-11-25T06:13:45.891804+00:00",
+  "allocation": {
+    "trials4": 3890,
+    "trials5": 8110
+  },
+  "model": {
+    "prompt": "Allocate a bounded batch of exact rank-two Werner searches between four and five copies. Each family needs 2000 to 10000 trials and the total is 12000. We minimize exact expectation. Use the recorded campaign history. Return trials4 only.\n[{\"4\": \"5/7788\", \"5\": \"3/110720\"}, {\"4\": \"5/7788\", \"5\": \"3/110720\"}, {\"4\": \"5/7788\", \"5\": \"3/110720\"}]",
+    "response": "{ \"trials4\": 3890 }",
+    "model": "llama3.2:3b"
+  },
+  "code": {
+    "supports.py": "55af07f94364ee782347158ab06acbe431b5068274a676fa33ac8b5b9a54ca0e",
+    "archive_supports.py": "58722a294aa734504ec579f498241b60aabe5966ea52f803d62b084d70822ed4",
+    "complex_search.py": "6fcfa01a7259a938bdd8087c4854fe7525164b49b4e3070469dc70ae38f2fe6c",
+    "continuous.py": "9e8d437ec66f986bdd77b2870c54b262f5742be5b5800f9747443f604a9d7d1c",
+    "sphere_bounds.py": "d1326c0511c4d9d083b183c0cc7904fb0a27b0ff4907a305be174763a7aa8b7d"
+  },
+  "quantum": [
+    {
+      "d": 3,
+      "k": 4,
+      "seed": 17008,
+      "trials": 3890,
+      "evaluated": 2982,
+      "witness": [
+        [
+          [
+            [
+              18,
+              0,
+              1
+            ],
+            [
+              0,
+              -3,
+              5
+            ]
+          ],
+          [
+            [
+              9,
+              -1,
+              -1
+            ],
+            [
+              18,
+              -1,
+              -1
+            ],
+            [
+              0,
+              -4,
+              -3
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              18,
+              0,
+              -1
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              9,
+              -1,
+              -3
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              9,
+              1,
+              9
+            ],
+            [
+              18,
+              1,
+              3
+            ]
+          ]
+        ]
+      ],
+      "score": "5/7788"
+    },
+    {
+      "d": 3,
+      "k": 5,
+      "seed": 17008,
+      "trials": 8110,
+      "evaluated": 5904,
+      "witness": [
+        [
+          [
+            [
+              218,
+              1,
+              -3
+            ],
+            [
+              217,
+              -2,
+              -1
+            ]
+          ],
+          [
+            [
+              218,
+              -9,
+              0
+            ],
+            [
+              217,
+              -1,
+              -6
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              216,
+              -5,
+              1
+            ],
+            [
+              217,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              218,
+              0,
+              0
+            ],
+            [
+              216,
+              4,
+              -7
+            ]
+          ]
+        ]
+      ],
+      "score": "3/110720"
+    }
+  ],
+  "sphere": {
+    "n": 14,
+    "degree": 10,
+    "seed": 17008,
+    "lp_solves": 8,
+    "coeff": [
+      851303596,
+      572175101,
+      341004642,
+      172970781,
+      68331281,
+      16418981,
+      0,
+      0,
+      2420461,
+      2414275,
+      919156
+    ],
+    "lower": "6923204449/100000000"
+  },
+  "frontier": {
+    "file": "support-5-4-layer-2.json.gz",
+    "complete": true,
+    "closed": 18,
+    "pending": 0,
+    "lower": 11
+  }
+}
