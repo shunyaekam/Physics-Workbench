@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:28:16+00:00",
+  "updated_at": "2026-11-25T19:31:56+00:00",
   "counts": {
     "leads": 3,
     "problems": 2,
-    "attempts": 375080,
+    "attempts": 377549,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 363171,
-    "coherent-cats": 6144,
-    "coherent-bands": 1932,
-    "three-level": 3832,
+    "werner": 365416,
+    "coherent-cats": 6272,
+    "coherent-bands": 1964,
+    "three-level": 3896,
     "agent-witnesses": 1
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
@@ -128,28 +128,28 @@
   "candidates": [],
   "activity": [
     {
-      "id": "round-77",
-      "title": "Research round 77",
+      "id": "round-78",
+      "title": "Research round 78",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000077.json",
-      "detail": "2,197 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000078.json",
+      "detail": "2,245 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T19:23:58.326637+00:00"
+      "updated_at": "2026-11-25T19:31:53.947141+00:00"
     },
     {
-      "id": "coherent-bands-00000061",
+      "id": "coherent-bands-00000062",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000061.json",
-      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000062.json",
+      "detail": "32 states tested on photon levels 2, 3, 4, 5, 6, 7.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000060",
+      "id": "three-level-batch-00000061",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000060.json",
-      "detail": "64 states tested on photon levels 3, 4, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000061.json",
+      "detail": "64 states tested on photon levels 0, 1, 2.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
@@ -282,9 +282,13 @@
     {
       "id": "chain-98-993a76393cdb4bcf78ff00aa8",
       "title": "98-spin chain \u00b7 993A\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 529?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-98-993a76393cdb4bcf78ff00aa8.json",
+      "detail": "Starting energy 529. Best energy after exactly one, two and three flips, respectively: 593, 745, 785. All 156,948 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 785. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     },
     {
       "id": "chain-104-0f80f3c20aab1844295b6ed666",
