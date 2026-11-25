@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,booktabs,hyperref}
+\hypersetup{hidelinks}
+\title{Exact finite maxima for positive coordinate supports at the Werner endpoint}
+\author{Physics Workbench\\\small Computational working paper, automatically updated from audited certificates}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+For $k$ copies of a $d$-dimensional Werner state at the partial-transpose endpoint, we compute the largest computational-basis support on Alice's side for which the full compression is positive semidefinite. Each entry below has an explicit support attaining the value and a replayable upper-bound certificate. The object being maximized is the cardinality of a set of basis words. This finite calculation leaves distillability by Schmidt-rank-two vectors open.
+\end{abstract}
+\section*{Certified values}
+\begin{center}
+\begin{tabular}{rrr}
+\toprule Local dimension $d$ & Copies $k$ & Maximum support size\\\midrule
+5 & 3 & 10 \\
+6 & 3 & 12 \\
+7 & 3 & 14 \\
+8 & 3 & 16 \\
+4 & 4 & 16 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The elementary constructions are useful controls. A binary box gives $2^k$ words. Repeating a symbol on two sites and using a binary box on the remaining sites gives $d\,2^{k-2}$ for $k\ge2$. In three copies this second construction has $2d$ words. The search tests whether a larger construction exists.
+\section*{Reduction and certificates}
+Use the unnormalized $\Omega=\sum_i |ii\rangle$ and write $K=I-|\Omega\rangle\langle\Omega|/2$. The companion manuscript proves that compression of $K^{\otimes k}$ to rows indexed by $S$, with Bob unrestricted, is positive semidefinite exactly when each triple of words in $S$ has an even number of coordinates with three distinct symbols. By independent symbol relabeling in each coordinate one word may be fixed at zero. Two other words are compatible when their triangle with zero has even parity. An anchored clique meets the criterion for all triples: the product of three anchored triangle signs gives the sign of the triangle between their non-anchor vertices.
+
+The search branches on a vertex, considering all cliques which contain it and all which exclude it. At each terminal branch the remaining candidates are partitioned into independent sets. Each clique takes at most one vertex from each set. Adding the included vertices gives the certified upper bound. An explicit clique witnesses the lower bound. Some instances are divided into layers by the maximum Hamming weight $t$ relative to the anchor. A word of weight $t$ can be mapped to $t$ leading ones and trailing zeros while fixing the anchor. Exhausting $t=1,\ldots,k$ covers every nonsingleton support. A reported maximum requires all layers.
+
+\section*{Reproducibility and scope}
+The auditor rebuilds compatibility from the parity of three Hamming distances, replays each decision with sets, validates every color class, checks prefix coverage, and reconstructs the lower witness. An independent matrix test also checks the physical reduction on every two-copy qutrit support. Run \texttt{python3 continuous.py audit} from the repository root. The accompanying certificates specify every search leaf. The certificates prove finite maxima for this specified basis and endpoint. Priority in the combinatorics or quantum information literature remains unassessed. This is an internally reviewed working paper.
+
+\smallskip\noindent Related formulation: P. Costa Rico, \emph{New partial trace inequalities and distillability of Werner states} (2025), \href{https://doi.org/10.1007/s11005-025-01935-y}{doi:10.1007/s11005-025-01935-y}. See also the companion manuscript, \emph{Positive coordinate compressions of tensor powers of a partially transposed Werner state}, in this repository.
+\end{document}

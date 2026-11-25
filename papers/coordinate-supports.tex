@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\F}{\mathbb F_2}
+\title{Positive coordinate compressions of tensor powers of a partially transposed Werner state}
+\author{Physics Workbench\\\small AI-assisted working manuscript, version 1}
+\date{November 25, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+At the Werner endpoint we characterize all positive compressions obtained by restricting Alice to a set of computational-basis words while leaving Bob unrestricted. Positivity is equivalent to a parity condition on triples of words. For a ternary alphabet the largest such support has $2^k$ words in $k$ copies. If a coordinate uses three symbols, the sharp maximum falls to $3\cdot2^{k-2}$ for $k\ge2$. An odd triple gives a negative direction of Schmidt rank three. The results prune a restricted witness search. Distillability requires a negative direction of Schmidt rank at most two.
+\end{abstract}
+
+\section{The compression problem}
+Let $[d]=\{0,\ldots,d-1\}$, let $F$ exchange the two local systems, and let $\Omega=\sum_{i=0}^{d-1}|ii\rangle$ be unnormalized. Partial transposition sends the positive Werner operator $I-F/2$ to $K=I-|\Omega\rangle\langle\Omega|/2$. Positive scalar normalizations preserve the sign of every expectation. The distillability question asks whether $K^{\otimes k}$ has negative expectation on a vector of Schmidt rank at most two across Alice's $k$ systems versus Bob's $k$ systems \cite{costa}. Here we ask which coordinate restrictions exclude every negative direction.
+
+For nonempty $S\subseteq[d]^k$, write $K_S$ for the compression of $K^{\otimes k}$ to the span of Alice's words in $S$ tensored with Bob's entire space. For three words let $r(x,y,z)$ count positions where all three symbols are distinct. Let $h$ be Hamming distance.
+
+\begin{theorem}\label{parity}
+$K_S$ is positive semidefinite exactly when $r(x,y,z)$ is even for every triple in $S$. An odd triple gives a normalized Schmidt-rank-three vector on diagonal word pairs with expectation $-2^{-k}$.
+\end{theorem}
+\begin{proof}
+In one copy, each mismatched basis vector $|ab\rangle$, $a\ne b$, is a singleton block with eigenvalue one. On the diagonal vectors $|aa\rangle$, the matrix has diagonal $1/2$ and off-diagonal $-1/2$. The fully diagonal sector of $K_S$ has entries $2^{-k}B_{xy}$, where $B_{xy}=(-1)^{h(x,y)}$. Every other sector fixes the positions with mismatched symbols and their ordered pairs. If $m$ positions remain, its matrix is $2^{-m}$ times a principal submatrix of $B$: all Alice words in that sector agree at the fixed positions. Thus the full compression is positive semidefinite exactly when $B$ is.
+
+A symmetric sign matrix with unit diagonal is positive semidefinite exactly when $B_{xy}=s_xs_y$ for some signs $s_x$. In a Gram representation each unit vector has inner product of magnitude one with the anchor, forcing collinearity. The converse follows from the outer product. Fixing $a\in S$ and taking $s_x=B_{ax}$ yields the triangle criterion $B_{xy}B_{yz}B_{zx}=1$, the complete-graph case of signed balance \cite{harary}. In its exponent an all-equal position contributes zero, a two-equal position two, and an all-distinct position three. The parity is therefore $r\bmod 2$.
+
+For an odd triangle a diagonal sign change makes all three off-diagonal entries negative. The resulting three-by-three sign matrix is $2I-J$, where $J$ is the all-ones matrix. Its uniform vector has eigenvalue $-1$. Undoing the sign change and extending by zero supplies the stated expectation and rank.
+\end{proof}
+
+\section{Sharp bounds}
+Call a product of two-symbol sets in the $k$ coordinates a binary box. Call a support admissible if its compression is positive semidefinite.
+\begin{theorem}
+For $d=3$ an admissible support has at most $2^k$ words, with equality exactly for binary boxes. Among supports using all three symbols in some coordinate the maximum for $k\ge2$ is $3\cdot2^{k-2}$.
+\end{theorem}
+\begin{proof}
+Fix an anchor $a\in S$. Independently in each coordinate encode its symbol as $0\in\F^2$ and the other two as $e=(1,0)$ and $f=(0,1)$. Equip $V=(\F^2)^k$ with the nondegenerate alternating form given by summing local determinants. The pairing of the encoded words $x,y$ is $r(a,x,y)\bmod 2$. By Theorem~\ref{parity} their span $W$ is totally isotropic, so $W\subseteq W^\perp$ and $\dim W\le k$. Injectivity gives $|S|\le2^k$.
+
+If equality holds, the encoded support fills $W$. Every coordinate projection of $W$ is linear and avoids $e+f$, so its dimension is at most one. The product of the projections contains $W$ and has dimension at most $k$. Equality forces every projection to be a line and $W$ to fill their product. This gives exactly the binary boxes, each admissible by the triple criterion.
+
+If some coordinate uses all three symbols, its projection from $W$ contains $e,f$ and hence is surjective. Exactly one quarter of $W$ projects to $e+f$ there. These words are excluded, giving $|S|\le3|W|/4\le3\cdot2^{k-2}$. Take the three pairs $(0,0),(1,1),(2,2)$ in the first two positions and a binary box in the others. Every all-distinct contribution from the first position is repeated in the second. This attains the bound.
+\end{proof}
+
+\begin{corollary}
+For $d=4$ the largest admissible support has size $2^k$. For two copies and every $d\ge2$ the maximum is $\max(4,d)$.
+\end{corollary}
+\begin{proof}
+For four symbols encode the anchor as zero and the other three as the nonzero vectors of $\F^2$. Two different nonzero vectors have determinant one. The same isotropic bound applies, and binary boxes attain it.
+
+For two copies view words as edges between row and column symbols. If three distinct rows occur, selecting one edge per row must give three different columns. Thus different row neighborhoods are disjoint. At least three columns occur, so transposing shows that different column neighborhoods are disjoint as well. The support is a matching of size at most $d$. If fewer than three rows occur there must also be fewer than three columns by the transposed argument. A two-by-two box and a full matching attain their respective sizes.
+\end{proof}
+
+\section{Checks and implications}
+The program \texttt{checks/scrutiny.py} constructs the two-copy qutrit matrix by a dense Kronecker product. Exact integer Schur complements classify all 512 Alice supports. Exactly 97, including the empty support, pass, agreeing with the parity criterion on every input. A separate anchored subset enumeration gives unrestricted maxima $2,4,8$ for one to three copies, and maxima $3,6$ outside binary boxes for two and three copies. Independent coordinate permutations act transitively on anchor words. The finite checks exercise the derivation; the dimension and counting arguments establish the statements for arbitrary $k$.
+
+By exchanging the parties, an endpoint search for negative expectation can discard candidates whose row or column support is admissible. The negative rank-three direction from Theorem~\ref{parity} leaves the rank-two question open. All claims concern the specified product basis. The authorship label denotes machine-assisted drafting and internal checking. External expert review and priority assessment remain pending.
+\begin{thebibliography}{9}
+\bibitem{costa} P. Costa Rico, New partial trace inequalities and distillability of Werner states, \emph{Letters in Mathematical Physics} (2025). \href{https://doi.org/10.1007/s11005-025-01935-y}{doi:10.1007/s11005-025-01935-y}.
+\bibitem{harary} F. Harary, On the notion of balance of a signed graph, \emph{Michigan Mathematical Journal} 2 (1953--1954), 143--146.
+\end{thebibliography}
+\end{document}

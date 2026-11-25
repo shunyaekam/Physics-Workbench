@@ -1,5 +1,7 @@
 # Physics Workbench
 
+The ongoing programme has two working papers. Read the [coordinate-support theorem](papers/coordinate-supports.pdf), [certified finite maxima](papers/finite-maxima.pdf), [referee audit](checks/referee-audit.md), and [scheduler and replay instructions](OPERATIONS.md). Fresh research receipts appear in [campaign/rounds](campaign/rounds).
+
 This local research workflow takes a source-backed question through bounded search, exact witness checking, replay, and review. The first campaign covers classical electrostatics and quantum information. Each saved attempt contains the statement, assumptions, search settings, seed, witness, result, and implementation hashes. Model-assisted attempts also retain the local model digest, prompt, response and token counts.
 
 Start with the [pilot results](PILOT.md) and [scientific review](REVIEW.md). The pilot used Python 3.9, NumPy, SciPy and the installed Ollama model `llama3.2:3b`. Replaying the evidence uses only the Python standard library.
