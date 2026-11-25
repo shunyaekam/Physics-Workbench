@@ -1,0 +1,53 @@
+# Can nearly coherent light violate the Wigner–Husimi bound?
+
+Research notebook, 25 November 2026. These are written arguments awaiting independent mathematical review. The sharp single-mode conjecture is open. Gagatsos asks about local maximizers in Section VII(i), and separately asks about two constants and pure-state reduction in VII(iii). [Source and conventions, v1](https://arxiv.org/html/2611.30969v1)
+
+## A neighborhood theorem at every fixed photon cutoff
+
+Fix any integer $N\ge1$, and let $V=|0\rangle\langle0|$. There exists $\epsilon_N>0$ such that every pure or mixed one-mode state $\rho$ supported on levels $0,\ldots,N$ with $0<d=\|\rho-V\|_1<\epsilon_N$ satisfies the sharp inequality strictly. All coherences are allowed. Displacing the state and the entire cutoff space by the same displacement gives the corresponding neighborhood of any coherent state. The value of $N$ is fixed **before** choosing the radius.
+
+Use complex optical coordinates $z=(x+ip)/\sqrt2$, $d\mu=d^2z/\pi$, and $u(z)=\langle z|\rho|z\rangle$. Put $I=\int\sqrt u\,d\mu$. The proposed bound in these coordinates is $\|W\|_1\le H=(I/2)^2$, with $W$ normalized in $d^2z$. Vacuum has $u=e^{-|z|^2}$, $I=2$, and $W=2e^{-2|z|^2}/\pi$.
+
+**1. The Husimi excess has a lower bound.** Theorem 3 of Frank, Nicola and Tilli applies to the convex function $\Phi(t)=-\sqrt t$. Their phase-space area measure is $d\mu$ after rescaling. With $D$ the infimum of the full trace-norm distance to a coherent projector, this gives $I\ge2+cD^2$ for an absolute $c>0$. Therefore $H-1\ge cD^2$. This step applies to mixed states. [Theorem 3 and definition (1)](https://arxiv.org/html/2307.14089)
+
+**2. Estimate distance to the entire coherent orbit.** Assume $d\le1/2$. For a coherent amplitude $\beta$, write $a=|\beta|$ and $C=|\beta\rangle\langle\beta|$. Its full trace-norm distance to vacuum is $2\sqrt{1-e^{-a^2}}$.
+
+- If $a<d/4$, triangle inequality gives $\|\rho-C\|_1\ge d-2a\ge d/2$.
+- If $d/4\le a\le1$, the matrix element in row zero and column $N+1$ vanishes for $\rho$. For $C$ its magnitude is $e^{-a^2}a^{N+1}/\sqrt{(N+1)!}$. This is a lower bound on the trace norm of the difference.
+- If $a>1$, triangle inequality gives $\|\rho-C\|_1\ge 2\sqrt{1-e^{-1}}-d>1$.
+
+Consequently $D\ge k_N d^{N+1}$, e.g. $k_N=e^{-1}4^{-(N+1)}/\sqrt{(N+1)!}$. This handles perturbations that closely follow a displaced vacuum. A quadratic estimate in the distance to the *vacuum* would have missed those directions.
+
+**3. The negative Wigner mass is smaller than every power of $d$.** Write $r=|z|$. Each Wigner function of a matrix unit $|m\rangle\langle n|$ is the vacuum Gaussian times a polynomial of total degree at most $m+n$. One way to see this is to differentiate the unnormalized coherent dyad with respect to its two amplitudes at zero. Its Gaussian factor after division by the vacuum Wigner function is $\exp(2\bar z u+2zv-uv)$; the coefficient of $u^m v^n$ is the matrix-unit polynomial divided by $\sqrt{m!n!}$. Every entry of $\rho-V$ has magnitude at most $d$. Summing this finite family yields
+$$W_\rho(z)=W_V(z)(1+E(z)),\qquad |E(z)|\le K_N d(1+r)^{2N}.$$
+Here $K_N$ depends only on the cutoff. Set $R=(2K_Nd)^{-1/(2N)}-1$. For sufficiently small $d$, $R>0$ and $W_\rho>0$ on $r\le R$. Integrating the polynomial times the Gaussian outside the disk gives
+$$0\le\|W_\rho\|_1-1=2\int (W_\rho)_-\,d^2z\le C_N e^{-R^2}.$$
+Indeed one factor $e^{-r^2}$ absorbs the polynomial and the radial integral of the remaining Gaussian is $\pi e^{-R^2}$. Since $R^2$ grows at least as a positive multiple of $d^{-1/N}$, this upper bound is $o(d^{2N+2})$. Steps 1 and 2 give $H-1\ge ck_N^2 d^{2N+2}$. This proves strict separation uniformly over the stated punctured neighborhood.
+
+**Where the argument breaks.** A normalized projection of a small coherent amplitude $a$ onto the cutoff has distance $O(a^{N+1})$ to that coherent state and distance of order $a$ to vacuum. Thus replacing $D$ by $d$ at the start would be wrong. The Wigner tail estimate and the cutoff-to-orbit bound both deteriorate with $N$. A state with a small mean photon number may have arbitrarily high photon support. The proof supplies neither a common radius for all $N$ nor an experimentally calibrated radius.
+
+## What a counterexample search can cover
+
+Any strict violation of the full **inequality** has a finite pure witness, and such a witness may be chosen with normalized Gaussian-integer Fock amplitudes (i.e. normalize the whole vector after choosing its entries). This says nothing about a possible additional equality case. Here is the approximation argument, including the norm required for the Husimi integral.
+
+The mixed-to-pure reduction is Gagatsos's Proposition 1. A strict violation must have finite $I$, and Proposition 2 then ensures integrability of its Wigner function. For a normalized pure violating vector let $f(z)=\langle z|\psi\rangle\in L^1(d\mu)$. Rotate the vector by $e^{i\theta\hat n}$. Its overlap is the corresponding rotation of $f$; rotations are continuous in $L^1$ (first approximate by compactly supported continuous functions). They are also strongly continuous on the state Hilbert space. Average these rotations against the normalized Fejér kernel, whose Fourier coefficients are $(1-|n|/(M+1))_+$. This gives the vector with Fock coefficients
+$$c_n^{(M)}=(1-n/(M+1))_+\,c_n,\quad n\ge0.$$
+The kernels have unit mass and their mass outside any fixed arc about zero tends to zero. Hence the vectors converge in Hilbert norm and the overlaps in $L^1$. Normalization preserves both limits. In particular $H_M\to H$. Trace-norm convergence of the projectors implies pointwise convergence of the Wigner functions by bounded displaced parity. Fatou gives $\|W\|_1\le\liminf_M\|W_M\|_1$. Every sufficiently late approximation still strictly violates. At fixed cutoff each basis overlap has finite $L^1$ norm, so coefficient approximation by complex rationals preserves the same convergence and strict inequality. Clear denominators before normalization.
+
+This gives a countable search space with full coverage **in principle**. It supplies no upper bound on the cutoff, amplitude size or precision needed. The current numerical search samples part of that space. Silence from the search carries no implication for the unrestricted inequality. In combination with the neighborhood theorem, a sequence of finite witnesses converging to vacuum must escape any fixed cutoff.
+
+## A second check against the source question
+
+Section VII(iii) asks whether the weak constant $(4\pi)^{-n}$ works in $n$ modes and whether pure states suffice. Both follow directly from the source argument, including for entangled inputs. For clarity, here use $r,s\in\mathbb R^{2n}$ in quadrature coordinates and $Q(r)=\langle r|\rho|r\rangle/(2\pi)^n$. In the displaced parity trace insert the product coherent-state resolution $\int |s\rangle\langle s|\,ds/(2\pi)^n=1$. Product parity sends $|s\rangle$ to $|-s\rangle$. Displacement adds a unit-modulus phase. Positivity bounds the matrix element between $r+s$ and $r-s$ by $(2\pi)^n\sqrt{Q(r+s)Q(r-s)}$. Thus
+$$|W(r)|\le \pi^{-n}\int\sqrt{Q(r+s)Q(r-s)}\,ds.$$
+The absolute Jacobian for $(r,s)\mapsto(r+s,r-s)$ is $2^{2n}$. Integral factorization by Tonelli yields $\|W\|_1\le(4\pi)^{-n}(\int\sqrt Q)^2$. The state has never been assumed to factor across modes. For a countable spectral decomposition $\rho=\sum p_j\rho_j$, the integral triangle inequality in $\ell^2$ gives $\sum p_j(\int\sqrt{Q_j})^2\le(\int\sqrt{Q_\rho})^2$ by finite partial sums and monotone convergence. Convexity of the Wigner norm then extends any proposed pure-state inequality to mixed states with the same constant. For finite equality, equality in the integral triangle inequality requires the component Husimi densities to be proportional almost everywhere; normalization makes them identical. The multimode coherent-state symbol determines the density operator (its Gaussian-stripped Taylor coefficients give the Fock matrix elements). Thus a nontrivial spectral mixture cannot attain finite equality if the pure-state bound holds. The sharp constant $(8\pi)^{-n}$ for entangled inputs remains open. The weak calculation is a dimensional extension of Propositions 1–2 and does not establish priority for a new result.
+
+## Trying to break the sharp bound outside a cutoff
+
+We tested $\psi(x)=\pi^{-1/4}s^{-1/2}\exp[-(x/s)^2/2+i\kappa(x/s)^3]$. This is a cubic-phase Gaussian wave packet with tunable squeezing. Its Wigner norm is the Fourier $L^1$ norm of $e^{-v^2/4+i\kappa v^3/4}$ with transform convention $\widehat f(t)=(2\pi)^{-1}\int f(v)e^{-itv}dv$. The translation $t=sp-3\kappa(x/s)^2$ removes the position dependence. For the Husimi side complete the square in the overlap with the coherent window. With $h=(1+s^2)^{-1/2}$, $B$ a unit normal variable, and $g_B(v)=\exp[-v^2/2+i\kappa h^3(v^3+3sBv^2)]$, the result is $H=(s+s^{-1})(\mathbb E\|\widehat g_B\|_1)^2/2$. The omitted constant and linear phase terms preserve the Fourier norm.
+
+Across six nonzero cubic strengths from 0.05 to 2 and seven widths from 0.4 to 2.5, the largest measured $\|W\|_1/H$ was 0.994277 at $(\kappa,s)=(0.05,1)$. Vacuum gave 1. Two mesh and quadrature settings differed by at most 0.00111 in ratio. At $(0.25,1.25)$ an Airy negative-lobe integral and a direct coherent-window transform gave $\|W\|_1=1.076800$, $H=1.139412$; the primary calculation gave 1.076941 and 1.139449. These are floating-point comparisons. Widths and strengths between sample points, and other families, remain untested by this screen. [Replay the screen](../checks/cubic_phase.py) with `python3 checks/cubic_phase.py`.
+
+## Verification status
+
+The calculations above use published results and explicit estimates. The analytic claims have received a source-and-constants self-audit. Independent expert review and Lean formalization remain outstanding. A bounded literature search by the preprint identifier, the Wigner–Husimi inequality, finite Fock local maximizers, and multimode modulation-space bounds identified the source and the stability theorem. Historical priority remains unestablished. This notebook contributes zero reviewed full resolutions to the catalogue.
