@@ -1,22 +1,23 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:09:08+00:00",
+  "updated_at": "2026-11-25T19:13:45+00:00",
   "counts": {
-    "leads": 4,
+    "leads": 3,
     "problems": 2,
-    "attempts": 363726,
+    "attempts": 372659,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
-    "exclusions": 1
+    "exclusions": 2
   },
   "evaluations": {
-    "werner": 352138,
+    "werner": 360974,
     "coherent-cats": 6016,
-    "coherent-bands": 1868,
-    "three-level": 3704
+    "coherent-bands": 1900,
+    "three-level": 3768,
+    "agent-witnesses": 1
   },
-  "attempts_definition": "Recorded search evaluations across the four listed arms. Repeated states may occur.",
+  "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
     {
       "id": "werner-endpoint",
@@ -62,14 +63,6 @@
       "status": "unreviewed_lead",
       "url": "https://arxiv.org/abs/2611.29650v1",
       "detail": "It improves established benchmarks over broad parameter ranges, while the exact entanglement of the generalized resources remains open.",
-      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
-    },
-    {
-      "id": "arxiv-2611.31308v1",
-      "title": "A counterexample to the Ho-Hsieh VQCS saturation conjecture",
-      "status": "unreviewed_lead",
-      "url": "https://arxiv.org/abs/2611.31308v1",
-      "detail": "This disproves the strong form of a conjecture presented by Ho and Hsieh stating that the expressivity of VQCS on $L$ qubits saturates at $L/2$ layers.",
       "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
     }
   ],
@@ -135,38 +128,38 @@
   "candidates": [],
   "activity": [
     {
-      "id": "round-75",
-      "title": "Research round 75",
+      "id": "round-76",
+      "title": "Research round 76",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000075.json",
-      "detail": "2,247 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000076.json",
+      "detail": "8,836 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T18:51:24.880699+00:00"
+      "updated_at": "2026-11-25T19:12:23.348229+00:00"
     },
     {
-      "id": "coherent-bands-00000059",
+      "id": "coherent-bands-00000060",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000059.json",
-      "detail": "31 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000060.json",
+      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000058",
+      "id": "three-level-batch-00000059",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000058.json",
-      "detail": "64 states tested on photon levels 2, 3, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000059.json",
+      "detail": "64 states tested on photon levels 2, 4, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
       "id": "lane-gagatsos-2026-c1-0d2d2ea554d9a90c",
       "title": "Wigner\u2013Husimi inequality agent handoff",
-      "status": "needs_math_review",
+      "status": "witness_screened",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/gagatsos-2026-c1-0d2d2ea554d9a90c.json",
-      "detail": "AI research proposal and critique workflow.",
+      "detail": "Model-selected levels 0, 1, 2, 3, 4, 5, 6, 7. Refined Wigner minus Husimi residuals -0.757329 and -0.757364.",
       "problem_id": "gagatsos-2026-c1",
-      "updated_at": "2026-11-25T19:08:16.774949+00:00"
+      "updated_at": "2026-11-25T19:12:21.408997+00:00"
     },
     {
       "id": "lane-werner-endpoint-7ea99313545e03f9",
@@ -179,6 +172,17 @@
     }
   ],
   "exclusions": [
+    {
+      "id": "arxiv-2611.31308v1",
+      "title": "Strong Ho\u2013Hsieh circuit saturation conjecture",
+      "status": "prior_counterexample",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/ho-hsieh.md",
+      "detail": "Jiang\u2019s four-qubit counterexample already disproves the strong claim captured by our scanner. The source distinguishes a narrower ground-state question.",
+      "evidence": {
+        "source": "https://arxiv.org/abs/2611.31308v1"
+      },
+      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+    },
     {
       "id": "multimode",
       "title": "Weak multimode bound",
