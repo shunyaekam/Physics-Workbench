@@ -1,0 +1,20 @@
+{
+  "id": "chain-13-global",
+  "n": 13,
+  "seed_hex": null,
+  "baseline": 6,
+  "source": "https://oeis.org/A102780/b102780.txt",
+  "domain": "all binary sequences",
+  "bit_convention": "0 is +1; 1 is -1; open chain",
+  "shells": [
+    {
+      "flips": null,
+      "cases": 8192,
+      "minimum": 6,
+      "minimizers": 4,
+      "witness_bits": "0000011001010"
+    }
+  ],
+  "checked": 8192,
+  "minimum": 6
+}

@@ -10,6 +10,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from checks.finite_spins import JOBS, PAPER, CONTROL, job_id
 from lab import load, write
 from verify import require
 
@@ -206,11 +207,38 @@ def build(root, now):
                                 status,detail,pid,flag,date=lane["updated_at"]))
     activity.extend(sorted(lane_rows,key=lambda x:x["updated_at"],reverse=True)[:4])
 
+    finite = []
+    for n, seed, baseline in JOBS:
+        ident = job_id(n, seed)
+        path = root/"campaign/finite-spins"/(ident + ".json")
+        url = PAPER if seed else CONTROL
+        title = f"{n}-spin chain" + (f" · {seed[:4]}…" if seed else " · all arrangements")
+        question = (f"Can one, two or three flips beat the published energy of {baseline}?"
+                    if seed else "What is the lowest energy among all up/down arrangements?")
+        if path.is_file():
+            receipt = load(path)
+            require(receipt["id"] == ident and receipt["baseline"] == baseline
+                    and receipt["source"] == url, "Finite spin instance mismatch")
+            shells = receipt["shells"]
+            if seed:
+                values = ", ".join(str(s["minimum"]) for s in shells[1:])
+                detail = (f"Starting energy {baseline}. Best energy after exactly one, two and three flips, "
+                          f"respectively: {values}. All {receipt['checked']:,} arrangements in this neighborhood checked. "
+                          f"Reaching three changed spins one flip at a time requires a peak of at least "
+                          f"{receipt['escape']['peak']}. A recorded path attains it.")
+            else:
+                detail = (f"Lowest energy {receipt['minimum']}. Exactly {shells[0]['minimizers']} arrangements attain it "
+                          f"among all {receipt['checked']:,}. Reproduces a known minimum.")
+            finite.append(row(ident,title,"exact_neighborhood" if seed else "reproduced_benchmark",
+                              artifact(root,str(path.relative_to(root))),detail,evidence={"source":url,
+                              "replay":artifact(root,"checks/finite_spins.py")}))
+        else:
+            finite.append(row(ident,title,"queued",url,question))
     return dict(schema_version=1,updated_at=now,counts=dict(leads=len(leads),problems=len(problems),
         attempts=sum(counts.values()),candidates=len(candidates),partial_results=len(partial),solutions=len(solutions),exclusions=len(exclusions)),
         evaluations=counts,attempts_definition="Recorded search evaluations across the listed arms. Repeated states may occur.",
         problems=problems,leads=leads,partial_results=partial,solutions=solutions,
-        candidates=candidates,activity=activity,exclusions=exclusions)
+        candidates=candidates,activity=activity,exclusions=exclusions,finite=finite)
 
 
 if __name__ == "__main__":

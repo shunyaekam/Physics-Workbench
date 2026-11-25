@@ -58,6 +58,7 @@ def run():
                 git("merge","--abort",check=False)
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
+    call([sys.executable,"checks/finite_spins.py","advance"],timeout=180)
     call([sys.executable,"checks/scrutiny.py"])
     call([sys.executable,"formal/replay.py"])
     call([sys.executable,"excited_pairs.py","advance"],timeout=240)
