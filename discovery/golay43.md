@@ -7,3 +7,5 @@ We can test a proposed circuit on a laptop. Work backwards from the target. Succ
 Batch 0 scans every way to omit one entangler and change the Pauli axes of at most one other entangler on the same pair of wires. Batch 1 changes several axes. Later batches permit changing the wire endpoints and gate order at fixed count 43. A search miss says nothing about whether some other 43-gate circuit works. The wider problem of the best circuit at each depth also remains open.
 
 Run `python3 checks/golay43.py replay` on the research branch. Each batch records its best outcome and the changes to the reference circuit. [Exact search code](../checks/golay43.py) · [Trial records](../campaign/golay43)
+
+An independent simulator (Stim 1.16.0) verified the complete signed output of the deposited forward circuit. Its count of mixed qubits also agreed with the search checker on 80 schedules including deletions and rewired gates. Replay with `uv run --with stim==1.16.0 python checks/golay_oracle.py`. [Independent check](../checks/golay_oracle.py)
