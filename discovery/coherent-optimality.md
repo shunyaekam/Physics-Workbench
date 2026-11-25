@@ -52,7 +52,7 @@ A second search arm tested 159 pure states with Gaussian-integer amplitudes, sam
 
 ## Weak cubic-phase light, with no photon cutoff
 
-**Claim.** For some $\kappa_0>0$, the sharp bound holds strictly for every $0<|\kappa|<\kappa_0$ and every pure state $Ue^{i\kappa x^3}|0\rangle$, where $U$ is any single-mode Gaussian unitary. The **same** $\kappa_0$ works for all displacements, rotations and squeezings applied after the gate. Here $x=(a+a^\dagger)/\sqrt2$. This is an existence result; a calibrated value of $\kappa_0$ is unknown. For any nonzero cubic strength the original wavefunction is a cubic phase times a Gaussian, so it cannot be a finite Hermite polynomial times the vacuum Gaussian.
+**Claim.** For some $\kappa_0>0$, the sharp bound holds strictly for every $0<|\kappa|<\kappa_0$ and every pure state $Ue^{i\kappa x^3}|0\rangle$, where $U$ is any single-mode Gaussian unitary. The **same** $\kappa_0$ works for all displacements, rotations and squeezings applied after the gate. Here $x=(a+a^\dagger)/\sqrt2$. The argument below proves existence. A [subsequent explicit certificate](cubic-strength.md) covers the closed range $|\kappa|\le3/20$ with a gap of at least $\kappa^2/500$. For any nonzero cubic strength the original wavefunction is a cubic phase times a Gaussian, so it cannot be a finite Hermite polynomial times the vacuum Gaussian.
 
 **Upper bound on the negative volume.** Conjugation treats negative $\kappa$ by momentum reflection. For $\kappa>0$ put $\lambda=(3\kappa/4)^{1/3}$ and $b=1/(4\lambda^2)$. In the Wigner Fourier integral above, the signed density in frequency $p$ is
 $$F(p)=\lambda^{-1} e^{by-b^3/3}\operatorname{Ai}(y),\qquad y=b^2-p/\lambda.$$

@@ -49,13 +49,13 @@ def airy_wigner_norm(kappa):
     return 1+2*negative
 
 
-def direct_husimi(kappa, width):
+def direct_husimi(kappa, width, chirp=0):
     # Independent use of the position-space wavefunction in the original
     # overlap. No change of variables inside the Gaussian window.
     x = np.linspace(-32, 32, 8192, endpoint=False)
     q = np.linspace(-20, 20, 501)
     psi = (pi**(-0.25)/sqrt(width) *
-           np.exp(-(x/width)**2/2 + 1j*kappa*(x/width)**3))
+           np.exp(-(x/width)**2/2 + 1j*(kappa*(x/width)**3 + chirp*(x/width)**2)))
     marginal = [np.abs(np.fft.fft(pi**(-0.25)*np.exp(-(x-center)**2/2)*psi)).mean()
                 for center in q]
     return (np.trapz(marginal, q)/2)**2
@@ -92,3 +92,18 @@ if __name__ == '__main__':
         if abs(witness/kappa - 3j/sqrt(2)) > 0.002:
             raise ArithmeticError('Weak cubic-phase coefficient check failed')
     print('First four Fock amplitudes reproduce the weak-phase slope.')
+
+    # Include quadratic phase and strong asymmetric squeezes. Direct evaluation
+    # uses position-space windows; the reflection estimate uses a Gaussian mean.
+    nodes, weights = roots_hermitenorm(96)
+    for width, chirp in ((0.55, 1.5), (1.02, 0), (1.7, -0.4)):
+        kappa = 0.15
+        h = 1/sqrt(1+width**2)
+        d = h*h*chirp + 3*kappa*width*h**3*nodes
+        mean = weights @ ((1+4*d*d)**0.125)/sqrt(2*pi)
+        proxy = (width+1/width)*mean**2/2
+        direct = direct_husimi(kappa, width, chirp)
+        print(f'kappa=0.15, width={width}, chirp={chirp}: '
+              f'reflection={proxy:.6f}, direct H={direct:.6f}')
+        if not direct > proxy > 1+0.966*kappa**2:
+            raise ArithmeticError('Sheared Gaussian window cross-check failed')
