@@ -1,0 +1,12 @@
+{
+  "shell": 6,
+  "domain": [
+    "29/100",
+    "1/2"
+  ],
+  "tested": 3265,
+  "positive": 1633,
+  "negative": [],
+  "unresolved": [],
+  "pending": []
+}
