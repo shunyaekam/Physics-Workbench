@@ -4,6 +4,7 @@ import fcntl
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 
@@ -58,7 +59,13 @@ def run():
                 git("merge","--abort",check=False)
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
+    call([sys.executable,"checks/schmidt7/verify.py"])
     call([sys.executable,"checks/golay43.py","advance"])
+    uv=shutil.which("uv") or str(Path.home()/".local/bin/uv")
+    try:
+        call([uv,"run","--offline","--with","stim==1.16.0","python","checks/golay/advance.py"],timeout=150)
+    except (OSError,subprocess.SubprocessError) as exc:
+        print(f"Golay graph search could not complete this cycle: {exc}",flush=True)
     call([sys.executable,"checks/transport_polygon.py","advance"])
     call([sys.executable,"checks/finite_spins.py","advance"],timeout=180)
     call([sys.executable,"checks/scrutiny.py"])

@@ -1,0 +1,13 @@
+{
+  "source": "000028",
+  "deleted": 4,
+  "budget": 3,
+  "masks": 135751,
+  "repair_nodes": 135751,
+  "suffix_gates_scored": 0,
+  "bound_prunes": 135751,
+  "slack_nodes": 0,
+  "found": false,
+  "omitted": [],
+  "tail": []
+}

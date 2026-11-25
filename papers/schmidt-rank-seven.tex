@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\title{\vspace{-2.2em}Computational-basis optimality of nonlocal stabilizer entropy\\at Schmidt rank seven on three qubits per party}
+\author{Physics Workbench\\\small Computational research note, available for independent review}
+\date{25 November 2026\vspace{-1.1em}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a pure state of two three-qubit registers with seven nonzero Schmidt coefficients, we show that the sorted computational-basis representative minimizes the stabilizer 2-R\'enyi entropy over all local unitaries. The coefficients are arbitrary. In larger registers the argument also covers rank-seven spectra whose three largest coefficients coincide, or whose second, third and fourth coefficients coincide. The proof uses Sierant's reduction to an exterior-algebra overlap. A pair occupation identity in dimension eight supplies additional constraints, and a rational certificate proves 210 coefficient inequalities. For the flat rank-seven spectrum the minimum is $\log_2(343/211)$ bits.
+\end{abstract}
+
+\section{Statement and reduction}
+Let $\mu_1\geq\cdots\geq\mu_7>0$, $\sum_i\mu_i^2=1$, and put $t_i=\mu_i^2$. Coordinates start at zero, so $\mu_i$ is assigned to label $i-1$. On two three-qubit registers define
+\[
+ |\psi_0\rangle=\sum_{i=1}^{7}\mu_i|i-1\rangle_A|i-1\rangle_B,\qquad
+ \mathcal P(\psi)=2^{-6}\sum_{P\in\{I,X,Y,Z\}^{\otimes6}}\langle\psi|P|\psi\rangle^4.
+\]
+The nonlocal stabilizer 2-R\'enyi entropy is $-\log_2$ of the maximum of $\mathcal P$ under separate unitaries on the registers. Conjecture 1 of Sierant [1] asks whether $|\psi_0\rangle$ is always optimal. His Theorems 1 and 2 cover dyadic-staircase spectra and ranks at most six, respectively.
+
+\paragraph{Theorem.} For every rank-seven state on three qubits per party, the maximum is attained at $|\psi_0\rangle$. With $A$ ranging over four-element subsets of $\{1,\ldots,7\}$, its value is
+\[
+ 7\Big(\sum_i t_i^2\Big)^2-6\sum_i t_i^4
+     +168\!\!\!\sum_{\substack{|A|=4\\ \bigoplus_{i\in A}(i-1)=0}}\prod_{i\in A}t_i .
+ \tag{1}
+\]
+Here $\oplus$ is binary XOR. The same conclusion holds for arbitrary qubit register sizes supporting rank seven if $\mu_1=\mu_2=\mu_3$ or $\mu_2=\mu_3=\mu_4$.
+
+\paragraph{Reduction.} First take equal local dimensions $d=2^n$. Let $\Pi$ be the antisymmetric stabilizer projector of [1, Eq.~39] on $\Lambda^4\mathbb C^d$, and put $q=4/d$. For an orthonormal seven-frame $u$ let $u_A$ be the basis wedge in increasing order, normalized to one, and put $x_A=\|\Pi u_A\|^2/q$. If $N$ has eigenvalues $\mu_i$ on this frame and is zero on its complement, the overlap in [1] is $c_{\rm F}(N^2)=q\sum_A x_A\prod_{i\in A}t_i$. In the coordinate frame $x_A$ is one on affine planes and zero elsewhere. Denote that vector by $x^0$. It suffices to establish
+\[
+ \sum_A x_A\prod_{i\in A}t_i\ \leq\ \sum_A x_A^0\prod_{i\in A}t_i. \tag{2}
+\]
+Indeed, Lemma 1 of [1] reduces the two-unitary maximum to a single unitary. Proposition 2 and Theorem 7 there give $G\leq \mathcal I+42d\,c_{\rm F}(N^2)$, with equality at the sorted computational frame on the first seven labels. The spectral term $\mathcal I$ is the first two terms of (1), and $42dq=168$. Padding the smaller register with product qubits extends every dimension-independent statement to unequal registers by [1, Sec.~III.1].
+
+\clearpage
+\section{Rows valid for physical frames}
+All $x_A$ are nonnegative. The certificate uses the following inequalities. The sets and distinguished indices in each row can be chosen arbitrarily in the seven-frame.
+\begin{center}\begin{tabular}{lll}
+\toprule
+Index set & Sum being bounded & Upper bound\\
+\midrule
+$|T|=3$ & $\sum_{A\supseteq T}x_A$ & $1$\\
+$|Y|=5$ & $\sum_{A\subseteq Y}x_A$ & $1$\\
+$|Y|=6$ & $\sum_{A\subseteq Y}x_A$ & $3$\\
+$|Y|=6,\ i\in Y$ & $\sum_{i\in A\subseteq Y}x_A$ & $2$\\
+$|T|=2,\ d=8$ & $\sum_{A\supseteq T}x_A$ & $2$\\
+\bottomrule\end{tabular}\end{center}
+The five-site row is [1, Corollary 4]. Summing the six five-site rows inside a six-set counts each four-set twice and gives the six-site row. The distinguished six-site row is the last inequality in [1, Proposition 10], where edges label complementary four-sets of the six-frame.
+
+For the triple and pair rows, write the coordinate projector as one rank-one block per plane direction. Its normalized vector has amplitude $\sqrt q$ on each parallel plane. Two distinct parallel planes have no common point. In the unnormalized $k$-particle occupation matrix of $\Pi$, an off-diagonal term from two such wedges requires $4-k$ common spectator indices. Thus for $k=2,3$ only diagonal plane terms survive. Each coordinate triple extends to exactly one affine plane. Each coordinate pair lies in $(d-2)/2$ planes, since each third point determines the fourth. Consequently the three-particle occupation matrix equals $qI$, and the two-particle one equals $q(d-2)I/2$, with the convention that a basis wedge contributes one to each diagonal entry indexed by a contained $k$-set. Exterior powers transform unitarily under basis changes, so both identities hold in every orthonormal basis.
+
+Complete the frame to an orthonormal basis. For a fixed triple, the sum of the unscaled four-wedge weights in the complete basis is $q$. Keeping only frame indices gives the first row. When $d=8$ there is exactly one omitted basis vector $h$. For a fixed pair the complete sum is $3q$, and the contribution containing $h$ is exactly the complete triple sum $q$. The frame pair sum therefore equals $2q$. This subtraction uses the codimension-one hypothesis.
+
+\clearpage
+\section{Exact coefficient certificate}
+Set $t_8=0$ and write $g_j=t_j-t_{j+1}\geq0$, so $t_i=\sum_{j\geq i}g_j$. Expand (2) in the $g_j$. There are $\binom{10}{4}=210$ quartic monomials. Given $1\leq j_1\leq\cdots\leq j_4\leq7$, define $w_A$ as the number of orderings $(i_1,\ldots,i_4)$ of $A$ with $i_\ell\leq j_\ell$ at all four positions. This is the coefficient of $\prod_\ell g_{j_\ell}$ multiplied by the product of the multiplicity factorials, common to both sides. The required inequalities are $w^{\mathsf T}x\leq w^{\mathsf T}x^0$.
+
+Let $Rx\leq b$ denote the rows in the table. For each $w$ the deposited certificate supplies a nonnegative rational vector $y$ satisfying
+\[
+ R^{\mathsf T}y\geq w,\qquad b^{\mathsf T}y=w^{\mathsf T}x^0.
+\]
+Multiplying the physical rows by $y$ and adding proves the coefficient inequality. Summing with the nonnegative monomial weights proves (2) for the entire continuum of spectra. The accompanying standard-library Python checker reconstructs $R,b,w,x^0$, exhausts the sorted quadruples, and tests both relations in exact arithmetic. Linear programming was used to find the multipliers. Replay only needs the rational witnesses.
+
+Only five witnesses use the pair row:
+\[
+ (1,2,7,7),\ (1,3,6,7),\ (1,3,7,7),\ (2,2,7,7),\ (2,3,7,7).
+\]
+Every one contains a member of $\{1,2\}$ and a member of $\{2,3\}$. Under either degeneracy in the theorem all five monomials vanish, and the other 205 certificates establish (2) in every dimension. This completes the proof.
+
+\paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence the entropy in the abstract. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
+
+\paragraph{Scope and replay.} Arbitrary rank-seven spectra in larger registers and unrestricted rank eight remain outside the theorem. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Independent review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/schmidt7}{Certificate and checker.}
+
+\paragraph{Reference.} [1] P. Sierant, \emph{Spectral geometry of nonlocal stabilizer entropy}, \href{https://arxiv.org/html/2609.13106v2}{arXiv:2609.13106v2} (2026). The public problem listing is \href{https://open-quantum-problems.vercel.app/p/E27}{Open Quantum Problems E27}.
+\end{document}

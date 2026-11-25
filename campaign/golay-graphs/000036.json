@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": 36,
+  "parent": 32,
+  "trials": 20000,
+  "cost": 44,
+  "frontier": 6,
+  "moves": [
+    [
+      "L",
+      18,
+      18
+    ],
+    [
+      "L",
+      13,
+      13
+    ],
+    [
+      "Z",
+      1,
+      19
+    ],
+    [
+      "Z",
+      12,
+      17
+    ],
+    [
+      "Z",
+      13,
+      18
+    ],
+    [
+      "Z",
+      13,
+      21
+    ],
+    [
+      "Z",
+      14,
+      22
+    ],
+    [
+      "Z",
+      16,
+      20
+    ]
+  ],
+  "forward_stim": "H 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 20\nCX 16 20\nH 20 22\nCX 14 22\nH 22 21\nCX 13 21\nH 21 18\nCX 13 18\nH 18 17\nCX 12 17\nH 17 19\nCX 1 19\nH 19\nS 21 18\nSQRT_X_DAG 13\nS 21 13\nSQRT_X_DAG 18\nX 6 13 15 16\nY 1 19\nZ 3 18 20\nS 6 16 18 21\nH 1 5 6 7 8 9 10 11 12 15 16 18 21 22\nS 15\nH 11 21\nCX 11 21\nH 21 11 11 12\nCX 11 12\nH 12 11\nS_DAG 7\nH 7 21\nCX 7 21\nH 21 7\nS 7\nH 10 10\nCX 4 10\nH 10 10\nS_DAG 9\nH 9 9\nCX 3 9\nH 9 9\nS 9\nH 8 14\nCX 8 14\nH 14 8 7 20\nCX 7 20\nH 20 7 17 17\nCX 6 17\nH 17 17\nS_DAG 15\nH 15 15\nCX 6 15\nH 15 15\nS 15\nH 19 19\nCX 4 19\nH 19 19\nS_DAG 5\nH 5 5\nCX 3 5\nH 5 5\nS 5\nH 11 11\nCX 1 11\nH 11 11 15 15\nCX 0 15\nH 15 15 14 14\nCX 0 14\nH 14 14\nS_DAG 2\nH 2 16 16\nCX 2 16\nH 16 16 2\nS 2\nH 8 19\nCX 8 19\nH 19 8 5 22\nCX 5 22\nH 22 5 0 11\nCX 0 11\nH 11 0 6 6\nCX 18 6\nH 6 6 4 4\nCX 6 4\nH 4 4 12 5\nCX 12 5\nH 5 12 19 16\nCX 19 16\nH 16 19 2 2\nCX 0 2\nH 2 2 3 13\nCX 3 13\nH 13 3 16 12\nCX 16 12\nH 12 16 10 0\nCX 10 0\nH 0 10 18 19\nCX 18 19\nH 19 18 10 10\nCX 5 10\nH 10 10 21 21\nCX 4 21\nH 21 21 6 2\nCX 6 2\nH 2 6 20 20\nCX 3 20\nH 20 20 11 11\nCX 20 11\nH 11 11 9 9\nCX 4 9\nH 9 9 22 22\nCX 21 22\nH 22 22 4 11\nCX 4 11\nH 11 4 9 16\nCX 9 16\nH 16 9 21 21\nCX 2 21\nH 21 21 3 6\nCX 3 6\nH 6 3",
+  "forward_sha256": "2e9dc063e904d971ec7a053c86465941e81d047c5dd9975a7988f0aefb3ee323"
+}

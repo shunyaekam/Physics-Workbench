@@ -111,6 +111,10 @@ def build(root, now):
                                   evidence={"catalogue":item["catalogue"]}))
         leads = ranked + leads
 
+    for problem in problems:
+        if problem["id"]=="e27-schmidt":
+            problem["evidence"]={"working paper":artifact(root,"papers/schmidt-rank-seven.pdf"),
+                                 "exact checker":artifact(root,"checks/schmidt7/verify.py")}
     ledger = load(root/"discovery/pipeline-results.json")
     exclusions = []
     for decision in ledger.get("screened_leads", []):
@@ -251,6 +255,30 @@ def build(root, now):
         counts["golay-circuits"] = total
         activity.insert(0,record(golay_batches[-1],"golay-search","43-gate Golay circuit search",
                         "under_investigation",f"{total:,} trials. Best reverse circuit leaves {best} mixed qubits; zero is required.",pid))
+        arms = [
+            ("golay-graphs","trials","Rebuild the Golay circuit","graph construction trials"),
+            ("golay-repairs","masks","Can a shorter ending repair a Golay circuit?","deletion patterns"),
+            ("golay-splices","trials","Replace two Golay gates with one","edits"),
+            ("golay-splice-tails","trials","Replace three Golay gates with two","edits with one insertion anywhere and one optional inverse-end gate"),
+        ]
+        for folder,field,title,unit in arms:
+            paths=sorted((root/"campaign"/folder).glob("*.json"))
+            if not paths: continue
+            batches=[load(path) for path in paths]
+            total=sum(tally(batch[field]) for batch in batches)
+            counts[folder]=total
+            for path,batch in zip(paths,batches):
+                if batch.get("found") or batch.get("cost",44)<=43:
+                    record(path,folder+"-"+path.stem,title,"needs_verification",
+                           "An explicit signed circuit reached the target budget and is ready for external replay.",pid,True)
+            if folder=="golay-graphs":
+                detail=f"{total:,} {unit}. Best verified preparation uses {min(b['cost'] for b in batches)} CNOTs."
+            else:
+                hit=any(b["found"] for b in batches)
+                detail=f"{total:,} {unit} across {len(paths)} records. "+(
+                    "A candidate reached the gate budget." if hit else "No circuit reached the 43-gate target in these edits.")
+            activity.insert(0,record(root/"discovery/golay43.md",folder,title,"under_investigation" if folder=="golay-graphs" else "exact_search",
+                                     detail,pid))
     finite = []
     table_audit = root/"campaign/finite-spins-table2.json"
     if table_audit.is_file():

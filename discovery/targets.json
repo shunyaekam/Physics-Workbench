@@ -1,5 +1,23 @@
 [
   {
+    "id": "e27-schmidt",
+    "role": "external_problem",
+    "title": "Does the sorted Schmidt basis minimize nonlocal magic?",
+    "source": "https://arxiv.org/html/2609.13106v2",
+    "locator": "Sierant, Conjecture 1, equations 3–6. Open Quantum Problems E27.",
+    "question": "For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-Rényi entropy over independent local unitaries?",
+    "significance": "An exact answer would turn an optimization over all local bases into an evaluation on the entanglement spectrum.",
+    "evidence_checked": [
+      "https://open-quantum-problems.vercel.app/p/E27",
+      "https://arxiv.org/abs/2607.10714"
+    ],
+    "known": "Sierant proves the dyadic-staircase and rank-at-most-six cases. Our working paper gives a scoped rank-seven result for external review.",
+    "experiment": "Prove the missing overlap inequalities for seven-dimensional supports and validate the exact certificate.",
+    "full_vs_partial": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
+    "stop_rule": "For larger registers, test the five outstanding coefficient inequalities against physical frames before extending the theorem.",
+    "checked": "2026-11-25"
+  },
+  {
     "id": "golay43",
     "role": "external_problem",
     "title": "First priority · A 43-gate Golay preparation",

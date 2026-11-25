@@ -1,5 +1,6 @@
 {
   "partial_results": [
+    ["e27-schmidt","schmidt-seven","Rank-seven nonlocal magic on three qubits per party","A working proof covers all seven-coefficient spectra on two three-qubit registers. Exact rational certificates settle 210 inequalities. Independent review is pending.","discovery/schmidt-seven.md"],
     ["gagatsos-2026-c1","phase-invariant","Photon-number mixtures","The written proof covers all photon-number distributions. Lean checks the arithmetic induction.","checks/phase-invariant-wigner.md"],
     ["gagatsos-2026-c1","optical-qubit","The zero–one-photon qubit","The proof covers pure and mixed states in the two-level optical subspace.","papers/single-rail-wigner.tex"],
     ["gagatsos-2026-c1","renyi-orders","Rényi-order obstructions","The paper excludes orders and derives a sharp lower threshold on the optical qubit.","papers/renyi-obstructions.tex"],

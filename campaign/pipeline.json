@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T22:56:30+00:00",
+  "updated_at": "2026-11-25T23:02:31+00:00",
   "counts": {
-    "leads": 4,
-    "problems": 4,
-    "attempts": 768942,
+    "leads": 3,
+    "problems": 5,
+    "attempts": 53280199871,
     "candidates": 0,
-    "partial_results": 7,
+    "partial_results": 8,
     "solutions": 0,
     "exclusions": 2
   },
@@ -17,10 +17,28 @@
     "three-level": 4980,
     "agent-witnesses": 1,
     "transport-polygons": 1088,
-    "golay-circuits": 322980
+    "golay-circuits": 322980,
+    "golay-graphs": 1068000,
+    "golay-repairs": 269543351,
+    "golay-splices": 3612328434,
+    "golay-splice-tails": 49396491144
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
+    {
+      "id": "e27-schmidt",
+      "title": "Does the sorted Schmidt basis minimize nonlocal magic?",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2609.13106v2",
+      "detail": "An exact answer would turn an optimization over all local bases into an evaluation on the entanglement spectrum.",
+      "source": "https://arxiv.org/html/2609.13106v2",
+      "question": "For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-R\u00e9nyi entropy over independent local unitaries?",
+      "decisive_test": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
+      "evidence": {
+        "working paper": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/schmidt-rank-seven.pdf",
+        "exact checker": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/schmidt7/verify.py"
+      }
+    },
     {
       "id": "golay43",
       "title": "First priority \u00b7 A 43-gate Golay preparation",
@@ -73,16 +91,6 @@
   ],
   "leads": [
     {
-      "id": "e27-schmidt",
-      "title": "Third \u00b7 Does the sorted Schmidt basis minimize nonlocal magic?",
-      "status": "ranked_lead",
-      "url": "https://arxiv.org/html/2609.13106v2",
-      "detail": "A strict lower stabilizer entropy for a state in the same local-unitary orbit would refute Conjecture 1. Rank six and below is proved. Start at ranks seven and eight and verify any counterexample with exact unitaries and an exact Pauli fourth moment. Ranked third because the space of local bases is continuous.",
-      "evidence": {
-        "catalogue": "https://openquantumproblems.com/p/E27"
-      }
-    },
-    {
       "id": "arxiv-2611.31971v1",
       "title": "Field-Dependent Kinetics, Exact Kinks, and a Moduli-Space Route from Self-Dual Yang-Mills Theory",
       "status": "unreviewed_lead",
@@ -108,6 +116,14 @@
     }
   ],
   "partial_results": [
+    {
+      "id": "schmidt-seven",
+      "title": "Rank-seven nonlocal magic on three qubits per party",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/schmidt-seven.md",
+      "detail": "A working proof covers all seven-coefficient spectra on two three-qubit registers. Exact rational certificates settle 210 inequalities. Independent review is pending.",
+      "problem_id": "e27-schmidt"
+    },
     {
       "id": "phase-invariant",
       "title": "Photon-number mixtures",
@@ -168,6 +184,38 @@
   "solutions": [],
   "candidates": [],
   "activity": [
+    {
+      "id": "golay-splice-tails",
+      "title": "Replace three Golay gates with two",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+      "detail": "49,396,491,144 edits with one insertion anywhere and one optional inverse-end gate across 39 records. No circuit reached the 43-gate target in these edits.",
+      "problem_id": "golay43"
+    },
+    {
+      "id": "golay-splices",
+      "title": "Replace two Golay gates with one",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+      "detail": "3,612,328,434 edits across 39 records. No circuit reached the 43-gate target in these edits.",
+      "problem_id": "golay43"
+    },
+    {
+      "id": "golay-repairs",
+      "title": "Can a shorter ending repair a Golay circuit?",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+      "detail": "269,543,351 deletion patterns across 119 records. No circuit reached the 43-gate target in these edits.",
+      "problem_id": "golay43"
+    },
+    {
+      "id": "golay-graphs",
+      "title": "Rebuild the Golay circuit",
+      "status": "under_investigation",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+      "detail": "1,068,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "problem_id": "golay43"
+    },
     {
       "id": "golay-search",
       "title": "43-gate Golay circuit search",
