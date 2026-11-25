@@ -1,0 +1,171 @@
+'use strict';
+const repo = 'https://github.com/shunyaekam/Physics-Workbench';
+const research = repo + '/blob/research/';
+const cinna = 'https://github.com/1337isnot1337/solved-conjectures';
+const pub = cinna + '/blob/a51917c3fccb97c4a5c34537d5e2e4ad612f109e/';
+const work = cinna + '/blob/31df82431bf2d04979544b6f5c249e2e0958c788/';
+const bm = pub + 'results/brown-mol/';
+const systems = {
+  ours: [
+    [['Scout','Find problems','A weekly arXiv scan captures leads. Admission requires a primary source, precise statement, decisive test and scope limits in the target register.',research+'discovery/targets.json','Target register']],
+    [['Solver','Build a witness','Local proposal agents work from the admitted question. Computational searches test optical states and entanglement witnesses. A useful proposal specifies what observation could kill it.',research+'ops/agent_campaign.py','Solver and critic']],
+    [['Math reviewer','Challenge the proof','A fresh-context critic challenges proposals. A separate mathematical review rederived our multimode result, including the constants and the mixed-state argument.',research+'checks/multimode-review.md','Math review'],['Priority reviewer','Check earlier work','Check alternate names and equivalent theorems. The weak multimode result follows from a classical Fourier inequality, so its derivation earns zero discovery credit.',research+'checks/multimode-priority.md','Priority decision']],
+    [['Verifier','Replay evidence','Use exact arithmetic, error-bounded calculations or Lean for the claims they cover. The cubic-phase certificate checks the entire stated gate interval.',research+'checks/cubic_range.py','Interval checker']],
+    [['Editor','Release solution','A full solution requires the original statement, accepted mathematical and priority reviews, and a publication commit on main containing the decision and evidence.',research+'ops/pipeline_feed.py','Release checks']]
+  ],
+  cinna: [
+    [['Scout','Claim a problem','A research issue pins the exact conjecture and distinguishes nearby claims. Brown–Mol’s statement concerns roots for every tree.',cinna+'/issues/210','Assignment issue']],
+    [['Combinatorics agent','Construct a tree','The solver built a family of trees with roots inside the proposed forbidden disk. One certified member suffices to refute the universal statement.',bm+'PROOF.md','Construction']],
+    [['Analysis agent','Rederive the proof','The mathematical reviewer challenged the construction, estimates and finite witness. A coordinating review also compared the proof with the source.',bm+'ANALYSIS_REVIEW.md','Math review'],['Algebra agent','Audit priority','A separate reviewer checked previous results for the same claim. In the Kellner campaign this lane found an earlier solution by Matsuno and stopped the discovery claim.',work+'research/2026-11-21-combinatorics-kellner-excluded.md','Withdrawn claim']],
+    [['Verifier','Check the witness','An exact checker certifies a root for a 1,001-vertex tree. We replayed the checker in the cloned repository and matched its recorded output.',bm+'check-output.json','Recorded certificate']],
+    [['Coordinator','Publish and close','The reviewed package links proof, scope, independent checks and formalization status on main. The tracking issue records the handoff.',bm+'README.md','Result package']]
+  ]
+};
+const boards = [
+  ['problems','Problems','The externally posed questions admitted to our solver queue.'],
+  ['leads','Intake','Source leads awaiting admission. Several papers can mention the same problem.'],
+  ['activity','Solving','Recent solver batches and AI handoffs. Each record links to the underlying calculation or transcript.'],
+  ['candidates','Candidates','Search outputs flagged for a rigorous check.'],
+  ['partial_results','Scoped results','Findings whose assumptions cover part of a parent question. Each record states what the evidence establishes.'],
+  ['exclusions','Excluded','Correctness and originality are reviewed separately. These records explain why a claim earns zero discovery credit.'],
+  ['solutions','Solutions','Reviewed full resolutions of the original physics questions.']
+];
+const empty = {
+  candidates:['No candidate flagged','A positive numerical residual enters this queue for error-bounded verification.'],
+  solutions:['No reviewed full solutions yet','Both parent physics questions remain open in this workbench. Evidence for narrower claims is under Scoped results.']
+};
+const $ = id => document.getElementById(id);
+function element(tag, text, cls) {
+  const el = document.createElement(tag);
+  if (text !== undefined) el.textContent = text;
+  if (cls) el.className = cls;
+  return el;
+}
+function link(label, url) {
+  const a = element('a', label);
+  if (typeof url === 'string' && url.startsWith('https://')) a.href = url;
+  return a;
+}
+let system = 'ours', selected = [0,0], section = 'problems', feed;
+function map() {
+  const stations = systems[system];
+  $('ours').setAttribute('aria-pressed',system === 'ours');
+  $('cinna').setAttribute('aria-pressed',system === 'cinna');
+  $('tracks').replaceChildren();
+  stations.forEach((stages,i) => {
+    const station = element('div',undefined,'station');
+    stages.forEach(([role,title],j) => {
+      const button = element('button',undefined,'node');
+      button.append(element('small',role),document.createTextNode(title));
+      button.setAttribute('aria-pressed',i === selected[0] && j === selected[1]);
+      button.onclick = () => {
+        selected = [i,j];
+        for (const other of $('tracks').querySelectorAll('button')) other.setAttribute('aria-pressed',other === button);
+        inspect();
+      };
+      station.append(button);
+    });
+    $('tracks').append(station);
+  });
+  inspect();
+  const branch = $('branch');
+  branch.replaceChildren(element('span','If an earlier theorem settles the claim'));
+  if (system === 'ours') {
+    const button = element('button','View excluded claims');
+    button.onclick = () => {
+      if (!feed) return;
+      section='exclusions'; updateRecords();
+      $('board').scrollIntoView({block:'start'});
+      $('filters').querySelector('[aria-pressed="true"]').focus({preventScroll:true});
+    };
+    button.disabled = !feed;
+    branch.append(button);
+  } else branch.append(link('Kellner exclusion record',work+'research/2026-11-21-combinatorics-kellner-excluded.md'));
+}
+function inspect() {
+  const [,title,description,url,label] = systems[system][selected[0]][selected[1]];
+  const box = element('div',undefined,'insinner');
+  box.append(element('h3',title),element('p',description),link(label,url));
+  $('inspector').replaceChildren(box);
+}
+for (const id of ['ours','cinna']) $(id).onclick = () => {system=id; selected=[0,0]; map();};
+function record(item) {
+  const card = element('article',undefined,'record');
+  card.append(element('span',item.status.replaceAll('_',' '),'status'),element('h3',item.title));
+  card.append(element('p',item.question || item.detail));
+  if (item.decisive_test) {
+    const details = element('details');
+    details.append(element('summary','What would settle it?'),element('p',item.decisive_test));
+    card.append(details);
+  }
+  card.append(link(section === 'problems' || section === 'leads' ? 'Primary source' : 'Open evidence',item.url));
+  if (item.receipt) card.append(link('Intake record',item.receipt));
+  if (item.review_url) card.append(link('Math review',item.review_url));
+  if (item.priority_url && item.priority_url !== item.url) card.append(link('Priority audit',item.priority_url));
+  if (item.decision_url) card.append(link('Publication decision',item.decision_url));
+  const shown = new Set([...card.querySelectorAll('a')].map(a => a.href));
+  for (const [key,url] of Object.entries(item.evidence || {})) {
+    if (!shown.has(url)) { card.append(link(key.replaceAll('_',' '),url)); shown.add(url); }
+  }
+  return card;
+}
+function updateRecords() {
+  for (const button of $('filters').children) button.setAttribute('aria-pressed',button.dataset.key === section);
+  const board = $('records');
+  board.replaceChildren(element('p',boards.find(b=>b[0]===section)[2],'boardnote'));
+  if (section==='activity') board.append(element('p',feed.counts.attempts.toLocaleString()+' recorded search evaluations. Repeated states can occur.','boardnote'));
+  if (feed[section].length) {
+    const grid=element('div',undefined,'recordgrid');
+    feed[section].forEach(item=>grid.append(record(item)));
+    board.append(grid);
+  } else {
+    const box=element('div',undefined,'empty');
+    const [title,desc]= empty[section] || ['No records yet','New evidence appears here when the worker records it.'];
+    box.append(element('h3',title),element('p',desc));
+    board.append(box);
+  }
+}
+function render(data,origin) {
+  if(data.schema_version !== 1 || !data.counts || !boards.every(([key])=>Array.isArray(data[key]))) throw new Error('Unsupported feed');
+  feed=data;
+  const branchButton = $('branch').querySelector('button');
+  if(branchButton) branchButton.disabled=false;
+  $('openCount').textContent=data.problems.length;
+  $('partialCount').textContent=data.partial_results.length;
+  $('solvedCount').textContent=data.solutions.length;
+  $('fresh').textContent=origin+' · '+new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(data.updated_at));
+  $('filters').replaceChildren();
+  for(const [key,label] of boards) {
+    const button=element('button',label);
+    button.dataset.key=key;
+    button.append(element('span',String(data[key].length),'num'));
+    button.onclick=()=>{section=key;updateRecords();};
+    $('filters').append(button);
+  }
+  updateRecords();
+}
+async function getFeed(url) {
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),6000);
+  try {
+    const response=await fetch(url,{cache:'no-store',signal:controller.signal});
+    if(!response.ok) throw new Error('Feed unavailable');
+    return await response.json();
+  } finally {clearTimeout(timer);}
+}
+async function refresh() {
+  $('refresh').disabled=true;
+  try {
+    if(!feed) {
+      try {render(await getFeed('snapshot.json'),'Saved snapshot');} catch { /* Try the research branch below. */ }
+    }
+    try {
+      const data=await getFeed('https://raw.githubusercontent.com/shunyaekam/Physics-Workbench/research/campaign/pipeline.json');
+      if(!feed || Date.parse(data.updated_at)>=Date.parse(feed.updated_at)) render(data,'Research branch');
+    } catch {
+      $('fresh').textContent=feed ? 'Latest fetch unavailable · showing '+new Date(feed.updated_at).toLocaleString() : 'Campaign records unavailable. Use the Research feed link below.';
+    }
+  } finally {$('refresh').disabled=false;}
+}
+$('refresh').onclick=refresh;
+map();refresh();

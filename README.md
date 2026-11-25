@@ -1,5 +1,7 @@
 # Physics Workbench
 
+[Open the discovery pipeline](https://shunyaekam.github.io/Physics-Workbench/pipeline/) for active problems, AI handoffs, evidence and reviewed outcomes. [Read the source audit of Cinna’s system](discovery/cinna-system.md).
+
 [Browse the public research catalogue](https://shunyaekam.github.io/Physics-Workbench/) to read the manuscripts and inspect the verification scope for each result.
 
 **Reviewed full resolutions of the parent physics questions: 0.** Six working manuscripts report restricted theorems and computational results. The [current research notebook](https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/coherent-optimality.md) gives a proof candidate for local optimality at every fixed photon cutoff, a finite-witness reduction, and a counterexample search. New research and automated receipts accumulate on the [research branch](https://github.com/shunyaekam/Physics-Workbench/tree/research).
