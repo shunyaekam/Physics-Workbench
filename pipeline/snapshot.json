@@ -1,24 +1,55 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:28:16+00:00",
+  "updated_at": "2026-11-25T20:06:05+00:00",
   "counts": {
-    "leads": 3,
-    "problems": 2,
-    "attempts": 375080,
+    "leads": 4,
+    "problems": 4,
+    "attempts": 472190,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 363171,
-    "coherent-cats": 6144,
-    "coherent-bands": 1932,
-    "three-level": 3832,
-    "agent-witnesses": 1
+    "werner": 376439,
+    "coherent-cats": 6400,
+    "coherent-bands": 2026,
+    "three-level": 4024,
+    "agent-witnesses": 1,
+    "transport-polygons": 320,
+    "golay-circuits": 82980
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
+    {
+      "id": "golay43",
+      "title": "First priority \u00b7 A 43-gate Golay preparation",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+      "detail": "Direct reduction of the two-qubit gate cost of preparing an error-correcting code state. The full depth/count frontier is a larger question.",
+      "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+      "question": "Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?",
+      "decisive_test": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
+      "evidence": {
+        "catalogue": "https://openquantumproblems.com/p/A50",
+        "experiment": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+        "selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+      }
+    },
+    {
+      "id": "transport-polygon",
+      "title": "Second priority \u00b7 Quantum transport polygon bound",
+      "status": "under_investigation",
+      "url": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+      "detail": "Computes the optimal operator-norm error for approximating one quantum transport cost by lower-exponent observables.",
+      "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+      "question": "For 0 < p \u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+      "decisive_test": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
+      "evidence": {
+        "target and proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/transport-polygon.md",
+        "catalogue selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+      }
+    },
     {
       "id": "werner-endpoint",
       "title": "Undistillable entanglement",
@@ -41,6 +72,16 @@
     }
   ],
   "leads": [
+    {
+      "id": "e27-schmidt",
+      "title": "Third \u00b7 Does the sorted Schmidt basis minimize nonlocal magic?",
+      "status": "ranked_lead",
+      "url": "https://arxiv.org/html/2609.13106v2",
+      "detail": "A strict lower stabilizer entropy for a state in the same local-unitary orbit would refute Conjecture 1. Rank six and below is proved. Start at ranks seven and eight and verify any counterexample with exact unitaries and an exact Pauli fourth moment. Ranked third because the space of local bases is continuous.",
+      "evidence": {
+        "catalogue": "https://openquantumproblems.com/p/E27"
+      }
+    },
     {
       "id": "arxiv-2611.31971v1",
       "title": "Field-Dependent Kinetics, Exact Kinks, and a Moduli-Space Route from Self-Dual Yang-Mills Theory",
@@ -128,28 +169,44 @@
   "candidates": [],
   "activity": [
     {
-      "id": "round-77",
-      "title": "Research round 77",
-      "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000077.json",
-      "detail": "2,197 Werner vectors evaluated.",
-      "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T19:23:58.326637+00:00"
+      "id": "golay-search",
+      "title": "43-gate Golay circuit search",
+      "status": "under_investigation",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay43/002.json",
+      "detail": "82,980 trials. Best reverse circuit leaves 2 mixed qubits; zero is required.",
+      "problem_id": "golay43"
     },
     {
-      "id": "coherent-bands-00000061",
+      "id": "polygon-search",
+      "title": "Quantum transport polygon search",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/001.json",
+      "detail": "320 finite spectrum/exponent pairs checked across published batches.",
+      "problem_id": "transport-polygon"
+    },
+    {
+      "id": "round-80",
+      "title": "Research round 80",
+      "status": "completed",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000080.json",
+      "detail": "8,833 Werner vectors evaluated.",
+      "problem_id": "werner-endpoint",
+      "updated_at": "2026-11-25T19:59:23.459935+00:00"
+    },
+    {
+      "id": "coherent-bands-00000064",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000061.json",
-      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000064.json",
+      "detail": "31 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000060",
+      "id": "three-level-batch-00000063",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000060.json",
-      "detail": "64 states tested on photon levels 3, 4, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000063.json",
+      "detail": "64 states tested on photon levels 0, 1, 4.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
@@ -282,23 +339,35 @@
     {
       "id": "chain-98-993a76393cdb4bcf78ff00aa8",
       "title": "98-spin chain \u00b7 993A\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 529?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-98-993a76393cdb4bcf78ff00aa8.json",
+      "detail": "Starting energy 529. Best energy after exactly one, two and three flips, respectively: 593, 745, 785. All 156,948 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 785. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     },
     {
       "id": "chain-104-0f80f3c20aab1844295b6ed666",
       "title": "104-spin chain \u00b7 0F80\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 600?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-104-0f80f3c20aab1844295b6ed666.json",
+      "detail": "Starting energy 600. Best energy after exactly one, two and three flips, respectively: 772, 896, 924. All 187,565 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 924. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     },
     {
       "id": "chain-106-696d27ca748c66071eafdd1177c",
       "title": "106-spin chain \u00b7 696D\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 645?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-106-696d27ca748c66071eafdd1177c.json",
+      "detail": "Starting energy 645. Best energy after exactly one, two and three flips, respectively: 789, 893, 925. All 198,592 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 941. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     },
     {
       "id": "chain-108-f2401f3d9ff1cf46d58d96aa959",

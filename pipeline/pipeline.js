@@ -7,7 +7,7 @@ const work = cinna + '/blob/31df82431bf2d04979544b6f5c249e2e0958c788/';
 const bm = pub + 'results/brown-mol/';
 const systems = {
   ours: [
-    [['Scout','Find problems','A weekly arXiv scan captures leads. Admission requires a primary source, precise statement, decisive test and scope limits in the target register.',research+'discovery/targets.json','Target register']],
+    [['Scout','Find problems','The scout checks three open-problem catalogues and arXiv. We trace each question to its authors, look for newer solutions, and rank the cheapest tests that could settle the question.',research+'discovery/catalogue-intake.md','Sources and ranking']],
     [['Solver','Build a witness','The solver proposes a move and a fresh-context critic challenges it. In optics, a model then supplies photon amplitudes that the numerical checker actually tests. Open Solving below for the state and its two measured residuals.',research+'ops/agent_campaign.py','Solver and critic']],
     [['Math reviewer','Challenge the proof','A fresh-context critic challenges proposals. A separate mathematical review rederived our multimode result, including the constants and the mixed-state argument.',research+'checks/multimode-review.md','Math review'],['Priority reviewer','Check earlier work','Check alternate names and equivalent theorems. The weak multimode result follows from a classical Fourier inequality, so its derivation earns zero discovery credit.',research+'checks/multimode-priority.md','Priority decision']],
     [['Verifier','Replay evidence','Use exact arithmetic, error-bounded calculations or Lean for the claims they cover. The cubic-phase certificate checks the entire stated gate interval.',research+'checks/cubic_range.py','Interval checker']],
@@ -33,7 +33,7 @@ const boards = [
 ];
 const empty = {
   candidates:['No candidate flagged','A positive numerical residual enters this queue for error-bounded verification.'],
-  solutions:['No reviewed full solutions yet','Both parent physics questions remain open in this workbench. Evidence for narrower claims is under Scoped results.']
+  solutions:['No reviewed full solutions yet','The active questions remain open in this workbench. Evidence for narrower claims is under Scoped results.']
 };
 const $ = id => document.getElementById(id);
 function element(tag, text, cls) {

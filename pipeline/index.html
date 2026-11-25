@@ -6,13 +6,13 @@
 <header><div class="wrap head-inner"><a class="brand" href="../"><span class="orbit" aria-hidden="true"></span>Physics Workbench</a><nav aria-label="Main"><a href="../#catalogue">Catalogue</a><a href="./" aria-current="page">Pipeline</a><a class="repo-link" href="https://github.com/shunyaekam/Physics-Workbench/tree/research">GitHub</a></nav></div></header>
 <main class="wrap"><section class="mast"><div><p class="eyebrow"><span class="line"></span>Research operations</p><h1>Discovery <em>pipeline.</em></h1><p class="sub">Follow an open physics question from its source to a proof someone else can check.</p></div>
 <div class="score" aria-label="Campaign totals"><div><strong id="openCount">…</strong><span>Active problems</span></div><div><strong id="partialCount">…</strong><span>Scoped results</span></div><div><strong id="solvedCount">…</strong><span>Full solutions</span></div></div></section>
-<section class="primer" aria-labelledby="plainTitle"><h2 id="plainTitle">Start with a row of arrows</h2>
-<ol><li><strong>Pick a question.</strong> Each arrow points up or down. Can we arrange 13 arrows to get the lowest energy?</li>
-<li><strong>Give each row a score.</strong> Slide a copy along the row. Count matches minus mismatches, square that number, and add it up over all slides. Lower is better.</li>
-<li><strong>Try every choice.</strong> There are 8,192 rows. A program can score all of them, so the smallest score settles this exact question.</li>
-<li><strong>Check it another way.</strong> A second calculation scores the same rows by counting disagreeing bits. Both give 6. Four rows reach it.</li>
-<li><strong>Say what we learned.</strong> The 13-arrow answer was already known. For longer rows we can ask a smaller question and say exactly which changes we checked.</li></ol>
-<a href="#finite" id="viewFinite">See the spin-chain results and queue ↓</a></section>
+<section class="primer" aria-labelledby="plainTitle"><h2 id="plainTitle">Can we prepare a quantum code with one fewer gate?</h2>
+<ol><li><strong>Start with a published question.</strong> The Golay code protects quantum information. Researchers can prepare its logical zero state with 44 gates that connect pairs of qubits.</li>
+<li><strong>Set the target.</strong> Find a circuit that reaches exactly the same 23-qubit state with 43 such gates or fewer. Extra qubits and measurements are excluded.</li>
+<li><strong>Try a circuit.</strong> Remove a gate from the published design. Change the other gates, which qubits they connect, or their order.</li>
+<li><strong>Run it backwards.</strong> Start with the desired state and undo the proposed gates. If every qubit ends up on its own, free single-qubit gates can prepare the starting state.</li>
+<li><strong>Check the winner.</strong> Rebuild a candidate as a forward circuit and verify the complete output state. Until then, a trial is just a trial.</li></ol>
+<a href="#board">Browse the active problems ↓</a> · <a href="https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md">Where the questions come from</a> · <a href="#finite" id="viewFinite">Spin-chain benchmarks</a></section>
 <section class="map" aria-labelledby="mapTitle"><div class="maphead"><div><p class="over">Agent handoffs</p><h2 id="mapTitle">How a discovery moves</h2></div>
 <div class="switch" role="group" aria-label="Choose a system"><button id="ours" aria-pressed="true">Physics Workbench</button><button id="cinna" aria-pressed="false">Cinna’s system</button></div></div>
 <div class="tracks" id="tracks" aria-label="Select a workflow stage"></div><div id="inspector" aria-live="polite"></div><div class="branch" id="branch"></div></section>
