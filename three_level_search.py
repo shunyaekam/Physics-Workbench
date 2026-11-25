@@ -16,14 +16,15 @@ TRIPLES = tuple(combinations(range(6),3))
 @lru_cache(6)
 def grid(levels, radial, angular):
     nodes, weights = roots_legendre(radial)
-    x = (nodes+1)*32
-    weights = weights*32*np.exp(-x)
+    half_range = max(32, 2*max(levels)+16)
+    x = (nodes+1)*half_range
+    weights = weights*half_range*np.exp(-x)
     angle = np.exp(2j*np.pi*np.arange(angular)/angular)
-    radii = np.array([np.sqrt((2*x)**n/factorial(n)) for n in levels])
+    radii = np.array([np.sqrt((2*x)**n/float(factorial(n))) for n in levels])
     phases = np.array([angle**n for n in levels])
     diagonal = np.array([(-1)**n*eval_genlaguerre(n,0,2*x) for n in levels])
     cross = []
-    for i,j in combinations(range(3),2):
+    for i,j in combinations(range(len(levels)),2):
         m,n=levels[i],levels[j]
         coeff = (2*(-1)**m*np.sqrt(factorial(m)/factorial(n)*(2*x)**(n-m))
                  *eval_genlaguerre(m,n-m,2*x))
@@ -31,16 +32,21 @@ def grid(levels, radial, angular):
     return weights,radii,phases,diagonal,cross
 
 
-def residual(levels, coefficients, radial, angular):
+def quantities(levels, coefficients, radial, angular):
     w,r,p,d,cross=grid(levels,radial,angular)
-    c=np.asarray(coefficients,dtype=complex)
+    c=np.array(coefficients,dtype=complex,copy=True)
     c/=np.linalg.norm(c)
     husimi=np.abs(np.einsum('i,ij,ik->jk',c,r,p)).mean(axis=1)
     base=np.einsum('i,ij->j',np.abs(c)**2,d)
     W=np.broadcast_to(base[:,None],(radial,angular)).copy()
     for i,j,amp,phase in cross:
         W+=amp[:,None]*np.real(c[j]*c[i].conjugate()*phase)
-    return float(w@np.abs(W).mean(axis=1)-(w@husimi)**2)
+    return float(w@np.abs(W).mean(axis=1)), float((w@husimi)**2)
+
+
+def residual(levels, coefficients, radial, angular):
+    norm, bound = quantities(levels, coefficients, radial, angular)
+    return norm-bound
 
 
 def run(round_id):
