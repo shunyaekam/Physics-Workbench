@@ -1,4 +1,4 @@
-"""Refresh the private sparse-state manuscript after exact interval replay."""
+"""Refresh the public sparse-state manuscript after exact interval replay."""
 import hashlib
 import json
 import os
