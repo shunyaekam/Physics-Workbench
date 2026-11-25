@@ -1,0 +1,25 @@
+{
+  "partial_results": [
+    ["gagatsos-2026-c1","phase-invariant","Photon-number mixtures","The written proof covers all photon-number distributions. Lean checks the arithmetic induction.","checks/phase-invariant-wigner.md"],
+    ["gagatsos-2026-c1","optical-qubit","The zero–one-photon qubit","The proof covers pure and mixed states in the two-level optical subspace.","papers/single-rail-wigner.tex"],
+    ["gagatsos-2026-c1","renyi-orders","Rényi-order obstructions","The paper excludes orders and derives a sharp lower threshold on the optical qubit.","papers/renyi-obstructions.tex"],
+    ["gagatsos-2026-c1","sparse","Two-level superpositions","The sparse-state argument restricts possible counterexamples within levels zero to five.","papers/sparse-fock-coherence.tex"],
+    ["gagatsos-2026-c1","cubic-phase","Cubic gates up to 0.15","An interval certificate covers a continuum of weak cubic gates with arbitrary Gaussian processing.","discovery/cubic-strength.md"],
+    ["werner-endpoint","coordinate","Coordinate support conditions","The argument restricts a witness search by classifying coordinate sets with positive compression.","papers/coordinate-supports.tex"],
+    ["werner-endpoint","finite-maxima","Finite support maxima","Complete finite search certificates establish the reported support maxima for the specified instances.","papers/finite-maxima.tex"]
+  ],
+  "exclusions": [
+    {
+      "id": "multimode",
+      "problem_id": "gagatsos-2026-c1",
+      "title": "Weak multimode bound",
+      "status": "prior_art",
+      "detail": "The derivation passes mathematical review. The classical STFT change-of-window inequality already gives the claimed constant. The sharp parent question remains open.",
+      "proof": "discovery/coherent-optimality.md#a-second-check-against-the-source-question",
+      "math_review": "checks/multimode-review.md",
+      "priority_audit": "checks/multimode-priority.md",
+      "reviewed_on": "2026-11-25"
+    }
+  ],
+  "solutions": []
+}

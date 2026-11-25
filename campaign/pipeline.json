@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-25T19:09:08+00:00",
+  "counts": {
+    "leads": 4,
+    "problems": 2,
+    "attempts": 363726,
+    "candidates": 0,
+    "partial_results": 7,
+    "solutions": 0,
+    "exclusions": 1
+  },
+  "evaluations": {
+    "werner": 352138,
+    "coherent-cats": 6016,
+    "coherent-bands": 1868,
+    "three-level": 3704
+  },
+  "attempts_definition": "Recorded search evaluations across the four listed arms. Repeated states may occur.",
+  "problems": [
+    {
+      "id": "werner-endpoint",
+      "title": "Undistillable entanglement",
+      "status": "under_investigation",
+      "url": "https://oqp.iqoqi.oeaw.ac.at/undistillability-implies-ppt",
+      "detail": "Separates two fundamental notions of usable entanglement. Answering it requires reasoning about all copy counts or all candidate states.",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/undistillability-implies-ppt",
+      "question": "Does there exist a bipartite state with negative partial transpose from which no entanglement can be distilled using any finite number of copies?",
+      "decisive_test": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved."
+    },
+    {
+      "id": "gagatsos-2026-c1",
+      "title": "Wigner\u2013Husimi inequality",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2611.30969v1",
+      "detail": "The conjectured sharp bound would connect heterodyne statistics to Wigner negativity and the sampling overhead of quasiprobability simulation. The statement is recent; its long-term standing is unknown.",
+      "source": "https://arxiv.org/html/2611.30969v1",
+      "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
+      "decisive_test": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement."
+    }
+  ],
+  "leads": [
+    {
+      "id": "arxiv-2611.31971v1",
+      "title": "Field-Dependent Kinetics, Exact Kinks, and a Moduli-Space Route from Self-Dual Yang-Mills Theory",
+      "status": "unreviewed_lead",
+      "url": "https://arxiv.org/abs/2611.31971v1",
+      "detail": "Full identification of the sextic potential within a specific gauge-theory moduli dynamics remains open and is formulated as a research program.",
+      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+    },
+    {
+      "id": "arxiv-2611.31116v1",
+      "title": "A Quantum Model from the Riemann-Siegel Formula",
+      "status": "unreviewed_lead",
+      "url": "https://arxiv.org/abs/2611.31116v1",
+      "detail": "Whether every analytic zero in the lower half of the critical strip belongs to the physical spectral family remains open.",
+      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+    },
+    {
+      "id": "arxiv-2611.29650v1",
+      "title": "Improved two-way capacity upper bounds for amplitude-damping channels",
+      "status": "unreviewed_lead",
+      "url": "https://arxiv.org/abs/2611.29650v1",
+      "detail": "It improves established benchmarks over broad parameter ranges, while the exact entanglement of the generalized resources remains open.",
+      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+    },
+    {
+      "id": "arxiv-2611.31308v1",
+      "title": "A counterexample to the Ho-Hsieh VQCS saturation conjecture",
+      "status": "unreviewed_lead",
+      "url": "https://arxiv.org/abs/2611.31308v1",
+      "detail": "This disproves the strong form of a conjecture presented by Ho and Hsieh stating that the expressivity of VQCS on $L$ qubits saturates at $L/2$ layers.",
+      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+    }
+  ],
+  "partial_results": [
+    {
+      "id": "phase-invariant",
+      "title": "Photon-number mixtures",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/phase-invariant-wigner.md",
+      "detail": "The written proof covers all photon-number distributions. Lean checks the arithmetic induction.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "optical-qubit",
+      "title": "The zero\u2013one-photon qubit",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/single-rail-wigner.tex",
+      "detail": "The proof covers pure and mixed states in the two-level optical subspace.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "renyi-orders",
+      "title": "R\u00e9nyi-order obstructions",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/renyi-obstructions.tex",
+      "detail": "The paper excludes orders and derives a sharp lower threshold on the optical qubit.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "sparse",
+      "title": "Two-level superpositions",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/sparse-fock-coherence.tex",
+      "detail": "The sparse-state argument restricts possible counterexamples within levels zero to five.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "cubic-phase",
+      "title": "Cubic gates up to 0.15",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/cubic-strength.md",
+      "detail": "An interval certificate covers a continuum of weak cubic gates with arbitrary Gaussian processing.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "coordinate",
+      "title": "Coordinate support conditions",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/coordinate-supports.tex",
+      "detail": "The argument restricts a witness search by classifying coordinate sets with positive compression.",
+      "problem_id": "werner-endpoint"
+    },
+    {
+      "id": "finite-maxima",
+      "title": "Finite support maxima",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/finite-maxima.tex",
+      "detail": "Complete finite search certificates establish the reported support maxima for the specified instances.",
+      "problem_id": "werner-endpoint"
+    }
+  ],
+  "solutions": [],
+  "candidates": [],
+  "activity": [
+    {
+      "id": "round-75",
+      "title": "Research round 75",
+      "status": "completed",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000075.json",
+      "detail": "2,247 Werner vectors evaluated.",
+      "problem_id": "werner-endpoint",
+      "updated_at": "2026-11-25T18:51:24.880699+00:00"
+    },
+    {
+      "id": "coherent-bands-00000059",
+      "title": "Coherent-band screen",
+      "status": "screen_only",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000059.json",
+      "detail": "31 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "three-level-batch-00000058",
+      "title": "Three-level screen",
+      "status": "screen_only",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000058.json",
+      "detail": "64 states tested on photon levels 2, 3, 5.",
+      "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "lane-gagatsos-2026-c1-0d2d2ea554d9a90c",
+      "title": "Wigner\u2013Husimi inequality agent handoff",
+      "status": "needs_math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/gagatsos-2026-c1-0d2d2ea554d9a90c.json",
+      "detail": "AI research proposal and critique workflow.",
+      "problem_id": "gagatsos-2026-c1",
+      "updated_at": "2026-11-25T19:08:16.774949+00:00"
+    },
+    {
+      "id": "lane-werner-endpoint-7ea99313545e03f9",
+      "title": "Undistillable entanglement agent handoff",
+      "status": "needs_math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/werner-endpoint-7ea99313545e03f9.json",
+      "detail": "AI research proposal and critique workflow.",
+      "problem_id": "werner-endpoint",
+      "updated_at": "2026-11-25T19:05:30.031482+00:00"
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "multimode",
+      "title": "Weak multimode bound",
+      "status": "prior_art",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md",
+      "detail": "The derivation passes mathematical review. The classical STFT change-of-window inequality already gives the claimed constant. The sharp parent question remains open.",
+      "problem_id": "gagatsos-2026-c1",
+      "reviewed_on": "2026-11-25",
+      "review_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
+      "priority_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md",
+      "evidence": {
+        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/coherent-optimality.md#a-second-check-against-the-source-question",
+        "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
+        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md"
+      }
+    }
+  ]
+}

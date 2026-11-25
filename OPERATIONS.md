@@ -48,3 +48,21 @@ The scientific checks use Python with the pinned NumPy, SciPy and SymPy versions
 Each cycle advances certified interval covers for excited photon pairs with levels from 1 through 16, then searches one three-level subspace for a numerical violation. The sparse manuscript rebuilds its table and PDF when both amplitude orderings of an additional pair have closed and passed replay. Updated source or evidence invalidates the corresponding replay ledger. The proof of the sharp qubit threshold is archived. The [active research status](campaign/fock-pairs/status.md) and its dated copies update locally each day the Mac runs. Network access is needed to sync the public repository. Numerical three-level nominations are saved for rigorous validation.
 
 Run `python3 checks/sharp_qubit.py`, `python3 renyi_scan.py`, `python3 fock_pairs.py`, `python3 excited_pairs.py replay` and `python3 formal/replay.py` for the current proof certificates. [Details of verification](checks/optical-sprint.md)
+
+## The discovery pipeline
+
+The [public board](https://shunyaekam.github.io/Physics-Workbench/pipeline/) reads campaign/pipeline.json on the research branch. Each local cycle rebuilds the feed after searching and running the agent stage. A bundled snapshot supports the website during a feed outage. Its timestamp appears on the board.
+
+1. **Source and admit.** The weekly arXiv intake saves leads with the original source. An editor admits exact externally posed questions in discovery/targets.json, with known results, significance, a decisive experiment and a stopping rule. A third computational search family requires a corresponding adapter and dispatch update.
+2. **Propose and challenge.** The local solver receives the target and a bounded evidence excerpt. A separate fresh-context invocation of the same model tries to break its proposal. Each changed input packet can advance one stage per cycle. Prompts, model identity, critique and failures are stored in campaign/agent-lanes. A completed critique awaits mathematical review. The model has no tools or publication rights.
+3. **Search and verify.** The numerical and exact search programs run independently of agent suggestions. Flagged witnesses go into the Candidates view. Adopting a proposed search or new proof technique requires a reviewed code or proof change. Failed searches remain available as evidence.
+4. **Review correctness and prior art separately.** Record independent derivations, scope checks and searches for an earlier result with the same mathematical content. Record prior resolutions in the exclusions registry even if a proof replays. A partial result names its parent problem and its additional assumptions.
+5. **Publish.** A full resolution needs an editorial decision on main. The research ledger points to that publication commit. The feed validates the exact parent statement/source, accepted review and priority verdicts, reviewer attribution and the presence of distinct proof/review/priority artifacts in that commit. The machine checks their presence and scope fields; mathematical judgment belongs to the reviewers. See ops/pipeline_feed.py and test_pipeline_feed.py for the manifest fields and accepted/rejected examples.
+
+Replay the handoffs and board from this research checkout:
+
+```sh
+python3 ops/agent_campaign.py
+python3 ops/pipeline_feed.py
+python3 -m unittest -v test_pipeline_feed
+```
