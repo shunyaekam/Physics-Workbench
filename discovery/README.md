@@ -1,6 +1,6 @@
 # Discovery docket
 
-The sharp order-one-half conjecture now has proofs here for two classes, [arbitrary photon-number mixtures](../papers/phase-invariant-wigner.pdf) and [the full zero–one-photon qubit](../papers/single-rail-wigner.pdf). A [separate note](../papers/renyi-obstructions.pdf) bounds the possible orders for a universal extension. The order-one-half conjecture for arbitrary states remains open in the sources reviewed. The [sprint audit](../checks/optical-sprint.md) records verification scope, prior work, and differences between the claims.
+The sharp order-one-half conjecture now has proofs here for several classes, including [arbitrary photon-number mixtures](../papers/phase-invariant-wigner.pdf) and [the full zero–one-photon qubit](../papers/single-rail-wigner.pdf). The [sparse-coherence theorem](../papers/sparse-fock-coherence.pdf) covers additional two-level subspaces. A [separate note](../papers/renyi-obstructions.pdf) bounds the possible orders for a universal extension. The order-one-half conjecture for arbitrary states remains open in the sources reviewed. The [sprint audit](../checks/optical-sprint.md) records verification scope, prior work, and differences between the claims.
 
 ## From a lead to a result
 

@@ -45,6 +45,6 @@ The scientific checks use Python with the pinned NumPy, SciPy and SymPy versions
 
 ## Optical entropy sprint
 
-Each ten-minute worker cycle also advances an interval proof on the optical qubit at orders from 0.29 through 0.50. It writes the next disjoint cells, their universal sign, and the unfinished stack. The analytic argument in the Rényi paper covers squared amplitude ratios of 24 and above. Read the [current status](campaign/single-rail/status.md). The first available cycle on each local date creates or updates that date’s report. On a sleeping or offline Mac, the local schedule and remote upload resume when available.
+Each cycle advances certified interval covers for excited photon pairs with levels from 1 through 16, then searches one three-level subspace for a numerical violation. The proof of the sharp qubit threshold is archived. The [active research status](campaign/fock-pairs/status.md) and its dated copies update locally each day the Mac runs. Network access is needed to sync the private repository. Numerical three-level nominations are saved for rigorous validation.
 
-Run `python3 renyi_scan.py`, `python3 single_rail_regions.py`, `python3 order_bands.py replay` and `python3 formal/replay.py` to reproduce the finite tables, continuum cover, ongoing band and named Lean certificates.
+Run `python3 checks/sharp_qubit.py`, `python3 renyi_scan.py`, `python3 fock_pairs.py`, `python3 excited_pairs.py replay` and `python3 formal/replay.py` for the current proof certificates. [Details of verification](checks/optical-sprint.md)

@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[left=0.9in,right=0.9in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{hidelinks}
+\newtheorem{theorem}{Theorem}
+\title{Heterodyne bounds on Wigner negativity for sparse photon-number superpositions}
+\author{Physics Workbench\\\small AI-assisted research note}
+\date{November 25, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We prove the sharp order-one-half Wigner--Husimi inequality on each subspace spanned by vacuum and a fixed photon count $n=2,3,4,5$. Arbitrary coherences and mixtures are allowed. A positive angular series bounds the coherent amplitude from below. Angular quadrature with a known sign of error bounds Wigner negativity from above. A separate inequality handles states arbitrarily close to vacuum.
+\end{abstract}
+\begin{theorem}
+For each $n\in\{2,3,4,5\}$ and every density matrix supported on $\operatorname{span}\{|0\rangle,|n\rangle\}$, one has $\|W\|_1\le(\int\sqrt Q\,dx\,dp)^2/(8\pi)$ in the convention $[x,p]=i$ of Gagatsos \cite{gag}. Equality holds only at vacuum.
+\end{theorem}
+These are four two-dimensional Hilbert spaces. Convexity also permits mixtures across sectors. A coherent superposition of three different photon counts requires a separate argument.
+
+\section{Two angular means}
+In complex phase space $z=(x+ip)/\sqrt2$ write a pure state as $(b|0\rangle+|n\rangle)/\sqrt{1+b^2}$, $b\ge0$. A phase rotation absorbs the relative phase. For unit exponential $X$ and independent uniform angle $\theta$, set
+\[
+ r=(2X)^{n/2}/\sqrt{n!},\quad D_n=(-1)^nL_n(2X),\quad
+ M=\mathbb E|b+r e^{i\theta}|,\quad V=\mathbb E|b^2+D_n+2br\cos\theta|.
+\]
+The physical comparison after multiplication by $1+b^2$ is $V\le M^2$. The normalized square root of the vacuum Husimi density gives $X=|z|^2/2$ the unit exponential law. The vacuum Wigner density gives $X=2|z|^2$ the same law. Dividing by the vacuum Wigner function yields off-diagonal polynomial $(2z)^n/\sqrt{n!}$ up to conjugation and diagonal $(-1)^nL_n(4|z|^2)$ by the displaced-parity matrix elements. Multiplying a uniform polar angle by $n$ preserves its law modulo $2\pi$.
+
+Write $J(A,B)=\mathbb E_\theta|A+B\cos\theta|$. Twice the mean negative part equals $J(A,B)-A$, decreasing in signed $A$ and increasing in $B\ge0$ by convexity and symmetry. Also $J=\mathbb E_\theta\max(|A|,B|\cos\theta|)$. For $v=\max(b,r)$ and $u=\min(b,r)$ set
+\[
+ L(b,r)=v+u^2/(4v)+u^4/(64v^3),\qquad L(0,0)=0 .
+\]
+The first three squared coefficients in the angular binomial expansion of $|1+(u/v)e^{i\theta}|$ give this lower bound for the angular Husimi amplitude; the equal-radius case follows by continuity. $L$ increases in both inputs and $L-b$ decreases in $b$ by differentiation of the two branches. Put $g=M-b$ and $2d=V-(1+b^2)$. The latter is twice the expected negative part, by normalization of the signed Wigner integral. It suffices to show $2bg+g^2>1+2d$.
+
+\section{Certificates for the entire amplitude range}
+For photon counts $2,3,4,5$ respectively take $B=16,32,64,192$. Bisect intervals in $0\le b\le B$. On $b\in[l,h]$, integrate $L(h,r)-h$ as a lower bound for $g$. Evaluate the radius at its lower cell endpoint here. To upper-bound $2d$ on a radial cell use $A=l^2+\min D_n$ and $2h\max r$ in $J(A,2h\max r)-A$. The left Riemann sum with 64 equal angular cells on the first quadrant bounds the angular maximum integral from above since cosine decreases. Each cosine is bounded above by its degree-12 Taylor polynomial at the smaller angle obtained with $333/106<\pi$. Radial cells of width $1/128$ partition $0\le X\le32$. Exact Bernstein coefficients enclose $D_n$ on each cell. Differences of exponentials enclose the cell masses. Compare $2lg_{\rm low}+g_{\rm low}^2$ with $1+2d_{\rm high}$.
+
+Completing the square shows that the integrand of the negative part is bounded by $(r^2-D_n)_+$. On the discarded radial tail use absolute polynomial coefficients and $\int_T^\infty e^{-x}x^k dx=e^{-T}k!\sum_{j=0}^k T^j/j!$. Discard the nonnegative Husimi increment there.
+
+For all $b\ge B$ the same angular series gives
+\[
+ M^2-b^2\ge\tfrac12\mathbb E[r^2\mathbf 1_{r\le B}],\qquad
+ 2d\le2\mathbb E\!\left[(r^2-D_n-(B-r)_+^2)_+\right].
+\]
+The first inequality follows by retaining the term $r^2/(4b)$ on $r\le B$. The second uses $(b-r)^2\ge(B-r)_+^2$. On each of the four tails the same radial partition proves that the first lower bound exceeds one plus the second upper bound.
+
+The compact certificates have 46, 51, 76 and 200 terminal amplitude intervals respectively. The checker uses exact fractions to construct polynomial enclosures, fixed-point integers rounded outward for the sums, and outward neighbors of correctly rounded exponentials. Running \texttt{python3 fock\_pairs.py} rebuilds every split and tail. Vacuum realizes equality. Convexity of the Wigner norm and concavity of the squared square-root Husimi integral extend the strict bound to every nonvacuum mixture \cite{gag}.
+
+\paragraph{Two excited levels.}
+For $1\le m<n$, replace the amplitudes by $br_m,r_n$, the diagonal by $b^2D_m+D_n$, and $br$ in the Wigner cross term by $b(-1)^m\sqrt{m!/n!}(2X)^{(n-m)/2}L_m^{(n-m)}(2X)$. Rotation again absorbs the relative phase. The ongoing checker bounds the angular integrals over $0\le b\le1$ in each of the two amplitude orderings. A subspace is certified when both covers close. Both amplitude orderings close for every $1le m<nle5$. Together with the single-rail proof and the vacuum results above, this yields a physical consequence. Within levels $0,ldots,5$, every mixture of pure states each occupying at most two photon numbers obeys the conjecture. Any violation in this six-level space must therefore have photon-number coherence number at least three (the least maximum support size in a pure-state decomposition). The current search extends the excited-level comparisons through level 16; the archived receipts specify which further cases have closed.
+\begin{thebibliography}{9}
+\bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Conjecture 1 and Proposition 1 (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.
+\end{thebibliography}
+\end{document}

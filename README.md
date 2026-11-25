@@ -2,7 +2,7 @@
 
 [Discovery docket and evidence levels](discovery/README.md) · [Screened external targets](discovery/targets.json) · [Lean formalization coverage](formal/receipt.json)
 
-Three research notes address Gagatsos’s Wigner–Husimi proposal. The [single-rail paper](papers/single-rail-wigner.pdf) proves the conjecture for coherent and mixed optical qubits. The [Rényi-order paper](papers/renyi-obstructions.pdf) proves exclusions and gives lower-order positive results. Read the [audit and sprint results](checks/optical-sprint.md) and [overnight research status](campaign/single-rail/status.md).
+Four research notes address Gagatsos’s Wigner–Husimi proposal. The [single-rail paper](papers/single-rail-wigner.pdf) proves the conjecture for coherent and mixed optical qubits. The [Rényi-order paper](papers/renyi-obstructions.pdf) proves exclusions and gives lower-order positive results. The [sparse-state paper](papers/sparse-fock-coherence.pdf) proves that a violation within levels zero to five requires at least three-level coherence. Read the [audit and sprint results](checks/optical-sprint.md) and [overnight research status](campaign/fock-pairs/status.md).
 
 The [phase-invariant light paper](papers/phase-invariant-wigner.pdf) proves the sharp Wigner–Husimi bound for every photon-number-diagonal state. Read the [verification and prior-art review](checks/phase-invariant-wigner.md) for its scope and replay commands. Earlier work includes the [coordinate-support theorem](papers/coordinate-supports.pdf), [certified finite maxima](papers/finite-maxima.pdf), [referee audit](checks/referee-audit.md), and [scheduler and replay instructions](OPERATIONS.md). Fresh research receipts appear in [campaign/rounds](campaign/rounds).
 
