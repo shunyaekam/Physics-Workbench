@@ -103,6 +103,18 @@ def build(root, now):
 
     ledger = load(root/"discovery/pipeline-results.json")
     exclusions = []
+    for decision in ledger.get("screened_leads", []):
+        # A paper can also pose a different open problem. Match the exact
+        # captured question before withdrawing this particular lead.
+        matches = [item for item in leads if item["id"] == decision["id"]
+                   and source_key(item["url"]) == source_key(decision["source"])
+                   and item["detail"] == decision["captured_question"]]
+        if matches:
+            item = matches[0]
+            leads.remove(item)
+            exclusions.append(row(item["id"], decision["title"], "prior_counterexample",
+                                  artifact(root,decision["audit"]), decision["detail"],
+                                  evidence={"source":item["url"]}, receipt=item["receipt"]))
     for claim in ledger.get("exclusions", []):
         require(claim["problem_id"] in targets and claim["status"] == "prior_art", "Invalid excluded claim")
         evidence = {key: artifact(root,claim[key]) for key in ("proof","math_review","priority_audit")}
@@ -125,7 +137,7 @@ def build(root, now):
         if problem["id"] in solved:
             problem["status"] = "reviewed_resolution"
 
-    counts = {"werner":0, "coherent-cats":0, "coherent-bands":0, "three-level":0}
+    counts = {"werner":0, "coherent-cats":0, "coherent-bands":0, "three-level":0, "agent-witnesses":0}
     def record(path, ident, title, status, detail, pid, flag=False, date=None):
         item = row(ident,title,status,artifact(root,str(path.relative_to(root))),detail,problem_id=pid)
         if date:
@@ -175,14 +187,28 @@ def build(root, now):
         lane = load(file)
         pid = lane["problem_id"]
         require(pid in targets,"Unknown lane target")
+        status = lane["status"]
+        detail = "AI research proposal and critique workflow."
+        flag = False
+        if status in ("witness_screened","needs_rigorous_enclosure"):
+            attempt = lane["witness_attempt"]
+            checks = attempt["checks"]
+            require(len(checks)==2 and attempt["status"]==status,"Missing model-witness refinements")
+            flag = any(check["residual"] > 0 for check in checks)
+            require(flag == (status=="needs_rigorous_enclosure"),"Model witness classification mismatch")
+            levels = [str(t["level"]) for t in attempt["state"]["components"]]
+            detail = (f"Model-selected levels {', '.join(levels)}. Refined Wigner minus Husimi residuals "
+                      f"{checks[0]['residual']:+.6g} and {checks[1]['residual']:+.6g}.")
+            counts["agent-witnesses"] += 1
+        elif status=="witness_rejected":
+            detail = "The proposed state failed input validation. " + lane["witness_attempt"]["reason"]
         lane_rows.append(record(file,"lane-"+file.stem,TITLES.get(pid,pid)+" agent handoff",
-                           lane["status"],"AI research proposal and critique workflow.",
-                           pid,date=lane["updated_at"]))
+                                status,detail,pid,flag,date=lane["updated_at"]))
     activity.extend(sorted(lane_rows,key=lambda x:x["updated_at"],reverse=True)[:4])
 
     return dict(schema_version=1,updated_at=now,counts=dict(leads=len(leads),problems=len(problems),
         attempts=sum(counts.values()),candidates=len(candidates),partial_results=len(partial),solutions=len(solutions),exclusions=len(exclusions)),
-        evaluations=counts,attempts_definition="Recorded search evaluations across the four listed arms. Repeated states may occur.",
+        evaluations=counts,attempts_definition="Recorded search evaluations across the listed arms. Repeated states may occur.",
         problems=problems,leads=leads,partial_results=partial,solutions=solutions,
         candidates=candidates,activity=activity,exclusions=exclusions)
 

@@ -6,6 +6,7 @@ import tempfile
 import unittest
 
 from ops.pipeline_feed import OPTICAL, build
+from ops.agent_campaign import evaluate_state
 
 
 class PipelineFeedTest(unittest.TestCase):
@@ -46,6 +47,25 @@ class PipelineFeedTest(unittest.TestCase):
         self.put("campaign/coherent-bands/00000001.json",dict(levels=[0,3],tested=-1,status="accepted"))
         with self.assertRaises(ValueError):
             self.report()
+
+    def test_generated_witness_validation_and_refinement(self):
+        terms = [dict(level=i,real=1,imag=0) for i in (3,0,1)]
+        checks = evaluate_state(dict(components=terms))
+        self.assertEqual([c["radial"] for c in checks],[256,512])
+        self.assertTrue(all(c["residual"] == c["wigner_norm"]-c["husimi_bound"] for c in checks))
+        for bad in (dict(level=25,real=1,imag=0),dict(level=4,real=True,imag=1),
+                    dict(level=4,real=0,imag=0),dict(level=1,real=2,imag=1)):
+            with self.assertRaises(ValueError):
+                evaluate_state(dict(components=terms+[bad]))
+
+    def test_generated_positive_is_only_a_candidate(self):
+        self.put("campaign/agent-lanes/optical.json",dict(problem_id=OPTICAL,updated_at="2026-01-01",
+            status="needs_rigorous_enclosure",witness_attempt=dict(status="needs_rigorous_enclosure",
+            state=dict(components=[dict(level=i,real=1,imag=0) for i in range(3)]),
+            checks=[dict(residual=0.001),dict(residual=-0.001)])))
+        r = self.report()
+        self.assertEqual((r["counts"]["attempts"],r["counts"]["candidates"],r["counts"]["solutions"]),(1,1,0))
+        self.assertEqual(r["activity"][0]["id"],r["candidates"][0]["id"])
 
     def test_prior_art_disposition_preserves_parent(self):
         excluded = dict(id="multimode",problem_id=OPTICAL,title="Scoped claim",status="prior_art",

@@ -75,7 +75,21 @@ def run():
     git("add","--","campaign","papers")
     if git("diff","--cached","--quiet",check=False).returncode==1:
         git("commit","-qm","Advance audited physics search and update working papers")
-    git("push","-u","origin","HEAD:research")
+    published = git("push","-u","origin","HEAD:research",check=False)
+    if published.returncode:
+        # An editor may publish to research while a long search is running.
+        # Retain both histories. Conflicting authored edits need reconciliation.
+        git("fetch","origin","research","main")
+        merge = git("merge","--no-edit","origin/research",check=False)
+        if merge.returncode:
+            conflicts = git("diff","--name-only","--diff-filter=U").stdout.splitlines()
+            if conflicts != ["campaign/pipeline.json"]:
+                git("merge","--abort",check=False)
+                raise RuntimeError("Research branch conflict; both histories preserved")
+            call([sys.executable,"ops/pipeline_feed.py"])
+            git("add","--","campaign/pipeline.json")
+            git("commit","--no-edit")
+        git("push","-u","origin","HEAD:research")
     local=Path(json.loads((SERVICE/"settings.json").read_text())["editable"])
     synchronize(ref,local,"main")
     synchronize(ref,local/".runtime"/"research","research")

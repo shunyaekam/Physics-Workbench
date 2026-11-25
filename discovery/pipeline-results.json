@@ -21,5 +21,15 @@
       "reviewed_on": "2026-11-25"
     }
   ],
+  "screened_leads": [
+    {
+      "id": "arxiv-2611.31308v1",
+      "source": "https://arxiv.org/abs/2611.31308v1",
+      "captured_question": "This disproves the strong form of a conjecture presented by Ho and Hsieh stating that the expressivity of VQCS on $L$ qubits saturates at $L/2$ layers.",
+      "title": "Strong Ho–Hsieh circuit saturation conjecture",
+      "detail": "Jiang’s four-qubit counterexample already disproves the strong claim captured by our scanner. The source distinguishes a narrower ground-state question.",
+      "audit": "discovery/sources/ho-hsieh.md"
+    }
+  ],
   "solutions": []
 }

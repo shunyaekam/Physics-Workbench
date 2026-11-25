@@ -1,0 +1,9 @@
+# Ho–Hsieh circuit saturation
+
+**Intake decision · 25 November 2026.** Archive the strong saturation conjecture as an existing external disproof. The weekly feed surfaced Edward Jiang’s counterexample paper. Workbench receives zero discovery credit. [Intake batch](../../campaign/intake/2026-W48.json) · [Jiang v1, 22 November 2026](https://arxiv.org/html/2611.31308v1)
+
+**Target match.** For an even periodic spin chain of length $L$, start with all spins in the $+1$ eigenstate of $X$ and alternate the uniform Ising interaction and transverse field. Ho and Hsieh asked whether every state prepared at any depth could also be prepared with $L/2$ layers after rechoosing all angles. Appendix D gives the explicit quantifiers and circuit order. [Original v4, Appendix D, Eqs. 29–30](https://arxiv.org/pdf/1803.00026v4#page=14) · [Journal article](https://doi.org/10.21468/SciPostPhys.6.3.029)
+
+**Witness.** Jiang uses precisely this ansatz with $L=4$. Proposition 2 gives three layers of angles that prepare the target in Eq. 5. In Proposition 1 the necessary two-layer conditions force the same phase to equal both $+1$ and $-1$. Thus the same state is attainable at three layers and unreachable at $L/2=2$. This single instance refutes the strong universal statement. This audit checks the identity and scope of the published argument. [Jiang, Section 2](https://arxiv.org/html/2611.31308v1#S2)
+
+**Remaining questions.** The weak statement asks specifically about exact preparation of an Ising ground state at each transverse-field strength. An arbitrary reachable state can violate strong saturation while all the required ground states remain reachable. Jiang describes the weak statement as open and leaves extension of the obstruction to even $L\ge6$ unaddressed. Those would require separate prior-art checks before admission. [Jiang, conclusion](https://arxiv.org/html/2611.31308v1#S3)
