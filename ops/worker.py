@@ -24,7 +24,7 @@ def git(*args,**options):
     return call(["git",*args],**options)
 
 
-def synchronize(ref,local):
+def synchronize(ref,local,branch):
     # Only fast-forward the user's editable checkout, with no staged or
     # modified tracked files. Never stage user work or force a push.
     if not local.is_dir() or local.resolve()==RUNTIME:
@@ -32,22 +32,28 @@ def synchronize(ref,local):
     options=dict(root=local)
     if git("remote","get-url","origin",**options).stdout.strip()!=ref:
         return
-    if git("branch","--show-current",**options).stdout.strip()!="main":
+    if git("branch","--show-current",**options).stdout.strip()!=branch:
         return
     if git("status","--porcelain","--untracked-files=no",**options).stdout.strip():
         print("Editable checkout has local changes; its working files were preserved.")
         return
-    git("fetch","origin","main",**options)
-    git("merge","--ff-only","origin/main",**options)
+    git("fetch","origin",branch,**options)
+    git("merge","--ff-only","origin/"+branch,**options)
 
 
 def run():
     ref=git("remote","get-url","origin").stdout.strip()
-    fetched=git("fetch","origin","main",check=False).returncode==0
+    branch=git("branch","--show-current").stdout.strip()
+    if branch=="main":
+        # Rename the dedicated legacy branch in place to preserve pending batches.
+        git("branch","-m","research")
+    elif branch!="research":
+        raise RuntimeError("Unexpected branch in dedicated checkout")
+    fetched=git("fetch","origin","research",check=False).returncode==0
     if fetched:
         # The dedicated checkout can have completed local batches pending push.
-        if git("merge-base","--is-ancestor","origin/main","HEAD",check=False).returncode:
-            merge=git("merge","--no-edit","origin/main",check=False)
+        if git("merge-base","--is-ancestor","origin/research","HEAD",check=False).returncode:
+            merge=git("merge","--no-edit","origin/research",check=False)
             if merge.returncode:
                 git("merge","--abort",check=False)
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
@@ -63,9 +69,10 @@ def run():
     git("add","--","campaign","papers")
     if git("diff","--cached","--quiet",check=False).returncode==1:
         git("commit","-qm","Advance audited physics search and update working papers")
-    git("push","origin","HEAD:main")
+    git("push","-u","origin","HEAD:research")
     local=Path(json.loads((SERVICE/"settings.json").read_text())["editable"])
-    synchronize(ref,local)
+    synchronize(ref,local,"main")
+    synchronize(ref,local/".runtime"/"research","research")
 
 
 if __name__=="__main__":

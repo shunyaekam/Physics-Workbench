@@ -16,7 +16,7 @@ PLIST=HOME/"Library/LaunchAgents"/(LABEL+".plist")
 SERVICE.mkdir(parents=True,exist_ok=True)
 ref=subprocess.check_output(["git","remote","get-url","origin"],cwd=ROOT,text=True).strip()
 if not RUNTIME.exists():
-    subprocess.run(["git","clone","--branch","main",ref,str(RUNTIME)],check=True)
+    subprocess.run(["git","clone","--branch","research",ref,str(RUNTIME)],check=True)
 else:
     existing=subprocess.check_output(["git","remote","get-url","origin"],cwd=RUNTIME,text=True).strip()
     if existing!=ref:
