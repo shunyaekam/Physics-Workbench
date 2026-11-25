@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T21:00:31+00:00",
+  "updated_at": "2026-11-25T21:13:09+00:00",
   "counts": {
     "leads": 4,
     "problems": 4,
-    "attempts": 731465,
+    "attempts": 734023,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
     "exclusions": 2
   },
   "evaluations": {
-    "werner": 394085,
-    "coherent-cats": 6912,
-    "coherent-bands": 2185,
-    "three-level": 4342,
+    "werner": 396292,
+    "coherent-cats": 7040,
+    "coherent-bands": 2217,
+    "three-level": 4405,
     "agent-witnesses": 1,
-    "transport-polygons": 960,
+    "transport-polygons": 1088,
     "golay-circuits": 322980
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
@@ -180,33 +180,33 @@
       "id": "polygon-search",
       "title": "Quantum transport polygon search",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/006.json",
-      "detail": "960 finite spectrum/exponent pairs checked across published batches.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/007.json",
+      "detail": "1088 finite spectrum/exponent pairs checked across published batches.",
       "problem_id": "transport-polygon"
     },
     {
-      "id": "round-85",
-      "title": "Research round 85",
+      "id": "round-86",
+      "title": "Research round 86",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000085.json",
-      "detail": "2,216 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000086.json",
+      "detail": "2,207 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T21:00:29.494297+00:00"
+      "updated_at": "2026-11-25T21:13:07.025465+00:00"
     },
     {
-      "id": "coherent-bands-00000069",
+      "id": "coherent-bands-00000070",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000069.json",
-      "detail": "32 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000070.json",
+      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000068",
+      "id": "three-level-batch-00000069",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000068.json",
-      "detail": "63 states tested on photon levels 0, 3, 4.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000069.json",
+      "detail": "63 states tested on photon levels 0, 3, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
@@ -445,9 +445,13 @@
     {
       "id": "chain-118-e003fb9f87c674e5cd6d34ccb2ad54",
       "title": "118-spin chain \u00b7 E003\u2026",
-      "status": "queued",
-      "url": "https://arxiv.org/html/2504.00987v1#S4.T2",
-      "detail": "Can one, two or three flips beat the published energy of 807?"
+      "status": "exact_neighborhood",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-118-e003fb9f87c674e5cd6d34ccb2ad54.json",
+      "detail": "Starting energy 807. Best energy after exactly one, two and three flips, respectively: 879, 1023, 1087. All 273,938 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 1087. A recorded path attains it.",
+      "evidence": {
+        "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
+        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+      }
     }
   ]
 }
