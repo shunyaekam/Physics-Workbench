@@ -56,6 +56,7 @@ def run():
     call([sys.executable,"formal/replay.py"])
     call([sys.executable,"excited_pairs.py","advance"],timeout=240)
     call([sys.executable,"three_level_search.py","advance"],timeout=120)
+    call([sys.executable,"refresh_sparse_note.py"],timeout=180)
     call([sys.executable,"continuous.py","run"],timeout=480)
     call([sys.executable,"review_papers.py"],timeout=240)
     call([sys.executable,"literature.py"],timeout=210)
