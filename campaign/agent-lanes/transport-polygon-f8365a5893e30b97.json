@@ -15,7 +15,7 @@
   },
   "model": "llama3.2:3b",
   "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
-  "status": "critique_pending",
+  "status": "needs_math_review",
   "proposal": {
     "prompt": "You are the solver. Use only the supplied facts. Suggest one precise falsifiable witness or lemma for the ORIGINAL question. Identify its logical scope and a reproducible failure test. Never assume execution.\n{\"question\": \"For 0 < p \\u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?\", \"source\": \"https://evidencepress.org/releases/quantum-transport-cost-cones/\", \"locator\": \"Pitchford, Conjecture 7.7 and Proposition 7.5, release v0.1.0-candidate\", \"experiment\": \"Enumerate every polygon chain for integer spectra and exponents, then solve the difference constraints exactly. Save labels; verify each pair. Audit every ordering for a small obstruction.\", \"known\": \"Author proves three levels in this regime. The literal q < 1 single-function clause fails on a 3\\u20134\\u20135 triangle; it leaves this q > 1 target open.\", \"scope\": \"A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.\", \"evidence_path\": null, \"evidence_excerpt\": \"\", \"evidence_sha\": \"12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126\"}",
     "text": {
@@ -27,5 +27,16 @@
     "tokens_in": 337,
     "tokens_out": 144
   },
-  "updated_at": "2026-11-25T20:35:56.457229+00:00"
+  "updated_at": "2026-11-25T20:48:12.950055+00:00",
+  "critique": {
+    "prompt": "You are a skeptical mathematical reviewer in a fresh context. Test this untrusted proposal against the original question. Work out a special case, check quantifiers and name the first unsupported step. Report what must be verified by an exact checker. You cannot execute or browse.\n[{\"question\": \"For 0 < p \\u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?\", \"source\": \"https://evidencepress.org/releases/quantum-transport-cost-cones/\", \"locator\": \"Pitchford, Conjecture 7.7 and Proposition 7.5, release v0.1.0-candidate\", \"experiment\": \"Enumerate every polygon chain for integer spectra and exponents, then solve the difference constraints exactly. Save labels; verify each pair. Audit every ordering for a small obstruction.\", \"known\": \"Author proves three levels in this regime. The literal q < 1 single-function clause fails on a 3\\u20134\\u20135 triangle; it leaves this q > 1 target open.\", \"scope\": \"A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.\", \"evidence_path\": null, \"evidence_excerpt\": \"\", \"evidence_sha\": \"12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126\"}, {\"target_implication\": \"(p <= 1 \\u2227 q > 1) \\u2192 (\\u2203x. (spectrum x = p \\u2227 exp(x) is a bound for the polygon chain))\", \"proposed_object\": \"[1,2]\", \"derivation\": \"(spectrum[0] = 1 \\u2227 spectrum[1] = 2)\", \"decisive_check\": \"for all positive integers i and j (spectrum[i] = p \\u2227 exp(i) is a bound for the polygon chain), if exp(j) is a bound for the polygon chain, then spectrum[j] = q.} \"}]",
+    "text": {
+      "scope_mismatch": "The scope of the conjecture does not align with the proposed derivation.",
+      "counterexample_attempt": "An exact checker needs to verify that there exists an integer $i$ and a positive integer $j$ such that $\text{spectrum}[i] = p$, $\text{exp}(i) = q$, and exp(j) is not a bound for the polygon chain. ",
+      "weakest_step": "Name: 'If $p \u2264 1$ then $q > 1$, then there exists an integer $i$ such that $\text{spectrum}[i] = p$ and $\text{exp}(i) = q$.']",
+      "replay_needed": "An exact checker must verify this weak point to ensure the conjecture is true."
+    },
+    "tokens_in": 495,
+    "tokens_out": 174
+  }
 }
