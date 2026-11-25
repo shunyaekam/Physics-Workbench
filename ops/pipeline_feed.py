@@ -119,6 +119,7 @@ def build(root, now):
         partial.append(result)
     solutions = [published_solution(root,s,targets) for s in ledger["solutions"]]
     solved = {s["id"] for s in solutions}
+    require(len(solved) == len(solutions), "Duplicate full resolution for the same target")
     require(len(solved)==len(solutions),"Duplicate full resolution")
     for problem in problems:
         if problem["id"] in solved:

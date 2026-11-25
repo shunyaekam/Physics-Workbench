@@ -49,7 +49,7 @@ def run():
         git("branch","-m","research")
     elif branch!="research":
         raise RuntimeError("Unexpected branch in dedicated checkout")
-    fetched=git("fetch","origin","research",check=False).returncode==0
+    fetched=git("fetch","origin","research","main",check=False).returncode==0
     if fetched:
         # The dedicated checkout can have completed local batches pending push.
         if git("merge-base","--is-ancestor","origin/research","HEAD",check=False).returncode:
