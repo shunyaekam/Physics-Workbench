@@ -1,0 +1,31 @@
+{
+  "problem_id": "e27-schmidt",
+  "source": "https://arxiv.org/html/2609.13106v2",
+  "input_hash": "959b891423c6a7bb3ded1e3d56803bee1a5883564a0e46459320145ae4b3756a",
+  "context": {
+    "question": "For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-R\u00e9nyi entropy over independent local unitaries?",
+    "source": "https://arxiv.org/html/2609.13106v2",
+    "locator": "Sierant, Conjecture 1, equations 3\u20136. Open Quantum Problems E27.",
+    "experiment": "Prove the missing overlap inequalities for seven-dimensional supports and validate the exact certificate.",
+    "known": "Sierant proves the dyadic-staircase and rank-at-most-six cases. Our working paper gives a scoped rank-seven result for external review.",
+    "scope": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
+    "evidence_path": null,
+    "evidence_excerpt": "",
+    "evidence_sha": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+  },
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "status": "critique_pending",
+  "proposal": {
+    "prompt": "You are the solver. Use only the supplied facts. Suggest one precise falsifiable witness or lemma for the ORIGINAL question. Identify its logical scope and a reproducible failure test. Never assume execution.\n{\"question\": \"For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-R\\u00e9nyi entropy over independent local unitaries?\", \"source\": \"https://arxiv.org/html/2609.13106v2\", \"locator\": \"Sierant, Conjecture 1, equations 3\\u20136. Open Quantum Problems E27.\", \"experiment\": \"Prove the missing overlap inequalities for seven-dimensional supports and validate the exact certificate.\", \"known\": \"Sierant proves the dyadic-staircase and rank-at-most-six cases. Our working paper gives a scoped rank-seven result for external review.\", \"scope\": \"Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.\", \"evidence_path\": null, \"evidence_excerpt\": \"\", \"evidence_sha\": \"12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126\"}",
+    "text": {
+      "target_implication": "For every bipartite pure state of qubits, the sorted computational-basis Schmidt representative minimizes the stabilizer 2-R\u00e9nyi entropy over independent local unitaries.",
+      "proposed_object": "A bipartite pure state of qubits with specific parameters (e.g. rank=7, register size=n)",
+      "derivation": "If the sorted computational-basis Schmidt representative does not minimize the stabilizer 2-R\u00e9nyi entropy for this object, then the statement is false.",
+      "decisive_check": "Verify that there exists a counterexample with specific parameters (e.g. rank=7, register size=n) such that the sorted computational-basis Schmidt representative does not minimize the stabilizer 2-R\u00e9nyi entropy."
+    },
+    "tokens_in": 300,
+    "tokens_out": 190
+  },
+  "updated_at": "2026-11-25T23:05:12.893240+00:00"
+}
