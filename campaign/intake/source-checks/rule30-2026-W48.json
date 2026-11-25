@@ -1,0 +1,9 @@
+{
+  "checked": "2026-11-25",
+  "discovery_source": "https://www.openproblems.net/",
+  "revision": "5bda6abfa602abee0500700f4c2d60da44cf8ec5",
+  "changed_since_previous_check": false,
+  "review": "screened_revision",
+  "catalog": "https://github.com/WolframInstitute/Rule30PrizeKit/blob/5bda6abfa602abee0500700f4c2d60da44cf8ec5/equivalents/README.md",
+  "changes_since_screening": "https://github.com/WolframInstitute/Rule30PrizeKit/compare/5bda6abfa602abee0500700f4c2d60da44cf8ec5...5bda6abfa602abee0500700f4c2d60da44cf8ec5"
+}

@@ -27,3 +27,5 @@ At round ten, the best four-copy witness (5/7788) had 1, 1, 8 and 1 distinct loc
 | Wigner–Husimi residuals | Coherent and squeezed-vacuum controls, odd-cat single-photon limit and refined floating-point quadrature | Triage only. Positive candidates require rigorous integration enclosures and independently checked physical conventions. |
 
 See [the live dossiers](targets.json) and [the Lean receipt](../formal/receipt.json). Run `python3 formal/replay.py` with the pinned Lean toolchain and `python3 continuous.py audit` for the existing exact arithmetic audits. The formal code imports Lean core. Both declarations report propositional extensionality as their sole axiom. Bend2 is another proof environment and has no role in these results.
+
+[OpenProblems.net screening](sources/openproblems.md) traces a Rule 30 proof lead to its sponsor and records dispositions for Yang–Mills and Navier–Stokes. The literature worker checks the Rule 30 kit revision weekly.
