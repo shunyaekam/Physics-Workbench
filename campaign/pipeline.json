@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T23:05:13+00:00",
+  "updated_at": "2026-11-25T23:06:30+00:00",
   "counts": {
     "leads": 3,
     "problems": 5,
-    "attempts": 53280208787,
+    "attempts": 53280217427,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 0,
@@ -21,7 +21,8 @@
     "golay-graphs": 1068000,
     "golay-repairs": 269543351,
     "golay-splices": 3612328434,
-    "golay-splice-tails": 49396491144
+    "golay-splice-tails": 49396491144,
+    "schmidt-seven-pairs": 8640
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -184,6 +185,14 @@
   "solutions": [],
   "candidates": [],
   "activity": [
+    {
+      "id": "schmidt-pair-search",
+      "title": "Rank-seven frames in local dimension 16",
+      "status": "under_investigation",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000015.json",
+      "detail": "8,640 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "problem_id": "e27-schmidt"
+    },
     {
       "id": "golay-splice-tails",
       "title": "Replace three Golay gates with two",

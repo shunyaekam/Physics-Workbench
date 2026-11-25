@@ -21,4 +21,3 @@ inline void apply(State& s, Gate g) {
 inline bool mixed(const State& s,int i) {
     return s.x[i] && s.z[i] && s.x[i]!=s.z[i];
 }
-

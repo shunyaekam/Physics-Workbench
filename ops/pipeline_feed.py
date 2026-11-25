@@ -279,6 +279,14 @@ def build(root, now):
                     "A candidate reached the gate budget." if hit else "No circuit reached the 43-gate target in these edits.")
             activity.insert(0,record(root/"discovery/golay43.md",folder,title,"under_investigation" if folder=="golay-graphs" else "exact_search",
                                      detail,pid))
+    pair_files=sorted((root/"campaign/schmidt-seven-pairs").glob("*.json"))
+    if pair_files:
+        pairs=[load(p) for p in pair_files]
+        total=sum(tally(item["evaluations"]) for item in pairs)
+        counts["schmidt-seven-pairs"]=total
+        maximum=max(Fraction(item["maximum"]) for item in pairs)
+        activity.insert(0,record(pair_files[-1],"schmidt-pair-search","Rank-seven frames in local dimension 16",
+                        "under_investigation",f"{total:,} exact frame evaluations. Largest pair weight {maximum}. A weight above 2 would defeat the proposed proof extension.","e27-schmidt"))
     finite = []
     table_audit = root/"campaign/finite-spins-table2.json"
     if table_audit.is_file():

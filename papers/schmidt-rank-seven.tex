@@ -60,7 +60,7 @@ Let $Rx\leq b$ denote the rows in the table. For each $w$ the deposited certific
 \[
  R^{\mathsf T}y\geq w,\qquad b^{\mathsf T}y=w^{\mathsf T}x^0.
 \]
-Multiplying the physical rows by $y$ and adding proves the coefficient inequality. Summing with the nonnegative monomial weights proves (2) for the entire continuum of spectra. The accompanying standard-library Python checker reconstructs $R,b,w,x^0$, exhausts the sorted quadruples, and tests both relations in exact arithmetic. Linear programming was used to find the multipliers. Replay only needs the rational witnesses.
+Multiplying the physical rows by $y$ and adding proves the coefficient inequality. Summing with the nonnegative monomial weights proves (2) for the entire continuum of spectra. The accompanying standard-library Python checker reconstructs $R,b,w,x^0$, exhausts the sorted quadruples, and tests both relations in exact arithmetic. Linear programming was used to find the multipliers. Replay only needs the rational witnesses. A second implementation checks all 210 integer-scaled inequalities in the Lean 4.19.0 kernel. It counts admissible assignments by filling slots from narrowest to widest, multiplying the number of still-available labels at each step.
 
 Only five witnesses use the pair row:
 \[
@@ -70,7 +70,7 @@ Every one contains a member of $\{1,2\}$ and a member of $\{2,3\}$. Under either
 
 \paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence the entropy in the abstract. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
 
-\paragraph{Scope and replay.} Arbitrary rank-seven spectra in larger registers and unrestricted rank eight remain outside the theorem. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Independent review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/schmidt7}{Certificate and checker.}
+\paragraph{Scope and replay.} Arbitrary rank-seven spectra in larger registers and unrestricted rank eight remain outside the theorem. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Independent review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. For the kernel replay run \texttt{python3 checks/schmidt7/lean\_replay.py} with the pinned Lean toolchain. \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/schmidt7}{Certificate and checkers.}
 
 \paragraph{Reference.} [1] P. Sierant, \emph{Spectral geometry of nonlocal stabilizer entropy}, \href{https://arxiv.org/html/2609.13106v2}{arXiv:2609.13106v2} (2026). The public problem listing is \href{https://open-quantum-problems.vercel.app/p/E27}{Open Quantum Problems E27}.
 \end{document}

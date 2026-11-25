@@ -38,7 +38,7 @@ def synchronize(ref,local,branch):
     if git("status","--porcelain","--untracked-files=no",**options).stdout.strip():
         print("Editable checkout has local changes; its working files were preserved.")
         return
-    git("fetch","origin",branch,**options)
+    git("fetch","--no-write-fetch-head","origin",branch,**options)
     git("merge","--ff-only","origin/"+branch,**options)
 
 
@@ -60,6 +60,7 @@ def run():
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
     call([sys.executable,"checks/schmidt7/verify.py"])
+    call([sys.executable,"checks/schmidt7/pair_search.py","advance"])
     call([sys.executable,"checks/golay43.py","advance"])
     uv=shutil.which("uv") or str(Path.home()/".local/bin/uv")
     try:

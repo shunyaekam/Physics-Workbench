@@ -8,6 +8,11 @@ The proof also covers larger registers when the top three coefficients coincide,
 
 ## Review and provenance
 
-The mathematical inputs are Lemma 1, Proposition 2, Theorem 7, Corollary 4, Proposition 10, and the plane projector in Eq. 39 of Sierant v2. The finite proof and the direct Pauli check run with the Python standard library. Run `python3 checks/schmidt7/verify.py` on the research branch. The note and checker were produced in the same investigation. External mathematical review is pending.
+The mathematical inputs are Lemma 1, Proposition 2, Theorem 7, Corollary 4, Proposition 10, and the plane projector in Eq. 39 of Sierant v2. The finite proof and the direct Pauli check run with the Python standard library. Run `python3 checks/schmidt7/verify.py` on the research branch. Lean 4.19.0 also checked all 210 finite inequalities in its kernel. Its checker counts allowed assignments to the four sorted slots by a product, independently of the permutation loop in Python. Run `python3 checks/schmidt7/lean_replay.py` with the pinned Lean toolchain. The analytic reduction remains a written proof. The note and checkers were produced in the same investigation. External mathematical review is pending.
 
 The 25 November 2026 priority screen checked the originating paper, the E27 catalogue, and searches for later rank-seven or general computational-basis optimality results. It did not locate an earlier proof of the stated rank-seven theorem. The original conjecture also appears in work by Liu and Cui. Other measures of nonlocal magic and the full optimization of this Rényi entropy are distinct claims. Priority remains provisional. [Originating work](https://arxiv.org/abs/2607.10714) · [Sierant](https://arxiv.org/abs/2609.13106)
+
+
+## The next search
+
+A single sufficient inequality would extend the finite certificate to arbitrary rank-seven spectra. Each pair of frame vectors would have to contribute at most two units of normalized plane weight across the other five vectors (last row of the paper’s table). This is an identity in dimension eight. In dimension sixteen the worker tests rational rotations of seven-frame vectors and independently reconstructs the best frame by four-by-four determinants. A score above two would invalidate this proposed proof route. It would take a separate entropy calculation to refute the physical conjecture. [Search code](../checks/schmidt7/pair_search.py) · [Search results](../campaign/schmidt-seven-pairs)
