@@ -1,0 +1,10 @@
+[
+  {
+    "id": "e27-schmidt",
+    "title": "Third \u00b7 Does the sorted Schmidt basis minimize nonlocal magic?",
+    "status": "ranked_lead",
+    "source": "https://arxiv.org/html/2609.13106v2",
+    "catalogue": "https://openquantumproblems.com/p/E27",
+    "detail": "A strict lower stabilizer entropy for a state in the same local-unitary orbit would refute Conjecture 1. Rank six and below is proved. Start at ranks seven and eight and verify any counterexample with exact unitaries and an exact Pauli fourth moment. Ranked third because the space of local bases is continuous."
+  }
+]

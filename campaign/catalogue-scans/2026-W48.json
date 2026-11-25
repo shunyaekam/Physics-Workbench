@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "jpbruneton/open_quantum_problems": {
+      "sha": "31d61336dd50f01d4e84802583d0d773411032a8",
+      "previous": null,
+      "checked": "2026-11-25T20:07:02.870559+00:00",
+      "review_url": "https://github.com/jpbruneton/open_quantum_problems/tree/31d61336dd50f01d4e84802583d0d773411032a8"
+    },
+    "jgmcm/problems": {
+      "sha": "6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4",
+      "previous": null,
+      "checked": "2026-11-25T20:07:02.870559+00:00",
+      "review_url": "https://github.com/jgmcm/problems/tree/6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4"
+    },
+    "MColbrook/AIM": {
+      "sha": "b2ec0fac559f532fc0ed04fce81deea0ce07c68b",
+      "previous": null,
+      "checked": "2026-11-25T20:07:02.870559+00:00",
+      "review_url": "https://github.com/MColbrook/AIM/tree/b2ec0fac559f532fc0ed04fce81deea0ce07c68b"
+    }
+  }
+}

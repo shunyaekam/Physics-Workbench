@@ -102,6 +102,15 @@ def build(root, now):
                                  receipt=artifact(root,str(file.relative_to(root)))))
                 seen.add(key)
 
+    shortlist = root/"discovery/ranked-sources.json"
+    if shortlist.is_file():
+        ranked = []
+        for item in load(shortlist):
+            if source_key(item["source"]) not in seen:
+                ranked.append(row(item["id"],item["title"],item["status"],item["source"],item["detail"],
+                                  evidence={"catalogue":item["catalogue"]}))
+        leads = ranked + leads
+
     ledger = load(root/"discovery/pipeline-results.json")
     exclusions = []
     for decision in ledger.get("screened_leads", []):
@@ -207,6 +216,41 @@ def build(root, now):
                                 status,detail,pid,flag,date=lane["updated_at"]))
     activity.extend(sorted(lane_rows,key=lambda x:x["updated_at"],reverse=True)[:4])
 
+    transport_batches = sorted((root/"campaign/transport-polygon").glob("*.json"))
+    if transport_batches:
+        pid = "transport-polygon"
+        require(pid in targets,"Missing transport dossier")
+        total = 0
+        for path in transport_batches:
+            batch = load(path)
+            total += tally(batch["checked"])
+            for k,flag in enumerate(batch["flags"]):
+                record(path,f"polygon-{path.stem}-{k}","Transport labels need review",flag["status"],
+                       str(flag["x"]),pid,True,batch["utc"])
+        activity.insert(0,record(transport_batches[-1],"polygon-search","Quantum transport polygon search",
+                        "exact_search",f"{total} finite spectrum/exponent pairs checked across published batches.",pid))
+        counts["transport-polygons"] = total
+        problem = next(p for p in problems if p["id"] == pid)
+        problem["evidence"] = {"target and proof":artifact(root,"discovery/transport-polygon.md"),
+                               "catalogue selection":artifact(root,"discovery/catalogue-intake.md")}
+    golay_batches = sorted((root/"campaign/golay43").glob("*.json"))
+    if golay_batches:
+        pid = "golay43"
+        problem = next(p for p in problems if p["id"] == pid)
+        problem["evidence"] = {"catalogue": "https://openquantumproblems.com/p/A50",
+                               "experiment": artifact(root,"discovery/golay43.md"),
+                               "selection": artifact(root,"discovery/catalogue-intake.md")}
+        total, best = 0, 23
+        for path in golay_batches:
+            batch = load(path)
+            total += tally(batch["attempts"])
+            best = min(best,batch["best_mixed"])
+            if batch["candidates"]:
+                record(path,path.stem+"-golay","Golay preparation needs signed replay","needs_verification",
+                       "All qubits factor after reversing the circuit on the exact target.",pid,True)
+        counts["golay-circuits"] = total
+        activity.insert(0,record(golay_batches[-1],"golay-search","43-gate Golay circuit search",
+                        "under_investigation",f"{total:,} trials. Best reverse circuit leaves {best} mixed qubits; zero is required.",pid))
     finite = []
     table_audit = root/"campaign/finite-spins-table2.json"
     if table_audit.is_file():

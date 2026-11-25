@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T19:59:27+00:00",
+  "updated_at": "2026-11-25T20:06:05+00:00",
   "counts": {
-    "leads": 3,
-    "problems": 2,
-    "attempts": 388890,
+    "leads": 4,
+    "problems": 4,
+    "attempts": 472190,
     "candidates": 0,
     "partial_results": 7,
     "solutions": 0,
@@ -15,10 +15,41 @@
     "coherent-cats": 6400,
     "coherent-bands": 2026,
     "three-level": 4024,
-    "agent-witnesses": 1
+    "agent-witnesses": 1,
+    "transport-polygons": 320,
+    "golay-circuits": 82980
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
+    {
+      "id": "golay43",
+      "title": "First priority \u00b7 A 43-gate Golay preparation",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+      "detail": "Direct reduction of the two-qubit gate cost of preparing an error-correcting code state. The full depth/count frontier is a larger question.",
+      "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+      "question": "Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?",
+      "decisive_test": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
+      "evidence": {
+        "catalogue": "https://openquantumproblems.com/p/A50",
+        "experiment": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+        "selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+      }
+    },
+    {
+      "id": "transport-polygon",
+      "title": "Second priority \u00b7 Quantum transport polygon bound",
+      "status": "under_investigation",
+      "url": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+      "detail": "Computes the optimal operator-norm error for approximating one quantum transport cost by lower-exponent observables.",
+      "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+      "question": "For 0 < p \u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+      "decisive_test": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
+      "evidence": {
+        "target and proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/transport-polygon.md",
+        "catalogue selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+      }
+    },
     {
       "id": "werner-endpoint",
       "title": "Undistillable entanglement",
@@ -41,6 +72,16 @@
     }
   ],
   "leads": [
+    {
+      "id": "e27-schmidt",
+      "title": "Third \u00b7 Does the sorted Schmidt basis minimize nonlocal magic?",
+      "status": "ranked_lead",
+      "url": "https://arxiv.org/html/2609.13106v2",
+      "detail": "A strict lower stabilizer entropy for a state in the same local-unitary orbit would refute Conjecture 1. Rank six and below is proved. Start at ranks seven and eight and verify any counterexample with exact unitaries and an exact Pauli fourth moment. Ranked third because the space of local bases is continuous.",
+      "evidence": {
+        "catalogue": "https://openquantumproblems.com/p/E27"
+      }
+    },
     {
       "id": "arxiv-2611.31971v1",
       "title": "Field-Dependent Kinetics, Exact Kinks, and a Moduli-Space Route from Self-Dual Yang-Mills Theory",
@@ -127,6 +168,22 @@
   "solutions": [],
   "candidates": [],
   "activity": [
+    {
+      "id": "golay-search",
+      "title": "43-gate Golay circuit search",
+      "status": "under_investigation",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay43/002.json",
+      "detail": "82,980 trials. Best reverse circuit leaves 2 mixed qubits; zero is required.",
+      "problem_id": "golay43"
+    },
+    {
+      "id": "polygon-search",
+      "title": "Quantum transport polygon search",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/001.json",
+      "detail": "320 finite spectrum/exponent pairs checked across published batches.",
+      "problem_id": "transport-polygon"
+    },
     {
       "id": "round-80",
       "title": "Research round 80",

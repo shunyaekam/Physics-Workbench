@@ -1,0 +1,29 @@
+{
+  "problem_id": "golay43",
+  "batch": 1,
+  "baseline_entanglers": 44,
+  "trial_entanglers": 43,
+  "attempts": 19800,
+  "best_mixed": 2,
+  "best_mutation": {
+    "omitted_inverse_gate": 12,
+    "edits": [
+      [
+        31,
+        [
+          "Z",
+          "X"
+        ]
+      ],
+      [
+        38,
+        [
+          "Y",
+          "Z"
+        ]
+      ]
+    ]
+  },
+  "candidates": [],
+  "scope": "Fixed wire pairs from a one-gate deletion, with local Pauli-axis changes. Repeated random proposals can occur."
+}

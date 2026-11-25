@@ -1,12 +1,54 @@
 [
   {
+    "id": "golay43",
+    "role": "external_problem",
+    "title": "First priority · A 43-gate Golay preparation",
+    "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+    "locator": "Ganesan, Appendix A.4, explicit 43-gate challenge; Open Quantum Problems A50",
+    "question": "Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?",
+    "significance": "Direct reduction of the two-qubit gate cost of preparing an error-correcting code state. The full depth/count frontier is a larger question.",
+    "evidence_checked": [
+      "https://openquantumproblems.com/p/A50",
+      "https://qiqc-op.com/problem/op_c847b635f53b0812/",
+      "https://doi.org/10.5281/zenodo.23509367",
+      "https://arxiv.org/abs/2603.17743"
+    ],
+    "known": "44 entanglers in six layers is an explicit deposited circuit. The originating agent already tried 43 and reported an unsuccessful 92-million-neighbor delete-two/insert-one screen.",
+    "experiment": "Reverse a trial 43-gate schedule on the exact target stabilizer. Start with systematic changes to the public 44-gate seed, then search different axes, wire pairs and orders.",
+    "full_vs_partial": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
+    "stop_rule": "Run eight bounded reproducible batches or stop immediately for an independently verified candidate; on a plateau switch search family before increasing the budget.",
+    "checked": "2026-11-25"
+  },
+  {
+    "id": "transport-polygon",
+    "role": "external_problem",
+    "title": "Second priority · Quantum transport polygon bound",
+    "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+    "locator": "Pitchford, Conjecture 7.7 and Proposition 7.5, release v0.1.0-candidate",
+    "question": "For 0 < p ≤ 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+    "significance": "Computes the optimal operator-norm error for approximating one quantum transport cost by lower-exponent observables.",
+    "evidence_checked": [
+      "https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L522",
+      "https://openquantumproblems.com/p/C14"
+    ],
+    "known": "Author proves three levels in this regime. The literal q < 1 single-function clause fails on a 3–4–5 triangle; it leaves this q > 1 target open.",
+    "experiment": "Enumerate every polygon chain for integer spectra and exponents, then solve the difference constraints exactly. Save labels; verify each pair. Audit every ordering for a small obstruction.",
+    "full_vs_partial": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
+    "stop_rule": "Rotate away after eight unchanged batches of integer spectra. Keep attained instances as evidence, without discovery credit.",
+    "checked": "2026-11-25"
+  },
+  {
     "id": "werner-endpoint",
     "role": "external_problem",
     "source": "https://oqp.iqoqi.oeaw.ac.at/undistillability-implies-ppt",
     "locator": "Open Quantum Problems, Problem 2; distillability criterion and Werner reduction",
     "question": "Does there exist a bipartite state with negative partial transpose from which no entanglement can be distilled using any finite number of copies?",
     "significance": "Separates two fundamental notions of usable entanglement. Answering it requires reasoning about all copy counts or all candidate states.",
-    "evidence_checked": ["https://www.mefyi.com/papers/werner-states-copies/", "https://www.mefyi.com/papers/werner-endpoint-inequality/", "https://github.com/anshM123/werner-npt-research"],
+    "evidence_checked": [
+      "https://www.mefyi.com/papers/werner-states-copies/",
+      "https://www.mefyi.com/papers/werner-endpoint-inequality/",
+      "https://github.com/anshM123/werner-npt-research"
+    ],
     "known": "The three-copy endpoint has a reported proof. Four-copy results cover same-plane range and co-range, including normal rank-two matrices. The cited project reports additional Hermitian results. Check its current version before promoting a witness.",
     "experiment": "Qutrit endpoint, four and five copies. Seek a negative expectation on a complex vector with Schmidt rank at most two; enforce both exact contractions.",
     "full_vs_partial": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved.",
@@ -20,7 +62,11 @@
     "locator": "Gagatsos, Conjecture 1, Eq. (7), with the conventions in Eqs. (2)-(5)",
     "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
     "significance": "The conjectured sharp bound would connect heterodyne statistics to Wigner negativity and the sampling overhead of quasiprobability simulation. The statement is recent; its long-term standing is unknown.",
-    "evidence_checked": ["https://arxiv.org/abs/2611.30969", "https://arxiv.org/html/2611.30969v1", "https://doi.org/10.1007/s00041-018-9602-x"],
+    "evidence_checked": [
+      "https://arxiv.org/abs/2611.30969",
+      "https://arxiv.org/html/2611.30969v1",
+      "https://doi.org/10.1007/s00041-018-9602-x"
+    ],
     "known": "The source gives pure-state reduction, a factor-two bound, finite Fock numerical experiments, and a cat construction against higher Renyi orders. Wigner-positive states follow from Lieb–Solovej. A bounded title/author and modulation-space/STFT search found no subsequent sharp resolution. Priority is provisional.",
     "restricted_result": "The phase-invariant case, for every photon-number distribution, has a written proof in papers/phase-invariant-wigner.tex. Its arithmetic induction step is checked in formal/FockMoment.lean. The zero–one-photon subspace now also has a separate analytic proof. Sec. VII question (iv) has new order exclusions and an exact threshold on the full optical qubit. The sparse-state note rules out all states of coherence number at most two within levels zero through five. Current search tests higher photon pairs and genuinely three-level states. See checks/phase-invariant-wigner.md and checks/optical-sprint.md.",
     "experiment": "Optimize squeeze, weight, separation and phase of a normalized pure two-coherent-state superposition. Use two refined grids and analytic positive/negative-Wigner controls.",

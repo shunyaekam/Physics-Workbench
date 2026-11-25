@@ -1,0 +1,17 @@
+# Can the polygon bound predict the best quantum transport cost?
+
+Iain Pitchford’s Conjecture 7.7 asks for the exact worst-case approximation error when one finite-spectrum quantum transport cost is replaced by costs of lower order. It also predicts that a single real-valued function of the observable can attain the bound at exponent one. The source is an unrefereed, AI-assisted mathematical physics manuscript released on November 15, 2026. [Versioned source, Proposition 7.5 and Conjecture 7.7](https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L522) · [Author’s account of the open question](https://evidencepress.org/releases/quantum-transport-cost-cones/)
+
+## A necessary qualification
+
+As printed, Conjecture 7.7 specifies the lower exponent p ≤ 1 and gives no lower restriction on the target exponent q. Take p = 1/4, q = 1/2 and an observable with energy levels 0, 9, 25. The target pair costs are 3, 4 and 5. The polygon lower bound is zero. The target is attained exactly by summing three singleton cuts with respective weights 2, 1 and 3. A weighted singleton cut costs its weight when exactly one endpoint is that level. It is realizable at exponent p by scaling the corresponding spectral projection by the weight to the power 1/p.
+
+But for any three real values of a single function f, the largest of the three distances between those values is the sum of the other two. Here 5 < 3 + 4. Thus a single exponent-one function cannot attain zero error. This refutes the single-function clause under the literal unrestricted q wording. The manuscript explicitly tests the nontrivial approximation regime q > 1, and its three-level theorem already distinguishes that regime. This example leaves the distance prediction intact and does not decide the intended q > 1 question. Priority for this elementary observation is unchecked.
+
+## The active target
+
+For 0 < p ≤ 1 < q, write down an exact spectrum on which the predicted distance fails or the proposed line representation is impossible, or give a proof for all finite spectra. We count the full target as open.
+
+For an increasing chain of k levels let D be the q-th power of the endpoint separation and S the sum of the q-th powers of the consecutive gaps. Its contribution to the lower bound is max(0,(D−S)/k). We enumerate all chains. An upper certificate at the largest such lower bound consists of real labels y such that every pair distance |y_i−y_j| has the stated maximum error or better. Each ordered-line cost decomposes into nested threshold cuts, realizable for every p > 0 by rescaling projections. The source's polygon inequality and a checked upper certificate together settle the exact distance for that individual input.
+
+The checker uses integer difference constraints and returns rational labels. A failed attempt to find ordered labels would require checking other orders before drawing a conclusion about any line representation. Even failure in every order would leave the separate cut-cone distance clause to be tested. The first two batches include all four-level spectra with successive gaps 1 through 4 at q = 2, 3 and 6, followed by 128 seeded challenges at four through nine levels. Every instance admits the predicted approximation. Open questions listed in the manuscript include the uniform theorem and the case p > 1, for which different phenomena arise. [Exact checker](../checks/transport_polygon.py) · [Batch certificates](../campaign/transport-polygon)
