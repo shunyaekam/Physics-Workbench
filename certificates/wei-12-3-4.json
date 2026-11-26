@@ -1,0 +1,58 @@
+{
+  "problem_id": "wei-12-3-4",
+  "scope": "full",
+  "kind": "full_optimum",
+  "statement": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
+  "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+  "locator": "Wei et al., Table 2, distance-four row n=12, k=3 (6\u20138); binary stabilizer codes.",
+  "implication": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
+  "contract_hash": "d690cba980d93f080b0c3015610fbfbe0d00e48d739a539ab5965c193a5dd6c0",
+  "witness": {
+    "generators": [
+      "ZIIYIYIXYIIZ",
+      "IIYIYXIIXYXI",
+      "ZIIZIXIZIIXY",
+      "XXYIZIIYYIII",
+      "XIIXIZZYIXII",
+      "IYYIIZIZIYYI",
+      "IIIIZXIZXXIY",
+      "XZZIIXYIIIZI",
+      "IYZZZXZIIIII"
+    ]
+  },
+  "result": {
+    "n": 12,
+    "k": 3,
+    "d": 4,
+    "weight": 6,
+    "group_size": 512,
+    "logicals_by_weight": [
+      0,
+      0,
+      0,
+      105
+    ],
+    "example_logical": "ZYYIIIXIIIII",
+    "light_stabilizer_weight_limit": 5,
+    "light_stabilizer_upper_bounds_by_even_subgroup_size": {
+      "512": "8",
+      "256": "54/7"
+    },
+    "required_rank": 9,
+    "optimal_check_weight": 6,
+    "decisive": true
+  },
+  "checker_commit": "4762a3adf20502bdd1786a26fb2bde57b58d34cd",
+  "research_commit": "b24e046152846c806116118767ec884b86bb8cea",
+  "math_review": {
+    "verdict": "pass",
+    "hypotheses": "Rank nine, codespace dimension eight, exact distance four. Independent enumeration gives logical counts 0,0,0,105. The weight-enumerator constraints allow degeneracy.",
+    "weakest_step": "Multipliers on nonnegative rows must all be nonpositive. Independent polynomial expansion reproduced every coefficient and bounds 8 and 54/7. The parity split is exhaustive because commuting makes weight parity a homomorphism."
+  },
+  "priority_review": {
+    "verdict": "clear_within_search",
+    "sources": "[\"https://arxiv.org/html/2601.19848v2#S7.T2\", \"https://arxiv.org/html/2601.19848v2#A10\", \"https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex\", \"https://www.markus-grassl.de/QECC/circuits/12_4_4.html\", \"https://qecchallenge.com/codes/12-4-4.html\", \"https://github.com/unitaryfoundation/qldpc-challenge/pull/2315\"]",
+    "comparison": "Wei Table 2 lists 6\u20138. Their Appendix J already describes adding a weight-four logical to the Grassl parent. Sixty of the 75 qualifying logical cosets attain six after rebasing. Treat the upper bound as an explicit attainment implicit in their recipe. No earlier explicit assertion of the numeric equality was located in the bounded search."
+  },
+  "priority_scope": "bounded search; priority is distinct from witness correctness"
+}
