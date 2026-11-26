@@ -1,7 +1,39 @@
 {
   "schema_version": 1,
-  "certified": [],
+  "certified": [
+    {
+      "id": "wei-12-3-4",
+      "title": "[[12,3,4]] \u00b7 Optimal check weight 6",
+      "status": "machine_checked_full",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-3-4.json",
+      "detail": "A code attains 6. Exact rational certificates exclude 5 for every eligible stabilizer group.",
+      "problem_id": "wei-12-3-4",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "evidence": {
+        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+      }
+    },
+    {
+      "id": "wei-12-4-4",
+      "title": "[[12,4,4]] \u00b7 Optimal check weight 7",
+      "status": "machine_checked_full",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-4-4.json",
+      "detail": "A code attains 7. Exact rational certificates exclude 6 for every eligible stabilizer group.",
+      "problem_id": "wei-12-4-4",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "evidence": {
+        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+      }
+    }
+  ],
   "kernel_steps": [
+    {
+      "id": "counting-lemma",
+      "title": "Counting bound for all directed cycles",
+      "status": "lean_checked_scoped",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/formal/transport_literal/counting-proof.md",
+      "detail": "Lean checks the general counting lemma used in the transport manuscript."
+    },
     {
       "id": "literal-transport",
       "title": "Three energy levels: exact line error 2/3",
@@ -10,30 +42,30 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T02:49:46+00:00",
+  "updated_at": "2026-11-26T20:27:38+00:00",
   "counts": {
     "leads": 3,
-    "problems": 6,
-    "attempts": 65808634317,
+    "problems": 8,
+    "attempts": 83457907384,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 500263,
-    "coherent-cats": 9472,
-    "coherent-bands": 3043,
-    "three-level": 6063,
+    "werner": 872069,
+    "coherent-cats": 18688,
+    "coherent-bands": 6081,
+    "three-level": 12190,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 1408000,
+    "golay-graphs": 3328000,
     "golay-repairs": 269543351,
-    "golay-splices": 4465678140,
-    "golay-splice-tails": 61071143364,
-    "schmidt-seven-pairs": 18360
+    "golay-splices": 5664176892,
+    "golay-splice-tails": 77519555652,
+    "schmidt-seven-pairs": 70200
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -124,6 +156,32 @@
         "binary-spectrum proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/bmv-trace-12-3.tex",
         "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py",
         "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/6"
+      }
+    },
+    {
+      "id": "wei-12-3-4",
+      "title": "Optimal check weight for twelve physical qubits encoding three",
+      "status": "machine_checked_full",
+      "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "detail": "Measures the lightest possible largest parity check while encoding three logical qubits and detecting every Pauli error of weight up to three.",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "question": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
+      "decisive_test": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/8"
+      }
+    },
+    {
+      "id": "wei-12-4-4",
+      "title": "Optimal check weight for twelve physical qubits encoding four",
+      "status": "machine_checked_full",
+      "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "detail": "A distance-four code storing four logical qubits achieves seven-qubit parity checks, fewer than the eight used by the tabulated construction.",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "question": "What is the minimum possible maximum generator weight of a binary [[12,4,4]] stabilizer code, over all codes and generating sets?",
+      "decisive_test": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/9"
       }
     }
   ],
@@ -246,9 +304,23 @@
       "detail": "1 recorded attempts. Check the rank-two zero-score control."
     },
     {
+      "id": "flow-wei-12-4-4",
+      "title": "Optimal check weight for twelve physical qubits encoding four",
+      "status": "ready_for_replay",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-4-4-a13becb2b7dbf8cb.json",
+      "detail": "1 recorded attempts. Search neighbors sharing seven checks with Grassl\u2019s code, then bound the total number of checks of weight at most six."
+    },
+    {
+      "id": "flow-wei-12-3-4",
+      "title": "Optimal check weight for twelve physical qubits encoding three",
+      "status": "ready_for_replay",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-3-4-d690cba980d93f08.json",
+      "detail": "1 recorded attempts. Use commuting checks of weight six and bound the total number of lighter stabilizers."
+    },
+    {
       "id": "flow-transport-polygon",
       "title": "Exact approximation of quantum transport costs",
-      "status": "math_review",
+      "status": "counting_proof_replayed",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/transport-polygon-9783d1a9bb39a040.json",
       "detail": "1 recorded attempts. Inspect the general counting proposition after introducing its cycle and family."
     },
@@ -314,8 +386,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000033.json",
-      "detail": "18,360 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000129.json",
+      "detail": "70,200 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -323,7 +395,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "61,071,143,364 edits with one insertion anywhere and one optional inverse-end gate across 56 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "77,519,555,652 edits with one insertion anywhere and one optional inverse-end gate across 152 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -331,7 +403,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "4,465,678,140 edits across 56 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "5,664,176,892 edits across 152 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -347,7 +419,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "1,408,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "3,328,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -375,28 +447,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-112",
-      "title": "Research round 112",
+      "id": "round-208",
+      "title": "Research round 208",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000112.json",
-      "detail": "8,832 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000208.json",
+      "detail": "8,889 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T02:41:01.125189+00:00"
+      "updated_at": "2026-11-26T20:23:22.407196+00:00"
     },
     {
-      "id": "coherent-bands-00000096",
+      "id": "coherent-bands-00000192",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000096.json",
-      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000192.json",
+      "detail": "31 states tested on photon levels 2, 3, 4, 5, 6, 7.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000095",
+      "id": "three-level-batch-00000191",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000095.json",
-      "detail": "64 states tested on photon levels 1, 3, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000191.json",
+      "detail": "64 states tested on photon levels 1, 2, 3.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
