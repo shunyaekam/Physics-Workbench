@@ -2,7 +2,7 @@
   "problem_id": "golay43",
   "contract_hash": "065ee3f4684969f12f3564c36c6cc107dfe79335306c1d201c7d69980cf0fe1f",
   "model": "gpt-6.2-astra",
-  "status": "math_review",
+  "status": "parked",
   "attempts": [
     {
       "proposal": {
@@ -1344,9 +1344,13 @@
         "target_prepared": true,
         "decisive": false
       },
-      "origin": "executed during deployment"
+      "origin": "executed during deployment",
+      "math_review": {
+        "verdict": "park",
+        "hypotheses": "The supplied checker outcome reports all 23 independent target generators with eigenvalue +1. Their common eigenspace has dimension one, so this certifies the logical zero up to global phase. I count 44 CNOTs in the gate list, one over budget. An allowed circuit with at most 43 CNOTs passing the same signed check would prove existence.",
+        "weakest_step": "I tested deleting the first CNOT, CX(4,10). Its inputs are |+\u27e9 and |+i\u27e9. Applying or omitting it gives squared overlap exactly 1/4, which the shared circuit suffix preserves. That deletion therefore fails. The reported 92-million-neighbor search supplies no global lower bound. The critical next test is exact resynthesis of a multi-CNOT block with one fewer CNOT, followed by a signed check of the complete 23-qubit circuit."
+      }
     }
   ],
-  "updated_at": "2026-11-26T19:38:42+00:00",
-  "last_error": "Hosted Codex exited with status 1 (usage limit)"
+  "updated_at": "2026-11-26T22:29:36+00:00"
 }
