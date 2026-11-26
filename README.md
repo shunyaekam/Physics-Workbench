@@ -1,5 +1,7 @@
 # oo research
 
+[What counts as a solution](discovery/proof-system.md) · [Full machine-checked results](https://shunyaekam.github.io/Physics-Workbench/pipeline/#certified)
+
 oo research is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.
 
 [Read the scientific audit](discovery/scientific-audit.md) for the claim, strongest objection, verification coverage and remaining uncertainty for each of the nine manuscripts.

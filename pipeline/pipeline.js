@@ -8,10 +8,10 @@ const bm = pub + 'results/brown-mol/';
 const systems = {
   ours: [
     [['Scout','Find problems','The scout checks three open-problem catalogues and arXiv. We trace each question to its authors, look for newer solutions, and rank the cheapest tests that could settle the question.',research+'discovery/catalogue-intake.md','Sources and ranking']],
-    [['Solver','Build a witness','Hosted Codex proposes a test. A later hosted request critiques it. The Mac runs the numerical and proof checks. The worker can start one hosted request per hour. Earlier pilot records identify their original models.',research+'ops/agent_campaign.py','Solver and critic']],
+    [['Solver','Build a witness','Hosted Codex can run mathematical experiments in a disposable workspace. Each witness goes to the registered checker. The next solver receives the measured outcome and an independent critique.',research+'ops/proof_flow.py','Solver and critic']],
     [['Math reviewer','Challenge the proof','A fresh-context critic challenges proposals. A separate mathematical review rederived our multimode result, including the constants and the mixed-state argument.',research+'checks/multimode-review.md','Math review'],['Priority reviewer','Check earlier work','Check alternate names and equivalent theorems. The weak multimode result follows from a classical Fourier inequality, so its derivation earns zero discovery credit.',research+'checks/multimode-priority.md','Priority decision']],
     [['Verifier','Replay evidence','For transport, the reviewer reconstructed the argument, then challenged the counting step on 125,664 directed cycles. Lean checks the lower bound for arbitrary chain lengths and a local step in the upper bound.',research+'checks/transport-review.md','Transport review']],
-    [['Editor','Release solution','A full solution requires the original statement, accepted mathematical and priority reviews, and a publication commit on main containing the decision and evidence.',research+'ops/pipeline_feed.py','Release checks']]
+    [['Editor','Release solution','A fresh publication checkout reruns the exact checker. A decisive result with separate mathematical and prior-work reviews can publish automatically. The tracking issue closes after the public certificate is verified.',research+'ops/publish_checked.py','Release checks']]
   ],
   cinna: [
     [['Scout','Claim a problem','A research issue pins the exact conjecture and distinguishes nearby claims. Brown–Mol’s statement concerns roots for every tree.',cinna+'/issues/210','Assignment issue']],
@@ -22,6 +22,8 @@ const systems = {
   ]
 };
 const boards = [
+  ['certified','Certified solutions','Full answers replayed against the registered statement by the publication checker.'],
+  ['kernel_steps','Checked lemmas','Lean-checked mathematical results with their precise scope.'],
   ['problems','Problems','The externally posed questions admitted to our solver queue.'],
   ['finite','Finite spin chains','Small chains are checked in full. Larger chains are checked within three flips of an arrangement from the paper. Each finished card links to exact energies and example arrangements.'],
   ['leads','Intake','Source leads awaiting admission. Several papers can mention the same problem.'],
@@ -32,6 +34,7 @@ const boards = [
   ['solutions','Proposed solutions','The project records a proof covering the registered question after internal AI review. The linked audit states its scope and external review status.']
 ];
 const empty = {
+  certified:['No full machine-checked solution yet','The registered questions remain open or have written proposals under review. The Checked lemmas tab shows a narrower theorem you can replay today.'],
   candidates:['No candidate flagged','A positive numerical residual enters this queue for error-bounded verification.'],
   solutions:['No solutions in this feed','The manuscript catalogue and the scoped-results tab provide additional research records.']
 };
@@ -47,7 +50,7 @@ function link(label, url) {
   if (typeof url === 'string' && url.startsWith('https://')) a.href = url;
   return a;
 }
-let system = 'ours', selected = [0,0], section = boards.some(([key])=>key===location.hash.slice(1)) ? location.hash.slice(1) : 'problems', feed;
+let system = 'ours', selected = [0,0], section = boards.some(([key])=>key===location.hash.slice(1)) ? location.hash.slice(1) : 'certified', feed;
 function map() {
   const stations = systems[system];
   $('ours').setAttribute('aria-pressed',system === 'ours');
@@ -131,13 +134,14 @@ function updateRecords() {
   }
 }
 function render(data) {
+  data={certified:[],kernel_steps:[],...data};
   if (!Array.isArray(data.finite)) data = {...data,finite:[]};
   if(data.schema_version !== 1 || !data.counts || !boards.every(([key])=>Array.isArray(data[key]))) throw new Error('Unsupported feed');
   feed=data;
   const branchButton = $('branch').querySelector('button');
   if(branchButton) branchButton.disabled=false;
   $('openCount').textContent=data.problems.filter(item => item.status === 'under_investigation').length;
-  $('partialCount').textContent=data.partial_results.length;
+  $('certifiedCount').textContent=data.certified.length;
   $('solvedCount').textContent=data.solutions.length;
 
   $('filters').replaceChildren();

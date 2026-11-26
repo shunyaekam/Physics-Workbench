@@ -46,3 +46,5 @@ document.querySelector('#reset').addEventListener('click', () => {
 window.addEventListener('popstate', restore);
 window.addEventListener('hashchange', reveal);
 restore(); reveal();
+
+fetch("certificates/index.json", {cache:"no-cache"}).then(r=>{if (!r.ok) throw Error(); return r.json();}).then(index=>{document.querySelector("#certTotal").textContent=String(Object.keys(index).length);}).catch(()=>{});
