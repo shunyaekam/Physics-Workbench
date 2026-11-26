@@ -368,9 +368,12 @@ def build(root, now):
         if subprocess.run(["git","cat-file","-e",ref],cwd=root,stderr=subprocess.DEVNULL).returncode==0:
             index=json.loads(subprocess.check_output(["git","show",ref],cwd=root,text=True))
         for pid,entry in index.items():
-            certified.append(row(pid,entry["title"],"machine_checked_full",
-                GITHUB+"main/certificates/"+entry["file"],"Independent publication replay passed.",
-                problem_id=pid,source=entry["source"]))
+            code_weights = {"wei-12-3-4": (3,6), "wei-12-4-4": (4,7)}
+            is_code = pid in code_weights
+            k, weight = code_weights.get(pid,(0,0))
+            certified.append(row(pid,f"[[12,{k},4]] · Optimal check weight {weight}" if is_code else entry["title"],"machine_checked_full",
+                GITHUB+"main/certificates/"+entry["file"],(f"A code attains {weight}. Exact rational certificates exclude {weight-1} for every eligible stabilizer group." if is_code else "Independent publication replay passed."),
+                problem_id=pid,source=entry["source"],evidence={"paper":"https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"} if is_code else {}))
             for problem in problems:
                 if problem["id"]==pid:
                     problem["status"]="machine_checked_full"
@@ -394,6 +397,16 @@ def build(root, now):
                 require(result["kernel_checked"] and not result["decisive"],"Counting lemma did not replay")
                 kernel_steps.append(row("counting-lemma","Directed-cycle counting bound","lean_checked_scoped",
                         item["url"],"The stated supporting lemma type-checked. Operator reduction remains separate."))
+        counting = root/"formal/transport_literal/counting-receipt.json"
+        if counting.is_file() and not any(step["id"]=="counting-lemma" for step in kernel_steps):
+            cr = load(counting)
+            files = ("Counting.lean","CountingProof.lean","VerifyCounting.lean")
+            require(cr["sha256"]=={n:sha256((counting.parent/n).read_bytes()).hexdigest() for n in files}
+                    and cr["checked_at_trust_zero"] and cr["negative_control"]=="Coefficient 3 rejected",
+                    "Counting proof receipt failed validation")
+            kernel_steps.append(row("counting-lemma","Counting bound for all directed cycles","lean_checked_scoped",
+                    artifact(root,"formal/transport_literal/counting-proof.md"),
+                    "Lean checks the general counting lemma used in the transport manuscript."))
         transport=root/"formal/transport_literal/receipt.json"
         if transport.exists():
             receipt=load(transport)

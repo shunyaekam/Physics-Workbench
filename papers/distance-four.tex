@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,microtype,xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.44em}
+\newcommand{\W}{W_{\mathrm{opt}}}
+\title{Optimal stabilizer check weights for the\protect\\$[[12,4,4]]$ and $[[12,3,4]]$ quantum codes}
+\author{oo research}
+\date{26 November 2026}
+\begin{document}
+\maketitle\vspace{-0.7cm}
+\begin{abstract}
+Twelve data qubits can encode four logical qubits at distance four using checks of weight at most seven. We exhibit a stabilizer code attaining seven, improving the upper bound eight in Table~2 of Wei et al. With three logical qubits the optimum is six, and with one logical qubit at lengths ten through twelve it is four. We give explicit Pauli generators and exact distance checks. Rational weight-enumerator identities certify the lower bounds at both twelve-qubit parameters with three or four logical qubits.
+\end{abstract}
+\section*{Three attaining codes}
+The weight of a Pauli check counts its nonidentity positions. Let $\W(n,k,d)$ minimize the largest generator weight over all generating bases of all binary stabilizer codes with parameters $[[n,k,d]]$. The three columns below are separate generating sets. Give each Hermitian Pauli string the positive sign. The number on its right is its weight.
+\begin{center}
+\begin{tabular}{r@{\quad}lr@{\qquad}lr@{\qquad}lr}
+\toprule
+& \multicolumn{2}{c}{$[[12,4,4]]$} & \multicolumn{2}{c}{$[[12,3,4]]$} & \multicolumn{2}{c}{$[[10,1,4]]$} \\\midrule
+1 & \texttt{IIIIIIYYZZXX} & 6 & \texttt{ZIIYIYIXYIIZ} & 6 & \texttt{YIIYYIXIII} & 4\\
+2 & \texttt{ZZZZZZIIIIII} & 6 & \texttt{IIYIYXIIXYXI} & 6 & \texttt{IIIYIIIXXX} & 4\\
+3 & \texttt{ZXXXIXXIXIII} & 7 & \texttt{ZIIZIXIZIIXY} & 6 & \texttt{IIZIIXIZIZ} & 4\\
+4 & \texttt{XIXIYXIZZIIY} & 7 & \texttt{XXYIZIIYYIII} & 6 & \texttt{IIXIYYIIXI} & 4\\
+5 & \texttt{IIYXXXZZIIXI} & 7 & \texttt{XIIXIZZYIXII} & 6 & \texttt{IYIZXIIIZI} & 4\\
+6 & \texttt{XXIZXXIIIIYZ} & 7 & \texttt{IYYIIZIZIYYI} & 6 & \texttt{IXYIIIIYYI} & 4\\
+7 & \texttt{IYIIIXZYXIYY} & 7 & \texttt{IIIIZXIZXXIY} & 6 & \texttt{XXIIZXIIII} & 4\\
+8 & \texttt{XZXXXIIXIXII} & 7 & \texttt{XZZIIXYIIIZI} & 6 & \texttt{ZIYIIZYIII} & 4\\
+9 &  &  & \texttt{IYZZZXZIIIII} & 6 & \texttt{IXIXIIYIIZ} & 4\\
+\bottomrule\end{tabular}
+\end{center}
+The rows within each column commute. Their products give $256$, $512$ and $512$ distinct strings modulo phase, respectively. Independence implies a simultaneous $+1$ eigenspace of dimension $2^k$. To check distance, enumerate every support of size $i=1,2,3,4$ and every assignment of $X,Y,Z$ to it. Count errors that commute with every row and lie outside its unsigned product group. Each column gives zero through weight three. At weight four the counts are $225$, $105$ and $40$. Examples are \texttt{YYZZIIIIIIII}, \texttt{ZYYIIIXIIIII} and \texttt{YYXIIIIIIX}, respectively.
+
+\textbf{How the first code was found.} Starting with Grassl's $[[12,4,4]]$ group, retain a rank-seven subgroup. Solve linear equations for a replacement check commuting with this subgroup and detecting every weight-one to weight-three error that commutes with it. Enumerate the resulting groups, then take independent generators in increasing order of weight. The \href{https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/small_qec/neighbor_replay.py}{replay script} recovers the first column.
+\newpage
+\section*{Twelve-qubit lower bounds by exact identities}
+Let $S$ be a stabilizer group of size $q=2^{12-k}$, taken modulo phases, with distance at least four. Let $A_j$ count its elements of weight $j$ and $T_w=\sum_{j=1}^{w} A_j$. To generate $S$, at least $12-k$ independent elements are required. Set $K_{ij}=[z^i](1+3z)^{12-j}(1-z)^j$ and define
+\[
+ H_i=\sum_jK_{ij}A_j-qA_i,\qquad C_i=\sum_j(-1)^jK_{ij}A_j.
+\]
+These are unnormalized normalizer-difference and shadow enumerators. For an error $E$ let $s(E,g)$ be its commutator bit against $g\in S$. Summing $(-1)^{s(E,g)}$ over all errors of weight $i$ gives $K_{ij}$ for $g$ of weight $j$ by multiplying one-site polynomials. Summing over $g$ first gives $q$ for each commuting $E$ and zero otherwise. Distance at least four implies $H_0=H_1=H_2=H_3=0$.
+
+Weight parity on $S$ is linear, since $\mathrm{wt}(gh)\equiv\mathrm{wt}(g)+\mathrm{wt}(h)+s(g,h)\pmod2$ and $s(g,h)=0$ on $S$. By character orthogonality, the sum of $(-1)^{s(E,g)+\mathrm{wt}(g)}$ over $g\in S$ is zero or $q$. Summing over errors of weight $i$ gives $C_i\ge0$. The even-weight count $P=\sum_{j\,\mathrm{even}}A_j$ equals $q$ in the all-even case and $q/2$ in the mixed case.
+
+\textbf{Four logical qubits ($q=256$).} For all-even groups,
+\[
+512(T_6+6A_2+3A_4)=3072 A_0+52H_0+19H_1+6H_2+H_3.
+\]
+Thus $T_6\le6$. In the mixed case set $D=19A_1+6A_2+10A_3+3A_4+2A_5$. Then
+\[
+512(T_6+D)+C_1+C_3=-1024 A_0+36H_0+20H_1+6H_2+2H_3+16P.
+\]
+Here $P=128$ and $A_0=1$, so $T_6\le2$. Both cases exclude the eight independent nonidentity checks required at weight six or less. Hence $\W(12,4,4)=7$.
+
+\textbf{Three logical qubits ($q=512$).} On even coordinates the following linear-form identity holds:
+\[
+ 2048T_5=16384A_0+52H_0+19H_1+6H_2+H_3-512A_6.
+\]
+Since $A_0=1$ and $H_0=\cdots=H_3=0$, this gives $T_5=8-A_6/4\le8$.
+
+In the mixed case define the nonnegative quantity
+\[
+ R=19968A_1+16896A_3+1024A_4+2048A_6+11C_1+2C_2+5C_3.
+\]
+The following identity holds on all thirteen coordinates:
+\[
+ 7168T_5+R=45056A_0+168H_0+87H_1+26H_2+9H_3+40P .
+\]
+Substituting $P=256$ gives $T_5\le 55296/7168=54/7<8$. All four identities follow by comparing coefficients of $A_j$ for $0\le j\le12$ (only even $j$ for all-even groups). The \href{https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/small_qec/dual.py}{exact-arithmetic checker} implements the dual bound. Thus in either case there are too few nonidentity low-weight elements to span a rank-nine group. The displayed certificate attains six, proving $\W(12,3,4)=6$.
+
+\newpage
+\section*{Optimality and source comparison}
+Wei et al. report $[7,8]$ for $\W(12,4,4)$, $[4,6]$ for $\W(n,1,4)$ at $n=10,11,12$, and $[6,8]$ for $\W(12,3,4)$. Their Theorem~12 shows that any nontrivial stabilizer code generated at weight at most three has distance at most two. This analytic result supplies the lower bound four in all three one-logical-qubit cases.
+
+Append one qubit in $|0\rangle$ to the ten-qubit certificate. Extend all old checks by identity and add $Z$ on the new qubit. A Pauli commuting with the added $Z$ acts by $I$ or $Z$ there. Multiplying by the new check therefore removes its action on that qubit, preserving its logical class and weakly decreasing its weight. Every old logical has a representative of the same weight on the enlarged code. The distance stays four, and the maximum check weight stays four. Iterating gives
+\[
+\W(10,1,4)=\W(11,1,4)=\W(12,1,4)=4.
+\]
+For the two twelve-qubit cells, Wei et al. report the lower bounds seven and six, respectively, using their weight-enumerator linear-programming procedure (Appendix~L, Algorithm~1). The rational identities above give direct checks of both bounds using the enumerator conditions of their Appendix~G. The constructions attain both lower bounds.
+
+\textbf{Attribution of the subcode construction.} Wei et al., Appendix~J, prescribe appending a weight-four logical Pauli to the very same $[[12,4,4]]$ parent to obtain their $[[12,3,4]]$ code. We minimize the maximum generator weight across choices of logical Pauli and across generating bases. Of the parent's 75 nonzero logical cosets with a weight-four representative, 60 give maximum weight six after basis minimization and 15 give eight. In the site order obtained by reversing Grassl's printed matrix, appending \texttt{XXIIIIZZIIII} gives one of the 60. Likewise appending \texttt{IZXIZZZIZI} to Grassl's $[[10,2,4]]$ group yields a $[[10,1,4]]$ code with maximum weight four. These are alternatives to the second and third columns on page one.
+
+The first column instead preserves four encoded qubits by changing one stabilizer constraint of the parent. The parent admits an all-even stabilizer group, whereas the first column contains odd-weight elements. Qubit permutations and local Clifford gates preserve weight, so these two groups are inequivalent under those operations. Jing and Tu updated the distance-three entries of the source table and identified distance four as further work. Our comparison establishes improvements to the cited bounds. Historical priority for the values and code classes remains undetermined.
+
+\section*{Sources}
+\small
+F. Wei, Z. Han, A. Y. He, Z. Li and Z.-W. Liu, \href{https://arxiv.org/html/2601.19848v2}{\emph{Theory of low-weight quantum codes}}, v2 (2026), Table~2, Theorem~12 and Appendices~G,J,L.
+
+Y. Jing and Y. Tu, \href{https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/a422af71819277c05fafc1a9f69d0cd5a10a35f0/paper/main.tex}{proof manuscript and updated distance-three table} and \href{https://github.com/Naixu-Guo/quantum-open-problems/pull/111}{QIQCOP submission 111}.
+
+M. Grassl, \emph{Code tables}, matrices for \href{https://codetables.de/QECC.php?q=4\&n=10\&k=2}{$[[10,2,4]]$} and \href{https://codetables.de/QECC.php?q=4\&n=12\&k=4}{$[[12,4,4]]$}. The QEC Challenge also catalogs these parent parameter sets, \href{https://qecchallenge.com/codes/10-2-4.html}{length ten} and \href{https://qecchallenge.com/codes/12-4-4.html}{length twelve}.
+\end{document}

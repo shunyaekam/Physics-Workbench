@@ -19,6 +19,8 @@ PRIORITY_FIELDS=("verdict","sources","comparison")
 MATH_FIELDS=("verdict","hypotheses","weakest_step")
 SOLVER_FIELDS=("approach","witness_json","derivation","what_would_change")
 NOTEBOOK={
+    "wei-12-3-4":["checks/small_qec/target.py","checks/small_qec/verify.py","checks/small_qec/dual.py"],
+    "wei-12-4-4":["checks/small_qec/target.py","checks/small_qec/verify.py","checks/small_qec/dual.py"],
     "transport-polygon":["formal/transport_literal/attempt.py","papers/transport-polygon.md"],
     "e27-schmidt":["checks/schmidt_orbit.py","checks/schmidt-orbit.md"],
     "golay43":["checks/golay43.py","checks/golay_certificate.py","checks/golay/frontier_v2.md","checks/golay/css_peeling.py","checks/golay/css_peeling.md","discovery/inputs/golay-44.json","lab.py","verify.py"],

@@ -1,0 +1,65 @@
+{
+  "problem_id": "wei-12-4-4",
+  "contract_hash": "a13becb2b7dbf8cbb99858e625ea123d9bbd83e9e35e225660a66de27113412c",
+  "model": "Interactive Codex research collaboration, separate solver and reviewer contexts",
+  "status": "ready_for_replay",
+  "attempts": [
+    {
+      "proposal": {
+        "approach": "Search neighbors sharing seven checks with Grassl\u2019s code, then bound the total number of checks of weight at most six.",
+        "witness_json": "{\"generators\": [\"IIIIIIYYZZXX\", \"ZZZZZZIIIIII\", \"ZXXXIXXIXIII\", \"XIXIYXIZZIIY\", \"IIYXXXZZIIXI\", \"XXIZXXIIIIYZ\", \"IYIIIXZYXIYY\", \"XZXXXIIXIXII\"]}",
+        "derivation": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
+        "what_would_change": "A counterexample to a cited enumerator identity, an erroneous certificate coordinate, or a lighter logical operator would invalidate the proof."
+      },
+      "checked_at": "2026-11-26T20:25:55+00:00",
+      "witness": {
+        "generators": [
+          "IIIIIIYYZZXX",
+          "ZZZZZZIIIIII",
+          "ZXXXIXXIXIII",
+          "XIXIYXIZZIIY",
+          "IIYXXXZZIIXI",
+          "XXIZXXIIIIYZ",
+          "IYIIIXZYXIYY",
+          "XZXXXIIXIXII"
+        ]
+      },
+      "witness_hash": "a78562a0a6817f8ad6553d8309d9e8b87a23ddb08a602f07916a7858c0b1ef77",
+      "result": {
+        "n": 12,
+        "k": 4,
+        "d": 4,
+        "weight": 7,
+        "group_size": 256,
+        "logicals_by_weight": [
+          0,
+          0,
+          0,
+          225
+        ],
+        "example_logical": "YYZZIIIIIIII",
+        "light_stabilizer_weight_limit": 6,
+        "light_stabilizer_upper_bounds_by_even_subgroup_size": {
+          "256": "6",
+          "128": "2"
+        },
+        "required_rank": 8,
+        "optimal_check_weight": 7,
+        "decisive": true
+      },
+      "math_review": {
+        "verdict": "pass",
+        "hypotheses": "Rank eight, codespace dimension sixteen, exact distance four. Independent enumeration gives logical counts 0,0,0,225. No restriction on code degeneracy or check geometry.",
+        "weakest_step": "The even-weight subgroup has index one or two. Independent polynomial expansion confirmed all dual coefficients and signs and the bounds 6 and 2, both below eight."
+      },
+      "priority_review": {
+        "verdict": "clear_within_search",
+        "sources": "[\"https://arxiv.org/html/2601.19848v2#S7.T2\", \"https://arxiv.org/html/2601.19848v2#A10\", \"https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex\", \"https://www.markus-grassl.de/QECC/circuits/12_4_4.html\", \"https://qecchallenge.com/codes/12-4-4.html\", \"https://github.com/unitaryfoundation/qldpc-challenge/pull/2315\"]",
+        "comparison": "Wei report 7\u20138 and Jing\u2013Tu retain the distance-four range. The Grassl and QEC Challenge constructions need weight eight. The exhibited code contains 24 weight-seven stabilizers versus zero for Grassl and is inequivalent under local Cliffords and permutations. A bounded search found no previous explicit assertion that the optimum is seven."
+      }
+    }
+  ],
+  "updated_at": "2026-11-26T20:25:55+00:00",
+  "review_artifact": "checks/small_qec/d4-review.md",
+  "registration": "Retrospective. See the tracking issue for chronology."
+}

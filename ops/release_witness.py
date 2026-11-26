@@ -19,7 +19,7 @@ def package(record,research_commit,checker_commit):
             raise ValueError("Expected an immutable Git revision")
     pid=record["problem_id"]
     contract=contracts()[pid]
-    if (contract["mode"] not in ("full_counterexample","full_construction") or
+    if (contract["mode"] not in ("full_counterexample","full_construction","full_optimum") or
             record["status"]!="ready_for_replay" or record["contract_hash"]!=fingerprint(contract)):
         raise ValueError("Full target, current statement and completed reviews are required")
     last=record["attempts"][-1]

@@ -1,0 +1,16 @@
+{
+  "target": "TransportCounting.CountingBound",
+  "toolchain": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "checked_at_trust_zero": true,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "negative_control": "Coefficient 3 rejected",
+  "sha256": {
+    "Counting.lean": "e490e17dcd2d0557bd709d436709f026f639541e21a1d4434e3b8f4ef6457726",
+    "CountingProof.lean": "e217784d9f8f6404f21a199830b1e110196efcf078a770ccec0702f7ae9930c3",
+    "VerifyCounting.lean": "f8d52831c451dfdeeb06e812022cc45d73dd21e769801514bae8d4bd75e15027"
+  }
+}

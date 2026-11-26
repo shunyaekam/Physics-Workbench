@@ -52,5 +52,23 @@
     "implication": "A strictly negative upper endpoint for the mean word trace minus the exponential trace on a valid pair disproves the lower bound.",
     "witness_format": "{\"H\":[[integers]],\"K\":[[integers]],\"den\":positive integer ≤16,\"n\":positive integer,\"m\":positive integer}. Symmetric 2–4 square matrices with common denominator; each row sum of absolute values ≤2 after division; n+m≤12.",
     "checker": "checks/bmv_certificate.py"
+  },
+  "wei-12-3-4": {
+    "statement": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, distance-four row n=12, k=3 (6–8); binary stabilizer codes.",
+    "mode": "full_optimum",
+    "implication": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
+    "witness_format": "{\"generators\": [nine twelve-letter Pauli words over IXYZ]}. The checker fixes n, k, distance and the dual coefficients.",
+    "checker": "checks/small_qec/target.py"
+  },
+  "wei-12-4-4": {
+    "statement": "What is the minimum possible maximum generator weight of a binary [[12,4,4]] stabilizer code, over all codes and generating sets?",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, distance-four row n=12, k=4 (7–8); binary stabilizer codes.",
+    "mode": "full_optimum",
+    "implication": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
+    "witness_format": "{\"generators\": [eight twelve-letter Pauli words over IXYZ]}. The checker fixes n, k, distance and the dual coefficients.",
+    "checker": "checks/small_qec/target.py"
   }
 }

@@ -3,6 +3,13 @@
   "certified": [],
   "kernel_steps": [
     {
+      "id": "counting-lemma",
+      "title": "Counting bound for all directed cycles",
+      "status": "lean_checked_scoped",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/formal/transport_literal/counting-proof.md",
+      "detail": "Lean checks the general counting lemma used in the transport manuscript."
+    },
+    {
       "id": "literal-transport",
       "title": "Three energy levels: exact line error 2/3",
       "status": "lean_checked_scoped",
@@ -10,10 +17,10 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:24:00+00:00",
+  "updated_at": "2026-11-26T20:26:50+00:00",
   "counts": {
     "leads": 3,
-    "problems": 6,
+    "problems": 8,
     "attempts": 83457907384,
     "candidates": 0,
     "partial_results": 8,
@@ -124,6 +131,32 @@
         "binary-spectrum proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/bmv-trace-12-3.tex",
         "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py",
         "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/6"
+      }
+    },
+    {
+      "id": "wei-12-3-4",
+      "title": "Optimal check weight for twelve physical qubits encoding three",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "detail": "Measures the lightest possible largest parity check while encoding three logical qubits and detecting every Pauli error of weight up to three.",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "question": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
+      "decisive_test": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/8"
+      }
+    },
+    {
+      "id": "wei-12-4-4",
+      "title": "Optimal check weight for twelve physical qubits encoding four",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "detail": "A distance-four code storing four logical qubits achieves seven-qubit parity checks, fewer than the eight used by the tabulated construction.",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "question": "What is the minimum possible maximum generator weight of a binary [[12,4,4]] stabilizer code, over all codes and generating sets?",
+      "decisive_test": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/9"
       }
     }
   ],
@@ -246,9 +279,23 @@
       "detail": "1 recorded attempts. Check the rank-two zero-score control."
     },
     {
+      "id": "flow-wei-12-4-4",
+      "title": "Optimal check weight for twelve physical qubits encoding four",
+      "status": "ready_for_replay",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-4-4-a13becb2b7dbf8cb.json",
+      "detail": "1 recorded attempts. Search neighbors sharing seven checks with Grassl\u2019s code, then bound the total number of checks of weight at most six."
+    },
+    {
+      "id": "flow-wei-12-3-4",
+      "title": "Optimal check weight for twelve physical qubits encoding three",
+      "status": "ready_for_replay",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-3-4-d690cba980d93f08.json",
+      "detail": "1 recorded attempts. Use commuting checks of weight six and bound the total number of lighter stabilizers."
+    },
+    {
       "id": "flow-transport-polygon",
       "title": "Exact approximation of quantum transport costs",
-      "status": "math_review",
+      "status": "counting_proof_replayed",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/transport-polygon-9783d1a9bb39a040.json",
       "detail": "1 recorded attempts. Inspect the general counting proposition after introducing its cycle and family."
     },
