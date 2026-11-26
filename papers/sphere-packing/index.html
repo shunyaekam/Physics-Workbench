@@ -1,28 +1,30 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Five better spherical packings · oo research</title>
+<link rel="icon" type="image/png" href="../../site/assets/oo-mark.png">
+<link rel="stylesheet" href="../../site/style.css?v=flowly-1">
 <style>
-@font-face{font-family:DM;src:url(../../site/assets/sans.ttf)}@font-face{font-family:Instrument;src:url(../../site/assets/serif.ttf)}
-*{box-sizing:border-box}body{margin:0;background:#faf8f2;color:#18352e;font:16px/1.52 DM,Arial,sans-serif}
-main,nav,footer{max-width:1120px;padding-inline:clamp(18px,4vw,58px);margin:auto}nav,footer{display:flex;align-items:center;gap:22px;min-height:64px;border-bottom:1px solid #d6d7c9}
-nav a:first-child{font:1.75rem Instrument,Georgia,serif;margin-right:auto;text-decoration:none}a{color:#225d4e;text-underline-offset:3px}
-h1,h2,h3{font-family:Instrument,Georgia,serif;font-weight:400;line-height:1.04;margin:0}h1{font-size:clamp(3rem,8vw,6rem);letter-spacing:-.035em}
-.hero{padding:clamp(32px,6vw,72px) 0 24px}.hero p{max-width:46em;color:#496158;margin:14px 0 0;font-size:1.08rem}
-figure{display:grid;grid-template-columns:minmax(270px,1.45fr) minmax(210px,1fr);margin:12px 0 40px;background:#e6ebdc;border-radius:14px;overflow:hidden}
-.canvascol{min-width:0;background:radial-gradient(ellipse at 35% 22%,#f0f2df,#dfe6d3 70%);display:flex;align-items:center;justify-content:center}
-canvas{width:100%;max-width:560px;aspect-ratio:1;display:block;cursor:grab;touch-action:none}canvas:active{cursor:grabbing}
-figcaption{padding:clamp(22px,4vw,48px);align-self:center}h2{font-size:clamp(2rem,4vw,3.2rem)}
-h3{font-size:1.5rem}figcaption h2{margin:8px 0 18px}.small{color:#4e675d;font-size:.86rem}
-.value{display:block;font:clamp(2rem,5vw,3.8rem)/1 Instrument,Georgia,serif;font-variant-numeric:tabular-nums;margin:5px 0}
-.focus{display:flex;gap:8px;align-items:center;font-size:.9rem}.key{display:inline-block;width:11px;height:11px;border-radius:50%;background:#ac3e1b;border:1px solid #693720}
-button{font:inherit;color:#214b3e;background:transparent;border:1px solid #849b86;border-radius:18px;padding:.35em .85em;cursor:pointer}
-button[aria-pressed=true]{background:#214b3e;color:#fff;border-color:#214b3e}.switch{display:flex;flex-wrap:wrap;gap:.35em;margin:20px 0 15px}
-button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid #ae542b;outline-offset:4px}
-.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;margin:14px 0;font-variant-numeric:tabular-nums}td,th{padding:.65em .7em .65em 0;border-bottom:1px solid #cad3c4;white-space:nowrap}th{font-size:.83rem;color:#4c665a}
-.proof{max-width:46em;padding:25px 0 45px}.proof p{color:#40594e}footer{border-top:1px solid #d6d7c9;border-bottom:0;flex-wrap:wrap;font-size:.9rem}
-@media(max-width:670px){figure{grid-template-columns:1fr}canvas{max-width:430px}figcaption{padding:18px 22px 24px}figcaption h2{margin:3px 0 12px}nav a:not(:first-child){font-size:.87rem}}
+main,footer {width:min(100% - 2.5rem,66rem);margin-inline:auto}
+.hero {padding:clamp(3rem,8vw,6rem) 0 1.75rem}
+.hero p,.proof p {max-width:46rem;color:var(--muted);margin-top:.8rem}
+figure {display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:clamp(1.5rem,5vw,4rem);margin:1rem 0 4rem}
+.canvascol {background-color:#fafafa;background-image:radial-gradient(#dedede .8px,transparent .9px);background-size:20px 20px;display:grid;place-items:center}
+canvas {width:100%;max-width:34rem;aspect-ratio:1;display:block;cursor:grab;touch-action:none}
+canvas:active {cursor:grabbing}
+figcaption h2 {margin:.4rem 0 1.35rem}
+.small,.focus {font-size:.875rem;color:var(--muted)}
+.value {display:block;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+.focus {display:flex;align-items:center;gap:.5rem}.key {width:9px;height:9px;border-radius:50%;background:#2763ba}
+figcaption button {margin:0}
+.switch {display:flex;flex-wrap:wrap;gap:1.25rem;margin:1.4rem 0 .85rem}
+.switch button[aria-pressed=true] {color:var(--ink);border-bottom:1px solid}
+.tablewrap {overflow-x:auto}table {border-collapse:collapse;width:100%;text-align:left;font-variant-numeric:tabular-nums;margin:1rem 0}
+th,td {padding:.8rem .8rem .8rem 0;border-bottom:1px solid var(--rule);white-space:nowrap}
+th {font-size:.85rem;color:var(--muted);font-weight:500}
+.proof {max-width:50rem;padding:2rem 0 3rem}
+@media(max-width:650px){figure {grid-template-columns:1fr} canvas {max-width:23rem} .hero{padding-top:2.5rem}}
 </style></head>
-<body><nav aria-label="Lab navigation"><a href="../../">oo research</a><a href="../../pipeline/">Pipeline</a><a href="../../#catalogue">Papers</a></nav><main>
+<body><header class="topbar"><div class="head-inner"><a class="brand" href="../../" aria-label="oo research home">oo research</a><nav aria-label="Main"><a href="../../#catalogue">papers</a><a href="../../pipeline/">pipeline</a><a href="../../pipeline/indexed.html">problems</a><a href="https://github.com/shunyaekam/oo-research">GitHub</a></nav></div></header><main>
 <section class="hero"><h1>Five better spherical packings</h1><p>How widely can you separate the closest two points on a sphere? We found configurations with more separation at five sizes than those in Henry Cohn’s table on November 25, 2026. Four of them fit on an ordinary sphere.</p></section>
 <figure><div class="canvascol"><canvas id="sphere" tabindex="0" aria-label="Rotatable sphere with 418 equal caps. The closest pair is highlighted. Use arrow keys to rotate." aria-describedby="instructions"></canvas></div>
 <figcaption><span class="small">Three dimensions · 418 points</span><h2>The closest pair</h2><span class="small">Minimum angular separation</span>
@@ -57,20 +59,20 @@ function draw(){
  const conf=data[selected],ap=conf.angle*Math.PI/360,rs=r*Math.sin(ap),ac=Math.cos(ap);
  const point=([x,y,z])=>[-si*x+co*y,-up*(co*x+si*y)+flat*z,flat*(co*x+si*y)+up*z];
  const dots=conf.points.map((v,i)=>({v:point(v),i})).sort((a,b)=>a.v[2]-b.v[2]);
- const shade=ctx.createRadialGradient(c-r*.36,c-r*.42,0,c,c,r);shade.addColorStop(0,'#f3f2d8');shade.addColorStop(.74,'#c9d7b6');shade.addColorStop(1,'#85a38c');
+ const shade=ctx.createRadialGradient(c-r*.36,c-r*.42,0,c,c,r);shade.addColorStop(0,'#fafafa');shade.addColorStop(.74,'#e8e8e8');shade.addColorStop(1,'#ababab');
  ctx.save();ctx.beginPath();ctx.arc(c,c,r,0,2*Math.PI);ctx.fillStyle=shade;ctx.fill();ctx.clip();
  for(const {v:[x,y,z],i} of dots){
   if(z<0)continue;
   const special=conf.pair.includes(i),trans=.13+.3*z;
   ctx.beginPath();ctx.ellipse(c+r*x*ac,c-r*y*ac,rs,Math.max(.03,rs*z),Math.atan2(x,y),0,2*Math.PI);
-  ctx.fillStyle=special?'#da724d':'rgba(41,96,71,'+trans+')';ctx.fill();
-  ctx.lineWidth=Math.max(.5,width/760);ctx.strokeStyle=special?'#892d16':'rgba(42,84,63,.4)';ctx.stroke();
+  ctx.fillStyle=special?'#5594e8':'rgba(62,62,62,'+trans+')';ctx.fill();
+  ctx.lineWidth=Math.max(.5,width/760);ctx.strokeStyle=special?'#215194':'rgba(80,80,80,.4)';ctx.stroke();
   ctx.beginPath();ctx.arc(c+r*x,c-r*y,special?3.2:Math.max(.75,width/450),0,2*Math.PI);
-  ctx.fillStyle=special?'#723019':'#4b715a';ctx.fill();
+  ctx.fillStyle=special?'#143963':'#606060';ctx.fill();
  }
  const [a,b]=conf.pair.map(i=>point(conf.points[i]));
- if(a[2]>0&&b[2]>0){ctx.beginPath();ctx.moveTo(c+r*a[0],c-r*a[1]);ctx.lineTo(c+r*b[0],c-r*b[1]);ctx.strokeStyle='#7d2d14';ctx.lineWidth=2;ctx.stroke();}
- ctx.restore();ctx.beginPath();ctx.arc(c,c,r,0,2*Math.PI);ctx.strokeStyle='#648471';ctx.lineWidth=1;ctx.stroke();
+ if(a[2]>0&&b[2]>0){ctx.beginPath();ctx.moveTo(c+r*a[0],c-r*a[1]);ctx.lineTo(c+r*b[0],c-r*b[1]);ctx.strokeStyle='#153f80';ctx.lineWidth=2;ctx.stroke();}
+ ctx.restore();ctx.beginPath();ctx.arc(c,c,r,0,2*Math.PI);ctx.strokeStyle='#858585';ctx.lineWidth=1;ctx.stroke();
 }
 function choose(which){
  selected=which;const cfg=data[which];for(const id of ['ours','prior'])document.getElementById(id).setAttribute('aria-pressed',String(id===which));

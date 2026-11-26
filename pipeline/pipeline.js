@@ -51,6 +51,37 @@ function link(label, url) {
   return a;
 }
 let system = 'ours', selected = [0,0], section = boards.some(([key])=>key===location.hash.slice(1)) ? location.hash.slice(1) : 'certified', feed;
+function drawConnections() {
+  const canvas = $('connections');
+  const bounds = canvas.getBoundingClientRect();
+  if (!bounds.width || !bounds.height) return;
+  const scale = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.round(bounds.width * scale);
+  canvas.height = Math.round(bounds.height * scale);
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  ctx.strokeStyle = '#acacac';
+  const vertical = matchMedia('(max-width:760px)').matches;
+  const stations = [...$('tracks').children];
+  for (let i = 1; i < stations.length; i++) {
+    for (const from of stations[i - 1].children) {
+      for (const to of stations[i].children) {
+        const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+        const x = (vertical ? a.left + a.width / 2 : a.right) - bounds.left;
+        const y = (vertical ? a.bottom : a.top + a.height / 2) - bounds.top;
+        const u = (vertical ? b.left + b.width / 2 : b.left) - bounds.left;
+        const v = (vertical ? b.top : b.top + b.height / 2) - bounds.top;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        if (vertical) ctx.bezierCurveTo(x, (y + v) / 2, u, (y + v) / 2, u, v);
+        else ctx.bezierCurveTo((x + u) / 2, y, (x + u) / 2, v, u, v);
+        ctx.stroke();
+      }
+    }
+  }
+}
+new ResizeObserver(drawConnections).observe($('tracks'));
+
 function map() {
   const stations = systems[system];
   $('ours').setAttribute('aria-pressed',system === 'ours');
@@ -71,6 +102,7 @@ function map() {
     });
     $('tracks').append(station);
   });
+  drawConnections();
   inspect();
   const branch = $('branch');
   branch.replaceChildren(element('span','If an earlier theorem settles the claim'));
