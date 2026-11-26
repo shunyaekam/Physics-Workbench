@@ -1,0 +1,116 @@
+{
+  "schema": 2,
+  "batch": 137,
+  "parent": 133,
+  "trials": 20000,
+  "cost": 44,
+  "frontier": 12,
+  "moves": [
+    [
+      "L",
+      22,
+      22
+    ],
+    [
+      "L",
+      14,
+      14
+    ],
+    [
+      "L",
+      9,
+      9
+    ],
+    [
+      "L",
+      22,
+      22
+    ],
+    [
+      "L",
+      14,
+      14
+    ],
+    [
+      "C",
+      15,
+      14
+    ],
+    [
+      "Z",
+      2,
+      16
+    ],
+    [
+      "C",
+      9,
+      5
+    ],
+    [
+      "Z",
+      5,
+      8
+    ],
+    [
+      "Z",
+      5,
+      22
+    ],
+    [
+      "Z",
+      6,
+      14
+    ],
+    [
+      "Z",
+      6,
+      18
+    ],
+    [
+      "Z",
+      8,
+      19
+    ],
+    [
+      "Z",
+      10,
+      19
+    ],
+    [
+      "Z",
+      12,
+      14
+    ],
+    [
+      "Z",
+      12,
+      17
+    ],
+    [
+      "Z",
+      13,
+      18
+    ]
+  ],
+  "forward_stim": "H 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 18\nCX 13 18\nH 18 17\nCX 12 17\nH 17 14\nCX 12 14\nH 14 19\nCX 10 19\nH 19 19\nCX 8 19\nH 19 18\nCX 6 18\nH 18 14\nCX 6 14\nH 14 22\nCX 5 22\nH 22 8\nCX 5 8\nH 8\nCX 9 5\nH 16\nCX 2 16\nH 16\nCX 15 14\nS 12 6\nSQRT_X_DAG 14\nS 9 5\nSQRT_X_DAG 22\nS 22 8 5\nSQRT_X_DAG 9\nS 12 6\nSQRT_X_DAG 14\nS 9 8\nSQRT_X_DAG 22\nX 6 11 13 17 19 21\nY 2 8 10 14 15 16\nZ 12 18 22\nS 11 18 20\nH 0 1 2 3 4 6 8 9 10 11 12 13 20 21\nS 13 20 21\nH 1 11\nCX 1 11\nH 11 1\nS_DAG 0\nH 0 1\nCX 0 1\nH 1 0\nS 0\nH 16 20\nCX 16 20\nH 20 16 3 9\nCX 3 9\nH 9 3 1 12\nCX 1 12\nH 12 1 1 7\nCX 1 7\nH 7 1 13 13\nCX 7 13\nH 13 13 0 14\nCX 0 14\nH 14 0 4 4\nCX 6 4\nH 4 4 16 0\nCX 16 0\nH 0 16 21 21\nCX 7 21\nH 21 21 10 1\nCX 10 1\nH 1 10 4 10\nCX 4 10\nH 10 4 14 14\nCX 22 14\nH 14 14 12 5\nCX 12 5\nH 5 12 7 20\nCX 7 20\nH 20 7 19 16\nCX 19 16\nH 16 19 3 13\nCX 3 13\nH 13 3 16 12\nCX 16 12\nH 12 16 10 0\nCX 10 0\nH 0 10 18 19\nCX 18 19\nH 19 18 10 10\nCX 5 10\nH 10 10 21 21\nCX 4 21\nH 21 21 6 2\nCX 6 2\nH 2 6 20 20\nCX 3 20\nH 20 20 11 11\nCX 20 11\nH 11 11 9 9\nCX 4 9\nH 9 9 22 22\nCX 21 22\nH 22 22 4 11\nCX 4 11\nH 11 4 9 16\nCX 9 16\nH 16 9 21 21\nCX 2 21\nH 21 21 3 6\nCX 3 6\nH 6 3",
+  "forward_sha256": "d4d7114f662d8fd242bee88f4661cc8fda5b654583cf77fc825e5c563c72c56c",
+  "strategies": {
+    "rewire": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 45
+    },
+    "regrow": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 46
+    },
+    "deletion": {
+      "frontiers": 32,
+      "trials": 5000,
+      "cost": 44
+    }
+  },
+  "winning_strategy": "deletion",
+  "frontiers_sha256": "aeb856204548de159e3fa9036997917248a044a1d6c252b2acb4ec0655ca998f"
+}
