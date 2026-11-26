@@ -2,7 +2,7 @@
   "problem_id": "gagatsos-2026-c1",
   "contract_hash": "894dfc84ab2ceda0dde95e34c1a58a4c75b447ba802c5b2ca44fd8c264976411",
   "model": "gpt-6.2-astra",
-  "status": "math_review",
+  "status": "parked",
   "attempts": [
     {
       "proposal": {
@@ -76,9 +76,13 @@
           }
         ]
       },
-      "origin": "executed during deployment"
+      "origin": "executed during deployment",
+      "math_review": {
+        "verdict": "park",
+        "hypotheses": "The candidate has eight distinct allowed levels and integer amplitudes within range. Its squared coefficient norm is 3204, so dividing by \u221a3204 gives a normalized pure state. In the coherent-amplitude coordinate \u03b1 = (q + ip)/\u221a2, the Jacobian gives d\u00b2\u03b1 = dq dp/2. With both densities normalized in their respective measures, the proposed inequality becomes \u0394 = \u222b|W\u03b1| d\u00b2\u03b1 \u2212 (\u222b\u221aQ\u03b1 d\u00b2\u03b1)\u00b2/(4\u03c0) \u2264 0. For vacuum the two terms are exactly 1, and displacement preserves both integrals, verifying equality for every coherent state. A single state with \u0394 > 0 would refute the inequality. A noncoherent state with \u0394 = 0 would refute the equality characterization.",
+        "weakest_step": "The executed coarse and fine grids gave \u0394 = \u22120.757329 and \u22120.757364. I independently evaluated the Fock-state formulas on a 400 \u00d7 300 polar midpoint grid over |\u03b1| < 10 and obtained 2.113564 \u2212 2.870978 = \u22120.757414. All three screens put this candidate on the conjectured side, but grid agreement supplies no rigorous error bound. The critical next test for this candidate is to enclose both integrals on the disk using interval bounds and bound their exterior tails using the Gaussian-weighted Fock polynomials. A strictly negative upper bound for \u0394 would retire this witness rigorously. The universal inequality and the uniqueness of coherent-state equality remain open in this assessment."
+      }
     }
   ],
-  "updated_at": "2026-11-26T11:52:48+00:00",
-  "last_error": "Hosted Codex exited with status 1 (usage limit)"
+  "updated_at": "2026-11-26T20:48:29+00:00"
 }

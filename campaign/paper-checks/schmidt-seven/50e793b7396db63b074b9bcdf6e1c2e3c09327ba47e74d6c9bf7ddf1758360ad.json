@@ -1,0 +1,51 @@
+{
+  "paper": "schmidt-seven",
+  "inputs": {
+    "papers/schmidt-rank-seven.tex": "e6fbc031659f2de8a2d18348952e6c94196d8ad99b66d8101327813c500cef92",
+    "checks/schmidt7/verify.py": "74be83d8cfc55e38e9015ad72d2c131ae0d762150d88749d289887fef54909b5",
+    "checks/schmidt7/regions.py": "c96e11d14b99cab6edffd6802dd8297320179ba0dc721683b0842a5ae11ba738",
+    "checks/schmidt7/two_exceptions.py": "2ce8c0931a7e830ef19e030bed9761ed4e91ba5a3fce21400304ef044bb33392",
+    "checks/schmidt7/review_checks.py": "471da97b82f11221bc9aecc4b90371a87d0c930c3b6020294a0d64a071a0a786",
+    "checks/schmidt7/duals.json": "be979f9d27145926929654c86390d0e2cf493dfc1c90cf9cb517176c97dda2d0",
+    "checks/schmidt7/bounded_ratio.json": "28b025b9897ab7ec6864ba0a6618a66269e94a79bde909da83b6ff024bd83f3c",
+    "checks/schmidt7/bounded_second.json": "e89de3b9f01ef6023f4ba5be01e7685cc006ad61a8a9a9520e01ada15d167868",
+    "checks/schmidt7/fourth_gap.json": "e74ccbacf9990e60d6de77c90e1774120096e0f9df0534f635fe9e5a5643bbc0",
+    "checks/schmidt7/Certificate.lean": "a8fa75cf73b210c4f54b0915bc5cb46927c008c62eadc00e64a56ec8c8bc3c5a",
+    "checks/schmidt7/lean_replay.py": "48ae194c84181186f112ee6ef37f7a67f3206c73042deb487a898c9c42fb8249",
+    "formal/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "ops/paper_checks.py": "0129a18b0f763aab34817252a8b7b1e8616f550aa4fc1c148ecf8c0db88d0017"
+  },
+  "checks": [
+    {
+      "command": [
+        "checks/schmidt7/verify.py"
+      ],
+      "stdout": "Exact two- and three-particle occupation matrices agree with the identities\nExact certificates verified for 210 coefficients in dimension 8\n205 use only dimension-independent rows\nExact optimal purity for amplitudes [1, 1, 1, 1, 1, 1, 1] = 211/343\nExact optimal purity for amplitudes [7, 6, 5, 4, 3, 2, 1] = 134539/214375\nExact optimal purity for amplitudes [8, 8, 8, 6, 4, 3, 2] = 2894973793/4362470401"
+    },
+    {
+      "command": [
+        "checks/schmidt7/regions.py"
+      ],
+      "stdout": "bounded_ratio: 210 exact quartic certificates\nbounded_second: 210 exact quartic certificates\nfourth_gap: 210 exact quartic certificates\nSharpness for the dimension-independent linear relaxation checked"
+    },
+    {
+      "command": [
+        "checks/schmidt7/two_exceptions.py"
+      ],
+      "stdout": "24 exact purity checks passed; rank-15 example: 2576747/3518667"
+    },
+    {
+      "command": [
+        "checks/schmidt7/review_checks.py"
+      ],
+      "stdout": "Five-cycle relaxed coefficient = 5, coordinate coefficient = 4\n24 complex local-rotation trials lie strictly below 134539/214375"
+    },
+    {
+      "command": [
+        "checks/schmidt7/lean_replay.py"
+      ],
+      "stdout": "Lean 4.19.0 kernel checked 210 cleared-denominator certificate inequalities."
+    }
+  ],
+  "scope": "Computational steps only. Mathematical review is a separate record."
+}
