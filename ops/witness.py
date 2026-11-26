@@ -18,6 +18,9 @@ def contracts(root=ROOT):
 
 
 def replay(problem, witness):
+    if problem=="wei-10-2-4":
+        from checks.small_qec.census10.target import check
+        return check(witness)
     if problem=="wei-12-4-4":
         from checks.small_qec.target import check
         return check(witness, k=4)

@@ -368,11 +368,11 @@ def build(root, now):
         if subprocess.run(["git","cat-file","-e",ref],cwd=root,stderr=subprocess.DEVNULL).returncode==0:
             index=json.loads(subprocess.check_output(["git","show",ref],cwd=root,text=True))
         for pid,entry in index.items():
-            code_weights = {"wei-12-3-4": (3,6), "wei-12-4-4": (4,7)}
+            code_weights = {"wei-12-3-4": (12,3,6), "wei-12-4-4": (12,4,7), "wei-10-2-4": (10,2,6)}
             is_code = pid in code_weights
-            k, weight = code_weights.get(pid,(0,0))
-            certified.append(row(pid,f"[[12,{k},4]] · Optimal check weight {weight}" if is_code else entry["title"],"machine_checked_full",
-                GITHUB+"main/certificates/"+entry["file"],(f"A code attains {weight}. Exact rational certificates exclude {weight-1} for every eligible stabilizer group." if is_code else "Independent publication replay passed."),
+            n, k, weight = code_weights.get(pid,(0,0,0))
+            certified.append(row(pid,f"[[{n},{k},4]] · Optimal check weight {weight}" if is_code else entry["title"],"machine_checked_full",
+                GITHUB+"main/certificates/"+entry["file"],("The Grassl code attains six. Every distance-compatible subspace in the graph census has no nonidentity stabilizers of weight at most five." if pid=="wei-10-2-4" else f"A code attains {weight}. Exact rational certificates exclude {weight-1} for every eligible stabilizer group." if is_code else "Independent publication replay passed."),
                 problem_id=pid,source=entry["source"],evidence={"paper":"https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"} if is_code else {}))
             for problem in problems:
                 if problem["id"]==pid:

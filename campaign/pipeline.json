@@ -42,10 +42,10 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:27:38+00:00",
+  "updated_at": "2026-11-26T20:32:17+00:00",
   "counts": {
     "leads": 3,
-    "problems": 8,
+    "problems": 9,
     "attempts": 83457907384,
     "candidates": 0,
     "partial_results": 8,
@@ -183,6 +183,19 @@
       "evidence": {
         "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/9"
       }
+    },
+    {
+      "id": "wei-10-2-4",
+      "title": "Optimal check weight for ten qubits encoding two",
+      "status": "under_investigation",
+      "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "detail": "Determines how light the checks can be for a ten-qubit, two-logical-qubit, distance-four binary stabilizer.",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "question": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
+      "decisive_test": "The Grassl code attains six. Over every graph-state parent from the Danielsen\u2013Parker classification including disconnected products, the distance-compatible rank-eight subspaces have no nonidentity stabilizers of weight at most five. Every eligible group extends to a graph-state parent up to weight-preserving equivalence.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/10"
+      }
     }
   ],
   "leads": [
@@ -316,6 +329,13 @@
       "status": "ready_for_replay",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-3-4-d690cba980d93f08.json",
       "detail": "1 recorded attempts. Use commuting checks of weight six and bound the total number of lighter stabilizers."
+    },
+    {
+      "id": "flow-wei-10-2-4",
+      "title": "Optimal check weight for ten qubits encoding two",
+      "status": "ready_for_replay",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-10-2-4-0744136fd9a96a32.json",
+      "detail": "1 recorded attempts. Use Grassl\u2019s construction for the upper bound and enumerate distance-compatible subspaces of every self-dual graph-state parent to exclude five."
     },
     {
       "id": "flow-transport-polygon",
