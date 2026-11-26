@@ -19,6 +19,7 @@ PRIORITY_FIELDS=("verdict","sources","comparison")
 MATH_FIELDS=("verdict","hypotheses","weakest_step")
 SOLVER_FIELDS=("approach","witness_json","derivation","what_would_change")
 NOTEBOOK={
+    "wei-10-2-4":["checks/small_qec/census10/target.py","checks/small_qec/census10/enumerate_planes.py","checks/small_qec/verify.py"],
     "wei-12-3-4":["checks/small_qec/target.py","checks/small_qec/verify.py","checks/small_qec/dual.py"],
     "wei-12-4-4":["checks/small_qec/target.py","checks/small_qec/verify.py","checks/small_qec/dual.py"],
     "transport-polygon":["formal/transport_literal/attempt.py","papers/transport-polygon.md"],

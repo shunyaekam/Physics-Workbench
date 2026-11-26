@@ -1,0 +1,6 @@
+graphs 3990
+graphs_with_codes 10
+errors 3675
+rank : subspaces
+0 47
+enumerator 1 0 0 0 0 0 90 0 135 0 30 multiplicity 47

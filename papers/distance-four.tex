@@ -5,13 +5,13 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.44em}
 \newcommand{\W}{W_{\mathrm{opt}}}
-\title{Optimal stabilizer check weights for the\protect\\$[[12,4,4]]$ and $[[12,3,4]]$ quantum codes}
+\title{Optimal stabilizer check weights at distance four:\protect\\the $[[12,4,4]]$, $[[12,3,4]]$ and $[[10,2,4]]$ cases}
 \author{oo research}
 \date{26 November 2026}
 \begin{document}
 \maketitle\vspace{-0.7cm}
 \begin{abstract}
-Twelve data qubits can encode four logical qubits at distance four using checks of weight at most seven. We exhibit a stabilizer code attaining seven, improving the upper bound eight in Table~2 of Wei et al. With three logical qubits the optimum is six, and with one logical qubit at lengths ten through twelve it is four. We give explicit Pauli generators and exact distance checks. Rational weight-enumerator identities certify the lower bounds at both twelve-qubit parameters with three or four logical qubits.
+Twelve data qubits can encode four logical qubits at distance four using checks of weight at most seven. We exhibit a stabilizer code attaining seven, improving the upper bound eight in Table~2 of Wei et al. With three logical qubits the optimum is six, and with one logical qubit at lengths ten through twelve it is four. A graph-state census shows that every $[[10,2,d\ge4]]$ stabilizer has the same weight enumerator and requires generators of weight at least six. The twelve-qubit bounds follow from explicit Pauli generators and rational weight-enumerator certificates.
 \end{abstract}
 \section*{Three attaining codes}
 The weight of a Pauli check counts its nonidentity positions. Let $\W(n,k,d)$ minimize the largest generator weight over all generating bases of all binary stabilizer codes with parameters $[[n,k,d]]$. The three columns below are separate generating sets. Give each Hermitian Pauli string the positive sign. The number on its right is its weight.
@@ -70,6 +70,22 @@ The following identity holds on all thirteen coordinates:
 Substituting $P=256$ gives $T_5\le 55296/7168=54/7<8$. All four identities follow by comparing coefficients of $A_j$ for $0\le j\le12$ (only even $j$ for all-even groups). The \href{https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/small_qec/dual.py}{exact-arithmetic checker} implements the dual bound. Thus in either case there are too few nonidentity low-weight elements to span a rank-nine group. The displayed certificate attains six, proving $\W(12,3,4)=6$.
 
 \newpage
+\section*{Ten qubits and two logical qubits}
+Every binary $[[10,2,d\ge4]]$ stabilizer has unsigned weight enumerator
+\[
+ A(z)=1+90z^6+135z^8+30z^{10}.
+\]
+We obtain this statement by a finite calculation conditional on the completeness of the Danielsen--Parker classification of self-dual additive codes under local Clifford operations and qubit permutations. We use the graph-parent and syndrome method employed by Zhang for twelve qubits, here at length ten.
+
+\textbf{Completeness of the reduction.} Extend any rank-eight stabilizer $S$ to a maximal isotropic subspace $L$ of the binary Pauli space. Up to the operations above, $L$ is the stabilizer of a graph state with symmetric zero-diagonal adjacency matrix $\Gamma$. Parameterize its elements by $g(u)=(u,\Gamma u)$ for binary ten-vectors $u$, using ordered $X,Z$ coordinates. Then $S=\{g(u):u\in U\}$ for an eight-dimensional subspace $U$, uniquely specified by the two-dimensional binary subspace $C=U^\perp$ under the ordinary dot product. The code distance and all unsigned stabilizer weights are invariant under these transformations.
+
+An error $E=(x,z)$ commutes with all of $S$ exactly when $s=z+\Gamma x$ belongs to $C$. If $s\ne0$, this error lies outside $L$ and hence outside $S$. Therefore every nonzero syndrome of an error of weight one through three must avoid $C$. When $s=0$, the error equals $g(x)$; distance at least four requires $x\in U$, or equivalently $c\cdot x=0$ for every $c\in C$. These two conditions are necessary and sufficient and allow short stabilizer elements. Signs do not affect either test.
+
+\textbf{Extent of the census.} The Danielsen database supplies $3{,}132$ connected order-ten graph representatives. Taking unordered multisets of smaller connected representatives with total order ten adds $858$ disconnected ones; local complementation and vertex permutation preserve the multiset of connected component orbits. For each of the $3{,}990$ parents, form the two syndrome tests for every one of the $3{,}675$ unsigned errors of weights one to three. Enumerate $C$ by triples $a<b<a+b$ of binary integers whose three nonzero elements all pass the tests (addition is XOR). Exactly $47$ planes across ten graph representatives survive. These count presentations; one code can have several maximal parents.
+
+For each surviving plane, enumerate the $256$ graph stabilizers indexed by $u\in U$ and count $\mathrm{wt}(g(u))$ by the size of the union of the supports of $u$ and $\Gamma u$. Every plane gives the polynomial above. Thus all nonidentity stabilizer elements have weight at least six. Grassl's archived group has a weight-six basis, which proves $\W(10,2,4)=6$. The \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/small_qec/census10}{published census package} checks SHA-256 for all ten source files and for the assembled parent list. The check relies on the published parent classification, independently of the paper's two rational bounds.
+
+\newpage
 \section*{Optimality and source comparison}
 Wei et al. report $[7,8]$ for $\W(12,4,4)$, $[4,6]$ for $\W(n,1,4)$ at $n=10,11,12$, and $[6,8]$ for $\W(12,3,4)$. Their Theorem~12 shows that any nontrivial stabilizer code generated at weight at most three has distance at most two. This analytic result supplies the lower bound four in all three one-logical-qubit cases.
 
@@ -83,11 +99,42 @@ For the two twelve-qubit cells, Wei et al. report the lower bounds seven and six
 
 The first column instead preserves four encoded qubits by changing one stabilizer constraint of the parent. The parent admits an all-even stabilizer group, whereas the first column contains odd-weight elements. Qubit permutations and local Clifford gates preserve weight, so these two groups are inequivalent under those operations. Jing and Tu updated the distance-three entries of the source table and identified distance four as further work. Our comparison establishes improvements to the cited bounds. Historical priority for the values and code classes remains undetermined.
 
+\newpage
+\section*{All sixteen intervals in the source table}
+The table covers each entry of Wei et al., version 2, Table~2 that lists two distinct finite endpoints. The scope is $10\le n\le12$ within that table. An interval changes either because a code attains a previous lower bound or because a proof excludes smaller weights. Repeated numerical optima can follow from a single construction.
+
+\begin{center}
+\begin{tabular}{rrrrll}
+\toprule
+$n$ & $k$ & $d$ & Source interval & Optimum & Evidence \\\midrule
+10 & 4 & 3 & 6--7  & 6 & Jing--Tu \\
+11 & 3 & 3 & 4--5  & 5 & Zhang; Jing--Tu \\
+11 & 4 & 3 & 5--7  & 5 & Jing--Tu \\
+11 & 5 & 3 & 6--8  & 7 & Jing--Tu \\
+12 & 3 & 3 & 4--5  & 4 & Jing--Tu \\
+12 & 4 & 3 & 5--7  & 5 & Jing--Tu \\
+12 & 5 & 3 & 6--8  & 6 & Jing--Tu \\
+12 & 6 & 3 & 8--10 & 8 & Jing--Tu \\\midrule
+10 & 1 & 4 & 4--6 & 4 & Construction and Wei et al., Theorem 12 \\
+10 & 2 & 4 & 5--6 & 6 & Census and Grassl construction \\
+11 & 1 & 4 & 4--6 & 4 & Padding the ten-qubit construction \\
+11 & 2 & 4 & 4--6 & 5 & Zhang \\
+12 & 1 & 4 & 4--6 & 4 & Padding the ten-qubit construction \\
+12 & 2 & 4 & 4--6 & 5 & Zhang \\
+12 & 3 & 4 & 6--8 & 6 & Construction and rational bound \\
+12 & 4 & 4 & 7--8 & 7 & Construction and rational bound \\\bottomrule
+\end{tabular}
+\end{center}
+
 \section*{Sources}
 \small
 F. Wei, Z. Han, A. Y. He, Z. Li and Z.-W. Liu, \href{https://arxiv.org/html/2601.19848v2}{\emph{Theory of low-weight quantum codes}}, v2 (2026), Table~2, Theorem~12 and Appendices~G,J,L.
 
 Y. Jing and Y. Tu, \href{https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/a422af71819277c05fafc1a9f69d0cd5a10a35f0/paper/main.tex}{proof manuscript and updated distance-three table} and \href{https://github.com/Naixu-Guo/quantum-open-problems/pull/111}{QIQCOP submission 111}.
+
+Y. Zhang, \href{https://yuxuanzhang1995.github.io/agentic-research/lowweight-two-logical-distance-four/}{\emph{Optimal check weight for two-logical-qubit codes of lengths eleven and twelve}} (17 November 2026), and \href{https://yuxuanzhang1995.github.io/agentic-research/lowweight-11-3-3/}{the $[[11,3,3]]$ exclusion}.
+
+L. E. Danielsen and M. G. Parker, \href{https://doi.org/10.1016/j.jcta.2005.12.004}{\emph{On the classification of all self-dual additive codes over GF(4) of length up to 12}}, J. Combin. Theory Ser. A \textbf{113}, 1351--1367 (2006). \href{https://www.codetables.de/larsed/vncorbits/}{Graph-state representatives and data documentation}.
 
 M. Grassl, \emph{Code tables}, matrices for \href{https://codetables.de/QECC.php?q=4\&n=10\&k=2}{$[[10,2,4]]$} and \href{https://codetables.de/QECC.php?q=4\&n=12\&k=4}{$[[12,4,4]]$}. The QEC Challenge also catalogs these parent parameter sets, \href{https://qecchallenge.com/codes/10-2-4.html}{length ten} and \href{https://qecchallenge.com/codes/12-4-4.html}{length twelve}.
 \end{document}

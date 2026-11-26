@@ -70,5 +70,14 @@
     "implication": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
     "witness_format": "{\"generators\": [eight twelve-letter Pauli words over IXYZ]}. The checker fixes n, k, distance and the dual coefficients.",
     "checker": "checks/small_qec/target.py"
+  },
+  "wei-10-2-4": {
+    "statement": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, n=10, k=2, d=4 (5–6).",
+    "mode": "full_optimum",
+    "implication": "The Grassl code attains six. Over every graph-state parent from the Danielsen–Parker classification including disconnected products, the distance-compatible rank-eight subspaces have no nonidentity stabilizers of weight at most five. Every eligible group extends to a graph-state parent up to weight-preserving equivalence.",
+    "witness_format": "{\"generators\": [eight ten-letter Pauli strings]}. The trusted checker independently loads ten hash-pinned public graph catalogues.",
+    "checker": "checks/small_qec/census10/target.py"
   }
 }

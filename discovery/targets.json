@@ -146,5 +146,24 @@
     "full_vs_partial": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
     "stop_rule": "Release only after independent review of the source, both bounds and priority.",
     "checked": "2026-11-26"
+  },
+  {
+    "id": "wei-10-2-4",
+    "role": "external_problem",
+    "title": "Optimal check weight for ten qubits encoding two",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, n=10, k=2, d=4 (5–6).",
+    "question": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
+    "significance": "Determines how light the checks can be for a ten-qubit, two-logical-qubit, distance-four binary stabilizer.",
+    "evidence_checked": [
+      "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "https://www.codetables.de/larsed/vncorbits/",
+      "https://qecchallenge.com/codes/10-2-4.html"
+    ],
+    "known": "Grassl’s code attains six. Wei et al. left five possible. Zhang resolved different lengths eleven and twelve.",
+    "experiment": "Extend each candidate to a self-dual graph-state parent. Enumerate all subgroups and check light stabilizers after imposing the distance criterion.",
+    "full_vs_partial": "The Grassl code attains six. Over every graph-state parent from the Danielsen–Parker classification including disconnected products, the distance-compatible rank-eight subspaces have no nonidentity stabilizers of weight at most five. Every eligible group extends to a graph-state parent up to weight-preserving equivalence.",
+    "stop_rule": "Release only after independent review of the source, both bounds and priority.",
+    "checked": "2026-11-26"
   }
 ]
