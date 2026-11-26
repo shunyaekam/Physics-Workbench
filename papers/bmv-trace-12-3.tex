@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.82in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue]{hyperref}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\av}{\mathcal A_{n,m}}
+\title{\vspace{-2em}The refined BMV trace inequalities\\for a matrix with two spectral values}
+\author{Physics Workbench}
+\date{25 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $A,B$ be positive semidefinite matrices of any finite size. If $A$ has
+at most two distinct eigenvalues, the mean trace of all words with $n$
+letters $A$ and $m$ letters $B$ lies between $\tr[(A^{n/m}B)^m]$ and
+$\tr(A^nB^m)$ for all positive integers $n,m$. This follows by grouping
+H\"agele's path expansion according to the number of visits to one eigenspace.
+The resulting weights are coefficients of an ordinary Bessis--Moussa--Villani
+polynomial and are therefore nonnegative. Together with a known
+three-eigenvalue counterexample, this gives the sharp spectral threshold
+for the upper bound. An appendix independently reproduces finite cases
+of a previously established three-eigenvalue lower bound.
+\end{abstract}
+
+\section*{The two-sided bound}
+Write $\av(A,B)=\binom{n+m}{m}^{-1}\sum_W\tr W$, where $W$ runs over all
+words with $n$ letters $A$ and $m$ letters $B$. H\"agele's refinement of the
+BMV conjecture asks whether, for Hermitian $H,K$, the value of
+$\av(e^H,e^K)$ lies between the quantum partition function
+$\tr e^{nH+mK}$ and $\tr(e^{nH}e^{mK})$ [1]. Cha and Lee disproved the
+upper inequality in general [4]. Here the spectral multiplicities and
+both word counts are arbitrary.
+
+\paragraph{Theorem.}
+If $A,B\in M_d(\mathbb C)$ are positive semidefinite and $A$ has at most
+two distinct eigenvalues, then
+\begin{equation}
+ \tr[(A^{n/m}B)^m]\ \le\ \av(A,B)\ \le\ \tr(A^nB^m)
+ \qquad(n,m\ge1).                                                    \label{eq:main}
+\end{equation}
+For $A=e^H$ and $B=e^K$, the first term dominates $\tr e^{nH+mK}$ by
+the Araki--Lieb--Thirring inequality and the Lie--Trotter formula
+[2, Lemma~2]. Interchanging the two factors gives the partition-function
+and upper bounds also when $K$ has at most two spectral values.
+
+\paragraph{Proof.}
+Write $A=aP+bQ$ with $P,Q$ complementary orthogonal projections and
+$a,b\ge0$. A scalar $A$ gives equality. Let
+$\mathcal R=\{r\in\mathbb N_0^m\,:\,\sum_i r_i=n\}$, of size
+$N=\binom{n+m-1}{m-1}$. By cyclicity [2, Lemma~3],
+\[
+ \av(A,B)=N^{-1}\sum_{r\in\mathcal R}
+              \tr(A^{r_1}B A^{r_2}B\cdots A^{r_m}B).
+\]
+For example, marking one of the $m$ occurrences of $B$ in each word
+counts each word $m$ times. Rotating the marked letter to the end leaves
+a weak composition and a rotation offset in $\{0,\ldots,n+m-1\}$. The
+trace is independent of that offset.
+
+\newpage
+For a sequence $E=(E_1,\ldots,E_m)\in\{P,Q\}^m$, set
+$w(E)=\tr(E_1 B E_2 B\cdots E_m B)$. Let
+$\lambda_i=a$ when $E_i=P$ and $\lambda_i=b$ when $E_i=Q$.
+The scalar multiplying $w(E)$ in the average is
+\[
+ \kappa_k=N^{-1}\sum_{r\in\mathcal R}\prod_i\lambda_i^{r_i},
+ \qquad k=\#\{i:E_i=Q\}.
+\]
+It depends only on $k$ because $\mathcal R$ is invariant under coordinate
+permutations. With $c_k=\sum_{E:\#Q=k}w(E)$ we therefore have
+$\av(A,B)=\sum_k c_k\kappa_k$. Terms with exponent zero equal one,
+including at a zero eigenvalue.
+
+\paragraph{Positivity of the grouped weights.}
+Put $U=B^{1/2}PB^{1/2}$ and $V=B^{1/2}QB^{1/2}$. Both are positive
+semidefinite, and cyclicity gives
+\[
+ p(t)=\tr[(U+tV)^m]=\tr[((P+tQ)B)^m]=\sum_{k=0}^m c_k t^k.
+\]
+The polynomial form of the ordinary BMV theorem gives $c_k\ge0$ [3].
+This use of the theorem permits arbitrary ranks of $P$ and $Q$ and arbitrary
+complex off-diagonal blocks of $B$.
+
+\paragraph{Scalar bounds.}
+Every coordinate $r_i$ has average $n/m$ over $\mathcal R$. The
+arithmetic--geometric mean inequality over compositions gives the lower
+bound below. For the upper bound, apply the weighted arithmetic--geometric
+mean inequality to $\prod_i(\lambda_i^n)^{r_i/n}$ for each composition
+and average:
+\[
+ (a^{m-k}b^k)^{n/m}\ \le\ \kappa_k\
+ \le\ \frac{(m-k)a^n+kb^n}{m}.
+\]
+Continuity extends the lower bound from positive eigenvalues to zero.
+After multiplication by $c_k$ and summation, expansion of
+$(A^{n/m}B)^m$ gives the left side of \eqref{eq:main}. For the upper
+side, $p(1)=\tr B^m$ and
+$p'(1)=m\tr[V(U+V)^{m-1}]=m\tr(QB^m)$. Therefore
+\[
+ \sum_k c_k\frac{(m-k)a^n+kb^n}{m}
+ =a^n\tr(PB^m)+b^n\tr(QB^m)=\tr(A^nB^m).\quad\square
+\]
+
+\paragraph{An elementary check through five letters $B$.}
+In the splitting $P\oplus Q$, let $B$ have diagonal blocks $X,Y$ and
+upper-right block $Z$. With $m\le5$, a cyclic sequence of labels switches
+blocks zero, two or four times. With zero switches its weight is $\tr X^m$
+or $\tr Y^m$. Two switches give $\tr(X^i ZY^j Z^*)$ for some
+$i,j\ge0$. With four switches there is at most one diagonal step, giving
+$\tr[(ZZ^*)^2]$, $\tr[X(ZZ^*)^2]$, or $\tr[Y(Z^*Z)^2]$, up to cyclic
+rotation. These traces are nonnegative because $X,Y$ are positive
+semidefinite and the trace of a product of two positive semidefinite
+matrices is nonnegative. Thus in these low degrees one obtains the required
+weight signs directly. If one eigenspace is one-dimensional, one can diagonalize the other
+diagonal block and adjust basis phases to make all entries nonnegative.
+The general theorem allows both eigenspaces to have arbitrary rank.
+
+\newpage
+\section*{Scope, sharpness and an independent finite reproduction}
+The theorem is a direct corollary of the composition identity and ordinary
+BMV coefficient positivity. Priority for this particular deduction has
+not been established. Since $\mathcal A_{n,m}(A,B)=\mathcal A_{m,n}(B,A)$,
+a violation of the upper inequality requires at least three spectral values
+in \emph{each} factor. Cha and Lee's example [4] attains that threshold:
+take $A=1\oplus xC$, $B=xC\oplus1$,
+$C=\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$ and
+$x=10^{-3}$. Both spectra equal $\{0,2x,1\}$. At $n=m=5$ their example
+has $\mathcal A_{5,5}(A,B)-\tr(A^5B^5)>0$.
+The lower bound for general spectra remains open.
+
+The lower comparison at $m=4$ is covered by an existing
+\href{https://github.com/the-omega-institute/trureturing/blob/c1938e29dc5ffac04e065367b179487fb4cd9744/Blueprint/D5/S3/Quantum/Analysis/RefinedBMV/SingularFourth/ZeroSpectrumProduct.md}{three-value containment theorem}.
+At arbitrary word counts, the case $A=tP$ follows from the
+\href{https://arxiv.org/abs/2610.31851}{spectral-pinching inequality}, and a one-dimensional eigenspace permits the nonnegative-entry basis of [2, Proposition~1]. The
+\href{https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/bmv-block-priority.md}{priority audit} found no previous general deduction for two positive levels of unrestricted multiplicities and all $m\ge5$.
+
+\paragraph{Appendix.}
+A public Lean proof [5] covers all positive integers $n$ with $m=3$
+when $A$ has at most three distinct eigenvalues, in any finite dimension.
+The following direct computation reproduces the subfamily $d=3$,
+$11\le n\le36$ using H\"agele's sufficient criterion [2, Lemmas~5--6].
+For $a\le b\le c$ the eigenvalues of $A$, put
+\[
+ F(u,v,w)=\sum_{i+j+k=n}u^iv^jw^k-\tbinom{n+2}{2}(uvw)^{n/3}.
+\]
+All exponents in the sum are nonnegative integers. Define
+\begin{align*}
+ X&=F(a,a,c),\qquad Y=F(b,b,c),\qquad Z=F(a,b,c),\\
+ Q_0&=F(b,b,a)F(c,c,a)+F(a,a,b)F(c,c,b),\\
+ D&=Z^2-XY,\qquad T=Z(X+Y)+2XY,\qquad L=Q_0T^2-D^2(X+Y)^2.
+\end{align*}
+Nonnegativity of $L$ suffices for the lower inequality in \eqref{eq:main}
+for $m=3$ under these appendix hypotheses. Indeed $L$ is H\"agele's
+polynomial multiplied by $\binom{n+2}{2}^6$ at $c=1$ and is homogeneous
+of degree $6n$. Choose $s=1$ if $3\mid n$ and $s=3$ otherwise. For $a<b$,
+divide the $s$th roots of all three eigenvalues by $b^{1/s}-a^{1/s}$.
+After this positive rescaling their roots have the form $(x,x+1,x+1+t)$
+with $x,t\ge0$. Since $sn/3$ is integral, the substituted expression for
+$L$ is an integer polynomial in $x,t$. Exact multiplication over all
+26 cases gives a total of 1,670,650 nonzero coefficients, each positive.
+Homogeneity and continuity cover all eigenvalues, including coincidences.
+At $n=12$, the average contains 455 words and the polynomial has 2,324
+nonzero coefficients, the smallest 2,912.
+\href{https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_degrees.py}{Replay for degrees 11 through 36}
+and \href{https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/next_intake_bmv.py}{standard-library degree-twelve replay}.
+
+\small
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item IQOQI Vienna, \href{https://oqp.iqoqi.oeaw.ac.at/refinement-of-the-bessis-moussa-villani-conjecture/}{Open Quantum Problems, problem 40}, posed by D. H\"agele.
+\item D. H\"agele, \href{https://arxiv.org/html/2611.00129v1}{On the lower bound of the refined Bessis--Moussa--Villani conjecture}, arXiv:2611.00129v1 (2026), Sections 2--5.
+\item E. H. Lieb and R. Seiringer, \href{https://arxiv.org/abs/math-ph/0210027}{Equivalent forms of the Bessis--Moussa--Villani conjecture} (2004). H. R. Stahl, \href{https://arxiv.org/abs/1107.4875}{Proof of the BMV conjecture} (2013).
+\item H. Cha and J. Lee, \href{https://arxiv.org/abs/2603.19927v6}{One-parameter counterexamples to the refined Bessis--Moussa--Villani conjecture} (2026), version 6.
+\item The Omega Institute, \href{https://github.com/the-omega-institute/trureturing/blob/b5ab5d2d61023ceb5440dbfe3e143c39337cd04d/D5/S3/Quantum/Analysis/RefinedBMVThreeSpectrumCertificate.lean}{Three-spectrum product and exponential lower bounds}, public Lean proof archive (2026).
+\end{enumerate}
+\end{document}

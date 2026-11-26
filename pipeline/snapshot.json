@@ -1,28 +1,29 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T23:06:30+00:00",
+  "updated_at": "2026-11-26T00:40:44+00:00",
   "counts": {
     "leads": 3,
-    "problems": 5,
-    "attempts": 53280217427,
+    "problems": 6,
+    "attempts": 64154018732,
     "candidates": 0,
-    "partial_results": 8,
-    "solutions": 0,
-    "exclusions": 2
+    "partial_results": 9,
+    "solutions": 1,
+    "exclusions": 3
   },
   "evaluations": {
-    "werner": 438275,
-    "coherent-cats": 7936,
-    "coherent-bands": 2534,
-    "three-level": 5044,
+    "werner": 469140,
+    "coherent-cats": 8704,
+    "coherent-bands": 2789,
+    "three-level": 5553,
     "agent-witnesses": 1,
+    "bmv-three-level": 32,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 1068000,
+    "golay-graphs": 1228000,
     "golay-repairs": 269543351,
-    "golay-splices": 3612328434,
-    "golay-splice-tails": 49396491144,
-    "schmidt-seven-pairs": 8640
+    "golay-splices": 4353318882,
+    "golay-splice-tails": 59529104712,
+    "schmidt-seven-pairs": 13500
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -57,8 +58,8 @@
     },
     {
       "id": "transport-polygon",
-      "title": "Second priority \u00b7 Quantum transport polygon bound",
-      "status": "under_investigation",
+      "title": "Exact approximation of quantum transport costs",
+      "status": "reviewed_resolution",
       "url": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
       "detail": "Computes the optimal operator-norm error for approximating one quantum transport cost by lower-exponent observables.",
       "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
@@ -66,7 +67,9 @@
       "decisive_test": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
       "evidence": {
         "target and proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/transport-polygon.md",
-        "catalogue selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+        "exact optimal labels": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport_optimum.py",
+        "mathematical review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport-review.md",
+        "priority audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/transport-priority.md"
       }
     },
     {
@@ -88,6 +91,20 @@
       "source": "https://arxiv.org/html/2611.30969v1",
       "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
       "decisive_test": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement."
+    },
+    {
+      "id": "refined-bmv",
+      "title": "A lower bound for symmetrized quantum partition functions",
+      "status": "under_investigation",
+      "url": "https://oqp.iqoqi.oeaw.ac.at/refinement-of-the-bessis-moussa-villani-conjecture/",
+      "detail": "This would bound a quantum partition function using symmetrized products of two noncommuting positive matrices.",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/refinement-of-the-bessis-moussa-villani-conjecture/",
+      "question": "For all finite-dimensional Hermitian H,K and positive integers n,m, is the mean trace of words with n factors exp(H) and m factors exp(K) at least Tr exp(nH+mK)?",
+      "decisive_test": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
+      "evidence": {
+        "binary-spectrum proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/bmv-trace-12-3.tex",
+        "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py"
+      }
     }
   ],
   "leads": [
@@ -118,11 +135,19 @@
   ],
   "partial_results": [
     {
+      "id": "bmv-binary-spectrum",
+      "title": "Two energy levels suffice for both refined trace bounds",
+      "status": "scoped_result",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-blocks.md",
+      "detail": "Both bounds hold in every finite dimension and at all word lengths whenever either observable has at most two distinct levels, with arbitrary multiplicities. The general lower bound remains open.",
+      "problem_id": "refined-bmv"
+    },
+    {
       "id": "schmidt-seven",
       "title": "Rank-seven nonlocal magic on three qubits per party",
       "status": "scoped_result",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/schmidt-seven.md",
-      "detail": "A working proof covers all seven-coefficient spectra on two three-qubit registers. Exact rational certificates settle 210 inequalities. Independent review is pending.",
+      "detail": "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank two-exception family have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -182,15 +207,31 @@
       "problem_id": "werner-endpoint"
     }
   ],
-  "solutions": [],
+  "solutions": [
+    {
+      "id": "transport-polygon",
+      "title": "Exact polygon error for finite-spectrum quantum transport",
+      "status": "reviewed_resolution",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
+      "detail": "For 0 < p \u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+      "problem_id": "transport-polygon",
+      "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+      "evidence": {
+        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
+        "independent_review": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/checks/transport-review.md",
+        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/sources/transport-priority.md"
+      },
+      "decision_url": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/resolutions/transport-polygon.json"
+    }
+  ],
   "candidates": [],
   "activity": [
     {
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000015.json",
-      "detail": "8,640 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000024.json",
+      "detail": "13,500 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -198,7 +239,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "49,396,491,144 edits with one insertion anywhere and one optional inverse-end gate across 39 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "59,529,104,712 edits with one insertion anywhere and one optional inverse-end gate across 47 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -206,7 +247,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "3,612,328,434 edits across 39 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "4,353,318,882 edits across 47 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -222,7 +263,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "1,068,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "1,228,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -242,38 +283,46 @@
       "problem_id": "transport-polygon"
     },
     {
-      "id": "round-96",
-      "title": "Research round 96",
-      "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000096.json",
-      "detail": "8,821 Werner vectors evaluated.",
-      "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-25T23:05:05.227105+00:00"
+      "id": "bmv-three-level",
+      "title": "Trace bounds with three distinct energy levels",
+      "status": "exact_search",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/bmv-three-level/000000.json",
+      "detail": "32 matrix pairs checked by exact word recursion.",
+      "problem_id": "refined-bmv"
     },
     {
-      "id": "coherent-bands-00000080",
+      "id": "round-104",
+      "title": "Research round 104",
+      "status": "completed",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000104.json",
+      "detail": "8,841 Werner vectors evaluated.",
+      "problem_id": "werner-endpoint",
+      "updated_at": "2026-11-26T00:35:21.451466+00:00"
+    },
+    {
+      "id": "coherent-bands-00000088",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000080.json",
-      "detail": "31 states tested on photon levels 0, 2, 4, 8, 16, 24.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000088.json",
+      "detail": "32 states tested on photon levels 0, 1, 3, 6, 9, 12.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000079",
+      "id": "three-level-batch-00000087",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000079.json",
-      "detail": "64 states tested on photon levels 2, 4, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000087.json",
+      "detail": "64 states tested on photon levels 0, 2, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
       "id": "lane-e27-schmidt-959b891423c6a7bb",
       "title": "e27-schmidt agent handoff",
-      "status": "critique_pending",
+      "status": "needs_math_review",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-959b891423c6a7bb.json",
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "e27-schmidt",
-      "updated_at": "2026-11-25T23:05:12.893240+00:00"
+      "updated_at": "2026-11-25T23:09:30.895033+00:00"
     },
     {
       "id": "lane-transport-polygon-f8365a5893e30b97",
@@ -329,6 +378,22 @@
         "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/coherent-optimality.md#a-second-check-against-the-source-question",
         "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
         "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md"
+      }
+    },
+    {
+      "id": "bmv-finite-replication",
+      "title": "Finite three-factor BMV certificates",
+      "status": "prior_art",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md",
+      "detail": "Two exact implementations agreed across 26 word counts. A preexisting formal theorem already covers them all. The project records one replication.",
+      "problem_id": "refined-bmv",
+      "reviewed_on": "2026-11-25",
+      "review_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-range-review.md",
+      "priority_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md",
+      "evidence": {
+        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_range_review.py",
+        "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-range-review.md",
+        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md"
       }
     }
   ],

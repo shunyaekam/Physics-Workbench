@@ -1,12 +1,72 @@
 [
   {
+    "id": "e27-schmidt",
+    "role": "external_problem",
+    "title": "Does the sorted Schmidt basis minimize nonlocal magic?",
+    "source": "https://arxiv.org/html/2609.13106v2",
+    "locator": "Sierant, Conjecture 1, equations 3–6. Open Quantum Problems E27.",
+    "question": "For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-Rényi entropy over independent local unitaries?",
+    "significance": "An exact answer would turn an optimization over all local bases into an evaluation on the entanglement spectrum.",
+    "evidence_checked": [
+      "https://open-quantum-problems.vercel.app/p/E27",
+      "https://arxiv.org/abs/2607.10714"
+    ],
+    "known": "The working paper covers all rank-seven spectra for three qubits per party, three open regions of the larger-register problem and spectra with two exceptional amplitudes in equal registers. Independent project review is available.",
+    "experiment": "Test the unresolved pair-frame inequality outside spans containing a stabilizer direction. An exact violation would identify the limit of this proof route.",
+    "full_vs_partial": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
+    "stop_rule": "For larger registers, test the five outstanding coefficient inequalities against physical frames before extending the theorem.",
+    "checked": "2026-11-25"
+  },
+  {
+    "id": "golay43",
+    "role": "external_problem",
+    "title": "First priority · A 43-gate Golay preparation",
+    "source": "https://arxiv.org/html/2610.35579v1#A1.SS4",
+    "locator": "Ganesan, Appendix A.4, explicit 43-gate challenge; Open Quantum Problems A50",
+    "question": "Can the logical zero of the 23-qubit quantum Golay code be prepared with at most 43 CNOT gates, on exactly 23 qubits, with free single-qubit Clifford gates, no measurements and no ancillas?",
+    "significance": "Direct reduction of the two-qubit gate cost of preparing an error-correcting code state. The full depth/count frontier is a larger question.",
+    "evidence_checked": [
+      "https://openquantumproblems.com/p/A50",
+      "https://qiqc-op.com/problem/op_c847b635f53b0812/",
+      "https://doi.org/10.5281/zenodo.23509367",
+      "https://arxiv.org/abs/2603.17743"
+    ],
+    "known": "44 entanglers in six layers is an explicit deposited circuit. The originating agent already tried 43 and reported an unsuccessful 92-million-neighbor delete-two/insert-one screen.",
+    "experiment": "Reverse a trial 43-gate schedule on the exact target stabilizer. Start with systematic changes to the public 44-gate seed, then search different axes, wire pairs and orders.",
+    "full_vs_partial": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
+    "stop_rule": "Run eight bounded reproducible batches or stop immediately for an independently verified candidate; on a plateau switch search family before increasing the budget.",
+    "checked": "2026-11-25"
+  },
+  {
+    "id": "transport-polygon",
+    "role": "external_problem",
+    "title": "Exact approximation of quantum transport costs",
+    "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+    "locator": "Pitchford, Conjecture 7.7 and Proposition 7.5, release v0.1.0-candidate",
+    "question": "For 0 < p ≤ 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+    "significance": "Computes the optimal operator-norm error for approximating one quantum transport cost by lower-exponent observables.",
+    "evidence_checked": [
+      "https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L522",
+      "https://openquantumproblems.com/p/C14"
+    ],
+    "known": "Project proof and separate project-agent mathematical review cover every finite spectrum in the registered range. External review is pending.",
+    "experiment": "Enumerate every polygon chain for integer spectra and exponents, then solve the difference constraints exactly. Save labels; verify each pair. Audit every ordering for a small obstruction.",
+    "full_vs_partial": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
+    "stop_rule": "Rotate away after eight unchanged batches of integer spectra. Keep attained instances as evidence, without discovery credit.",
+    "checked": "2026-11-25"
+  },
+  {
     "id": "werner-endpoint",
     "role": "external_problem",
     "source": "https://oqp.iqoqi.oeaw.ac.at/undistillability-implies-ppt",
     "locator": "Open Quantum Problems, Problem 2; distillability criterion and Werner reduction",
     "question": "Does there exist a bipartite state with negative partial transpose from which no entanglement can be distilled using any finite number of copies?",
     "significance": "Separates two fundamental notions of usable entanglement. Answering it requires reasoning about all copy counts or all candidate states.",
-    "evidence_checked": ["https://www.mefyi.com/papers/werner-states-copies/", "https://www.mefyi.com/papers/werner-endpoint-inequality/", "https://github.com/anshM123/werner-npt-research"],
+    "evidence_checked": [
+      "https://www.mefyi.com/papers/werner-states-copies/",
+      "https://www.mefyi.com/papers/werner-endpoint-inequality/",
+      "https://github.com/anshM123/werner-npt-research"
+    ],
     "known": "The three-copy endpoint has a reported proof. Four-copy results cover same-plane range and co-range, including normal rank-two matrices. The cited project reports additional Hermitian results. Check its current version before promoting a witness.",
     "experiment": "Qutrit endpoint, four and five copies. Seek a negative expectation on a complex vector with Schmidt rank at most two; enforce both exact contractions.",
     "full_vs_partial": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved.",
@@ -20,12 +80,35 @@
     "locator": "Gagatsos, Conjecture 1, Eq. (7), with the conventions in Eqs. (2)-(5)",
     "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
     "significance": "The conjectured sharp bound would connect heterodyne statistics to Wigner negativity and the sampling overhead of quasiprobability simulation. The statement is recent; its long-term standing is unknown.",
-    "evidence_checked": ["https://arxiv.org/abs/2611.30969", "https://arxiv.org/html/2611.30969v1", "https://doi.org/10.1007/s00041-018-9602-x"],
+    "evidence_checked": [
+      "https://arxiv.org/abs/2611.30969",
+      "https://arxiv.org/html/2611.30969v1",
+      "https://doi.org/10.1007/s00041-018-9602-x"
+    ],
     "known": "The source gives pure-state reduction, a factor-two bound, finite Fock numerical experiments, and a cat construction against higher Renyi orders. Wigner-positive states follow from Lieb–Solovej. A bounded title/author and modulation-space/STFT search found no subsequent sharp resolution. Priority is provisional.",
     "restricted_result": "The phase-invariant case, for every photon-number distribution, has a written proof in papers/phase-invariant-wigner.tex. Its arithmetic induction step is checked in formal/FockMoment.lean. The zero–one-photon subspace now also has a separate analytic proof. Sec. VII question (iv) has new order exclusions and an exact threshold on the full optical qubit. The sparse-state note rules out all states of coherence number at most two within levels zero through five. Current search tests higher photon pairs and genuinely three-level states. See checks/phase-invariant-wigner.md and checks/optical-sprint.md.",
     "experiment": "Optimize squeeze, weight, separation and phase of a normalized pure two-coherent-state superposition. Use two refined grids and analytic positive/negative-Wigner controls.",
     "full_vs_partial": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement.",
     "stop_rule": "A positive refined residual is queued for error-bounded validation. Without a crossing, record the family, parameters and residual and retain proof status as open.",
+    "checked": "2026-11-25"
+  },
+  {
+    "id": "refined-bmv",
+    "role": "external_problem",
+    "title": "A lower bound for symmetrized quantum partition functions",
+    "source": "https://oqp.iqoqi.oeaw.ac.at/refinement-of-the-bessis-moussa-villani-conjecture/",
+    "locator": "IQOQI problem 40, lower bound. Hägele, arXiv:2611.00129v1, Eq. (1) and Lemmas 2, 5 and 6.",
+    "question": "For all finite-dimensional Hermitian H,K and positive integers n,m, is the mean trace of words with n factors exp(H) and m factors exp(K) at least Tr exp(nH+mK)?",
+    "significance": "This would bound a quantum partition function using symmetrized products of two noncommuting positive matrices.",
+    "evidence_checked": [
+      "https://arxiv.org/html/2611.00129v1",
+      "https://open-quantum-problems.vercel.app/p/M14",
+      "https://github.com/the-omega-institute/trureturing/blob/51dca4f1542baa532983864568d6a8ca3470e745/D5/S3/Quantum/Analysis/RefinedBMVThreeSpectrumCertificate.lean#L42-L57"
+    ],
+    "known": "The all-degree three-second-factor theorem for up to three first-matrix eigenvalues is already public. We independently reproduced 26 of its cases. The binary-spectrum coefficient argument covers both bounds and arbitrary word counts.",
+    "experiment": "For three spectral values and at least four factors of the second matrix, analyze the histogram weights in the trace of a three-variable matrix pencil. Identify which signed coefficients can survive the weighted sum in the lower bound.",
+    "full_vs_partial": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
+    "stop_rule": "Promote only an explicit all-input certificate or a rigorously verified violating matrix pair. Keep finite word-count sweeps grouped in one result.",
     "checked": "2026-11-25"
   }
 ]

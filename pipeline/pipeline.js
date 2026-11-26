@@ -10,7 +10,7 @@ const systems = {
     [['Scout','Find problems','The scout checks three open-problem catalogues and arXiv. We trace each question to its authors, look for newer solutions, and rank the cheapest tests that could settle the question.',research+'discovery/catalogue-intake.md','Sources and ranking']],
     [['Solver','Build a witness','The solver proposes a move and a fresh-context critic challenges it. In optics, a model then supplies photon amplitudes that the numerical checker actually tests. Open Solving below for the state and its two measured residuals.',research+'ops/agent_campaign.py','Solver and critic']],
     [['Math reviewer','Challenge the proof','A fresh-context critic challenges proposals. A separate mathematical review rederived our multimode result, including the constants and the mixed-state argument.',research+'checks/multimode-review.md','Math review'],['Priority reviewer','Check earlier work','Check alternate names and equivalent theorems. The weak multimode result follows from a classical Fourier inequality, so its derivation earns zero discovery credit.',research+'checks/multimode-priority.md','Priority decision']],
-    [['Verifier','Replay evidence','Use exact arithmetic, error-bounded calculations or Lean for the claims they cover. The cubic-phase certificate checks the entire stated gate interval.',research+'checks/cubic_range.py','Interval checker']],
+    [['Verifier','Replay evidence','For transport, the reviewer reconstructed the argument, then challenged the counting step on 125,664 directed cycles. Lean checks the lower bound for arbitrary chain lengths and a local step in the upper bound.',research+'checks/transport-review.md','Transport review']],
     [['Editor','Release solution','A full solution requires the original statement, accepted mathematical and priority reviews, and a publication commit on main containing the decision and evidence.',research+'ops/pipeline_feed.py','Release checks']]
   ],
   cinna: [
@@ -29,11 +29,11 @@ const boards = [
   ['candidates','Candidates','Search outputs flagged for a rigorous check.'],
   ['partial_results','Scoped results','Findings whose assumptions cover part of a parent question. Each record states what the evidence establishes.'],
   ['exclusions','Excluded','Correctness and originality are reviewed separately. These records explain why a claim earns zero discovery credit.'],
-  ['solutions','Solutions','Reviewed full resolutions of the original physics questions.']
+  ['solutions','Solutions','Full resolutions of sourced physics questions that passed the project’s mathematical and priority reviews. Each record links the public decision and its evidence.']
 ];
 const empty = {
   candidates:['No candidate flagged','A positive numerical residual enters this queue for error-bounded verification.'],
-  solutions:['No reviewed full solutions yet','The active questions remain open in this workbench. Evidence for narrower claims is under Scoped results.']
+  solutions:['No solutions in this feed','The manuscript catalogue and the scoped-results tab provide additional research records.']
 };
 const $ = id => document.getElementById(id);
 function element(tag, text, cls) {
@@ -47,7 +47,7 @@ function link(label, url) {
   if (typeof url === 'string' && url.startsWith('https://')) a.href = url;
   return a;
 }
-let system = 'ours', selected = [0,0], section = location.hash === '#finite' ? 'finite' : 'problems', feed;
+let system = 'ours', selected = [0,0], section = boards.some(([key])=>key===location.hash.slice(1)) ? location.hash.slice(1) : 'problems', feed;
 function map() {
   const stations = systems[system];
   $('ours').setAttribute('aria-pressed',system === 'ours');
