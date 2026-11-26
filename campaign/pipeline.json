@@ -24,6 +24,18 @@
       "evidence": {
         "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
       }
+    },
+    {
+      "id": "wei-10-2-4",
+      "title": "[[10,2,4]] \u00b7 Optimal check weight 6",
+      "status": "machine_checked_full",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-10-2-4.json",
+      "detail": "The Grassl code attains six. Every distance-compatible subspace in the graph census has no nonidentity stabilizers of weight at most five.",
+      "problem_id": "wei-10-2-4",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "evidence": {
+        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+      }
     }
   ],
   "kernel_steps": [
@@ -42,7 +54,7 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:32:17+00:00",
+  "updated_at": "2026-11-26T20:32:59+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
@@ -187,7 +199,7 @@
     {
       "id": "wei-10-2-4",
       "title": "Optimal check weight for ten qubits encoding two",
-      "status": "under_investigation",
+      "status": "machine_checked_full",
       "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "detail": "Determines how light the checks can be for a ten-qubit, two-logical-qubit, distance-four binary stabilizer.",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
