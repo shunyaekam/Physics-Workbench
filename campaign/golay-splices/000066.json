@@ -1,0 +1,9 @@
+{
+  "source": "000066",
+  "equivalent_skipped": 80139444,
+  "found": false,
+  "trials": 12484362,
+  "direct": 783970,
+  "schema": 2,
+  "input_sha256": "dd5b6d176ad9fa1d32646aca94e39f57f4c8107f3119c3f047b61645ab1dc5fd"
+}
