@@ -1,42 +1,11 @@
 const results = [...document.querySelectorAll('[data-result]')];
 const selector = document.getElementById('selector');
 const menu = document.getElementById('menu');
-const sound = document.getElementById('sound');
-let soundEnabled = false;
-try { soundEnabled = localStorage.getItem('oo-sound') === 'on'; } catch {}
-let audio;
-function tone(frequency) {
-  if (!soundEnabled) return;
-  try {
-    audio ||= new AudioContext();
-    audio.resume().catch(() => {});
-    const oscillator = audio.createOscillator();
-    const volume = audio.createGain();
-    oscillator.frequency.value = frequency;
-    volume.gain.setValueAtTime(0.025, audio.currentTime);
-    volume.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 0.055);
-    oscillator.connect(volume).connect(audio.destination);
-    oscillator.start();
-    oscillator.stop(audio.currentTime + 0.06);
-  } catch {}
-}
-function soundLabel() {
-  sound.textContent = soundEnabled ? 'Sound on' : 'Sound off';
-  sound.setAttribute('aria-pressed', String(soundEnabled));
-}
-soundLabel();
-sound.onclick = () => {
-  soundEnabled = !soundEnabled;
-  try { localStorage.setItem('oo-sound', soundEnabled ? 'on' : 'off'); } catch {}
-  soundLabel();
-  tone(560);
-};
 const openMenu = document.getElementById('menu-open');
-openMenu.onclick = () => { menu.showModal(); tone(430); };
+openMenu.onclick = () => { menu.showModal(); };
 document.getElementById('menu-close').onclick = () => menu.close();
 menu.addEventListener('click', e => { if (e.target === menu || e.target.className === 'menu-body') menu.close(); });
-menu.addEventListener('close', () => { tone(285); openMenu.focus(); });
-menu.querySelector('nav').addEventListener('pointerover', e => { if (e.target.closest('a')) tone(330); });
+menu.addEventListener('close', () => { openMenu.focus(); });
 const certificates = new Map();
 let logicalQubits = '4';
 async function showCode(k) {
@@ -73,7 +42,7 @@ async function showCode(k) {
   }
 }
 document.querySelectorAll('[data-k]').forEach(button => {
-  button.onclick = () => { tone(400); showCode(button.dataset.k); };
+  button.onclick = () => { showCode(button.dataset.k); };
 });
 function selectResult() {
   const hash = location.hash.slice(1);
@@ -91,14 +60,12 @@ function selectResult() {
   }
   if (selected.dataset.result === 'code') showCode(logicalQubits);
 }
-selector.addEventListener('click', () => tone(460));
 document.addEventListener('keydown', e => {
   if (e.defaultPrevented || menu.open || e.altKey || e.metaKey || e.ctrlKey || !['ArrowLeft','ArrowRight'].includes(e.key)) return;
   const current = results.findIndex(section => !section.hidden);
   const step = e.key === 'ArrowRight' ? 1 : -1;
   e.preventDefault();
   location.hash = results[(current + step + results.length) % results.length].dataset.result;
-  tone(460);
 });
 window.addEventListener('hashchange', selectResult);
 selectResult();

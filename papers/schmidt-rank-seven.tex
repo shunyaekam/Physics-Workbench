@@ -3,9 +3,9 @@
 \usepackage{amsmath,amssymb,booktabs,hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
 \title{\vspace{-2.2em}Computational-basis optimality of nonlocal stabilizer entropy\\for rank-seven spectra and two exceptional amplitudes}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}\\\small Computational research note, available for independent review}
-\date{25 November 2026\vspace{-1.1em}}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Computational-basis optimality of nonlocal stabilizer entropy for rank-seven spectra and two exceptional amplitudes}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\date{26 November 2026\vspace{-1.1em}}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -115,6 +115,8 @@ For example, on two four-qubit registers, raw amplitudes $(2,\ldots,2,1,0)$ with
 
 
 \paragraph{Scope and replay.} General spectra in larger registers and unrestricted rank eight remain open. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Separate project agents reviewed the physics reduction, tried adversarial complex frames, and replayed the finite checks. External review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. For the kernel replay run \texttt{python3 checks/schmidt7/lean\_replay.py} with the pinned Lean toolchain. \href{https://github.com/shunyaekam/oo-research/tree/research/checks/schmidt7}{Certificate and checkers.}
+
+\paragraph{Edition note.} The pair-sum equality used for general rank-seven spectra depends on the single unused direction in dimension eight. Adding qubits changes that equality. The larger-register certificates therefore state their spectral hypotheses explicitly, and the two-exception theorem counts every zero in the ambient amplitude list.
 
 \paragraph{Reference.} [1] P. Sierant, \emph{Spectral geometry of nonlocal stabilizer entropy}, \href{https://arxiv.org/html/2609.13106v2}{arXiv:2609.13106v2} (2026). The public problem listing is \href{https://open-quantum-problems.vercel.app/p/E27}{Open Quantum Problems E27}.
  [2] \href{https://arxiv.org/abs/2607.10714}{Liu and Cui, arXiv:2607.10714}. [3] \href{https://arxiv.org/abs/2607.07808}{Torre, Franchini and Giampaolo, arXiv:2607.07808}.

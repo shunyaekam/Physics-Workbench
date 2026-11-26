@@ -5,9 +5,9 @@
 \newtheorem{theorem}{Theorem}
 \newcommand{\D}{\Delta}
 \title{Which Husimi entropy orders can bound Wigner negativity?}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}\\\small AI-assisted research note}
-\date{November 25, 2026}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Which Husimi entropy orders can bound Wigner negativity?}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\date{26 November 2026}
 \begin{document}\maketitle
 \begin{abstract}
 For one optical mode, consider the proposed bound of Wigner logarithmic negativity by the excess Husimi R\'enyi entropy above vacuum. A single photon violates it at every positive order below $a_*=0.288703\ldots$. At every fixed order above one half, including Shannon and min-entropy, a sequence of pure states violates it while its mean photon number tends to zero. This proves the dilute-superposition prediction of Gagatsos and raises the lower exclusion from the heuristic large-number-state estimate of approximately $0.17$. The possible interval left by these obstructions is $[a_*,1/2]$. We prove the bound throughout that interval on the full zero--one-photon Bloch ball and on photon-number mixtures through 144 photons.
@@ -105,6 +105,8 @@ The remaining rectangles are $[0.29,0.5]\times[0,9]$ and $[0.28870,0.29]\times[1
 Monotonicity follows from convexity of $a\mapsto\log\int q^a$ and normalization at $a=1$. Dyadically subdividing each rectangle until the lower bound exceeds $\log\|W\|_1$ exhausts both rectangles. The certificate is archived as \texttt{sharp-domain.json}; \texttt{checks/sharp\_qubit.py} rebuilds every leaf from its root using rational arithmetic with outward-rounded logs and exponentials. The two analytic regions close the domain. Concavity of $e^{\D_a}$ and convexity of the Wigner norm extend the result to mixed states. The unrestricted optical conjecture still permits other witnesses.
 
 \paragraph{Remaining issue.} The single-photon threshold specifies exactly where that witness stops violating the bound. Establishing the inequality, or finding a different violating state, for orders in $[a_*,1/2]$ remains a separate problem. The construction for high orders uses a diverging separation with vanishing occupation and supplies no violation at order one half.
+
+\paragraph{Edition note.} The quantifier on the entropy order matters. For each fixed order above one half, a sequence with vanishing mean photon number supplies a violation. Within $[a_*,1/2]$, the positive results cover the optical qubit and the stated number-diagonal mixtures. Coherences among three or more photon numbers fall outside both tests.
 
 \begin{thebibliography}{9}
 \bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Secs. VI--VII, especially open question (iv) (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.

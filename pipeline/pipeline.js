@@ -47,7 +47,9 @@ function element(tag, text, cls) {
 }
 function link(label, url) {
   const a = element('a', label);
-  if (typeof url === 'string' && url.startsWith('https://')) a.href = url;
+  if (typeof url === 'string' && url.startsWith('https://')) a.href = url.replace(
+    /^https:\/\/shunyaekam\.github\.io\/oo-research\/papers\/([a-z0-9-]+)\.pdf$/, '../papers/$1/'
+  );
   return a;
 }
 let system = 'ours', selected = [0,0], section = boards.some(([key])=>key===location.hash.slice(1)) ? location.hash.slice(1) : 'certified', feed;

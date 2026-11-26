@@ -1,13 +1,13 @@
 \documentclass[11pt]{article}
-\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage[letterpaper,hmargin=.85in,vmargin=.75in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,microtype,xcolor}
 \usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=black]{hyperref}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.44em}
 \newcommand{\W}{W_{\mathrm{opt}}}
-\title{Optimal stabilizer check weights at distance four:\protect\\the $[[12,4,4]]$, $[[12,3,4]]$ and $[[10,2,4]]$ cases}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\title{\vspace{-1.65em}Optimal stabilizer check weights at distance four:\protect\\the $[[12,4,4]]$, $[[12,3,4]]$ and $[[10,2,4]]$ cases}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Optimal stabilizer check weights at distance four: the [[12,4,4]], [[12,3,4]] and [[10,2,4]] cases}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
 \date{26 November 2026}
 \begin{document}
 \maketitle\vspace{-0.7cm}
@@ -72,6 +72,8 @@ Substituting $P=256$ gives $T_5\le 55296/7168=54/7<8$. All four identities follo
 
 \newpage
 \section*{Ten qubits and two logical qubits}
+\paragraph{Edition note.} For the two twelve-qubit codes in the title, a generating set gives the upper bound, while the enumerator identities exclude every lighter basis. The ten-qubit conclusion also relies on the completeness of the Danielsen--Parker graph-state list used to enumerate possible parent stabilizers.
+
 Every binary $[[10,2,d\ge4]]$ stabilizer has unsigned weight enumerator
 \[
  A(z)=1+90z^6+135z^8+30z^{10}.

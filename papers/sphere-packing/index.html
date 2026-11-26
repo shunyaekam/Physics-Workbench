@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="author" content="Aryan Singh"><meta name="citation_author" content="Aryan Singh"><meta name="citation_author_institution" content="oo research">
+<meta name="author" content="GPT-6.2 Astra (high), Aryan Singh"><meta name="citation_author" content="GPT-6.2 Astra (high)"><meta name="citation_author" content="Aryan Singh"><meta name="citation_author_institution" content="oo research">
 <title>Five better spherical packings · oo research</title>
 <link rel="icon" type="image/png" href="../../site/assets/oo-mark.png">
 <link rel="stylesheet" href="../../site/style.css?v=flowly-1">
@@ -24,9 +24,19 @@ th,td {padding:.8rem .8rem .8rem 0;border-bottom:1px solid var(--rule);white-spa
 th {font-size:.85rem;color:var(--muted);font-weight:500}
 .proof {max-width:50rem;padding:2rem 0 3rem}
 @media(max-width:650px){figure {grid-template-columns:1fr} canvas {max-width:23rem} .hero{padding-top:2.5rem}}
-</style></head>
+
+@media print {
+ @page{size:A4;margin:15mm}
+ header.topbar,footer,.switch,#center,.print-link{display:none}
+ main{width:100%;font-size:10pt} .hero{padding:0 0 .3rem}
+ figure{grid-template-columns:1fr 1fr;margin:.6rem 0;break-inside:avoid}
+ .canvascol{background:none}canvas{width:215px;height:215px}
+ main .proof{padding:.5rem 0}table{font-size:8.5pt;margin:.4rem 0}
+ th,td{padding:.23rem}p{orphans:3;widows:3}
+}
+</style><link rel="stylesheet" href="../../site/flowly.css"><script defer src="../../site/flowly.js"></script><meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/sphere-packing/sphere-packing.pdf"></head>
 <body><header class="topbar"><div class="head-inner"><a class="brand" href="../../" aria-label="oo research home">oo research</a><nav aria-label="Main"><a href="../../live/">live work</a><a href="../../catalogue.html">papers</a><a href="../../pipeline/">pipeline</a><a href="../../pipeline/indexed.html">problems</a><a href="https://github.com/shunyaekam/oo-research">GitHub</a></nav></div></header><main>
-<section class="hero"><h1>Five better spherical packings</h1><span class="small"><a href="https://www.researchgate.net/profile/Aryan-Singh-101" rel="author">Aryan Singh</a> · oo research · Student, Department of Physical Sciences, The Open University</span><p>How widely can you separate the closest two points on a sphere? We found configurations with more separation at five sizes than those in Henry Cohn’s table on November 25, 2026. Four of them fit on an ordinary sphere.</p></section>
+<section class="hero"><h1>Five better spherical packings</h1><p class="print-link"><a href="sphere-packing.pdf">View PDF ↗</a></p><span class="small"><strong>GPT-6.2 Astra (high)</strong> · lead AI author of this edition<br><a href="https://www.researchgate.net/profile/Aryan-Singh-101" rel="author">Aryan Singh</a> · oo research · Student, Department of Physical Sciences, The Open University</span><p>How widely can you separate the closest two points on a sphere? At five sizes, the deposited configurations have greater minimum separation than the corresponding entries in Henry Cohn’s table on November 25, 2026. Four of them fit on an ordinary sphere.</p></section>
 <figure><div class="canvascol"><canvas id="sphere" data-coordinates="coordinates.json" tabindex="0" aria-label="Rotatable sphere with 418 equal caps. The closest pair is highlighted. Use arrow keys to rotate." aria-describedby="instructions"></canvas></div>
 <figcaption><span class="small">Three dimensions · 418 points</span><h2>The closest pair</h2><span class="small">Minimum angular separation</span>
 <output id="angle" class="value">10.3789768°</output>
@@ -39,7 +49,7 @@ th {font-size:.85rem;color:var(--muted);font-weight:500}
 <tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-577/points.csv">577</a></td><td><a href="https://spherical-codes.org/code/3/577">0.988154316960</a></td><td>0.988152320</td><td>8.8284410°</td></tr>
 <tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-636/points.csv">636</a></td><td><a href="https://spherical-codes.org/code/3/636">0.989239710497</a></td><td>0.989234488</td><td>8.4148307°</td></tr>
 <tr><td>7</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/7-151/points.csv">151</a></td><td><a href="https://spherical-codes.org/code/7/151">0.545859542775</a></td><td>0.545833304</td><td>56.9183729°</td></tr></tbody></table></div></section>
-<section class="proof"><h2>How to check it</h2><p>The coordinates are finite decimals. Clearing their denominators gives integer directions. For each pair the checker compares its squared dot product with the product of its squared lengths times the proposed bound squared, accounting for the sign of the dot product. It tested all 519,885 candidate pairs, then repeated the calculation on the deposited prior coordinates. A second program replayed the comparisons at 50-digit precision.</p><p>These bounds certify arrangements that fit. Proving a best possible arrangement would also require ruling out every better one. Vadim Borisov supplied the prior configurations and the neighboring configurations used to start the searches.</p>
+<section class="proof"><h2>How to check it</h2><p>The coordinates are finite decimals. Clearing their denominators gives integer directions. For each pair the checker compares its squared dot product with the product of its squared lengths times the proposed bound squared, accounting for the sign of the dot product. It tested all 519,885 candidate pairs, then repeated the calculation on the deposited prior coordinates. A second program replayed the comparisons at 50-digit precision.</p><p><strong>Edition note.</strong> The rounded angles describe the configurations on screen and in the table. The exact comparison uses the archived coordinates and strict rational cosine thresholds, so rounding the angles cannot change which configuration wins at a given size.</p><p>These bounds certify arrangements that fit. Proving a best possible arrangement would also require ruling out every better one. Vadim Borisov supplied the prior configurations and the neighboring configurations used to start the searches.</p>
 <p><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/README.md">Read the research note</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/check.py">Run the exact checker</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/receipt.json">Verification output</a> · <a href="https://spherical-codes.org/">Cohn’s table</a></p></section></main>
-<footer><span>oo research</span><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/comparisons.json">Source data and attributions</a></footer>
+<footer><span>oo research</span><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/comparisons.json">Source data and attributions</a><button type="button" class="quiet-sound" data-sound-switch>Sound on</button></footer>
 <script src="../../site/sphere.js" defer></script></body></html>
