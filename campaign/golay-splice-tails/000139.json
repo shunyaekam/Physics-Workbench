@@ -1,0 +1,10 @@
+{
+  "source": "000139",
+  "allow_final_gate": true,
+  "equivalent_skipped": 1095239068,
+  "found": false,
+  "trials": 171337628,
+  "direct": 432594,
+  "schema": 2,
+  "input_sha256": "e72603ab81acbf336eeb0e0345cf6ec0d7246f6ec4c83bc11f8f91e5b5ae19d5"
+}
