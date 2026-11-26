@@ -1,11 +1,11 @@
-@font-face{font-family:Geist;src:url("assets/fonts/geist.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:Play;src:url("assets/fonts/play-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("assets/fonts/geist-mono.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
-:root{--sans:Geist,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--working-glow:radial-gradient(circle,rgba(59,130,246,.3) 0%,rgba(59,130,246,.1) 70%,transparent 100%);--scene-vignette:radial-gradient(circle at center,transparent 30%,rgba(255,255,255,.6) 70%)}
+:root{--sans:Play,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--working-glow:radial-gradient(circle,rgba(59,130,246,.3) 0%,rgba(59,130,246,.1) 70%,transparent 100%);--scene-vignette:radial-gradient(circle at center,transparent 30%,rgba(255,255,255,.6) 70%)}
 body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font-family:inherit}
-code,kbd,samp,.pauli span,#kind,#position,.measurement output,.paper-counter{font-family:var(--mono)}
-.description h1,.menu-body nav a,.paper-title,.paper-library h2,.hero h1,.mast h1{font-weight:350;letter-spacing:-.048em}
-.measurement output{font-weight:350;letter-spacing:-.065em}
+code,kbd,samp,.pauli span{font-family:var(--mono)}
+.description h1,.menu-body nav a,.paper-title,.paper-library h2,.hero h1,.mast h1{font-weight:400;letter-spacing:-.025em}
+.measurement output{font-family:var(--sans);font-weight:400;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
 dialog#menu,.sheet::backdrop{background:rgba(0,0,0,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 dialog#menu .menu-body nav a{font-weight:300}
 .node:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--scene-vignette);opacity:0;transition:opacity .2s;pointer-events:none}
@@ -19,3 +19,11 @@ body:has(#connection[data-state=recent]) .navigator #trace [aria-current=true]{b
 @media(prefers-reduced-motion:reduce){.node:after,.scene-lens:after{transition:none}}
 .quiet-sound{padding:.15em 0;border:0;background:none;color:inherit;font:inherit;cursor:pointer}
 @media print{.quiet-sound{display:none}}
+
+.lab-mark{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:inherit}
+.lab-mark img{width:40px;height:40px;display:block}
+#menu-open,#menu-close,.reader-foot button{min-width:44px;min-height:44px}
+#menu-open span{margin:0;font-size:1.06rem}
+#menu-close{font-size:1.4rem}
+body .paper-counter,body #kind,body #position{font-family:var(--sans);font-variant-numeric:tabular-nums}
+@media(max-width:450px){.lab-mark img{width:34px;height:34px}}

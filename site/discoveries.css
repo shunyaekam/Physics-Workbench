@@ -8,7 +8,6 @@ a:focus-visible,button:focus-visible,canvas:focus-visible{outline:2px solid var(
 header,footer{display:flex;align-items:center;justify-content:space-between;margin:0 clamp(1.1rem,4.7vw,5rem);height:clamp(3.5rem,9svh,6.2rem)}
 header nav,footer nav,.switch,figcaption{display:flex;align-items:center}
 header nav{gap:clamp(1.4rem,3vw,3rem)}header nav a,header button,footer{font-size:.9rem}
-.wordmark{font-size:1rem;letter-spacing:-.04em}.wordmark b{font-size:1.45rem;letter-spacing:-.13em;padding-right:.17em}
 .live-link,.focus-pair{display:inline-flex;align-items:center;gap:.55rem}.live-link i{width:8px;height:8px;border:1.5px solid #43745a;border-radius:50%}
 #menu-open span{font-size:.9em;margin-left:.33rem}
 main{min-width:0;align-self:center}.result{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(1.5rem,5vw,6rem);width:min(82%,73rem);margin:0 auto}

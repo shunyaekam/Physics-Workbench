@@ -1,0 +1,19 @@
+@font-face{font-family:"Latin Modern Roman";src:url("../assets/fonts/lmroman10-regular.otf") format("opentype");font-weight:400;font-display:swap}
+main p,main table,.hero .small{font-family:"Latin Modern Roman",Georgia,serif}
+.hero,.tablewrap{border-bottom:1px solid #bdc2c1}
+.hero h1,main h2{font-family:var(--sans);font-weight:400;letter-spacing:-.025em}
+.print-imprint{display:none}
+@media print{
+ @page{size:A4;margin:17mm 20mm}
+ .print-imprint{display:flex;align-items:center;gap:4px;font:8.5pt var(--sans);color:#4d5351;border-bottom:.4pt solid #a7afad;padding-bottom:4pt;margin-bottom:9pt}
+ .print-imprint img{width:15pt;height:15pt}.screen-instruction{display:none}
+ main{color:#191b1b;font-size:10pt}
+ main .hero{padding:0 0 7pt}.hero h1{font-size:23pt;line-height:1.12;margin:0 0 7pt}
+ .hero .small{font-size:9pt}.hero p,.proof p{font-size:10pt;line-height:1.3;max-width:none;color:#212422}
+ main h2{font-size:14pt;line-height:1.18}
+ .tablewrap th{font:8.5pt var(--sans)}main figcaption .small{font-size:8pt}
+ main figure{margin:7pt 0 10pt;grid-template-columns:42% 1fr;gap:1rem;align-items:center}
+ main .canvascol{display:flex;justify-content:center}main canvas{width:150pt;height:150pt}
+ .tablewrap,main figure{break-inside:avoid}.proof h2{margin:8pt 0 4pt}
+}
+@page{@bottom-right{content:counter(page);font:8pt Play,sans-serif;color:#545b58}}

@@ -1,12 +1,11 @@
 \documentclass[11pt]{article}
-\usepackage[letterpaper,margin=0.92in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,microtype}
-\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
 \newcommand{\wt}{\operatorname{wt}}
 \newcommand{\F}{\mathbb F}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.43em}
-\title{The optimal check weight of an $[[11,5,3]]$\protect\\ binary stabilizer code is seven}
+\usepackage[colorlinks]{hyperref}
+\usepackage{oo-journal}
+\ooshorttitle{Check weight of an eleven-qubit code}
+\title{The optimal check weight of an [[11,5,3]] binary stabilizer code is seven}
 \hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={The optimal check weight of an [[11,5,3]] binary stabilizer code is seven}}
 \author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
 \date{26 November 2026}
@@ -27,7 +26,6 @@ Check & Pauli string & Weight \\ \midrule
 6 & \texttt{ZIZZIIYYIZZ} & 7\\\bottomrule
 \end{tabular}\end{center}
 Each pair commutes. Their unsigned products are 64 distinct strings, so the generators are independent modulo phase. In particular no nonempty product is scalar, and the simultaneous $+1$ eigenspace has dimension $2^{11-6}=32$. Enumerating the Paulis of weights one, two and three gives precisely $0,0,79$ operators, respectively, that commute with all six generators and fall outside their span modulo phase. For example, $\mathtt{XXIYIIIIIII}$ is a weight-three logical. Thus $d=3$ and $W\le7$. The verification package includes the strings and a short exhaustive checker. Its search space at weights one and two contains $33+495=528$ strings.
-\newpage
 \section*{A lower bound for every generating basis}
 Suppose six generators of weight at most six define a code of length eleven encoding five qubits with distance at least three. All Pauli statements below are modulo scalar phase. The syndrome of a Pauli is its vector of anticommutation bits against an independent stabilizer basis. Two errors have equal syndrome exactly when their product commutes with the stabilizer. Such a product of weight at most two must belong to the stabilizer by the distance hypothesis.
 
@@ -43,7 +41,6 @@ Let $S$ denote the sum of the Hamming weights of the $3n$ single-site syndromes 
 \]
 There are $3n-t$ distinct nonzero $r$-bit strings. Each of the $t$ extra copies contributes at least one to $S$.
 
-\newpage
 \textbf{Exclude shortened cases.} If $r\le4$, at least $3(r+5)-r=2r+15$ distinct syndromes would have to fit in $2^r-1$ slots. This fails for every $0\le r\le4$. If $r=5$, the 30 cheapest distinct nonzero five-bit strings have total weight $5\cdot16-5=75$ (omit the all-ones string). Removing $t$ of the largest weights can save at most $5t$. Therefore $S\ge75-5t+t>60-8t$, another contradiction.
 
 \textbf{Force equality at length eleven.} For $r=6$, the 33 cheapest distinct nonzero strings have weights one (six times), two (fifteen times) and three (twelve times). Their total weight is $72$. Keeping $33-t$ distinct strings costs at least $72-3t$, so $S\ge72-2t$. Together with $S\le72-8t$ this forces $t=0$ and equality. Every candidate now has exactly the syndrome weight distribution just given.

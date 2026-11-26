@@ -35,9 +35,6 @@ button:hover,button[aria-pressed=true] {color:var(--ink)}
 .entry {display:grid;grid-template-rows:1fr auto;min-height:calc(100vh - 4.25rem);min-height:calc(100svh - 4.25rem);padding:2rem 1.25rem 1.5rem}
 .entry-center {align-self:center;justify-self:center;width:min(100%,31.25rem);text-align:center;padding:1rem 0 2.4rem}
 .entry h1 {margin:0 0 clamp(3rem,9vh,5rem);line-height:1}
-.oo-mark {display:block;position:relative;width:3.25rem;height:2rem;margin:auto;color:#111}
-.oo-mark::before,.oo-mark::after {content:"";position:absolute;top:.06rem;width:1.72rem;height:1.87rem;border:solid currentColor;border-width:.12rem .34rem;border-radius:50%;transform:rotate(20deg)}
-.oo-mark::before {left:0}.oo-mark::after {right:0}
 #entry-form input {display:block;width:100%;border:0;border-bottom:1px solid #222;border-radius:0;background:white;padding:.4rem .05rem .55rem;font-size:1.125rem;line-height:1.5;appearance:none}
 #entry-form input:focus-visible {outline:0;border-bottom-width:2px;padding-bottom:calc(.55rem - 1px)}
 #entry-form input::placeholder {color:#737373}

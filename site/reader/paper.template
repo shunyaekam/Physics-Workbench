@@ -3,9 +3,9 @@
 <title>$pagetitle$ · oo research</title>
 <meta name="citation_title" content="$pagetitle$"><meta name="citation_author" content="GPT-6.2 Astra (high)"><meta name="citation_author" content="Aryan Singh">
 <meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/$slug$.pdf">
-<link rel="icon" href="../../site/assets/oo-mark.png"><link rel="stylesheet" href="../../site/reader/paper.css"><link rel="stylesheet" href="../../site/flowly.css">
+<link rel="icon" href="../../site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="../../site/reader/paper.css?v=torus"><link rel="stylesheet" href="../../site/flowly.css?v=torus">
 <script src="../../site/flowly.js" defer></script><script src="../../site/reader/paper.js" defer></script></head>
-<body><header class="reader-head"><a href="../../">oo research</a><nav><a href="../../catalogue.html">Papers</a><a href="../$slug$.pdf">View PDF ↗</a><button id="contents" hidden aria-haspopup="dialog">Contents</button></nav></header>
+<body><header class="reader-head"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav><a href="../../catalogue.html">Papers</a><a href="../$slug$.pdf">PDF ↗</a><button id="contents" hidden aria-haspopup="dialog">Contents</button></nav></header>
 <main id="reader" aria-label="Paper"><article id="text">
 <h1 class="paper-title">$title$</h1>
 <div class="author">$for(author)$$author$$sep$<br>$endfor$</div>
@@ -13,7 +13,7 @@
 $if(abstract)$<section aria-label="Abstract"><h2 id="abstract">Abstract</h2>$abstract$</section>$endif$
 $body$
 </article></main>
-<footer class="reader-foot" hidden><button type="button" id="previous" data-cue="cancel">← Previous</button><span id="page" class="paper-counter" aria-live="polite"></span><button type="button" id="next">Next →</button></footer>
-<dialog class="sheet" id="sections" aria-label="Contents"><form method="dialog"><button data-cue="cancel">Close ×</button></form><nav aria-label="Paper sections"></nav>
+<footer class="reader-foot" hidden><button type="button" id="previous" data-cue="cancel" aria-label="Previous page" title="Previous page">←</button><span id="page" class="paper-counter" aria-live="polite"></span><button type="button" id="next" aria-label="Next page" title="Next page">→</button></footer>
+<dialog class="sheet" id="sections" aria-label="Contents"><form method="dialog"><button data-cue="cancel" aria-label="Close" title="Close">×</button></form><nav aria-label="Paper sections"></nav>
 <button data-sound-switch>Sound on</button></dialog>
 </body></html>

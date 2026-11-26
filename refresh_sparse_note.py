@@ -9,6 +9,7 @@ from time import monotonic
 
 import excited_pairs as pairs
 from lab import write
+from paper_build import stage_paper_directory
 
 ROOT = Path(__file__).resolve().parent
 PAPERS = ROOT / "papers"
@@ -37,6 +38,7 @@ def refresh(seconds=45):
     accepted = {}
     deadline = monotonic()+seconds
     by_level = {}
+    replay_deferred = False
     for n in range(2, pairs.BOUND+1):
         for m in range(1,n):
             paths = [pairs.LIVE/f"levels-{a:02}-{b:02}.json" for a,b in ((m,n),(n,m))]
@@ -49,6 +51,7 @@ def refresh(seconds=45):
             digest = hashlib.sha256(b"".join(p.read_bytes() for p in paths)).hexdigest()
             if known.get(name) != digest:
                 if monotonic() >= deadline:
+                    replay_deferred = True
                     continue
                 for (a,b),r in zip(((m,n),(n,m)),rows):
                     if pairs.process(a,b,r["tested"]) != r:
@@ -62,9 +65,9 @@ def refresh(seconds=45):
     lines += [f"{n} & {spans(ms)} " + r"\\" for n,ms in by_level.items()]
     lines += [r"\end{tabular}\end{center}"]
     content = "\n".join(lines)+"\n"
-    if not TABLE.exists() or TABLE.read_text() != content:
+    if not replay_deferred and (not TABLE.exists() or TABLE.read_text() != content):
         with tempfile.TemporaryDirectory(dir=PAPERS) as directory:
-            directory=Path(directory)
+            directory=stage_paper_directory(directory,ROOT)
             source=directory/NOTE.name
             source.write_bytes(NOTE.read_bytes())
             tab=directory/TABLE.name
@@ -78,7 +81,10 @@ def refresh(seconds=45):
     new = dict(checker=key,pairs=accepted)
     if old != new:
         write(LEDGER,new)
-    print("Replayed pairs in the sparse manuscript:",len(accepted),flush=True)
+    if replay_deferred:
+        print("Partial sparse replay:",len(accepted),"pairs checked so far",flush=True)
+    else:
+        print("Replayed pairs in the sparse manuscript:",len(accepted),flush=True)
 
 
 if __name__=="__main__":
