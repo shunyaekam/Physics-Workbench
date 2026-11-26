@@ -18,7 +18,7 @@ The next intake revisits the lower bound of Vienna problem 40. One proof archive
 
 ## Full source index
 
-[Search the entries and inspect source coverage](https://shunyaekam.github.io/Physics-Workbench/pipeline/indexed.html). Indexing happens before scientific screening. The worker imports catalogue rows and source statuses weekly, preserving separate records when two catalogues discuss the same question. Broader sources also carry archived records, proposals, resource links, benchmarks, and sampled arXiv leads. The physics view selects current catalogue entries with a source-reported open or partly resolved status and a physics catalogue or subject tag. Select all records to search outside this filter. Each collection documents its coverage in the index.
+[Search the entries and inspect source coverage](https://shunyaekam.github.io/oo-research/pipeline/indexed.html). Indexing happens before scientific screening. The worker imports catalogue rows and source statuses weekly, preserving separate records when two catalogues discuss the same question. Broader sources also carry archived records, proposals, resource links, benchmarks, and sampled arXiv leads. The physics view selects current catalogue entries with a source-reported open or partly resolved status and a physics catalogue or subject tag. Select all records to search outside this filter. Each collection documents its coverage in the index.
 
 The scout takes individual entries from this pool as well as the recorded arXiv intake, visits the primary literature and compares exact formulations before shortlisting. A shortlist still needs an authored, source-matched verifier before it can become an investigation. The six current investigations are a subset of the index's subject matter.
 

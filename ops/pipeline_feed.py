@@ -15,7 +15,7 @@ from checks.finite_spins import JOBS, PAPER, CONTROL, job_id
 from lab import load, write
 from verify import require
 
-GITHUB = "https://github.com/shunyaekam/Physics-Workbench/blob/"
+GITHUB = "https://github.com/shunyaekam/oo-research/blob/"
 OPTICAL = "gagatsos-2026-c1"
 WERNER = "werner-endpoint"
 TITLES = {OPTICAL: "Wigner–Husimi inequality", WERNER: "Undistillable entanglement"}
@@ -373,14 +373,14 @@ def build(root, now):
             n, k, weight = code_weights.get(pid,(0,0,0))
             certified.append(row(pid,f"[[{n},{k},4]] · Optimal check weight {weight}" if is_code else entry["title"],"machine_checked_full",
                 GITHUB+"main/certificates/"+entry["file"],("The Grassl code attains six. Every distance-compatible subspace in the graph census has no nonidentity stabilizers of weight at most five." if pid=="wei-10-2-4" else f"A code attains {weight}. Exact rational certificates exclude {weight-1} for every eligible stabilizer group." if is_code else "Independent publication replay passed."),
-                problem_id=pid,source=entry["source"],evidence={"paper":"https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"} if is_code else {}))
+                problem_id=pid,source=entry["source"],evidence={"paper":"https://shunyaekam.github.io/oo-research/papers/distance-four.pdf"} if is_code else {}))
             for problem in problems:
                 if problem["id"]==pid:
                     problem["status"]="machine_checked_full"
         issue_map=load(root/"discovery/proof-issues.json")
         for case in problems:
             if case["id"] in issue_map:
-                case.setdefault("evidence",{})["tracking issue"]="https://github.com/shunyaekam/Physics-Workbench/issues/"+str(issue_map[case["id"]])
+                case.setdefault("evidence",{})["tracking issue"]="https://github.com/shunyaekam/oo-research/issues/"+str(issue_map[case["id"]])
         for path in sorted((root/"campaign/proof-flow").glob("*.json")):
             work=load(path)
             if "problem_id" not in work:

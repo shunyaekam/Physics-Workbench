@@ -51,7 +51,7 @@
     },
     {
       "name": "Recorded arXiv intake",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/tree/research/campaign/intake",
+      "url": "https://github.com/shunyaekam/oo-research/tree/research/campaign/intake",
       "count": 5,
       "scope": "Every distinct lead saved by the lab's weekly arXiv query. The query samples up to six recent abstracts from three categories and matches open-question language."
     }

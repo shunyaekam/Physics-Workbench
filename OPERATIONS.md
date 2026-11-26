@@ -19,7 +19,7 @@ From the editable checkout, `python3 ops/install.py --hosted-hourly` enables sig
 ## Locations
 
 - The editable checkout is in Documents/Physics-Workbench. A separate runtime checkout in Library/Application Support/Physics Workbench/checkout isolates unattended commits from user changes.
-- The launch agent stores one short rolling log and its predecessor in Library/Application Support/Physics Workbench. The newest committed receipt is in [campaign/rounds on research](https://github.com/shunyaekam/Physics-Workbench/tree/research/campaign/rounds). Each receipt records the seed, allocated and evaluated trials, exact scores, search progress, allocation provenance, and source-code fingerprints.
+- The launch agent stores one short rolling log and its predecessor in Library/Application Support/Physics Workbench. The newest committed receipt is in [campaign/rounds on research](https://github.com/shunyaekam/oo-research/tree/research/campaign/rounds). Each receipt records the seed, allocated and evaluated trials, exact scores, search progress, allocation provenance, and source-code fingerprints.
 - The worker pushes batches and draft updates to the research branch. The public catalogue on main changes through an editorial commit. The worker fast-forwards the editable main checkout and, when present, its .runtime/research worktree from their respective branches when their tracked files are clean. If you have local edits, GitHub can continue advancing and the next clean sync catches up. A conflicting remote merge is aborted and logged. Commits and evidence are preserved.
 - Login, network and GitHub credentials determine when sync can occur. A sleeping or logged-out Mac resumes on a later available tick. The schedule uses local compute without hosted GitHub runners.
 
@@ -55,7 +55,7 @@ Run `python3 checks/sharp_qubit.py`, `python3 renyi_scan.py`, `python3 fock_pair
 
 ## The discovery pipeline
 
-The [public board](https://shunyaekam.github.io/Physics-Workbench/pipeline/) reads campaign/pipeline.json on the research branch. Each local cycle rebuilds the feed after searching and running the agent stage. A bundled snapshot supports the website during a feed outage. Its timestamp appears on the board.
+The [public board](https://shunyaekam.github.io/oo-research/pipeline/) reads campaign/pipeline.json on the research branch. Each local cycle rebuilds the feed after searching and running the agent stage. A bundled snapshot supports the website during a feed outage. Its timestamp appears on the board.
 
 The [research protocol](discovery/proof-system.md) describes admission, sandbox experiments, exact replay, separate source and mathematics reviews, and publication from a clean checkout. Active attempts are in `campaign/proof-flow`. Historical pilot transcripts remain in `campaign/agent-lanes`.
 

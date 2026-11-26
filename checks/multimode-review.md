@@ -1,6 +1,6 @@
 # Mathematical review of the weak multimode Wigner–Husimi bound
 
-**Verdict, 25 November 2026.** A separate Workbench AI reviewer reproduced the weak bound and the pure-state reduction for every finite number of modes, including entangled and mixed inputs. These answer two clauses of Gagatsos’s Section VII(iii). The sharp multimode inequality and the parent single-mode conjecture remain open. The review covers mathematical correctness and source scope. Priority, external peer review and Lean verification remain outstanding. [Paper, Section VII](https://arxiv.org/html/2611.30969v1#S7) · [Reviewed notebook version](https://github.com/shunyaekam/Physics-Workbench/blob/24ce371a5fa057e8143771fba2bbf9af67a53c50/discovery/coherent-optimality.md#a-second-check-against-the-source-question)
+**Verdict, 25 November 2026.** A separate Workbench AI reviewer reproduced the weak bound and the pure-state reduction for every finite number of modes, including entangled and mixed inputs. These answer two clauses of Gagatsos’s Section VII(iii). The sharp multimode inequality and the parent single-mode conjecture remain open. The review covers mathematical correctness and source scope. Priority, external peer review and Lean verification remain outstanding. [Paper, Section VII](https://arxiv.org/html/2611.30969v1#S7) · [Reviewed notebook version](https://github.com/shunyaekam/oo-research/blob/24ce371a5fa057e8143771fba2bbf9af67a53c50/discovery/coherent-optimality.md#a-second-check-against-the-source-question)
 
 ## Check of the dimension-dependent factor
 

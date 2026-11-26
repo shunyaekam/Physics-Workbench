@@ -18,7 +18,7 @@ CLAY = "https://www.claymath.org/millennium-problems/"
 RULE = "https://rule30prize.org/"
 DIRECTORY = "https://www.openproblems.net/"
 SPINS = "https://arxiv.org/html/2504.00987v1"
-INTAKE = "https://github.com/shunyaekam/Physics-Workbench/tree/research/campaign/intake"
+INTAKE = "https://github.com/shunyaekam/oo-research/tree/research/campaign/intake"
 
 
 def fetch(url):

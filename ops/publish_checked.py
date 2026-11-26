@@ -10,8 +10,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from ops.witness import contracts,fingerprint
 
-REPO="shunyaekam/Physics-Workbench"
-SITE="https://shunyaekam.github.io/Physics-Workbench/"
+REPO="shunyaekam/oo-research"
+SITE="https://shunyaekam.github.io/oo-research/"
 
 
 def git(root,*args):
