@@ -12,7 +12,7 @@ TEMPLATE = Path(__file__).with_name("paper.template")
 def reader_source(source):
     """Give Pandoc explicit targets for LaTeX citations and numbered displays."""
     # The reader owns its title and abstract layout. Leave TeX's print-only style to Tectonic.
-    source = re.sub(r"^\\(?:usepackage\{oo-journal\}|ooshorttitle\{[^\n]*\})\s*$", "", source, flags=re.M)
+    source = re.sub(r"^\\(?:usepackage\{oo-journal\}|(?:ooshorttitle|ooprojectcredit)\{[^\n]*\})\s*$", "", source, flags=re.M)
     source = re.sub(r"\{\\rm\s+([^{}]*)\}", r"\\mathrm{\1}", source).replace(r"\tbinom", r"\binom")
     source = re.sub(r"\\(?:small|footnotesize|enspace)\b", " ", source)
     source = re.sub(r"\\tag\{(\d+)\}", r"\\qquad (\1)", source)

@@ -43,3 +43,5 @@ dialog{position:fixed;inset:0;height:100%;width:100%;max-width:none;max-height:n
 footer a{white-space:nowrap}
 @media(max-width:370px){footer nav{gap:.6rem}footer nav a,footer .all{font-size:.71rem}}
 .description h1{letter-spacing:-.058em}
+
+.menu-credit{max-width:32ch;font-size:.82rem;line-height:1.4;color:#f4f4f4;margin:1.4rem 0 0}.menu-credit a{text-decoration:underline}

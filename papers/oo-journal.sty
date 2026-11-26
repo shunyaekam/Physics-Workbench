@@ -14,6 +14,8 @@
 \newcommand{\ooSans}{\fontencoding{TU}\fontfamily{ooPlay}\fontseries{m}\fontshape{n}\selectfont}
 \newcommand{\ooshorttitle}[1]{\def\ooRunningTitle{#1}}
 \ooshorttitle{}
+\newcommand{\ooprojectcredit}[1]{\def\ooProjectCredit{#1}}
+\ooprojectcredit{}
 \AtBeginDocument{%
   \hypersetup{linkcolor=ooLink,citecolor=ooLink,urlcolor=ooLink}%
   \color{ooInk}%
@@ -30,7 +32,7 @@
   \thispagestyle{oofirst}%
   {\raggedright\ooSans\fontsize{26}{29}\selectfont\@title\par}%
   \vspace{10pt}%
-  {\raggedright\fontsize{11}{15}\selectfont\@author\par}%
+  {\raggedright\fontsize{11}{15}\selectfont\ooProjectCredit\par}%
   \vspace{4pt}%
   {\ooSans\fontsize{9.5}{12}\selectfont\color{ooMuted}\@date\par}%
   \vspace{12pt}}

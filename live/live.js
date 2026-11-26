@@ -12,6 +12,14 @@ const accepted = new Set(['rounds', 'questions', 'records']);
 let mode = accepted.has(location.hash.slice(1)) ? location.hash.slice(1) : 'rounds';
 let snapshot, sourceState, pending = false;
 
+const diagram = new ResearchMap(byId('map'), (group,id) => {
+  const index = sets[group].findIndex(row => row.id === id);
+  if (index < 0) return;
+  selection[group] = index;
+  if (group === mode) draw();
+  else location.hash = group;
+});
+
 const dates = new Intl.DateTimeFormat(undefined, {
   month:'short', day:'numeric', hour:'numeric', minute:'2-digit', timeZoneName:'short'
 });
@@ -50,20 +58,7 @@ function draw() {
   byId('position').textContent = row ? (index + 1) + ' / ' + rows.length : '—';
   byId('previous').disabled = index === 0;
   byId('next').disabled = index + 1 >= rows.length;
-  const trace = byId('trace');
-  const focused = trace.contains(document.activeElement);
-  trace.replaceChildren();
-  const start = Math.floor(index / 8) * 8;
-  for (const [offset, item] of rows.slice(start, start + 8).entries()) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.title = item.title;
-    button.setAttribute('aria-label', item.title);
-    button.setAttribute('aria-current', String(start + offset === index));
-    button.addEventListener('click', () => select(start + offset));
-    trace.append(button);
-  }
-  if (focused) trace.querySelector('[aria-current=true]')?.focus();
+  diagram.update(snapshot,sets,mode,row);
 }
 function select(index) {
   if (index < 0 || index >= sets[mode].length) return;
@@ -82,7 +77,7 @@ function useFeed(feed) {
   snapshot = feed;
   const activities = [...feed.activity].sort((a,b) => (Date.parse(b.updated_at)||0) - (Date.parse(a.updated_at)||0));
   installSet('records', activities);
-  installSet('questions', feed.problems.filter(row => row.status === 'under_investigation')
+  installSet('questions', [...feed.problems].sort((a,b) => Number(b.status === 'under_investigation') - Number(a.status === 'under_investigation'))
     .map(row => ({...row, detail:row.question || row.detail})));
   const head = activities.find(row => /^round-\d+$/.test(row.id));
   if (!head) {
@@ -114,7 +109,7 @@ async function fillHistory(head) {
   }));
   installSet('rounds', numbers.map(number => archive.get(number) || (number === latest ? head : null)).filter(Boolean));
   for (const number of archive.keys()) if (number < latest-8) archive.delete(number);
-  if (mode === 'rounds') draw();
+  draw();
 }
 async function poll() {
   if (pending || document.hidden) return;
@@ -128,6 +123,7 @@ async function poll() {
     if (snapshot) {
       if (sourceState === 'remote') sourceState = 'offline';
       announce();
+      draw();
     } else {
       try {
         sourceState = 'snapshot';
@@ -158,5 +154,6 @@ document.addEventListener('keydown', event => {
   }
 });
 document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
+draw();
 poll();
 setInterval(poll, interval);

@@ -1,38 +1,22 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Live work · oo research</title>
-  <meta name="description" content="Read the latest published searches and open physics questions from the oo research worker.">
-  <link rel="icon" href="../site/assets/oo-mark.png?v=torus">
-  <link rel="stylesheet" href="live.css">
-  <script defer src="live.js"></script>
-<link rel="stylesheet" href="../site/flowly.css?v=torus"><script defer src="../site/flowly.js"></script></head>
-<body>
-  <header><a class="lab-mark" href="../" aria-label="oo research home"><img width="42" height="42" src="../site/assets/torus.png" alt=""></a><nav aria-label="Research"><a href="../">Discoveries</a><a href="../pipeline/">Pipeline</a></nav></header>
-  <main>
-    <div class="heading">
-      <h1>Live work</h1>
-      <p id="connection" role="status">Reading the public research feed…</p>
-    </div>
-    <div id="modes" role="group" aria-label="Explore the research feed">
-      <button type="button" data-mode="rounds" aria-pressed="true">Rounds</button>
-      <button type="button" data-mode="questions" aria-pressed="false">Open questions</button>
-      <button type="button" data-mode="records" aria-pressed="false">Work log</button>
-    </div>
-    <section id="readout" aria-label="Selected research record" aria-live="polite" aria-atomic="true">
-      <p id="kind"></p>
-      <h2 id="title">Research notebook</h2>
-      <p id="detail">Loading the latest round…</p>
-      <a id="source" href="https://github.com/shunyaekam/oo-research/tree/research/campaign">Notebook ↗</a>
-    </section>
-    <div class="navigator">
-      <div id="trace" role="group" aria-label="Select a record"></div>
-      <div class="step-controls"><button id="previous" type="button" aria-label="Previous record" disabled>←</button><span id="position">—</span><button id="next" type="button" aria-label="Next record" disabled>→</button></div>
-    </div>
-  </main>
-  <footer><span>Every 10 min while awake.</span><a href="https://github.com/shunyaekam/oo-research/blob/research/campaign/pipeline.json">Feed ↗</a><button type="button" class="quiet-sound" data-sound-switch>Sound on</button></footer>
-  <noscript><p>Read the <a href="https://github.com/shunyaekam/oo-research/tree/research/campaign/rounds">worker round archive</a> on GitHub.</p></noscript>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live research · oo research</title><meta name="description" content="Explore the questions, experiments and published rounds in the oo research notebook.">
+<link rel="icon" href="../site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="live.css?v=map1"><link rel="stylesheet" href="../site/flowly.css?v=torus">
+<script defer src="../site/flowly.js"></script><script defer src="map.js?v=1"></script><script defer src="live.js?v=map1"></script>
+</head><body>
+<header><a class="lab-mark" href="../" aria-label="oo research home"><img width="42" height="42" src="../site/assets/torus.png" alt=""></a><nav aria-label="Research"><a href="../">Discoveries</a><a href="../pipeline/">Pipeline</a></nav></header>
+<main>
+ <div class="mast"><div><h1>Live research</h1><p id="connection" role="status">Connecting to notebook…</p></div><button id="motion" type="button" aria-pressed="false" aria-label="Pause diagram motion" title="Pause motion">Ⅱ</button></div>
+ <div class="workspace">
+  <section id="map" aria-label="Interactive map of the public research notebook. Lines connect questions with their published records. Motion traces these connections."><canvas id="wires" aria-hidden="true"></canvas><div id="nodes" role="group" aria-label="Research questions and associated records"></div></section>
+  <aside aria-label="Record inspector">
+   <div id="modes" role="group" aria-label="Explore the feed"><button data-mode="rounds" aria-pressed="true">Rounds</button><button data-mode="questions" aria-pressed="false">Questions</button><button data-mode="records" aria-pressed="false">Work log</button></div>
+   <section id="readout" aria-label="Selected record" aria-live="polite" aria-atomic="true"><p id="kind"></p><h2 id="title">Public notebook</h2><p id="detail"></p><a id="source" href="https://github.com/shunyaekam/oo-research/tree/research/campaign">Notebook ↗</a></section>
+   <div class="step-controls"><button id="previous" aria-label="Previous record" disabled>←</button><span id="position">—</span><button id="next" aria-label="Next record" disabled>→</button></div>
+  </aside>
+ </div>
+</main>
+<footer><span><i class="symbol group"></i>Question <i class="symbol point"></i>Record</span><a href="https://github.com/shunyaekam/oo-research/blob/research/campaign/pipeline.json">Public feed ↗</a><button data-sound-switch>Sound on</button></footer>
+<noscript><p>Read the <a href="https://github.com/shunyaekam/oo-research/tree/research/campaign">published research notebook</a>.</p></noscript>
+</body></html>

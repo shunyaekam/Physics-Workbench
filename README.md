@@ -1,10 +1,10 @@
 # oo research
 
-**Distance-four quantum error correction.** On twelve physical qubits, the least possible largest stabilizer check has weight seven when encoding four logical qubits and six when encoding three. A complete graph-state census also settles the ten-qubit, two-logical-qubit entry at six. [Read the paper](https://shunyaekam.github.io/oo-research/papers/distance-four.pdf) or [replay the exact certificates](checks/small_qec/README.md).
+**Distance-four quantum error correction.** On twelve physical qubits, the least possible largest stabilizer check has weight seven when encoding four logical qubits and six when encoding three. A complete graph-state census also settles the ten-qubit, two-logical-qubit entry at six. [Read the paper](https://shunyaekam.github.io/oo-research/papers/distance-four/) or [replay the exact certificates](checks/small_qec/README.md).
 
 [What counts as a solution](discovery/proof-system.md) · [Full machine-checked results](https://shunyaekam.github.io/oo-research/pipeline/#certified)
 
-oo research is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.
+oo research is an open mathematical physics lab. Project initiated and directed by [Aryan Singh](https://www.researchgate.net/profile/Aryan-Singh-101). Each working paper describes the agents’ documented contributions and the checks behind its conclusions.
 
 [Read the scientific audit](discovery/scientific-audit.md) for the claim, strongest objection, verification coverage and remaining uncertainty for each of the nine manuscripts.
 

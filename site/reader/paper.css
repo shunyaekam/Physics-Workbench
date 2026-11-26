@@ -11,7 +11,7 @@ a:focus-visible,button:focus-visible,#reader:focus-visible{outline:2px solid #39
 #text{font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.65;overflow-wrap:anywhere}
 #text h1,#text h2,#text h3,#text h4,#text h5{line-height:1.18;break-after:avoid;margin:1.1em 0 .45em}
 #text .paper-title{margin:0 0 .55em;font-size:clamp(1.85rem,4.1vw,3.4rem);font-weight:350;letter-spacing:-.05em}
-.author,.date{font-size:.88rem;line-height:1.5;color:#4c5256}.date{margin:.4rem 0 1rem}
+.project-credit,.date{font-size:.88rem;line-height:1.5;color:#4c5256}.date{margin:.4rem 0 1rem}
 #text p{margin:.45em 0 .9em;orphans:2;widows:2}
 #text h2{font-size:1.45em;font-weight:450}#text h3{font-size:1.15em;font-weight:500}
 #text a{text-underline-offset:.15em}#text math{font-size:1em}
@@ -44,7 +44,7 @@ body.paged{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto
 #text .paper-title{letter-spacing:-.025em;font-weight:400;font-size:clamp(1.75rem,3.55vw,2.8rem)}
 #text h2{font-size:1.23em}
 #text section[aria-label="Abstract"]{border-bottom:1px solid #bdc2c1;padding-bottom:.7em;margin-bottom:.8em}
-.author{font-size:.96rem;color:#353736}
+.project-credit{font-size:.96rem;color:#353736}
 .date{color:#535b58}
 .reader-head{border-bottom:1px solid #c4c9c7}
 .reader-head,.reader-foot{width:min(100% - 2.2rem,47rem);margin-inline:auto;padding-inline:0}
@@ -53,5 +53,5 @@ body.paged{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto
  @page{size:letter;margin:.75in .85in;@bottom-right{content:counter(page);font:8pt Play,sans-serif;color:#535b58}}
  #text::before{content:"oo research";display:block;padding:0 0 5pt 18pt;margin-bottom:11pt;border-bottom:.4pt solid #a7afad;background:url("../assets/torus.png") left top / 14pt 14pt no-repeat;font:9pt/14pt var(--sans);color:#4d5351}
  #text .paper-title{font-size:23pt}#text{font-size:10.5pt;line-height:1.28}
- #text .author{font-size:10pt}#text .date{font-size:8.5pt}
+ #text .project-credit{font-size:10pt}#text .date{font-size:8.5pt}
 }
