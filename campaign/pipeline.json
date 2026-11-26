@@ -10,30 +10,30 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T02:29:28+00:00",
+  "updated_at": "2026-11-26T02:41:53+00:00",
   "counts": {
     "leads": 3,
     "problems": 6,
-    "attempts": 65624782859,
+    "attempts": 65808634317,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 491431,
+    "werner": 500263,
     "coherent-cats": 9472,
-    "coherent-bands": 3011,
-    "three-level": 5999,
+    "coherent-bands": 3043,
+    "three-level": 6063,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 1388000,
+    "golay-graphs": 1408000,
     "golay-repairs": 269543351,
-    "golay-splices": 4453193778,
-    "golay-splice-tails": 60899805736,
-    "schmidt-seven-pairs": 17820
+    "golay-splices": 4465678140,
+    "golay-splice-tails": 61071143364,
+    "schmidt-seven-pairs": 18360
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -284,8 +284,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000032.json",
-      "detail": "17,820 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000033.json",
+      "detail": "18,360 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -293,7 +293,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "60,899,805,736 edits with one insertion anywhere and one optional inverse-end gate across 55 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "61,071,143,364 edits with one insertion anywhere and one optional inverse-end gate across 56 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -301,7 +301,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "4,453,193,778 edits across 55 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "4,465,678,140 edits across 56 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -317,7 +317,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "1,388,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "1,408,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -345,28 +345,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-111",
-      "title": "Research round 111",
+      "id": "round-112",
+      "title": "Research round 112",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000111.json",
-      "detail": "2,249 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000112.json",
+      "detail": "8,832 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T02:29:26.667919+00:00"
+      "updated_at": "2026-11-26T02:41:01.125189+00:00"
     },
     {
-      "id": "coherent-bands-00000095",
+      "id": "coherent-bands-00000096",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000095.json",
-      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000096.json",
+      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000094",
+      "id": "three-level-batch-00000095",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000094.json",
-      "detail": "63 states tested on photon levels 1, 3, 4.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000095.json",
+      "detail": "64 states tested on photon levels 1, 3, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {

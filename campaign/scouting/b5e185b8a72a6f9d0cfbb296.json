@@ -1,0 +1,20 @@
+{
+  "lead": {
+    "id": "arxiv-2611.31971v1",
+    "title": "Field-Dependent Kinetics, Exact Kinks, and a Moduli-Space Route from Self-Dual Yang-Mills Theory",
+    "question": "Extract a small falsifiable subproblem from this attributed abstract sentence: Full identification of the sextic potential within a specific gauge-theory moduli dynamics remains open and is formulated as a research program.",
+    "scope": "Intake only. Verify definitions in the full text and check later work before accepting the conjecture.",
+    "source": "https://arxiv.org/abs/2611.31971v1",
+    "prior_art": "https://arxiv.org/abs/2611.31971v1",
+    "checked_on": "2026-11-25",
+    "status": "unreviewed_lead"
+  },
+  "review": {
+    "statement": "Can the Taub\u2013NUT example in \u00a77.2 reproduce the sextic potential even locally, through second order? Fix Wang\u2019s coordinate x=(r\u22122m)/(2m) and coefficient pair (\u0101,b\u0304)=(1/2,\u22121/4). The target shape from Eq. (13) is P(x)=(1+x/2\u2212x\u00b2/4)(1\u2212x\u00b2)\u00b2. In the low-energy system of two distinct fundamental SU(3) monopoles with nonaligned Higgs fields, take radial motion at fixed relative electric charge. Do there exist admissible gauge parameters and charge, with m>0, and constants C>0 and D such that the resulting radial potential satisfies U(2m(1+x))=D+C P(x)+O(x\u00b3) as x\u21920? This local test is an intake proposal. Wang formulates the broader embedding program in \u00a77.3. [Full text, Eqs. (13), (45)\u2013(47) and \u00a77.3](https://arxiv.org/pdf/2611.31971)",
+    "significance": "The attributed sentence appears in the v1 arXiv abstract. In the full text, Wang obtains (1/2,\u22121/4) by expanding a kinetic coefficient. Testing the potential in the same coordinate asks whether gauge dynamics also gives the slope and curvature required by the kink model. Earlier work established the Taub\u2013NUT relative metric and derived a specific two-monopole potential. A search by title, identifier, author and monopole terminology found only v1 through 2026-11-25 and no publication reporting this particular match. [Abstract and version history](https://arxiv.org/abs/2611.31971) \u00b7 [Two-monopole metric](https://arxiv.org/abs/hep-th/9601097) \u00b7 [Two-monopole dynamics with a potential](https://arxiv.org/abs/hep-th/0005056)",
+    "settlement_test": "Eliminate the cyclic relative phase at fixed momentum, including its contribution to the radial potential. Write F(x)=U(2m(1+x)). Since P\u2032(0)=1/2 and P\u2033(0)=\u22129/2, the local match is equivalent to F\u2032(0)>0 and F\u2033(0)=\u22129F\u2032(0). One admissible parameter choice satisfying both conditions settles the local question affirmatively. An analytic exclusion for every admissible choice settles it negatively for this radial system. Even an affirmative result leaves the higher coefficients and the collective-coordinate kink trajectory open.",
+    "aliases": "Search terms include two distinct fundamental BPS monopoles, relative dyon dynamics, Taub\u2013NUT moduli-space potential, nonaligned Higgs fields, and fixed relative electric charge. The local derivative test is proposed here and has no verified published name.",
+    "verdict": "shortlist",
+    "primary_sources": "[\"https://arxiv.org/abs/2611.31971v1\",\"https://arxiv.org/abs/2611.31971\",\"https://arxiv.org/pdf/2611.31971\",\"https://arxiv.org/abs/hep-th/9601097\",\"https://arxiv.org/abs/hep-th/0005056\",\"https://arxiv.org/abs/1210.3208\"]"
+  }
+}
