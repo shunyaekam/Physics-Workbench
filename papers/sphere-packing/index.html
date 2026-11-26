@@ -1,55 +1,51 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>Five better spherical packings · oo research</title>
-<link rel="icon" type="image/png" href="../../site/assets/oo-mark.png?v=torus">
-<link rel="stylesheet" href="../../site/style.css?v=flowly-1">
-<style>
-main,footer {width:min(100% - 2.5rem,66rem);margin-inline:auto}
-.hero {padding:clamp(3rem,8vw,6rem) 0 1.75rem}
-.hero p,.proof p {max-width:46rem;color:var(--muted);margin-top:.8rem}
-figure {display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:clamp(1.5rem,5vw,4rem);margin:1rem 0 4rem}
-.canvascol {background-color:#fafafa;background-image:radial-gradient(#dedede .8px,transparent .9px);background-size:20px 20px;display:grid;place-items:center}
-canvas {width:100%;max-width:34rem;aspect-ratio:1;display:block;cursor:grab;touch-action:none}
-canvas:active {cursor:grabbing}
-figcaption h2 {margin:.4rem 0 1.35rem}
-.small,.focus {font-size:.875rem;color:var(--muted)}
-.value {display:block;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.065em;font-variant-numeric:tabular-nums}
-.focus {display:flex;align-items:center;gap:.5rem}.key {width:9px;height:9px;border-radius:50%;background:#2763ba}
-figcaption button {margin:0}
-.switch {display:flex;flex-wrap:wrap;gap:1.25rem;margin:1.4rem 0 .85rem}
-.switch button[aria-pressed=true] {color:var(--ink);border-bottom:1px solid}
-.tablewrap {overflow-x:auto}table {border-collapse:collapse;width:100%;text-align:left;font-variant-numeric:tabular-nums;margin:1rem 0}
-th,td {padding:.8rem .8rem .8rem 0;border-bottom:1px solid var(--rule);white-space:nowrap}
-th {font-size:.85rem;color:var(--muted);font-weight:500}
-.proof {max-width:50rem;padding:2rem 0 3rem}
-@media(max-width:650px){figure {grid-template-columns:1fr} canvas {max-width:23rem} .hero{padding-top:2.5rem}}
+<meta name="citation_title" content="Five better spherical packings">
+<meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/sphere-packing/sphere-packing.pdf">
+<link rel="icon" href="../../site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="../../site/reader/paper.css?v=map"><link rel="stylesheet" href="../../site/flowly.css?v=edition3">
+<script src="../../site/flowly.js" defer></script><script src="../../site/reader/paper.js?v=map" defer></script>
+<link rel="stylesheet" href="../../site/reader/sphere.css?v=reader"><script src="../../site/sphere.js" defer></script></head>
+<body><header class="reader-head"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav><a href="../../catalogue.html">Research map</a><a href="sphere-packing.pdf">PDF ↗</a><button id="contents" hidden aria-haspopup="dialog">Contents</button></nav></header>
+<main id="reader" aria-label="Paper"><article id="text">
+<h1 class="paper-title">Five better spherical packings</h1>
+<div class="edition-model"><strong>GPT-6.2 Astra (high)</strong><span>AI manuscript author</span></div>
+<div class="project-credit">Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a>.<br>oo research · Student, Department of Physical Sciences, The Open University</div>
 
-@media print {
- @page{size:A4;margin:15mm}
- header.topbar,footer,.switch,#center,.print-link{display:none}
- main{width:100%;font-size:10pt} .hero{padding:0 0 .3rem}
- figure{grid-template-columns:1fr 1fr;margin:.6rem 0;break-inside:avoid}
- .canvascol{background:none}canvas{width:215px;height:215px}
- main .proof{padding:.5rem 0}table{font-size:8.5pt;margin:.4rem 0}
- th,td{padding:.23rem}p{orphans:3;widows:3}
-}
-</style><link rel="stylesheet" href="../../site/flowly.css?v=edition3"><script defer src="../../site/flowly.js"></script><meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/sphere-packing/sphere-packing.pdf"><link rel="stylesheet" href="../../site/reader/sphere.css?v=academic"></head>
-<body><header class="topbar"><div class="head-inner"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav aria-label="Main"><a href="../../live/">live work</a><a href="../../catalogue.html">papers</a><a href="../../pipeline/">pipeline</a><a href="../../pipeline/indexed.html">problems</a><a href="https://github.com/shunyaekam/oo-research">GitHub</a></nav></div></header><main>
-<section class="hero"><h1>Five better spherical packings</h1><div class="edition-model"><strong>GPT-6.2 Astra (high)</strong><span>AI manuscript author</span></div><p class="print-link"><a href="sphere-packing.pdf">PDF ↗</a></p><span class="small">Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a>.<br>oo research · Student, Department of Physical Sciences, The Open University</span><h2 class="print-only">Abstract</h2><p>How widely can you separate the closest two points on a sphere? At five sizes, the deposited configurations have greater minimum separation than the corresponding entries in Henry Cohn’s table on November 25, 2026. Four of them fit on an ordinary sphere.</p></section>
-<figure><div class="canvascol"><canvas id="sphere" data-coordinates="coordinates.json" tabindex="0" aria-label="Rotatable sphere with 418 equal caps. The closest pair is highlighted. Use arrow keys to rotate." aria-describedby="instructions"></canvas></div>
-<figcaption><span class="print-only">Figure 1. </span><span class="small">Three dimensions · 418 points</span><h2>The closest pair</h2><span class="small">Minimum angular separation</span>
-<output id="angle" class="value">10.3789768°</output>
-<div class="focus"><span class="key"></span><span id="pair">Centers 12 and 26</span></div>
-<div class="switch" role="group" aria-label="Choose a configuration"><button id="ours" aria-pressed="true">Ours</button><button id="prior" aria-pressed="false">Previous</button></div>
-<button id="center">Find pair</button><p class="small" id="instructions"><span class="screen-instruction">Drag or use ← → ↑ ↓. </span>Each cap’s angular radius is half the closest-pair separation.</p>
-</figcaption></figure>
-<section><h2><span class="print-only">Table 1. </span>All five comparisons</h2><p>Smaller maximum cosine means greater separation. The new bounds below are strict. Each comparison links to the prior table entry and the new coordinates.</p><div class="tablewrap"><table><thead><tr><th>Dimension</th><th>Points</th><th>Prior maximum cosine</th><th>New upper bound</th><th>Least angle</th></tr></thead><tbody><tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-327/points.csv">327</a></td><td><a href="https://spherical-codes.org/code/3/327">0.979170695575</a></td><td>0.979170312</td><td>11.7148240°</td></tr>
+<section aria-label="Abstract"><h2 id="abstract">Abstract</h2><p>How widely can you separate the closest two points on a sphere? At five sizes, the deposited configurations have greater minimum separation than the corresponding entries in Henry Cohn’s table on November 25, 2026. Four of them fit on an ordinary sphere.</p></section>
+<h2 id="the-closest-pair">The closest pair</h2>
+<figure class="packing-figure">
+  <canvas id="sphere" data-coordinates="coordinates.json" tabindex="0" aria-label="Rotatable sphere with 418 equal caps. The closest pair is highlighted." aria-describedby="instructions"></canvas>
+  <figcaption>
+    <span class="packing-context">Three dimensions · 418 points</span>
+    <div class="packing-measure"><span>Minimum angular separation</span><output id="angle">10.3789768°</output></div>
+    <span id="pair">Centers 12 and 26</span>
+    <div class="packing-controls" role="group" aria-label="Choose a configuration">
+      <button type="button" id="prior" aria-pressed="false">Previous</button>
+      <button type="button" id="ours" aria-pressed="true">Ours</button>
+    </div>
+    <button type="button" id="center">Center closest pair</button>
+  </figcaption>
+</figure>
+<p id="instructions">
+<span class="packing-gesture">Drag or use the arrow keys to rotate the sphere. </span>Each cap’s angular radius is half the closest-pair separation.
+</p>
+<h2 id="all-five-comparisons">All five comparisons</h2>
+<p>Smaller maximum cosine means greater separation. The new bounds below are strict. Each comparison links to the prior table entry and the new coordinates.</p>
+<table><thead><tr><th>Dimension</th><th>Points</th><th>Prior maximum cosine</th><th>New upper bound</th><th>Least angle</th></tr></thead><tbody><tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-327/points.csv">327</a></td><td><a href="https://spherical-codes.org/code/3/327">0.979170695575</a></td><td>0.979170312</td><td>11.7148240°</td></tr>
 <tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-418/points.csv">418</a></td><td><a href="https://spherical-codes.org/code/3/418">0.983664967676</a></td><td>0.983637642</td><td>10.3789768°</td></tr>
 <tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-577/points.csv">577</a></td><td><a href="https://spherical-codes.org/code/3/577">0.988154316960</a></td><td>0.988152320</td><td>8.8284410°</td></tr>
 <tr><td>3</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/3-636/points.csv">636</a></td><td><a href="https://spherical-codes.org/code/3/636">0.989239710497</a></td><td>0.989234488</td><td>8.4148307°</td></tr>
-<tr><td>7</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/7-151/points.csv">151</a></td><td><a href="https://spherical-codes.org/code/7/151">0.545859542775</a></td><td>0.545833304</td><td>56.9183729°</td></tr></tbody></table></div></section>
-<section class="proof"><h2>Verification</h2><p>The coordinates are finite decimals. Clearing their denominators gives integer directions. For each pair the checker compares its squared dot product with the product of its squared lengths times the proposed bound squared, accounting for the sign of the dot product. It tested all 519,885 candidate pairs, then repeated the calculation on the deposited prior coordinates. A second program replayed the comparisons at 50-digit precision.</p><p><strong>AI contribution.</strong> GPT-6.2 Astra (high) drafted the scope note for this edition and ran the integer checker against the five deposited configurations. The displayed angles are rounded. The exact comparison uses the archived coordinates and strict rational cosine thresholds, so rounding the angles cannot change which configuration wins at a given size.</p><p>These bounds certify arrangements that fit. Proving a best possible arrangement would also require ruling out every better one. Vadim Borisov supplied the prior configurations and the neighboring configurations used to start the searches.</p>
-<p><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/README.md">Research note</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/check.py">Checker</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/receipt.json">Receipt</a> · <a href="https://spherical-codes.org/">Cohn’s table</a></p></section></main>
-<footer><span>oo research</span><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/comparisons.json">Data &amp; credits</a><button type="button" class="quiet-sound" data-sound-switch>Sound on</button></footer>
-<script src="../../site/sphere.js" defer></script></body></html>
+<tr><td>7</td><td><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/7-151/points.csv">151</a></td><td><a href="https://spherical-codes.org/code/7/151">0.545859542775</a></td><td>0.545833304</td><td>56.9183729°</td></tr></tbody></table>
+<h2 id="verification">Verification</h2>
+<p>The coordinates are finite decimals. Clearing their denominators gives integer directions. For each pair the checker compares its squared dot product with the product of its squared lengths times the proposed bound squared, accounting for the sign of the dot product. It tested all 519,885 candidate pairs, then repeated the calculation on the deposited prior coordinates. A second program replayed the comparisons at 50-digit precision.</p>
+<p>These bounds certify arrangements that fit. Proving a best possible arrangement would also require ruling out every better one. Vadim Borisov supplied the prior configurations and the neighboring configurations used to start the searches.</p>
+<h2 id="ai-contribution">AI contribution</h2>
+<p>GPT-6.2 Astra (high) drafted the scope note for this edition and ran the integer checker against the five deposited configurations. The displayed angles are rounded. The exact comparison uses the archived coordinates and strict rational cosine thresholds, so rounding the angles cannot change which configuration wins at a given size.</p>
+<h2 id="data-and-sources">Data and sources</h2>
+<p><a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/README.md">Research note</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/check.py">Checker</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/receipt.json">Receipt</a> · <a href="https://spherical-codes.org/">Cohn’s table</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/checks/packing_bounds/comparisons.json">Data &amp; credits</a></p>
+</article></main>
+<footer class="reader-foot" hidden><button type="button" id="previous" data-cue="cancel" aria-label="Previous page" title="Previous page">←</button><span id="page" class="paper-counter" aria-live="polite"></span><button type="button" id="next" aria-label="Next page" title="Next page">→</button></footer>
+<dialog class="sheet" id="sections" aria-label="Contents"><form method="dialog"><button data-cue="cancel" aria-label="Close" title="Close">×</button></form><nav aria-label="Paper sections"></nav>
+<button data-sound-switch>Sound on</button></dialog>
+</body></html>

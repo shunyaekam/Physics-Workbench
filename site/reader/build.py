@@ -3,6 +3,7 @@ import argparse
 import re
 import subprocess
 from pathlib import Path
+from os.path import relpath
 
 ROOT = Path(__file__).resolve().parents[2]
 PAPERS = ROOT / "papers"
@@ -45,16 +46,24 @@ def reader_source(source):
 
 
 def build(pandoc):
-    for pdf in sorted(PAPERS.glob("*.pdf")):
+    for pdf in sorted(PAPERS.rglob("*.pdf")):
         source = pdf.with_suffix(".tex")
-        if not source.is_file():
+        input_format = "latex"
+        if source.is_file():
+            body = reader_source(source.read_text())
+        elif pdf.relative_to(PAPERS).as_posix() == "sphere-packing/sphere-packing.pdf":
+            source = TEMPLATE.with_name("sphere-packing.md")
+            input_format = "markdown"
+            body = source.read_text()
+        else:
             continue
         target = PAPERS / pdf.stem / "index.html"
         target.parent.mkdir(exist_ok=True)
-        command = [pandoc, "-f", "latex", "-t", "html5", "--mathml", "--standalone",
+        command = [pandoc, "-f", input_format, "-t", "html5", "--mathml", "--standalone",
                    "--fail-if-warnings", "--shift-heading-level-by=1", "--wrap=none",
-                   "--template", str(TEMPLATE), "-M", "slug=" + pdf.stem, "-o", str(target)]
-        subprocess.run(command, input=reader_source(source.read_text()), text=True, cwd=PAPERS, check=True)
+                   "--template", str(TEMPLATE), "-V", "pdfpath=" + pdf.relative_to(PAPERS).as_posix(),
+                   "-V", "pdfhref=" + relpath(pdf, target.parent), "-o", str(target)]
+        subprocess.run(command, input=body, text=True, cwd=PAPERS, check=True)
 
 
 if __name__ == "__main__":

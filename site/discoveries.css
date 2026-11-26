@@ -8,14 +8,14 @@ a:focus-visible,button:focus-visible,canvas:focus-visible{outline:2px solid var(
 header,footer{display:flex;align-items:center;justify-content:space-between;margin:0 clamp(1.1rem,4.7vw,5rem);height:clamp(3.5rem,9svh,6.2rem)}
 header nav,footer nav,.switch,figcaption{display:flex;align-items:center}
 header nav{gap:clamp(1.4rem,3vw,3rem)}header nav a,header button,footer{font-size:.9rem}
-.live-link,.focus-pair{display:inline-flex;align-items:center;gap:.55rem}.live-link i{width:8px;height:8px;border:1.5px solid #43745a;border-radius:50%}
+.focus-pair{display:inline-flex;align-items:center;gap:.55rem}
 #menu-open span{font-size:.9em;margin-left:.33rem}
 main{min-width:0;align-self:center}.result{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(1.5rem,5vw,6rem);width:min(82%,73rem);margin:0 auto}
-.field,.desk,.all,.record,figcaption,.measurement span{font-size:.84rem;color:var(--muted)}
+.field,.record,figcaption,.measurement span{font-size:.84rem;color:var(--muted)}
 .field{margin:0 0 1.3rem}.description h1{font-size:clamp(2.6rem,min(5.1vw,8.5vh),5.4rem);line-height:.99;font-weight:450;letter-spacing:-.078em;margin:0;max-width:13ch}
 .claim{max-width:37ch;margin:1.35rem 0 0;font-size:clamp(.98rem,1.17vw,1.17rem);line-height:1.55;color:#4f575c}
 .measurement{display:grid;gap:.23rem;margin:1.5rem 0}.measurement output{font-size:clamp(1.3rem,2.1vw,2.1rem);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.source,.record,.all{width:fit-content}.source{display:inline-block;border-bottom:1px solid #92999e;padding:.2rem 0 .35rem;font-size:.93rem}.source span,.all span{margin-left:.4rem}
+.source,.record{width:fit-content}.source{display:inline-block;border-bottom:1px solid #92999e;padding:.2rem 0 .35rem;font-size:.93rem}.source span{margin-left:.4rem}
 figure{margin:0;min-width:0;display:grid;justify-items:center}
 canvas,.code-figure,.histogram{width:min(100%,48svh);aspect-ratio:1}
 canvas{touch-action:none;cursor:grab;display:block}canvas:active{cursor:grabbing}
@@ -34,17 +34,15 @@ dialog{position:fixed;inset:0;height:100%;width:100%;max-width:none;max-height:n
  .description h1{font-size:clamp(2.3rem,5.8svh,3.5rem);max-width:100%}.field{margin-bottom:.65rem}.claim{font-size:.94rem;line-height:1.42;margin:.65rem 0 0;max-width:43ch}
  .measurement{margin:.85rem 0 0}.measurement output{font-size:1.35rem}.source{font-size:.82rem}.measurement .polynomial{font-size:1.02rem}
  canvas,.code-figure,.histogram{width:min(66vw,33svh)}figcaption{font-size:.78rem;min-height:2.25rem;gap:.8rem}
- footer .desk{display:none}footer,footer .all{font-size:.78rem}footer{gap:.5rem}footer nav{gap:.75rem}
+ footer{font-size:.78rem}footer{gap:.5rem}footer nav{gap:.75rem}
 }
 @media(max-height:600px){.field{margin-bottom:.4rem}.claim{margin-top:.55rem;font-size:.85rem}.measurement{margin:.55rem 0}.description h1{font-size:clamp(1.6rem,6.5vh,2.5rem)}header,footer{height:2.8rem}.source{font-size:.8rem}figcaption{gap:.45rem}.switch button{padding:.3rem .45rem}}
-@media(max-height:500px) and (max-width:700px){.result{width:93%;gap:.8rem}.description h1{font-size:1.55rem}.measurement output{font-size:1.1rem}footer .desk{display:none}}
-@media(max-width:370px){.result{width:91%}.source{font-size:.74rem}.desk{display:none}footer{margin-inline:.75rem}figcaption{font-size:.73rem}}
+@media(max-height:500px) and (max-width:700px){.result{width:93%;gap:.8rem}.description h1{font-size:1.55rem}.measurement output{font-size:1.1rem}}
+@media(max-width:370px){.result{width:91%}.source{font-size:.74rem}footer{margin-inline:.75rem}figcaption{font-size:.73rem}}
 @media(max-width:650px) and (min-height:501px) and (max-height:640px){canvas,.code-figure,.histogram{width:min(60vw,27svh)}.description h1{font-size:2rem}.description .claim{font-size:.87rem}.description .source{align-self:end}}
 footer a{white-space:nowrap}
-@media(max-width:370px){footer nav{gap:.6rem}footer nav a,footer .all{font-size:.71rem}}
+@media(max-width:370px){footer nav{gap:.6rem}footer nav a{font-size:.71rem}}
 .description h1{letter-spacing:-.058em}
 
 .menu-credit{max-width:32ch;font-size:.82rem;line-height:1.4;color:#f4f4f4;margin:1.4rem 0 0}.menu-credit a{text-decoration:underline}
-.home-credit{margin-inline:.6rem auto}.home-credit small{display:block;font-size:.76rem;color:var(--muted)}
-.home-credit .edition-model strong{font-size:1.02rem}.home-credit .edition-model span{font-size:.75rem}
-@media(max-width:600px){.home-credit .edition-model{display:block}.home-credit .edition-model strong{font-size:.88rem}.home-credit .edition-model span{display:block;font-size:.7rem}.home-credit small{font-size:.7rem}.home-credit{margin-inline:.25rem auto}header nav{gap:.55rem}}
+footer{justify-content:center}

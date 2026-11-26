@@ -5,14 +5,13 @@
 <title>oo research · Discoveries</title>
 <meta name="description" content="Explore exact results from oo research. Turn a sphere, inspect a quantum code, or follow the lab's live research record.">
 <meta property="og:title" content="oo research · Discoveries"><meta property="og:description" content="418 points on a sphere. A wider gap. Explore the configuration and its exact certificate.">
-<meta property="og:image" content="https://shunyaekam.github.io/oo-research/site/assets/research-preview.png?v=torus">
-<link rel="icon" href="site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="site/discoveries.css?v=edition3">
+<meta property="og:image" content="https://shunyaekam.github.io/oo-research/site/assets/research-preview.png?v=map4">
+<link rel="icon" href="site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="site/discoveries.css?v=map4">
 <script src="site/discoveries.js?v=flowly-audio" defer></script><script src="site/sphere.js" defer></script>
 <link rel="stylesheet" href="site/flowly.css?v=edition3"><script defer src="site/flowly.js"></script></head>
 <body>
 <header><a class="lab-mark" href="./" aria-label="oo research home"><img width="42" height="42" src="site/assets/torus.png" alt=""></a>
-<div class="home-credit"><div class="edition-model"><strong>GPT-6.2 Astra (high)</strong><span>AI manuscript author</span></div><small>Project direction · <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a></small></div>
-<nav aria-label="Lab navigation"><a class="live-link" href="live/"><i aria-hidden="true"></i>Live</a><button id="menu-open" aria-haspopup="dialog" aria-label="Menu" title="Menu"><span aria-hidden="true">☰</span></button></nav>
+<nav aria-label="Lab navigation"><a href="catalogue.html">Research map</a><button id="menu-open" aria-haspopup="dialog" aria-label="Menu" title="Menu"><span aria-hidden="true">☰</span></button></nav>
 </header>
 <main id="discoveries" aria-label="Discoveries">
 <section class="result" data-result="packing" aria-labelledby="packing-title">
@@ -20,7 +19,7 @@
 <h1 id="packing-title">418 points on<br>a sphere.</h1>
 <p class="claim">Our closest pair improves on Cohn’s November 25, 2026 entry.</p>
 <div class="measurement"><span>Minimum angle</span><output id="angle">10.3789768°</output></div>
-<a class="source" href="papers/sphere-packing/">Evidence <span aria-hidden="true">↗</span></a>
+<a class="source" href="papers/sphere-packing/">Read paper <span aria-hidden="true">↗</span></a>
 </div>
 <figure><div class="scene-lens"><canvas id="sphere" tabindex="0" data-coordinates="papers/sphere-packing/coordinates.json" aria-label="Sphere with 418 points. Drag or use arrow keys to rotate." aria-describedby="pair"></canvas></div>
 <figcaption><div class="switch"><button id="prior" aria-pressed="false">Previous</button><button id="ours" aria-pressed="true">Ours</button></div><button class="focus-pair" id="center" aria-label="Center the closest pair"><i></i><span id="pair">Centers 12 and 26</span></button></figcaption></figure></section>
@@ -28,21 +27,21 @@
 <div class="description"><h1 id="code-title">One more qubit.<br>One heavier check.</h1>
 <p class="claim">At distance four, encoding a fourth logical qubit in twelve physical qubits raises the optimal check weight from six to seven.</p>
 <div class="measurement"><span>Optimal check weight</span><output id="optimum">7 qubits</output></div>
-<a class="source" href="papers/distance-four/">Proof <span aria-hidden="true">↗</span></a></div>
+<a class="source" href="papers/distance-four/">Read paper <span aria-hidden="true">↗</span></a></div>
 <figure><div class="code-figure"><div id="code-grid" aria-label="Each row is one check. Letters show Pauli operators on the qubits it touches."></div></div>
 <figcaption><div class="switch" aria-label="Logical qubits"><button data-k="3" aria-pressed="false">3 logical</button><button data-k="4" aria-pressed="true">4 logical</button></div><a class="record" id="certificate" href="certificates/wei-12-4-4.json">Certificate ↗</a></figcaption></figure></section>
 <section class="result" data-result="census" aria-labelledby="census-title" hidden>
 <div class="description"><h1 id="census-title">3,990 parents.<br>One polynomial.</h1>
 <p class="claim">Every binary [[10,2,d ≥ 4]] stabilizer code has the same weight distribution.</p>
 <div class="measurement"><span>Weight enumerator</span><output class="polynomial">1 + 90z⁶ + 135z⁸ + 30z¹⁰</output></div>
-<a class="source" href="papers/distance-four/">Classification <span aria-hidden="true">↗</span></a></div>
+<a class="source" href="papers/distance-four/">Read paper <span aria-hidden="true">↗</span></a></div>
 <figure><div class="histogram" role="img" aria-label="Counts of stabilizers by weight. Weight zero: 1. Six: 90. Eight: 135. Ten: 30. All other weights have zero.">
 <div style="--h:0.75%"><b>1</b><i></i><small>0</small></div><div style="--h:66.67%"><b>90</b><i></i><small>6</small></div><div style="--h:100%"><b>135</b><i></i><small>8</small></div><div style="--h:22.22%"><b>30</b><i></i><small>10</small></div></div>
 <figcaption><span>Stabilizer weight</span><a class="record" href="certificates/wei-10-2-4.json">Census certificate ↗</a></figcaption></figure></section>
-<noscript><p>Explore the <a href="catalogue.html">paper catalogue</a> or the <a href="papers/sphere-packing/">packing result</a>.</p></noscript>
+<noscript><p>Explore the <a href="catalogue.html">research map</a> or the <a href="papers/sphere-packing/">packing result</a>.</p></noscript>
 </main>
-<footer><span class="desk" aria-hidden="true"></span><nav id="selector" aria-label="Choose a discovery"><a href="#packing" aria-current="true">Packing</a><a href="#code">Check weight</a><a href="#census">Code census</a></nav><a href="catalogue.html" class="all">Papers <span aria-hidden="true">↗</span></a></footer>
+<footer><nav id="selector" aria-label="Choose a discovery"><a href="#packing" aria-current="true">Packing</a><a href="#code">Check weight</a><a href="#census">Code census</a></nav></footer>
 <dialog id="menu" aria-label="Lab menu"><div class="menu-body"><button id="menu-close" data-cue="cancel" aria-label="Close menu" title="Close">×</button>
-<nav><a href="./">Discoveries</a><a href="live/">Live</a><a href="catalogue.html">Papers</a><a href="pipeline/indexed.html">Open problems</a><a href="pipeline/">Pipeline</a></nav>
+<nav><a href="./">Discoveries</a><a href="catalogue.html">Research map</a><a href="pipeline/indexed.html">Open problems</a><a href="pipeline/">Pipeline</a></nav>
 <p class="menu-credit">Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a>.</p><button id="sound" data-sound-switch aria-pressed="false">Sound off</button></div></dialog>
 </body></html>
