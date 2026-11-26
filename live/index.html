@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Live work · oo research</title>
+  <meta name="description" content="Read the latest published searches and open physics questions from the oo research worker.">
+  <link rel="icon" href="../site/assets/oo-mark.png">
+  <link rel="stylesheet" href="live.css">
+  <script defer src="live.js"></script>
+</head>
+<body>
+  <header><a class="brand" href="../">oo research</a><nav aria-label="Research"><a href="../">discoveries</a><a href="../pipeline/">pipeline</a></nav></header>
+  <main>
+    <div class="heading">
+      <h1>Live work</h1>
+      <p id="connection" role="status">Reading the public research feed…</p>
+    </div>
+    <div id="modes" role="group" aria-label="Explore the research feed">
+      <button type="button" data-mode="rounds" aria-pressed="true">Rounds</button>
+      <button type="button" data-mode="questions" aria-pressed="false">Open questions</button>
+      <button type="button" data-mode="records" aria-pressed="false">Work log</button>
+    </div>
+    <section id="readout" aria-label="Selected research record" aria-live="polite" aria-atomic="true">
+      <p id="kind"></p>
+      <h2 id="title">Research notebook</h2>
+      <p id="detail">The lab publishes a record when a search round finishes.</p>
+      <a id="source" href="https://github.com/shunyaekam/oo-research/tree/research/campaign">Open notebook ↗</a>
+    </section>
+    <div class="navigator">
+      <div id="trace" role="group" aria-label="Select a record"></div>
+      <div class="step-controls"><button id="previous" type="button" aria-label="Previous record" disabled>←</button><span id="position">—</span><button id="next" type="button" aria-label="Next record" disabled>→</button></div>
+    </div>
+  </main>
+  <footer><span>Worker scheduled every 10 min while awake.</span><a href="https://github.com/shunyaekam/oo-research/blob/research/campaign/pipeline.json">Public feed ↗</a></footer>
+  <noscript><p>Read the <a href="https://github.com/shunyaekam/oo-research/tree/research/campaign/rounds">worker round archive</a> on GitHub.</p></noscript>
+</body>
+</html>

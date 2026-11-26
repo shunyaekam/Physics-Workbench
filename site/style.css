@@ -81,3 +81,16 @@ footer {border-top:1px solid var(--rule);flex-wrap:wrap;gap:.7rem 1.4rem;padding
 }
 @media(max-width:360px){.head-inner {gap:.4rem;padding-inline:.75rem;flex-wrap:wrap}.head-inner nav{gap:.65rem}.head-inner nav a{font-size:.8rem}}
 @media(prefers-reduced-motion:no-preference){a,button{transition:color .16s,border-color .16s,background-color .16s}}
+.paper-library .catalogue{padding-block:clamp(.75rem,3vh,2.5rem)}
+.paper-library #filters{margin-block:.75rem}
+.paper-library .section-title h2{font-size:clamp(1.8rem,4vw,3.2rem)}
+.paper-library .section-title p{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+.paper-library.enhanced{min-height:100svh;display:flex;flex-direction:column}
+.paper-library.enhanced main{flex:auto}
+.paper-library .pager{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--muted);margin-bottom:.5rem}
+.pager button{font-size:1.15rem;min-width:2rem;min-height:2rem}
+.pager button:disabled{opacity:.3;cursor:default}
+.paper-library footer{font-size:.78rem;padding-block:.8rem}
+.paper-library .verify{margin-top:0}
+@media(max-height:680px){.paper-library #papers article{padding-block:.65rem;row-gap:.3rem}.paper-library .catalogue{padding-block:.6rem}.paper-library footer{padding-block:.45rem}}
+@media(max-width:620px){.head-inner{flex-wrap:wrap;gap:.25rem 1rem;padding-block:.6rem}.head-inner nav{flex-wrap:wrap;gap:.35rem .8rem}}
