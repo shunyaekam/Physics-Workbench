@@ -11,7 +11,6 @@ import platform
 import re
 import sys
 import tempfile
-import urllib.request
 
 from verify import CHECKERS, require
 
@@ -57,48 +56,16 @@ def verify_record(record):
     return result
 
 
-def ollama(path, payload=None, timeout=90):
-    req = urllib.request.Request("http://127.0.0.1:11434/api/"+path, data=(
-        json.dumps(payload).encode() if payload is not None else None),headers={"Content-Type":"application/json"})
-    with urllib.request.urlopen(req,timeout=timeout) as r:
-        return json.load(r)
-
-
-def propose(record, limits, history, model):
-    schema = {"type":"object","properties":{key:{"type":"integer","minimum":lo,"maximum":hi}
-              for key,(lo,hi,_) in limits.items()},"required":list(limits),"additionalProperties":False}
-    prompt = ("Design one bounded computational experiment. Return integer search parameters as JSON. "
-              "For sphere instances maximize the lower bound and minimize the upper bound. "
-              "degree is the Legendre LP degree, restarts and jitter_pct control the geometry search. "
-              "For Werner states minimize the exact score; support is the number of nonzero entries "
-              "per factor, mutate_pct is the percentage of local edits, samples is the trial budget. "
-              "Use previous attempts to choose a different useful experiment.\n"
-              + json.dumps({"problem":record["problem"],"prior_attempts":history,"parameters":limits}))
-    record["prompt"] = prompt
-    reply = ollama("generate",dict(model=model, prompt=prompt,format=schema,stream=False,
-                    options={"num_predict":160,"num_ctx":4096,"seed":record["seed"],"temperature":0.5}))
-    record["response"] = {k:reply.get(k) for k in ("model","response","done_reason","prompt_eval_count","eval_count")}
-    params = json.loads(reply["response"])
-    require(set(params)==set(limits), "model returned incorrect parameter keys")
-    for k,(lo,hi,_) in limits.items():
-        require(type(params[k]) is int and lo <= params[k] <= hi, "model parameter outside budget")
-    return params
-
-
 def records(out):
     return [load(p) for p in sorted(out.glob("*.json"))]
 
 
-def run_one(args, card, round_no, version, model_digest, env):
+def run_one(args, card, round_no, version, env):
     from search import SEARCH, PARAMS
     seed = args.seed + round_no
-    spec = dict(problem=card, seed=seed, engine=args.model or "baseline",model_digest=model_digest,
+    spec = dict(problem=card, seed=seed, engine="baseline",model_digest=None,
                 implementation=version,environment=env)
-    # Each round sees completed earlier rounds plus the paired baseline if present.
-    history = [dict(key=r["key"],params=r.get("params"),result=r.get("result"),error=r.get("error"))
-               for r in records(args.out) if r["problem"]==card and r["seed"]<=seed
-               and ((r["engine"]=="baseline" and args.model) or
-                    (r["engine"]==spec["engine"] and r["seed"]<seed))][-8:] if args.model else []
+    history = []
     key = digest([spec,history])
     path = args.out/(card["id"]+"-"+key[:16]+".json")
     with (args.out/(".lock-"+key)).open("w") as lock:
@@ -117,8 +84,7 @@ def run_one(args, card, round_no, version, model_digest, env):
         try:
             family = card["family"]
             limits = PARAMS[family]
-            rec["params"] = (propose(rec,limits,history,args.model) if args.model else
-                             {k:v[2] for k,v in limits.items()})
+            rec["params"] = {k:v[2] for k,v in limits.items()}
             rec["witness"] = SEARCH[family](card,rec["params"],seed)
             rec["result"] = CHECKERS[family](card,rec["witness"])
             verify_record(rec)
@@ -136,9 +102,6 @@ def run(args):
     if args.only:
         require(set(args.only)=={c["id"] for c in cards}, "unknown problem ID")
     require(1<=args.workers<=16 and 1<=args.rounds<=100 and 0<=args.seed<2**31-100, "invalid batch size or seed")
-    if args.model:
-        installed = {m["name"]:m["digest"] for m in ollama("tags")["models"]}
-        require(args.model in installed,"model must already be installed in local Ollama")
     version = {f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in ("search.py","verify.py","lab.py")}
     env = dict(python=platform.python_version(),numpy=numpy.__version__,scipy=scipy.__version__)
     args.out.mkdir(parents=True,exist_ok=True)
@@ -147,7 +110,7 @@ def run(args):
         for role in ("control","research"):
             group = [c for c in cards if c["role"]==role]
             with ThreadPoolExecutor(args.workers) as pool:
-                jobs = [(c,pool.submit(run_one,args,c,round_no,version,installed[args.model] if args.model else None,env)) for c in group]
+                jobs = [(c,pool.submit(run_one,args,c,round_no,version,env)) for c in group]
                 for c,job in jobs:
                     try:
                         print(c["id"],job.result(),flush=True)
@@ -199,7 +162,6 @@ def main():
     p.add_argument("--rounds",type=int,default=1)
     p.add_argument("--workers",type=int,default=1)
     p.add_argument("--seed",type=int,default=42)
-    p.add_argument("--model",help="locally installed Ollama model tag")
     p.add_argument("--retry-errors",action="store_true")
     sub.add_parser("report")
     sub.add_parser("replay")

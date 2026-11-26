@@ -20,7 +20,7 @@ Four research notes address Gagatsos’s Wigner–Husimi proposal. The [single-r
 
 The [phase-invariant light paper](papers/phase-invariant-wigner.pdf) proves the sharp Wigner–Husimi bound for every photon-number-diagonal state. Read the [verification and prior-art review](checks/phase-invariant-wigner.md) for its scope and replay commands. Earlier work includes the [coordinate-support theorem](papers/coordinate-supports.pdf), [certified finite maxima](papers/finite-maxima.pdf), [referee audit](checks/referee-audit.md), and [scheduler and replay instructions](OPERATIONS.md). Fresh research receipts appear in [campaign/rounds on research](https://github.com/shunyaekam/Physics-Workbench/tree/research/campaign/rounds).
 
-This local research workflow takes a source-backed question through bounded search, exact witness checking, replay, and review. The first campaign covers classical electrostatics and quantum information. Each saved attempt contains the statement, assumptions, search settings, seed, witness, result, and implementation hashes. Model-assisted attempts also retain the local model digest, prompt, response and token counts.
+This local research workflow takes a source-backed question through bounded search, exact witness checking, replay, and review. The first campaign covers classical electrostatics and quantum information. Each saved attempt contains the statement, assumptions, search settings, seed, witness, result, and implementation hashes. Archived pilot attempts retain their original model and provenance.
 
 Start with the [pilot results](PILOT.md) and [scientific review](REVIEW.md). The pilot used Python 3.9, NumPy, SciPy and the installed Ollama model `llama3.2:3b`. The original pilot witness checker uses the Python standard library. Later paper checks also use NumPy, Lean, FLINT/Arb or other dependencies specified with each result.
 
@@ -33,14 +33,11 @@ python3 lab.py replay
 python3 lab.py report
 python3 -m unittest -v
 python3 lab.py --out campaign run --workers 2 --rounds 2
-python3 lab.py --out campaign run --model llama3.2:3b --rounds 2
 python3 lab.py --out campaign replay
 python3 lab.py --out campaign report
 ```
 
-The first run uses fixed settings. The second asks a locally installed Ollama model for bounded integer parameters, with earlier results supplied in the prompt. The search and checker own the actual calculation. To isolate improvement from additional compute, match the number of restarts, polynomial degrees, samples and seeds across arms before comparing model quality.
-
-A run processes each registered case once per round. Controls run first in full campaigns. A selected subset runs only the cases named with `--only`. Use `--seed` to start a new seed series. Runs resume from files written by atomic rename with per-job locks. Errors persist and `--retry-errors` archives the failed record before retrying. Model runs require the named tag to be present on the local Ollama service. Each proposal has a 160-output-token cap, a 90-second HTTP timeout and bounded solver parameters. Use separate output directories for different experimental designs. One workstation is the supported execution environment.
+A run processes each registered case once per round. Controls run first in full campaigns. A selected subset runs only the cases named with `--only`. Use `--seed` to start a new seed series. Runs resume from files written by atomic rename with per-job locks. Errors persist and `--retry-errors` archives the failed record before retrying. Use separate output directories for different experimental designs. One workstation is the supported execution environment.
 
 ## Intake and triage
 
@@ -50,17 +47,11 @@ A run processes each registered case once per round. Controls run first in full 
 4. Freeze the reviewed card before search. `problems.json` is the trusted registry for exact checks. Replay compares the full saved statement with the current registry. A change of scope needs a new problem ID; archive the old registry with its results. Scientific provenance is a human intake judgment. The software checks required fields and detects later statement changes.
 5. Record failed searches and unresolved gaps. Escalate a candidate when the witness replays, the checked statement matches the scientific question, and a refreshed literature comparison supports novelty. For a theorem, record the formal statement, source-to-formal correspondence, proof dependencies and independent checker output. For a measured effect, record units, uncertainty, calibration and replication. This pilot implements exact witness checks. Formalization, expert review and experimental replication are subsequent research work.
 
-## Use a different field or a different model
+## Research briefs
 
-`research.py` takes a JSON array of cards. It needs `id`, `question`, `scope`, `source`, `prior_art`, and `checked_on`. Any discipline can use the proposal and critique stage. It emits a scoped lemma or witness idea, a proposed falsifier, an attempted derivation, and a fresh-context critique. Both generations use the named model. Their outputs are hypotheses with status `needs_review`. Evidence from the numerical campaign is attached only after successful replay on the identical card. Model calls receive the supplied text and URLs and have no retrieval access.
+The Mac runs numerical searches and proof checks. For model reasoning, the installed research worker can use signed-in hosted Codex at most once per hour. Each attempt reserves its hourly slot before contacting the service. See [operations](OPERATIONS.md).
 
-```sh
-python3 research.py --only sphere-11 werner-4 --packet
-python3 research.py --only sphere-11 werner-4
-python3 research.py --catalog my-cards.json --out my-notes --model llama3.2:3b
-```
-
-The first command exports the full task packet for a human or another model. The last command processes every card once. Change the seed for another round. Two completed notes with critiques are in `notes/`. See the review for the failures found in both.
+Run `python3 research.py --only sphere-11 werner-4 --packet` to export the source questions and replayed evidence for a hosted or human reviewer.
 
 For another computable problem family, add a bounded proposal/search routine to `search.py`, an independently readable checker to `verify.py`, a control, a report formatter and a registry entry. A family with experimental observations or an external proof assistant needs its own evidence adapter. For a new instance of either implemented family, add a card and use the existing runner. Preserve the controls when enlarging the campaign.
 

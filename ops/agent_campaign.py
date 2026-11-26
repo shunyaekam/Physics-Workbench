@@ -1,19 +1,17 @@
-"""Advance one local proposal or adversarial review for an admitted target."""
+"""Advance one hosted proposal or adversarial review for an admitted target."""
 from datetime import datetime, timezone
 import fcntl
 import json
 import math
 from pathlib import Path
 import sys
-from urllib.error import URLError
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from lab import ROOT, digest, load, ollama, write
-from research import response
+from lab import ROOT, digest, load, write
+from ops.hosted import generate, HourlyLimit, MODEL
 
 OUT = ROOT / "campaign/agent-lanes"
-MODEL = "llama3.2:3b"
-VERSION = 1
+VERSION = 2
 PROPOSE = ("target_implication", "proposed_object", "derivation", "decisive_check")
 REVIEW = ("scope_mismatch", "counterexample_attempt", "weakest_step", "replay_needed")
 # The two ongoing campaigns have different evidence and success conditions.
@@ -76,12 +74,10 @@ def witness_attempt(rec):
               "A checker will normalize the vector and compute the residual. Return only the state.\n" +
               json.dumps(dict(target=rec["context"]["question"],solver=rec["proposal"]["text"],
                               critic=rec["critique"]["text"])))
-    answer = ollama("generate",dict(model=MODEL,prompt=prompt,format=schema,stream=False,
-                    options=dict(seed=131,num_ctx=4096,num_predict=480)))
-    attempt = dict(prompt=prompt,raw=answer["response"],seed=131,
-                   tokens_out=answer.get("eval_count"),checker_hash=digest((ROOT/"three_level_search.py").read_text()))
+    state = generate(prompt, schema)
+    attempt = dict(prompt=prompt,raw=json.dumps(state),checker_hash=digest((ROOT/"three_level_search.py").read_text()))
     try:
-        attempt["state"] = json.loads(attempt["raw"])
+        attempt["state"] = state
         checks = evaluate_state(attempt["state"])
     except ValueError as exc:
         attempt.update(status="witness_rejected",reason=str(exc))
@@ -92,22 +88,28 @@ def witness_attempt(rec):
     return attempt
 
 
+def response(prompt, fields):
+    schema = {"type":"object", "properties":{k:{"type":"string"} for k in fields},
+              "required":list(fields), "additionalProperties":False}
+    data = generate(prompt, schema)
+    if not isinstance(data, dict) or set(data) != set(fields) or not all(
+            isinstance(v, str) and v.strip() for v in data.values()):
+        raise ValueError("Incomplete hosted research response")
+    return {"prompt":prompt, "text":data}
+
+
 def advance():
     cards = load(ROOT/"discovery/targets.json")
-    installed = {m["name"]:m["digest"] for m in ollama("tags")["models"]}
-    if MODEL not in installed:
-        print("Proposal and critic waiting for installed model", MODEL)
-        return
     closed={entry["problem_id"] for entry in load(ROOT/"discovery/pipeline-results.json").get("solutions",[])}
     for card in cards:
         if card["id"] in closed:
             continue
         context = packet(card)
-        key = digest([VERSION, context, MODEL, installed[MODEL]])
+        key = digest([VERSION, context, MODEL])
         path = OUT/(card["id"]+"-"+key[:16]+".json")
         rec = load(path) if path.exists() else dict(
             problem_id=card["id"], source=card["source"], input_hash=key, context=context,
-            model=MODEL, model_digest=installed[MODEL], status="proposal_pending")
+            model=MODEL, provider="OpenAI via signed-in Codex", status="proposal_pending")
         if "witness_attempt" in rec or (rec["status"] == "needs_math_review" and card["id"] != "gagatsos-2026-c1"):
             continue
         if rec.get("failed_at"):
@@ -120,7 +122,7 @@ def advance():
                           "falsifiable witness or lemma for the ORIGINAL question. Identify its "
                           "logical scope and a reproducible failure test. Never assume execution.\n"
                           + json.dumps(context))
-                rec["proposal"] = response(MODEL, prompt, PROPOSE, 37)
+                rec["proposal"] = response(prompt, PROPOSE)
                 rec["status"] = "critique_pending"
             elif rec["status"] == "critique_pending":
                 prompt = ("You are a skeptical mathematical reviewer in a fresh context. Test this "
@@ -128,7 +130,7 @@ def advance():
                           "check quantifiers and name the first unsupported step. Report what must "
                           "be verified by an exact checker. You cannot execute or browse.\n"
                           + json.dumps([context, rec["proposal"]["text"]]))
-                rec["critique"] = response(MODEL, prompt, REVIEW, 83)
+                rec["critique"] = response(prompt, REVIEW)
                 rec["status"] = "needs_math_review"
             elif rec["status"] == "needs_math_review" and card["id"] == "gagatsos-2026-c1":
                 rec["witness_attempt"] = witness_attempt(rec)
@@ -137,7 +139,10 @@ def advance():
                 raise ValueError("Unexpected lane status: "+str(rec["status"]))
             rec.pop("failed_at", None)
             rec.pop("error", None)
-        except (ValueError, RuntimeError, URLError, TimeoutError) as exc:
+        except HourlyLimit as exc:
+            print(exc, flush=True)
+            return
+        except (ValueError, RuntimeError, OSError) as exc:
             rec["error"] = str(exc)
             rec["failed_at"] = datetime.now(timezone.utc).isoformat()
         rec["updated_at"] = datetime.now(timezone.utc).isoformat()
@@ -151,7 +156,4 @@ if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     with (OUT/".lock-campaign").open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        try:
-            advance()
-        except (URLError, TimeoutError) as exc:
-            print("Local model unavailable; the next cycle retries:", exc)
+        advance()

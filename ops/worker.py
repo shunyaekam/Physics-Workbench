@@ -85,7 +85,7 @@ def run():
     call([sys.executable,"literature.py"],timeout=210)
     call([sys.executable,"ops/catalogue_watch.py"],timeout=40,check=False)
     try:
-        call([sys.executable,"ops/agent_campaign.py"],timeout=210,check=False)
+        call([sys.executable,"ops/agent_campaign.py"],timeout=300,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)
     call([sys.executable,"ops/pipeline_feed.py"])
