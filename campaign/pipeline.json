@@ -1,29 +1,29 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T00:40:44+00:00",
+  "updated_at": "2026-11-26T00:44:22+00:00",
   "counts": {
     "leads": 3,
     "problems": 6,
-    "attempts": 64154018732,
+    "attempts": 64337863732,
     "candidates": 0,
     "partial_results": 9,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 469140,
-    "coherent-cats": 8704,
-    "coherent-bands": 2789,
-    "three-level": 5553,
+    "werner": 471354,
+    "coherent-cats": 8832,
+    "coherent-bands": 2821,
+    "three-level": 5617,
     "agent-witnesses": 1,
-    "bmv-three-level": 32,
+    "bmv-three-level": 64,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 1228000,
+    "golay-graphs": 1248000,
     "golay-repairs": 269543351,
-    "golay-splices": 4353318882,
-    "golay-splice-tails": 59529104712,
-    "schmidt-seven-pairs": 13500
+    "golay-splices": 4365803244,
+    "golay-splice-tails": 59700442340,
+    "schmidt-seven-pairs": 14040
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -230,8 +230,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000024.json",
-      "detail": "13,500 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000025.json",
+      "detail": "14,040 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -239,7 +239,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "59,529,104,712 edits with one insertion anywhere and one optional inverse-end gate across 47 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "59,700,442,340 edits with one insertion anywhere and one optional inverse-end gate across 48 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -247,7 +247,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "4,353,318,882 edits across 47 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "4,365,803,244 edits across 48 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -263,7 +263,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "1,228,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "1,248,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -286,34 +286,43 @@
       "id": "bmv-three-level",
       "title": "Trace bounds with three distinct energy levels",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/bmv-three-level/000000.json",
-      "detail": "32 matrix pairs checked by exact word recursion.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/bmv-three-level/000001.json",
+      "detail": "64 matrix pairs checked by exact word recursion.",
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-104",
-      "title": "Research round 104",
+      "id": "round-105",
+      "title": "Research round 105",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000104.json",
-      "detail": "8,841 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000105.json",
+      "detail": "2,214 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T00:35:21.451466+00:00"
+      "updated_at": "2026-11-26T00:43:47.944097+00:00"
     },
     {
-      "id": "coherent-bands-00000088",
+      "id": "coherent-bands-00000089",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000088.json",
-      "detail": "32 states tested on photon levels 0, 1, 3, 6, 9, 12.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000089.json",
+      "detail": "32 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000087",
+      "id": "three-level-batch-00000088",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000087.json",
-      "detail": "64 states tested on photon levels 0, 2, 5.",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000088.json",
+      "detail": "64 states tested on photon levels 0, 3, 4.",
       "problem_id": "gagatsos-2026-c1"
+    },
+    {
+      "id": "lane-e27-schmidt-c0c172bf9fc1160e",
+      "title": "e27-schmidt agent handoff",
+      "status": "critique_pending",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-c0c172bf9fc1160e.json",
+      "detail": "AI research proposal and critique workflow.",
+      "problem_id": "e27-schmidt",
+      "updated_at": "2026-11-26T00:44:16.311186+00:00"
     },
     {
       "id": "lane-e27-schmidt-959b891423c6a7bb",
@@ -341,15 +350,6 @@
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "golay43",
       "updated_at": "2026-11-25T20:23:30.890406+00:00"
-    },
-    {
-      "id": "lane-gagatsos-2026-c1-0d2d2ea554d9a90c",
-      "title": "Wigner\u2013Husimi inequality agent handoff",
-      "status": "witness_screened",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/gagatsos-2026-c1-0d2d2ea554d9a90c.json",
-      "detail": "Model-selected levels 0, 1, 2, 3, 4, 5, 6, 7. Refined Wigner minus Husimi residuals -0.757329 and -0.757364.",
-      "problem_id": "gagatsos-2026-c1",
-      "updated_at": "2026-11-25T19:12:21.408997+00:00"
     }
   ],
   "exclusions": [
