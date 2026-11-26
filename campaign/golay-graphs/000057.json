@@ -1,0 +1,76 @@
+{
+  "schema": 2,
+  "batch": 57,
+  "parent": 53,
+  "trials": 20000,
+  "cost": 44,
+  "frontier": 34,
+  "moves": [
+    [
+      "L",
+      4,
+      4
+    ],
+    [
+      "L",
+      15,
+      15
+    ],
+    [
+      "L",
+      13,
+      13
+    ],
+    [
+      "L",
+      17,
+      17
+    ],
+    [
+      "Z",
+      4,
+      13
+    ],
+    [
+      "Z",
+      11,
+      14
+    ],
+    [
+      "Z",
+      12,
+      17
+    ],
+    [
+      "Z",
+      13,
+      18
+    ],
+    [
+      "Z",
+      15,
+      17
+    ]
+  ],
+  "forward_stim": "H 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 17\nCX 15 17\nH 17 18\nCX 13 18\nH 18 17\nCX 12 17\nH 17 14\nCX 11 14\nH 14 13\nCX 4 13\nH 13\nS 15 12\nSQRT_X_DAG 17\nS 18 4\nSQRT_X_DAG 13\nS 17 12\nSQRT_X_DAG 15\nS 18 13\nSQRT_X_DAG 4\nX 12 14 17\nZ 10 11\nH 1 2 3 6 7 8 11 13 15 18 19 22 4 15\nCX 4 15\nH 15 4 2 20\nCX 2 20\nH 20 2 1 21\nCX 1 21\nH 21 1 1 14\nCX 1 14\nH 14 1 14 14\nCX 0 14\nH 14 14 2 2\nCX 0 2\nH 2 2 22 22\nCX 5 22\nH 22 22 5 5\nCX 9 5\nH 5 5 21 12\nCX 21 12\nH 12 21 15 15\nCX 14 15\nH 15 15 3 9\nCX 3 9\nH 9 3 6 4\nCX 6 4\nH 4 6 20 20\nCX 16 20\nH 20 20 7 21\nCX 7 21\nH 21 7\nS_DAG 19\nH 19 19\nCX 10 19\nH 19 19\nS 19\nH 13 13\nCX 7 13\nH 13 13\nS_DAG 8\nH 8 10\nCX 8 10\nH 10 8\nS 8\nH 10 1\nCX 10 1\nH 1 10 4 10\nCX 4 10\nH 10 4 14 14\nCX 22 14\nH 14 14 12 5\nCX 12 5\nH 5 12 7 20\nCX 7 20\nH 20 7 19 16\nCX 19 16\nH 16 19 3 13\nCX 3 13\nH 13 3 16 12\nCX 16 12\nH 12 16 10 0\nCX 10 0\nH 0 10 8 8\nCX 22 8\nH 8 8 18 19\nCX 18 19\nH 19 18 10 10\nCX 5 10\nH 10 10 21 21\nCX 4 21\nH 21 21 6 2\nCX 6 2\nH 2 6 20 20\nCX 3 20\nH 20 20 11 11\nCX 20 11\nH 11 11 9 9\nCX 4 9\nH 9 9 22 22\nCX 21 22\nH 22 22 4 11\nCX 4 11\nH 11 4 9 16\nCX 9 16\nH 16 9 21 21\nCX 2 21\nH 21 21 3 6\nCX 3 6\nH 6 3",
+  "forward_sha256": "190ccf4e65c4a09743dd2f47174af7f54dacb8a21f8a38a2b3449f08a4f23e4a",
+  "strategies": {
+    "rewire": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 44
+    },
+    "regrow": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 45
+    },
+    "deletion": {
+      "frontiers": 32,
+      "trials": 5000,
+      "cost": 44
+    }
+  },
+  "winning_strategy": "rewire",
+  "frontiers_sha256": "bff2ae643f549343067535c8484d4e3d07944443de946bb5ad02a1de3452f736"
+}
