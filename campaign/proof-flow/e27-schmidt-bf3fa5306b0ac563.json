@@ -2,7 +2,7 @@
   "problem_id": "e27-schmidt",
   "contract_hash": "bf3fa5306b0ac5639ac23aa1b1cefec6cb070e231a1a90d50543c6740393f8a8",
   "model": "gpt-6.2-astra",
-  "status": "math_review",
+  "status": "parked",
   "attempts": [
     {
       "proposal": {
@@ -225,9 +225,13 @@
         "alternative_purity": "53295921048441193810182577530542160052278373/56017004653288268467414185334049638254180225",
         "decisive": false
       },
-      "origin": "independent reviewer follow-up executed during deployment"
+      "origin": "independent reviewer follow-up executed during deployment",
+      "math_review": {
+        "verdict": "revise",
+        "hypotheses": "The last candidate lies on the required local-unitary orbit. Its amplitudes are sorted and nonnegative, and 112\u00b2 + 15\u00b2 = 113\u00b2 makes both signed rotations orthogonal. For eight qubits the normalized Pauli fourth moment is F = (1/256) \u03a3_P |\u27e8P\u27e9|\u2074, and the stabilizer 2-R\u00e9nyi entropy is \u2212log F. I independently reconstructed both states and summed all 65,536 terms for each. The exact difference F(opposite-sign rotations) \u2212 F(sorted) is \u2212218740609796401435550561335997257898947584/6224111628143140940823798370449959806020025, confirming the executed outcome. The candidate strictly raises the entropy and fails as a counterexample. The universal claim remains unresolved.",
+        "weakest_step": "The two signed trials sample only two points in a two-angle family. The critical next test is to fix this spectrum and the plane spanned by labels 6 and 8, allow independent left and right angles, and use rational half-angle coordinates to test exactly whether F \u2212 F(sorted) can be positive anywhere in that family. A positive region would yield a rational witness for the checker."
+      }
     }
   ],
-  "updated_at": "2026-11-26T14:04:39+00:00",
-  "last_error": "Hosted Codex exited with status 1 (usage limit)"
+  "updated_at": "2026-11-26T23:38:14+00:00"
 }
