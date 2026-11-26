@@ -35,6 +35,13 @@ def refresh(seconds=45):
         h.update((ROOT/name).read_bytes())
     key = h.hexdigest()
     known = old.get("pairs", {}) if old.get("checker")==key else {}
+    # A time-limited pass can span several worker ticks. Only the final ledger
+    # belongs with the printed table. Intermediate receipts stay in the runtime.
+    checkpoint = ROOT / ".runtime" / "sparse-paper-replay.json"
+    if checkpoint.exists():
+        partial = json.loads(checkpoint.read_text())
+        if partial.get("checker") == key:
+            known = {**known, **partial["pairs"]}
     accepted = {}
     deadline = monotonic()+seconds
     by_level = {}
@@ -58,6 +65,14 @@ def refresh(seconds=45):
                         raise ValueError(f"Unreproducible sparse pair {name}")
             accepted[name] = digest
             by_level.setdefault(n,[]).append(m)
+    new = dict(checker=key, pairs=accepted)
+    if replay_deferred or new != old:
+        checkpoint.parent.mkdir(parents=True, exist_ok=True)
+        write(checkpoint, new)
+    if replay_deferred:
+        print("Partial sparse replay:",len(accepted),"pairs checked so far",flush=True)
+        return
+
     lines = [r"\paragraph{Replayed excited-level subspaces.}",
              f"The current working paper includes {len(accepted)} fully covered excited-level pairs.",
              r"Each row gives the larger photon count and all certified smaller counts.",
@@ -65,7 +80,7 @@ def refresh(seconds=45):
     lines += [f"{n} & {spans(ms)} " + r"\\" for n,ms in by_level.items()]
     lines += [r"\end{tabular}\end{center}"]
     content = "\n".join(lines)+"\n"
-    if not replay_deferred and (not TABLE.exists() or TABLE.read_text() != content):
+    if not TABLE.exists() or TABLE.read_text() != content:
         with tempfile.TemporaryDirectory(dir=PAPERS) as directory:
             directory=stage_paper_directory(directory,ROOT)
             source=directory/NOTE.name
@@ -76,15 +91,12 @@ def refresh(seconds=45):
             pdf=source.with_suffix(".pdf")
             if not pdf.read_bytes().startswith(b"%PDF"):
                 raise ValueError("Sparse manuscript PDF build failed")
-            os.replace(tab,TABLE)
             os.replace(pdf,NOTE.with_suffix(".pdf"))
-    new = dict(checker=key,pairs=accepted)
+            os.replace(tab,TABLE)
     if old != new:
         write(LEDGER,new)
-    if replay_deferred:
-        print("Partial sparse replay:",len(accepted),"pairs checked so far",flush=True)
-    else:
-        print("Replayed pairs in the sparse manuscript:",len(accepted),flush=True)
+    checkpoint.unlink(missing_ok=True)
+    print("Replayed pairs in the sparse manuscript:",len(accepted),flush=True)
 
 
 if __name__=="__main__":
