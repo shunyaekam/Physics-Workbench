@@ -1,6 +1,6 @@
-# Torus Sciences
+# oo research
 
-Torus Sciences is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.
+oo research is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.
 
 [Open the discovery pipeline](https://shunyaekam.github.io/Physics-Workbench/pipeline/) for active problems, AI handoffs, evidence and reviewed outcomes. [Read the source audit of Cinna’s system](discovery/cinna-system.md).
 
