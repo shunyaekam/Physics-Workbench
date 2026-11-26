@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scipy.integrate import quad
 from scipy.special import i0e
 from single_rail_regions import enclose
+from checks.sparse_table import audit, ROOT
 
 
 def angular_radial(v, power, upper):
@@ -19,6 +20,7 @@ def angular_radial(v, power, upper):
 
 
 def main():
+    print("Published excited-level pairs with matching receipts:", audit(ROOT))
     for k in range(17):
         v = lambda j: (2*j+1)*comb(2*j, j)
         c = sum(comb(k, j)*v(j)*v(k-j) for j in range(k+1))

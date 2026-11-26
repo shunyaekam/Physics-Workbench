@@ -30,6 +30,7 @@ python3 renyi_scan.py
 python3 single_rail_regions.py
 python3 checks/sharp_qubit.py
 python3 fock_pairs.py
+python3 checks/sparse_table.py --replay --self-test
 python3 excited_pairs.py replay
 tectonic papers/single-rail-wigner.tex
 tectonic papers/renyi-obstructions.tex

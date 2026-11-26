@@ -29,7 +29,7 @@ const boards = [
   ['candidates','Candidates','Search outputs flagged for a rigorous check.'],
   ['partial_results','Scoped results','Findings whose assumptions cover part of a parent question. Each record states what the evidence establishes.'],
   ['exclusions','Excluded','Correctness and originality are reviewed separately. These records explain why a claim earns zero discovery credit.'],
-  ['solutions','Solutions','Full resolutions of sourced physics questions that passed the project’s mathematical and priority reviews. Each record links the public decision and its evidence.']
+  ['solutions','Proposed solutions','The project records a proof covering the registered question after internal AI review. The linked audit states its scope and external review status.']
 ];
 const empty = {
   candidates:['No candidate flagged','A positive numerical residual enters this queue for error-bounded verification.'],
@@ -92,7 +92,7 @@ function inspect() {
 for (const id of ['ours','cinna']) $(id).onclick = () => {system=id; selected=[0,0]; map();};
 function record(item) {
   const card = element('article',undefined,'record');
-  card.append(element('span',item.status.replaceAll('_',' '),'status'),element('h3',item.title));
+  card.append(element('span',item.status === 'reviewed_resolution' ? 'Internally reviewed proof proposal' : item.status.replaceAll('_',' '),'status'),element('h3',item.title));
   card.append(element('p',item.question || item.detail));
   if (item.decisive_test) {
     const details = element('details');
@@ -118,7 +118,7 @@ function updateRecords() {
     const finished=feed.finite.filter(item=>item.status!=='queued').length;
     board.append(element('p',finished+' of '+feed.finite.length+' finite calculations finished.','boardnote'));
   }
-  if (section==='activity') board.append(element('p',feed.counts.attempts.toLocaleString()+' recorded search evaluations. Repeated states can occur.','boardnote'));
+  if (section==='activity') board.append(element('p','Each search reports its own unit. A circuit edit, a matrix pair, and a candidate optical state answer different questions.','boardnote'));
   if (feed[section].length) {
     const grid=element('div',undefined,'recordgrid');
     feed[section].forEach(item=>grid.append(record(item)));

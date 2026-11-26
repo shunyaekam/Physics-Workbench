@@ -63,7 +63,8 @@ def advance_frontier(nodes):
     # Short layers establish progress quickly. Keep oversized cases for a later
     # stronger relaxation while exploring other sizes within workstation limits.
     cases=read_cases()
-    for d,k in [(7,3),(8,3),(5,4),(9,3),(3,5),(10,3),(6,4),(4,5),(11,3),(12,3)]:
+    # The companion proofs cover d <= 4 and every three-copy dimension.
+    for d,k in [(5,4),(6,4)]:
         if (d,k) in cases:
             continue
         for t in range(1,k+1):

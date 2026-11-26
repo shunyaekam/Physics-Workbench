@@ -8,7 +8,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We prove computational-basis optimality for every rank-seven bipartite pure state on two three-qubit registers. In arbitrary supporting register sizes, we give three full-dimensional rank-seven spectral regions with exact rational certificates. We also prove optimality at unbounded Schmidt rank for equal registers when all but two amplitudes coincide. The latter proof uses a two-particle occupation bound and gives an exact rank-15 example. These results use Sierant's analytic reduction of the local-unitary optimization. The unrestricted conjecture remains open.
+We prove computational-basis optimality for every rank-seven bipartite pure state on two three-qubit registers. In arbitrary supporting register sizes, we give three full-dimensional rank-seven spectral regions with exact rational certificates. For equal registers of any local dimension $d=2^n$, we prove optimality when at least $d-2$ of the full $d$ Schmidt amplitudes, counting zeros, coincide. The latter proof uses a two-particle occupation bound and gives an exact rank-15 example. These results use Sierant's analytic reduction of the local-unitary optimization. The unrestricted conjecture remains open.
 \end{abstract}
 
 \section{Statement and reduction}
@@ -68,7 +68,7 @@ Only five witnesses use the pair row:
 \]
 Every one contains a member of $\{1,2\}$ and a member of $\{2,3\}$. Under either degeneracy in the theorem all five monomials vanish, and the other 205 certificates establish (2) in every dimension. This completes the proof.
 
-\paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence the entropy in the abstract. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
+\paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence a minimum entropy of $\log_2(343/211)$ bits. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
 
 
 \clearpage
@@ -104,11 +104,11 @@ By the single-mode identity of [1, Appendix C, Theorem 17], $\Pi n_u\Pi=\Pi n_v\
 \[
  A=a^4+qa^3(b+c-2a),\qquad K=\Pi n_u n_v\Pi,\qquad 0\le K\le q\Pi .
 \]
-The scalar two-particle occupation matrix gives $T=\operatorname{Tr}K=q(d-2)/2$ independently of the pair. Thus $\operatorname{Tr}(K^2)\le qT$. For two coordinate vectors, each affine direction has at most one plane containing both vectors. The disjoint direction blocks in Eq.~39 of [1] then give eigenvalues zero and $q$ for $K$, attaining this bound. If $R=(d-1)(d-2)/6$ is the number of directions, the squared Hilbert--Schmidt norm is
+Here $K\leq\Pi n_u\Pi=q\Pi$ because the commuting occupation projections satisfy $n_un_v\leq n_u$. The scalar two-particle occupation matrix gives $T=\operatorname{Tr}K=q(d-2)/2$ independently of the pair. Thus $\operatorname{Tr}(K^2)\le qT$. For two coordinate vectors, each affine direction has at most one plane containing both vectors. The disjoint direction blocks in Eq.~39 of [1] then give eigenvalues zero and $q$ for $K$, attaining this bound. If $R=(d-1)(d-2)/6$ is the number of directions, the squared Hilbert--Schmidt norm is
 \[
  Q=R A^2+2ABT+B^2\operatorname{Tr}(K^2).
 \]
-The variable term has coefficient $B^2\ge0$. The trace overlap for $N^2$ is constant, equal to $R A(a^2,b^2,c^2)+T B(a^2,b^2,c^2)$ using the same coefficient formulas. The coordinate pair therefore maximizes the two terms in Proposition 2 of [1], and the defect vanishes at that diagonal. Lemma 1 then gives the full two-unitary optimum. The proof requires the multiplicities in the ambient dimension $d$.
+The middle term is constant even when the exceptions straddle $a$ and $B<0$. The only frame-dependent term has coefficient $B^2\ge0$. The trace overlap for $N^2$ is constant, equal to $R A(a^2,b^2,c^2)+T B(a^2,b^2,c^2)$ using the same coefficient formulas. The coordinate pair therefore maximizes the two terms in Proposition 2 of [1], and the defect vanishes at that diagonal. Lemma 1 then gives the full two-unitary optimum. Appending extra zero amplitudes generally changes the multiplicity hypothesis, so this argument applies to the stated ambient dimensions.
 
 For example, on two four-qubit registers, raw amplitudes $(2,\ldots,2,1,0)$ with fourteen twos give a rank-15 pure state. Its optimal purity is $2576747/3518667$, which a direct Pauli sum reproduces. Its last dyadic shell has unequal amplitudes, and its rank exceeds the rank-six theorem in [1]. Two exceptions above the background already give a sorted dyadic staircase; the theorem includes previously covered cases.
 
