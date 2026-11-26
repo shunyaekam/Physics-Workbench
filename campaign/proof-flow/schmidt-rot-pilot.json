@@ -1,0 +1,50 @@
+{
+  "seed": 20261125,
+  "budget": 128,
+  "tested": 128,
+  "equal": 0,
+  "witness": {
+    "sorted": [
+      31,
+      31,
+      27,
+      26,
+      25,
+      19,
+      16,
+      16,
+      13,
+      13,
+      3,
+      2,
+      2,
+      2,
+      1,
+      0
+    ],
+    "left": [
+      11,
+      14,
+      3,
+      4,
+      5
+    ],
+    "right": [
+      10,
+      12,
+      5,
+      12,
+      13
+    ]
+  },
+  "result": {
+    "sorted_fourth_sum": 37413217576742854677060100000000,
+    "alternative_fourth_sum": 37198735572751720475336648755456,
+    "denominator": 58957880343365065755062500000000,
+    "sorted_purity": "458646666278281/722761553850625",
+    "alternative_purity": "145307560831061408106783784201/230304220091269788105712890625",
+    "decisive": false
+  },
+  "domain": "four qubits per party, two independent rational plane rotations",
+  "coverage": "seeded sample"
+}

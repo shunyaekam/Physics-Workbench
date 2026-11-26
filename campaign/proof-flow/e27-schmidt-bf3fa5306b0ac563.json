@@ -1,0 +1,232 @@
+{
+  "problem_id": "e27-schmidt",
+  "contract_hash": "bf3fa5306b0ac5639ac23aa1b1cefec6cb070e231a1a90d50543c6740393f8a8",
+  "model": "gpt-6.2-astra",
+  "status": "math_review",
+  "attempts": [
+    {
+      "proposal": {
+        "approach": "four qubits per party, integer amplitudes 0..4, same label permutation",
+        "witness_json": "{\"sorted\": [4, 4, 4, 2, 2, 2, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0], \"permuted\": [1, 4, 0, 2, 2, 0, 2, 1, 4, 0, 4, 0, 1, 2, 0, 2]}",
+        "derivation": "Seeded experiment from checks/schmidt_orbit.py; full receipt: schmidt-perm-pilot.json",
+        "what_would_change": "A strict increase of normalized Pauli fourth moment on the same local-unitary orbit lowers the stabilizer entropy. One such pair refutes the universal minimum."
+      },
+      "checked_at": "2026-11-26T02:00:06+00:00",
+      "witness": {
+        "sorted": [
+          4,
+          4,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permuted": [
+          1,
+          4,
+          0,
+          2,
+          2,
+          0,
+          2,
+          1,
+          4,
+          0,
+          4,
+          0,
+          1,
+          2,
+          0,
+          2
+        ]
+      },
+      "witness_hash": "cdee33cec29b5ef87d771d522653e066f7d487da6202284e12d30892bd04f5bb",
+      "result": {
+        "sorted_fourth_sum": 3780726016,
+        "alternative_fourth_sum": 3768339712,
+        "denominator": 6505390336,
+        "sorted_purity": "14768461/25411681",
+        "alternative_purity": "14720077/25411681",
+        "decisive": false,
+        "permuted_fourth_sum": 3768339712,
+        "permuted_purity": "14720077/25411681"
+      },
+      "origin": "executed during deployment"
+    },
+    {
+      "proposal": {
+        "approach": "four qubits per party, two independent rational plane rotations",
+        "witness_json": "{\"sorted\": [31, 31, 27, 26, 25, 19, 16, 16, 13, 13, 3, 2, 2, 2, 1, 0], \"left\": [11, 14, 3, 4, 5], \"right\": [10, 12, 5, 12, 13]}",
+        "derivation": "Seeded experiment from checks/schmidt_orbit.py; full receipt: schmidt-rot-pilot.json",
+        "what_would_change": "A strict increase of normalized Pauli fourth moment on the same local-unitary orbit lowers the stabilizer entropy. One such pair refutes the universal minimum."
+      },
+      "checked_at": "2026-11-26T02:00:06+00:00",
+      "witness": {
+        "sorted": [
+          31,
+          31,
+          27,
+          26,
+          25,
+          19,
+          16,
+          16,
+          13,
+          13,
+          3,
+          2,
+          2,
+          2,
+          1,
+          0
+        ],
+        "left": [
+          11,
+          14,
+          3,
+          4,
+          5
+        ],
+        "right": [
+          10,
+          12,
+          5,
+          12,
+          13
+        ]
+      },
+      "witness_hash": "10abc6362f34889732b2d063b4bf99d5520a57d16c7609e6e910b5fc376c9016",
+      "result": {
+        "sorted_fourth_sum": 37413217576742854677060100000000,
+        "alternative_fourth_sum": 37198735572751720475336648755456,
+        "denominator": 58957880343365065755062500000000,
+        "sorted_purity": "458646666278281/722761553850625",
+        "alternative_purity": "145307560831061408106783784201/230304220091269788105712890625",
+        "decisive": false
+      },
+      "origin": "executed during deployment",
+      "math_review": {
+        "verdict": "revise",
+        "hypotheses": "A separate reviewer rebuilt both finalist states and directly summed all 65,536 Pauli fourth powers for each. Alternative minus sorted purity equals -48384/25411681 for the permutation and -837820328090367975482231424/230304220091269788105712890625 for the independent rotations. Both alternatives are on the required orbit and increase entropy.",
+        "weakest_step": "Neither finite sample covers general local unitaries. Test nearly flat full-rank spectra with coupled rotations across an amplitude-block boundary."
+      }
+    },
+    {
+      "proposal": {
+        "approach": "Test coupled plane rotations on the nearly flat spectrum proposed by the independent critic.",
+        "derivation": "Follow up the reviewer\u2019s cross-block cancellation test with equal and opposite sines.",
+        "witness_json": "{\"sorted\": [17, 17, 17, 17, 17, 17, 17, 16, 16, 15, 15, 15, 15, 15, 15, 15], \"left\": [6, 8, 112, 15, 113], \"right\": [6, 8, 112, 15, 113]}",
+        "what_would_change": "A strict increase of normalized Pauli fourth moment on the same local-unitary orbit lowers the stabilizer entropy. One such pair refutes the universal minimum."
+      },
+      "checked_at": "2026-11-26T02:07:11+00:00",
+      "witness": {
+        "sorted": [
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
+          16,
+          16,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ],
+        "left": [
+          6,
+          8,
+          112,
+          15,
+          113
+        ],
+        "right": [
+          6,
+          8,
+          112,
+          15,
+          113
+        ]
+      },
+      "witness_hash": "697de3a35338d41c73788bc6f64d13c8165f476dc886dd447c82414446da0558",
+      "result": {
+        "sorted_fourth_sum": 50931842952138676282494839397443310621210589286400,
+        "alternative_fourth_sum": 50931779567218171201992106913495751004032963072000,
+        "denominator": 51625271488470468219568913203860146615052495360000,
+        "sorted_purity": "78197312869/79261956225",
+        "alternative_purity": "11052903551913665625432314868380154297750209/11203400930657653693482837066809927650836045",
+        "decisive": false
+      },
+      "origin": "independent reviewer follow-up executed during deployment"
+    },
+    {
+      "proposal": {
+        "approach": "Test coupled plane rotations on the nearly flat spectrum proposed by the independent critic.",
+        "derivation": "Follow up the reviewer\u2019s cross-block cancellation test with equal and opposite sines.",
+        "witness_json": "{\"sorted\": [17, 17, 17, 17, 17, 17, 17, 16, 16, 15, 15, 15, 15, 15, 15, 15], \"left\": [6, 8, 112, 15, 113], \"right\": [6, 8, 112, -15, 113]}",
+        "what_would_change": "A strict increase of normalized Pauli fourth moment on the same local-unitary orbit lowers the stabilizer entropy. One such pair refutes the universal minimum."
+      },
+      "checked_at": "2026-11-26T02:07:11+00:00",
+      "witness": {
+        "sorted": [
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
+          16,
+          16,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ],
+        "left": [
+          6,
+          8,
+          112,
+          15,
+          113
+        ],
+        "right": [
+          6,
+          8,
+          112,
+          -15,
+          113
+        ]
+      },
+      "witness_hash": "9adb0e7ea57304c6390d14a26fe91ddb70f4bb48c2023bb2860e1f56dbcf86b0",
+      "result": {
+        "sorted_fourth_sum": 50931842952138676282494839397443310621210589286400,
+        "alternative_fourth_sum": 49117520838243404215464263452147654704179748556800,
+        "denominator": 51625271488470468219568913203860146615052495360000,
+        "sorted_purity": "78197312869/79261956225",
+        "alternative_purity": "53295921048441193810182577530542160052278373/56017004653288268467414185334049638254180225",
+        "decisive": false
+      },
+      "origin": "independent reviewer follow-up executed during deployment"
+    }
+  ],
+  "updated_at": "2026-11-26T02:07:12+00:00"
+}

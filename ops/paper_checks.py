@@ -11,6 +11,11 @@ sys.path.insert(0,str(ROOT))
 from lab import load,write
 
 PACKAGES={
+    "transport-literal":(
+        ["formal/replay.py","formal/transport_literal/replay.py","formal/transport_literal/Verify.lean",
+         "formal/transport_literal/TransportLiteral.lean","formal/transport_literal/lean-toolchain",
+         "formal/transport_literal/lake-manifest.json","formal/transport_literal/lakefile.toml"],
+        [["formal/transport_literal/replay.py","--recheck-imports","--self-test"]]),
     "transport-polygon":(
         ["papers/transport-polygon.tex","checks/transport_optimum.py","checks/transport_polygon.py",
          "checks/transport_regression.py","checks/transport_review.py","formal/TransportPolygon.lean",

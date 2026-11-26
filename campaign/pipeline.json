@@ -1,6 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T02:05:53+00:00",
+  "certified": [],
+  "kernel_steps": [
+    {
+      "id": "literal-transport",
+      "title": "Three energy levels: exact line error 2/3",
+      "status": "lean_checked_scoped",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/formal/transport_literal/README.md",
+      "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
+    }
+  ],
+  "updated_at": "2026-11-26T02:12:56+00:00",
   "counts": {
     "leads": 3,
     "problems": 6,
@@ -38,7 +48,8 @@
       "decisive_test": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
       "evidence": {
         "working paper": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/schmidt-rank-seven.pdf",
-        "exact checker": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/schmidt7/verify.py"
+        "exact checker": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/schmidt7/verify.py",
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/1"
       }
     },
     {
@@ -53,7 +64,8 @@
       "evidence": {
         "catalogue": "https://openquantumproblems.com/p/A50",
         "experiment": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-        "selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md"
+        "selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md",
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/2"
       }
     },
     {
@@ -69,7 +81,8 @@
         "target and proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/transport-polygon.md",
         "exact optimal labels": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport_optimum.py",
         "mathematical review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport-review.md",
-        "priority audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/transport-priority.md"
+        "priority audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/transport-priority.md",
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/3"
       }
     },
     {
@@ -80,7 +93,10 @@
       "detail": "Separates two fundamental notions of usable entanglement. Answering it requires reasoning about all copy counts or all candidate states.",
       "source": "https://oqp.iqoqi.oeaw.ac.at/undistillability-implies-ppt",
       "question": "Does there exist a bipartite state with negative partial transpose from which no entanglement can be distilled using any finite number of copies?",
-      "decisive_test": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved."
+      "decisive_test": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/4"
+      }
     },
     {
       "id": "gagatsos-2026-c1",
@@ -90,7 +106,10 @@
       "detail": "The conjectured sharp bound would connect heterodyne statistics to Wigner negativity and the sampling overhead of quasiprobability simulation. The statement is recent; its long-term standing is unknown.",
       "source": "https://arxiv.org/html/2611.30969v1",
       "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
-      "decisive_test": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement."
+      "decisive_test": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement.",
+      "evidence": {
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/5"
+      }
     },
     {
       "id": "refined-bmv",
@@ -103,7 +122,8 @@
       "decisive_test": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
       "evidence": {
         "binary-spectrum proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/bmv-trace-12-3.tex",
-        "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py"
+        "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py",
+        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/6"
       }
     }
   ],
@@ -218,6 +238,48 @@
   ],
   "candidates": [],
   "activity": [
+    {
+      "id": "flow-werner-endpoint",
+      "title": "werner-endpoint",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/werner-endpoint-0a8e18bf9da58dcb.json",
+      "detail": "1 recorded attempts. Check the rank-two zero-score control."
+    },
+    {
+      "id": "flow-transport-polygon",
+      "title": "Exact approximation of quantum transport costs",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/transport-polygon-9783d1a9bb39a040.json",
+      "detail": "1 recorded attempts. Inspect the general counting proposition after introducing its cycle and family."
+    },
+    {
+      "id": "flow-refined-bmv",
+      "title": "A lower bound for symmetrized quantum partition functions",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
+      "detail": "1 recorded attempts. Test a real three-level noncommuting pair using rational Taylor enclosures."
+    },
+    {
+      "id": "flow-golay43",
+      "title": "First priority \u00b7 A 43-gate Golay preparation",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/golay43-065ee3f4684969f1.json",
+      "detail": "1 recorded attempts. Verify the deposited 44-CNOT circuit as an over-budget control."
+    },
+    {
+      "id": "flow-gagatsos-2026-c1",
+      "title": "gagatsos-2026-c1",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/gagatsos-2026-c1-894dfc84ab2ceda0.json",
+      "detail": "1 recorded attempts. Recompute the archived optical state from the prior agent lane at both quadrature resolutions."
+    },
+    {
+      "id": "flow-e27-schmidt",
+      "title": "Does the sorted Schmidt basis minimize nonlocal magic?",
+      "status": "math_review",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/e27-schmidt-bf3fa5306b0ac563.json",
+      "detail": "4 recorded attempts. Test coupled plane rotations on the nearly flat spectrum proposed by the independent critic."
+    },
     {
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",

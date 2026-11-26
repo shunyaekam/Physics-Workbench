@@ -1,0 +1,57 @@
+{
+  "seed": 20261125,
+  "budget": 1024,
+  "tested": 1024,
+  "equal": 0,
+  "witness": {
+    "sorted": [
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "permuted": [
+      1,
+      4,
+      0,
+      2,
+      2,
+      0,
+      2,
+      1,
+      4,
+      0,
+      4,
+      0,
+      1,
+      2,
+      0,
+      2
+    ]
+  },
+  "result": {
+    "sorted_fourth_sum": 3780726016,
+    "alternative_fourth_sum": 3768339712,
+    "denominator": 6505390336,
+    "sorted_purity": "14768461/25411681",
+    "alternative_purity": "14720077/25411681",
+    "decisive": false,
+    "permuted_fourth_sum": 3768339712,
+    "permuted_purity": "14720077/25411681"
+  },
+  "domain": "four qubits per party, integer amplitudes 0..4, same label permutation",
+  "coverage": "seeded sample",
+  "full_finite_search_size": 152587890624
+}

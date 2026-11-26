@@ -1,0 +1,35 @@
+{
+  "problem_id": "transport-polygon",
+  "contract_hash": "9783d1a9bb39a04069f01376b8d4706a69343a1871235850bcf8bd6c7acd4a46",
+  "model": "gpt-6.2-astra",
+  "status": "math_review",
+  "attempts": [
+    {
+      "proposal": {
+        "approach": "Inspect the general counting proposition after introducing its cycle and family.",
+        "witness_json": "{\"steps\": [\"unfold CountingBound\", \"intro cycle family j\"]}",
+        "derivation": "formal/transport_literal/Counting.lean",
+        "what_would_change": "Universal q>1 needs an all-spectrum proof; the current written argument has partial Lean coverage. The separate q=1/2 example lies outside this registered question."
+      },
+      "checked_at": "2026-11-26T02:05:07+00:00",
+      "witness": {
+        "steps": [
+          "unfold CountingBound",
+          "intro cycle family j"
+        ]
+      },
+      "witness_hash": "1beda1bf83d7f94a7695e332a01e7049cccb367a63afb3da632049f76cdcd5c1",
+      "result": {
+        "target": "TransportCounting.CountingBound",
+        "scope": "supporting lemma",
+        "decisive": false,
+        "toolchain": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+        "statement_sha256": "54c98f7aee5bf5b796d65c0ad64794fe70475f2e6a262afb785b64484a025159",
+        "kernel_checked": false,
+        "diagnostic": "Proof.lean:3:55: error: unsolved goals\ncycle : List Nat\nfamily : List Interval\nj : Interval\n\u22a2 2 \u2264 cycle.length \u2192\n    cycle.Nodup \u2192\n      family.Nodup \u2192\n        (\u2200 (i : Interval), i \u2208 family \u2192 i.fst < i.snd) \u2192\n          List.Pairwise disjointInterior family \u2192\n            j.fst < j.snd \u2192\n              0 < demand j cycle \u2192\n                (\u2200 (i : Interval), i.fst < i.snd \u2192 demand i cycle \u2264 demand j cycle) \u2192\n                  positiveSum cycle family \u2264 \u2191cycle.length - 2 * demand j cycle\n'submitted' depends on axioms: [sorryAx]\n"
+      },
+      "origin": "executed during deployment"
+    }
+  ],
+  "updated_at": "2026-11-26T02:05:07+00:00"
+}

@@ -1,6 +1,7 @@
 """Build the public read-only dashboard feed from the completed research receipts."""
 from datetime import datetime, timezone
 from fractions import Fraction
+from hashlib import sha256
 from pathlib import Path
 from urllib.parse import urlsplit
 import json
@@ -347,7 +348,53 @@ def build(root, now):
                               "replay":artifact(root,"checks/finite_spins.py")}))
         else:
             finite.append(row(ident,title,"queued",url,question))
-    return dict(schema_version=1,updated_at=now,counts=dict(leads=len(leads),problems=len(problems),
+    certified=[]
+    kernel_steps=[]
+    if (root/"discovery/proof-contracts.json").is_file():
+        # The publication index is owned by main. Research-stage status alone has no release authority.
+        index=load(root/"certificates/index.json")
+        ref="origin/main:certificates/index.json"
+        if subprocess.run(["git","cat-file","-e",ref],cwd=root,stderr=subprocess.DEVNULL).returncode==0:
+            index=json.loads(subprocess.check_output(["git","show",ref],cwd=root,text=True))
+        for pid,entry in index.items():
+            certified.append(row(pid,entry["title"],"machine_checked_full",
+                GITHUB+"main/certificates/"+entry["file"],"Independent publication replay passed.",
+                problem_id=pid,source=entry["source"]))
+            for problem in problems:
+                if problem["id"]==pid:
+                    problem["status"]="machine_checked_full"
+        issue_map=load(root/"discovery/proof-issues.json")
+        for case in problems:
+            if case["id"] in issue_map:
+                case.setdefault("evidence",{})["tracking issue"]="https://github.com/shunyaekam/Physics-Workbench/issues/"+str(issue_map[case["id"]])
+        for path in sorted((root/"campaign/proof-flow").glob("*.json")):
+            work=load(path)
+            if "problem_id" not in work:
+                continue
+            pid=work["problem_id"]
+            attempts=work["attempts"]
+            item=row("flow-"+pid,targets[pid].get("title",pid),work["status"],
+                     artifact(root,str(path.relative_to(root))),f"{len(attempts)} recorded attempts. "+
+                     (attempts[-1]["proposal"]["approach"] if attempts else work.get("last_error","Awaiting first execution.")))
+            activity.insert(0,item)
+            if work["status"]=="scoped_proof_checked" and pid=="transport-polygon":
+                from formal.transport_literal.attempt import check
+                result=check(attempts[-1]["witness"])
+                require(result["kernel_checked"] and not result["decisive"],"Counting lemma did not replay")
+                kernel_steps.append(row("counting-lemma","Directed-cycle counting bound","lean_checked_scoped",
+                        item["url"],"The stated supporting lemma type-checked. Operator reduction remains separate."))
+        transport=root/"formal/transport_literal/receipt.json"
+        if transport.exists():
+            receipt=load(transport)
+            files=("TransportLiteral.lean","Verify.lean","lake-manifest.json")
+            require(receipt["sha256"]=={name:sha256((transport.parent/name).read_bytes()).hexdigest() for name in files}
+                    and receipt["rechecked_imports"] is True and len(receipt["rejected_controls"])==3,
+                    "Scoped proof receipt is stale or lacks strict replay")
+            kernel_steps.append(row("literal-transport","Three energy levels: exact line error 2/3",
+                    "lean_checked_scoped",artifact(root,"formal/transport_literal/README.md"),
+                    "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. "
+                    "The registered convex-power conjecture concerns q greater than one."))
+    return dict(schema_version=1,certified=certified,kernel_steps=kernel_steps,updated_at=now,counts=dict(leads=len(leads),problems=len(problems),
         attempts=sum(counts.values()),candidates=len(candidates),partial_results=len(partial),solutions=len(solutions),exclusions=len(exclusions)),
         evaluations=counts,attempts_definition="Recorded search evaluations across the listed arms. Repeated states may occur.",
         problems=problems,leads=leads,partial_results=partial,solutions=solutions,

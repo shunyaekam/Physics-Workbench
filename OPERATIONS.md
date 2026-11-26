@@ -57,16 +57,6 @@ Run `python3 checks/sharp_qubit.py`, `python3 renyi_scan.py`, `python3 fock_pair
 
 The [public board](https://shunyaekam.github.io/Physics-Workbench/pipeline/) reads campaign/pipeline.json on the research branch. Each local cycle rebuilds the feed after searching and running the agent stage. A bundled snapshot supports the website during a feed outage. Its timestamp appears on the board.
 
-1. **Source and admit.** The weekly arXiv intake saves leads with the original source. An editor admits exact externally posed questions in discovery/targets.json, with known results, significance, a decisive experiment and a stopping rule. A third computational search family requires a corresponding adapter and dispatch update.
-2. **Propose and challenge.** A hosted Codex request proposes a falsifiable lemma or witness. A later fresh session critiques it. Receipts include the input, response and requested model. Historical local pilot receipts retain their attribution.
-3. **Search and verify.** For optics, after the critique a model proposes a concrete finite photon superposition. The runner validates the integer components and tests the state at two quadrature resolutions. Its receipt preserves the raw model response, state, and measured residuals. The broader numerical and exact search arms also run each cycle. Flagged witnesses go into the Candidates view. Adopting a proposed search or new proof technique requires a reviewed code or proof change. Failed searches remain available as evidence.
-4. **Review correctness and prior art separately.** Record independent derivations, scope checks and searches for an earlier result with the same mathematical content. Record prior resolutions in the exclusions registry even if a proof replays. A partial result names its parent problem and its additional assumptions.
-5. **Publish.** A full resolution needs an editorial decision on main. The research ledger points to that publication commit. The feed validates the exact parent statement/source, accepted review and priority verdicts, reviewer attribution and the presence of distinct proof/review/priority artifacts in that commit. The machine checks their presence and scope fields; mathematical judgment belongs to the reviewers. See ops/pipeline_feed.py and test_pipeline_feed.py for the manifest fields and accepted/rejected examples.
+The [research protocol](discovery/proof-system.md) describes admission, sandbox experiments, exact replay, separate source and mathematics reviews, and publication from a clean checkout. Active attempts are in `campaign/proof-flow`. Historical pilot transcripts remain in `campaign/agent-lanes`.
 
-Replay the handoffs and board from this research checkout:
-
-```sh
-python3 ops/agent_campaign.py
-python3 ops/pipeline_feed.py
-python3 -m unittest -v test_pipeline_feed
-```
+Run `python3 ops/proof_flow.py` to advance an eligible research stage using the shared hourly quota. Run `python3 ops/witness.py PROBLEM witness.json` to replay a supplied object without using a model. The dedicated checkout runs `ops/publish_checked.py` after synchronizing research; it needs the existing repository credentials, GitHub CLI and Pages for publication and issue closure.

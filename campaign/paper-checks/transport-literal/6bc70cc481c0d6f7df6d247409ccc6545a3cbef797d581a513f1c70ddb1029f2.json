@@ -1,0 +1,24 @@
+{
+  "paper": "transport-literal",
+  "inputs": {
+    "formal/replay.py": "7b1f9ae89ea76e08f631c4b0c56867de0826d0f91a2664f6a4f4f0016cd71e07",
+    "formal/transport_literal/replay.py": "b4aacf69d847865730ace7f80dd0b63bcac9b2d37ec2818be314b17499c3d119",
+    "formal/transport_literal/Verify.lean": "639646080d9f8c9a704337b056513cb3cb654394f31599a96205418e83b2fb31",
+    "formal/transport_literal/TransportLiteral.lean": "c5cbeda004b1f403e7f6621bdabf0ef62ba474fcedb1ede7488f7d3dcd60fde9",
+    "formal/transport_literal/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "formal/transport_literal/lake-manifest.json": "9379ae4933272bd81520e30419731d021b9238aae9500fbd652bc37a95366fc8",
+    "formal/transport_literal/lakefile.toml": "29fcb69ab50d74e0361a3c7a927a261dec82c08b152118375ec53d2dd905da09",
+    "ops/paper_checks.py": "0129a18b0f763aab34817252a8b7b1e8616f550aa4fc1c148ecf8c0db88d0017"
+  },
+  "checks": [
+    {
+      "command": [
+        "formal/transport_literal/replay.py",
+        "--recheck-imports",
+        "--self-test"
+      ],
+      "stdout": "{\n  \"toolchain\": \"Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)\",\n  \"axioms\": {\n    \"LiteralContract.exactCuts\": [\n      \"propext\",\n      \"Classical.choice\",\n      \"Quot.sound\"\n    ],\n    \"LiteralContract.threeCosts\": [\n      \"propext\",\n      \"Classical.choice\",\n      \"Quot.sound\"\n    ],\n    \"LiteralContract.optimum\": [\n      \"propext\",\n      \"Classical.choice\",\n      \"Quot.sound\"\n    ]\n  },\n  \"rechecked_imports\": true,\n  \"rejected_controls\": [\n    \"wrong uniform error\",\n    \"wrong projector height\",\n    \"extra axiom\"\n  ],\n  \"sha256\": {\n    \"TransportLiteral.lean\": \"c5cbeda004b1f403e7f6621bdabf0ef62ba474fcedb1ede7488f7d3dcd60fde9\",\n    \"Verify.lean\": \"639646080d9f8c9a704337b056513cb3cb654394f31599a96205418e83b2fb31\",\n    \"lake-manifest.json\": \"9379ae4933272bd81520e30419731d021b9238aae9500fbd652bc37a95366fc8\"\n  }\n}"
+    }
+  ],
+  "scope": "Computational steps only. Mathematical review is a separate record."
+}

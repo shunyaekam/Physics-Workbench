@@ -1,0 +1,31 @@
+{
+  "toolchain": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "axioms": {
+    "LiteralContract.exactCuts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LiteralContract.threeCosts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LiteralContract.optimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "rechecked_imports": true,
+  "rejected_controls": [
+    "wrong uniform error",
+    "wrong projector height",
+    "extra axiom"
+  ],
+  "sha256": {
+    "TransportLiteral.lean": "c5cbeda004b1f403e7f6621bdabf0ef62ba474fcedb1ede7488f7d3dcd60fde9",
+    "Verify.lean": "639646080d9f8c9a704337b056513cb3cb654394f31599a96205418e83b2fb31",
+    "lake-manifest.json": "9379ae4933272bd81520e30419731d021b9238aae9500fbd652bc37a95366fc8"
+  }
+}

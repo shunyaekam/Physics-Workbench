@@ -85,7 +85,7 @@ def run():
     call([sys.executable,"literature.py"],timeout=210)
     call([sys.executable,"ops/catalogue_watch.py"],timeout=40,check=False)
     try:
-        call([sys.executable,"ops/agent_campaign.py"],timeout=300,check=False)
+        call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)
     call([sys.executable,"ops/pipeline_feed.py"])
@@ -107,6 +107,7 @@ def run():
             git("add","--","campaign/pipeline.json")
             git("commit","--no-edit")
         git("push","-u","origin","HEAD:research")
+    call([sys.executable,"ops/publish_checked.py"],timeout=300)
     local=Path(json.loads((SERVICE/"settings.json").read_text())["editable"])
     synchronize(ref,local,"main")
     synchronize(ref,local/".runtime"/"research","research")

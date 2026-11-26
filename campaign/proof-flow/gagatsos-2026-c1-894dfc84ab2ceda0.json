@@ -1,0 +1,83 @@
+{
+  "problem_id": "gagatsos-2026-c1",
+  "contract_hash": "894dfc84ab2ceda0dde95e34c1a58a4c75b447ba802c5b2ca44fd8c264976411",
+  "model": "gpt-6.2-astra",
+  "status": "math_review",
+  "attempts": [
+    {
+      "proposal": {
+        "approach": "Recompute the archived optical state from the prior agent lane at both quadrature resolutions.",
+        "witness_json": "{\"components\": [{\"level\": 0, \"real\": -16, \"imag\": 8}, {\"level\": 1, \"real\": 0, \"imag\": -12}, {\"level\": 2, \"real\": 6, \"imag\": 24}, {\"level\": 3, \"real\": -20, \"imag\": 8}, {\"level\": 4, \"real\": 10, \"imag\": -16}, {\"level\": 5, \"real\": -14, \"imag\": -12}, {\"level\": 6, \"real\": -2, \"imag\": -18}, {\"level\": 7, \"real\": -24, \"imag\": 8}]}",
+        "derivation": "campaign/agent-lanes/gagatsos-2026-c1-0d2d2ea554d9a90c.json",
+        "what_would_change": "Finite quadrature can nominate a violating optical state. A rigorous error bound covering the entire phase plane is required to decide the question."
+      },
+      "checked_at": "2026-11-26T02:05:07+00:00",
+      "witness": {
+        "components": [
+          {
+            "level": 0,
+            "real": -16,
+            "imag": 8
+          },
+          {
+            "level": 1,
+            "real": 0,
+            "imag": -12
+          },
+          {
+            "level": 2,
+            "real": 6,
+            "imag": 24
+          },
+          {
+            "level": 3,
+            "real": -20,
+            "imag": 8
+          },
+          {
+            "level": 4,
+            "real": 10,
+            "imag": -16
+          },
+          {
+            "level": 5,
+            "real": -14,
+            "imag": -12
+          },
+          {
+            "level": 6,
+            "real": -2,
+            "imag": -18
+          },
+          {
+            "level": 7,
+            "real": -24,
+            "imag": 8
+          }
+        ]
+      },
+      "witness_hash": "0672149abc9d4d39281246808d36ab89ca4d34e746eff5dd4e75d26220bfed5b",
+      "result": {
+        "decisive": false,
+        "quadrature": [
+          {
+            "radial": 256,
+            "angular": 192,
+            "wigner_norm": 2.113628936432891,
+            "husimi_bound": 2.870957671186739,
+            "residual": -0.7573287347538478
+          },
+          {
+            "radial": 512,
+            "angular": 384,
+            "wigner_norm": 2.1135872157654854,
+            "husimi_bound": 2.870951125989832,
+            "residual": -0.7573639102243468
+          }
+        ]
+      },
+      "origin": "executed during deployment"
+    }
+  ],
+  "updated_at": "2026-11-26T02:05:08+00:00"
+}
