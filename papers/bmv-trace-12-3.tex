@@ -125,12 +125,16 @@ in \emph{each} factor. Cha and Lee's example [4] attains that threshold:
 take $A=1\oplus xC$, $B=xC\oplus1$,
 $C=\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$ and
 $x=10^{-3}$. Both spectra equal $\{0,2x,1\}$. At $n=m=5$ their example
-has $\mathcal A_{5,5}(A,B)-\tr(A^5B^5)>0$.
+has $\mathcal A_{5,5}(A,B)-\tr(A^5B^5)>0$ [4, Proposition~6].
+Adding $\varepsilon I$ to both matrices preserves the strict polynomial
+gap for sufficiently small $\varepsilon>0$. Both then have three distinct
+positive eigenvalues and Hermitian logarithms. Thus the threshold also
+holds for the original exponential inputs.
 The lower bound for general spectra remains open.
 
 The lower comparison at $m=4$ is covered by an existing
 \href{https://github.com/the-omega-institute/trureturing/blob/c1938e29dc5ffac04e065367b179487fb4cd9744/Blueprint/D5/S3/Quantum/Analysis/RefinedBMV/SingularFourth/ZeroSpectrumProduct.md}{three-value containment theorem}.
-At arbitrary word counts, the case $A=tP$ follows from the
+At arbitrary word counts, the lower comparison for $A=tP$ follows from the
 \href{https://arxiv.org/abs/2610.31851}{spectral-pinching inequality}, and a one-dimensional eigenspace permits the nonnegative-entry basis of [2, Proposition~1]. The
 \href{https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/bmv-block-priority.md}{priority audit} found no previous general deduction for two positive levels of unrestricted multiplicities and all $m\ge5$.
 

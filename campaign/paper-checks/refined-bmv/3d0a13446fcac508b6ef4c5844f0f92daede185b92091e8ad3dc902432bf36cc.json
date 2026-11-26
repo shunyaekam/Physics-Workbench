@@ -1,0 +1,58 @@
+{
+  "paper": "refined-bmv",
+  "inputs": {
+    "papers/bmv-trace-12-3.tex": "afb1dfc2f0299802579ea96baa0bbdbfc89df1164e60add6e47f5e8fc3efcd97",
+    "checks/next_intake_bmv.py": "b6616261d15123b8d78277facf87d9d0daffad0ecaeb82cfaee50b2004cff7a0",
+    "checks/bmv_review.py": "a43be0172ba3b69e89de8a720051c95e585495cdbb6a841ee0c4b7fd5eefe2ef",
+    "checks/bmv_degrees.py": "c87ec8d0403edefd08eec62b46866451b7d9fd10f8ab8ad6398ddf61e53650db",
+    "checks/bmv_range_review.py": "23f996c290aa846965b8474938cf3c627a8541bc926fe21badc95bf78e17c521",
+    "checks/bmv_blocks.py": "6fb27f68d553cd1b3d362b3372147f59a4306152fdb56408d52e8c60a5fc5fd2",
+    "checks/bmv_search.py": "de9a5ff0e212e5162374a50263303bb6bcda0c2f2a9ca5890a6a2dd583ff73fd",
+    "ops/paper_checks.py": "145fca7bb422d7f7d161ee6acf9f965afd3bda1578ed69212695d3c1c355a1f3"
+  },
+  "checks": [
+    {
+      "command": [
+        "checks/bmv_blocks.py"
+      ],
+      "stdout": "Signed individual word: -41000\nSum at three visits: 65135808130\nWord mean minus balanced word: 1738624435398175135/3094\nClustered word minus word mean: 4768358927407704455/3094"
+    },
+    {
+      "command": [
+        "checks/next_intake_bmv.py"
+      ],
+      "stdout": "2324 nonzero integer coefficients, 0 negative, minimum 2912"
+    },
+    {
+      "command": [
+        "checks/bmv_review.py"
+      ],
+      "stdout": "Signed Kronecker decoding: 2324 nonzero coefficients, minimum 2912, base 2^135.\nExact PSD tests: 54 matrix pairs, 17 equalities, 14 negative-triangle controls."
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--with",
+        "python-flint==0.9.0",
+        "python",
+        "checks/bmv_degrees.py"
+      ],
+      "stdout": "n=11 terms=18578 minimum=2496 negatives=0\nn=12 terms=2324 minimum=2912 negatives=0\nn=13 terms=26057 minimum=3360 negatives=0\nn=14 terms=30269 minimum=3840 negatives=0\nn=15 terms=3701 minimum=4352 negatives=0\nn=16 terms=39638 minimum=4896 negatives=0\nn=17 terms=44795 minimum=5472 negatives=0\nn=18 terms=5393 minimum=6080 negatives=0\nn=19 terms=56054 minimum=6720 negatives=0\nn=20 terms=62156 minimum=7392 negatives=0\nn=21 terms=7400 minimum=8096 negatives=0\nn=22 terms=75305 minimum=8832 negatives=0\nn=23 terms=82352 minimum=9600 negatives=0\nn=24 terms=9722 minimum=10400 negatives=0\nn=25 terms=97391 minimum=11232 negatives=0\nn=26 terms=105383 minimum=12096 negatives=0\nn=27 terms=12359 minimum=12992 negatives=0\nn=28 terms=122312 minimum=13920 negatives=0\nn=29 terms=131249 minimum=14880 negatives=0\nn=30 terms=15311 minimum=15872 negatives=0\nn=31 terms=150068 minimum=16896 negatives=0\nn=32 terms=159950 minimum=17952 negatives=0\nn=33 terms=18578 minimum=19040 negatives=0\nn=34 terms=180659 minimum=20160 negatives=0\nn=35 terms=191486 minimum=21312 negatives=0\nn=36 terms=22160 minimum=22496 negatives=0"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "--with",
+        "python-flint==0.9.0",
+        "python",
+        "checks/bmv_range_review.py"
+      ],
+      "stdout": "11 18578 2496 3cc7fbbcce7ed99356eea7aec94906c14b3f002f5cf10ec2548d3cde8c3d73aa\n12 2324 2912 7a36240439d81bba29ad6a115b4aadb786c87e47364420cadf93ee2d4a862808\n13 26057 3360 d2111ab90c1e62ad2e9afa085477388f239616678a806e52824f2e6d1e827d91\n14 30269 3840 a573ea9e8d19fd8df799dc5c951a137dee6c7b0d7a7ca82e6b8339a837a5a807\n15 3701 4352 4bcd4c61c34790cf91d7aa916200eabd6e93f03962983553623b16bba5dd5673\n16 39638 4896 23aab5653a1305ff99a7e7721ea8946652290727f0a7e8c2c730060617037d9b\n17 44795 5472 f18b9d14456118d674f9e3487617c6f602c9993f94381c0f1c297dd922f320bd\n18 5393 6080 53b89685645aeed67e41b17eb7ad5f57fff14acd51b75dbca9ff801d6ae0006b\n19 56054 6720 d60ab307e916dbaeadb1e40b04a834120c6393b1b2de6ea383fd6d93d581b0bf\n20 62156 7392 24cdc67174751ca7d8c29ff529b44b9201f8b3af9b7006df948b8e84b2a16c42\n21 7400 8096 3b0543dc5d2adbb7bc99e6e989520b442d71cb269c71166863a0ac9dc2479e7f\n22 75305 8832 599c7abd621cdc3fa15ac03e30f64ee9de2c188985cfab4eb717415144a33fe3\n23 82352 9600 b59b353ec6839d66ee342524d624dba53a30b9ecc3632131f42c147651ccfd80\n24 9722 10400 6a117d1b6260565ac07aebeb9d7620068f8aabb46f173e0d018f56140a47372d\n25 97391 11232 11f72ca251ffab34944841ed96d870f6e69b65e964eaec284a6ee1cbe1f3252c\n26 105383 12096 138b1f0ee0e18754c9c71e594536d9223fc954a391ec9d1ac34fd4f9032cd30f\n27 12359 12992 fb832bf31cf184db2965d1ff72f766a04f72685ea25621b0a2806336f198252c\n28 122312 13920 ff18be02d9f2219bc82b0b80eab1cd0b021699661d60997ab4bd5ddfc3f821cc\n29 131249 14880 6b661c11c7c3c4296ad0fc32c695aed6e7fd380566e57af1dfa4c7efe81802da\n30 15311 15872 d3e3d19a45bfeb2686c2553a9b7926a4d751ee0b7bb39d04bdd87ea05c75df1e\n31 150068 16896 d0102e8aa4b7eb440f76d6603aeaf6cc523d74801558a80634bf4a3012af23d3\n32 159950 17952 3fac2e91f5e4374aad4e8c4bdd43040af5242113c4f48e1afa47ffca0ae55f49\n33 18578 19040 bee3a7fd4148463e63fe2b147ac45471091c99dcca9ee83e61e47389e5a0446c\n34 180659 20160 db551917c7b3259cbaa6d64ee4f6dcbe6accaa4c2fe1d08efe95b481b5919a8d\n35 191486 21312 2b9a9ee94b80493bbfc35c7d731788441c30422e1afdcdaa065d5f14444f54e9\n36 22160 22496 48d08664ead412750bacac7fcc3527a31661b5c3826950079a779f455694bed9"
+    }
+  ],
+  "scope": "Computational steps only. Mathematical review is a separate record."
+}

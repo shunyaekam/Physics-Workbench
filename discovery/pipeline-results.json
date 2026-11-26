@@ -11,7 +11,7 @@
       "e27-schmidt",
       "schmidt-seven",
       "Rank-seven nonlocal magic on three qubits per party",
-      "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank two-exception family have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
+      "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank family with only two exceptional amplitudes in the full equal-register list (including zeros) have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
       "discovery/schmidt-seven.md"
     ],
     [
@@ -39,7 +39,7 @@
       "gagatsos-2026-c1",
       "sparse",
       "Two-level superpositions",
-      "The sparse-state argument restricts possible counterexamples within levels zero to five.",
+      "The proof covers the convex hull of states supported on at most two Fock levels chosen from zero through five. Coherent superpositions on three or more levels remain outside this case.",
       "papers/sparse-fock-coherence.tex"
     ],
     [
@@ -53,15 +53,8 @@
       "werner-endpoint",
       "coordinate",
       "Coordinate support conditions",
-      "The argument restricts a witness search by classifying coordinate sets with positive compression.",
+      "The parity theorem characterizes positive coordinate compressions. Its companion table checks the construction; for three copies the maximum is max(8, 2d) in all dimensions d ≥ 2. Rank-two distillability remains open.",
       "papers/coordinate-supports.tex"
-    ],
-    [
-      "werner-endpoint",
-      "finite-maxima",
-      "Finite support maxima",
-      "Complete finite search certificates establish the reported support maxima for the specified instances.",
-      "papers/finite-maxima.tex"
     ]
   ],
   "exclusions": [

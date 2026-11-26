@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T01:08:07+00:00",
+  "updated_at": "2026-11-26T01:13:43+00:00",
   "counts": {
     "leads": 3,
     "problems": 6,
     "attempts": 64521708766,
     "candidates": 0,
-    "partial_results": 9,
+    "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
@@ -147,7 +147,7 @@
       "title": "Rank-seven nonlocal magic on three qubits per party",
       "status": "scoped_result",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/schmidt-seven.md",
-      "detail": "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank two-exception family have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
+      "detail": "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank family with only two exceptional amplitudes in the full equal-register list (including zeros) have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -179,7 +179,7 @@
       "title": "Two-level superpositions",
       "status": "scoped_result",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/sparse-fock-coherence.tex",
-      "detail": "The sparse-state argument restricts possible counterexamples within levels zero to five.",
+      "detail": "The proof covers the convex hull of states supported on at most two Fock levels chosen from zero through five. Coherent superpositions on three or more levels remain outside this case.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
@@ -195,15 +195,7 @@
       "title": "Coordinate support conditions",
       "status": "scoped_result",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/coordinate-supports.tex",
-      "detail": "The argument restricts a witness search by classifying coordinate sets with positive compression.",
-      "problem_id": "werner-endpoint"
-    },
-    {
-      "id": "finite-maxima",
-      "title": "Finite support maxima",
-      "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/finite-maxima.tex",
-      "detail": "Complete finite search certificates establish the reported support maxima for the specified instances.",
+      "detail": "The parity theorem characterizes positive coordinate compressions. Its companion table checks the construction; for three copies the maximum is max(8, 2d) in all dimensions d \u2265 2. Rank-two distillability remains open.",
       "problem_id": "werner-endpoint"
     }
   ],
