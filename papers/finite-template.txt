@@ -4,8 +4,8 @@
 \usepackage{oo-journal}
 \ooshorttitle{Finite maxima at the Werner endpoint}
 \title{Exact finite maxima for positive coordinate supports at the Werner endpoint}
-\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Exact finite maxima for positive coordinate supports at the Werner endpoint}}
-\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\hypersetup{pdfauthor={},pdftitle={Exact finite maxima for positive coordinate supports at the Werner endpoint}}
+\ooprojectcredit{Project initiated and directed by \href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\\{\small oo research\enspace$\cdot$\enspace The Open University (student)}}
 \date{26 November 2026}
 \begin{document}
 \maketitle
@@ -70,7 +70,7 @@ This exhausts the cases.
 \section*{Reproducibility and scope}
 The auditor rebuilds compatibility from the parity of three Hamming distances, replays each decision with sets, validates every color class, checks prefix coverage, and reconstructs the lower witness. An independent matrix test also checks the physical reduction on every two-copy qutrit support. Run \texttt{python3 continuous.py audit} from the repository root. The accompanying certificates specify every search leaf. The certificates prove finite maxima for this specified basis and endpoint. Priority in the combinatorics or quantum information literature remains unassessed. This is an internally reviewed working paper.
 
-\paragraph{Edition note.} For a table entry, the deposited support certifies the lower bound. To check the upper bound, replay the branches and verify that every color class contains mutually incompatible words. The formula $\max(8,2d)$ for three copies also has a matching proof that applies to dimensions beyond those tabulated.
+\paragraph{AI contributions and verification.} AI assistance was used to draft the explanation of the support certificates. For each table entry, the auditor checks the deposited lower witness, verifies each color class and confirms that the branches cover the search. The separate matching argument gives $\max(8,2d)$ at three copies, including dimensions outside the table. These checks concern sets of basis words. \href{https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/continuous.py}{Table and audit procedure} and \href{https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/supports.py}{Branch-certificate checker}.
 
 \smallskip\noindent Related formulation: P. Costa Rico, \emph{New partial trace inequalities and distillability of Werner states} (2025), \href{https://doi.org/10.1007/s11005-025-01935-y}{doi:10.1007/s11005-025-01935-y}. See also the companion manuscript, \emph{Positive coordinate compressions of tensor powers of a partially transposed Werner state}, in this repository.
 \end{document}
