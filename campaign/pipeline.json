@@ -1,6 +1,31 @@
 {
   "schema_version": 1,
-  "certified": [],
+  "certified": [
+    {
+      "id": "wei-12-3-4",
+      "title": "[[12,3,4]] \u00b7 Optimal check weight 6",
+      "status": "machine_checked_full",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-3-4.json",
+      "detail": "A code attains 6. Exact rational certificates exclude 5 for every eligible stabilizer group.",
+      "problem_id": "wei-12-3-4",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "evidence": {
+        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+      }
+    },
+    {
+      "id": "wei-12-4-4",
+      "title": "[[12,4,4]] \u00b7 Optimal check weight 7",
+      "status": "machine_checked_full",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-4-4.json",
+      "detail": "A code attains 7. Exact rational certificates exclude 6 for every eligible stabilizer group.",
+      "problem_id": "wei-12-4-4",
+      "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+      "evidence": {
+        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+      }
+    }
+  ],
   "kernel_steps": [
     {
       "id": "counting-lemma",
@@ -17,7 +42,7 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:26:50+00:00",
+  "updated_at": "2026-11-26T20:27:38+00:00",
   "counts": {
     "leads": 3,
     "problems": 8,
@@ -136,7 +161,7 @@
     {
       "id": "wei-12-3-4",
       "title": "Optimal check weight for twelve physical qubits encoding three",
-      "status": "under_investigation",
+      "status": "machine_checked_full",
       "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "detail": "Measures the lightest possible largest parity check while encoding three logical qubits and detecting every Pauli error of weight up to three.",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
@@ -149,7 +174,7 @@
     {
       "id": "wei-12-4-4",
       "title": "Optimal check weight for twelve physical qubits encoding four",
-      "status": "under_investigation",
+      "status": "machine_checked_full",
       "url": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "detail": "A distance-four code storing four logical qubits achieves seven-qubit parity checks, fewer than the eight used by the tabulated construction.",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
