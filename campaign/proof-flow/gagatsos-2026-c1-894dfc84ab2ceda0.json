@@ -79,5 +79,6 @@
       "origin": "executed during deployment"
     }
   ],
-  "updated_at": "2026-11-26T02:05:08+00:00"
+  "updated_at": "2026-11-26T11:52:48+00:00",
+  "last_error": "Hosted Codex exited with status 1 (usage limit)"
 }
