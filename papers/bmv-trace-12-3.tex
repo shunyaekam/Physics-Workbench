@@ -1,13 +1,13 @@
 \documentclass[11pt]{article}
-\usepackage[margin=.82in]{geometry}
+\usepackage[margin=.76in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue]{hyperref}
 \newcommand{\tr}{\operatorname{Tr}}
 \newcommand{\av}{\mathcal A_{n,m}}
 \title{\vspace{-2em}The refined BMV trace inequalities\\for a matrix with two spectral values}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
-\date{25 November 2026}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={The refined BMV trace inequalities for a matrix with two spectral values}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\date{26 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -138,6 +138,8 @@ The lower comparison at $m=4$ is covered by an existing
 At arbitrary word counts, the lower comparison for $A=tP$ follows from the
 \href{https://arxiv.org/abs/2610.31851}{spectral-pinching inequality}, and a one-dimensional eigenspace permits the nonnegative-entry basis of [2, Proposition~1]. The
 \href{https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/bmv-block-priority.md}{priority audit} found no previous general deduction for two positive levels of unrestricted multiplicities and all $m\ge5$.
+
+\paragraph{Edition note.} Before applying either scalar inequality, group paths by how often they visit the second eigenspace. The ordinary BMV theorem gives the sign of each group total even when individual path traces have no known sign. The three-eigenvalue computations in the appendix serve a different purpose: they reproduce cases of an existing lower bound.
 
 \paragraph{Appendix.}
 A public Lean proof [5] covers all positive integers $n$ with $m=3$

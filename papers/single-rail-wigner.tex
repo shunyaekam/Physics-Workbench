@@ -1,18 +1,19 @@
 \documentclass[11pt]{article}
-\usepackage[left=0.9in,right=0.9in,top=0.72in,bottom=0.75in]{geometry}
+\usepackage[hmargin=.82in,vmargin=.72in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,hyperref}
 \hypersetup{hidelinks}
 \newtheorem{theorem}{Theorem}
 \newcommand{\E}{\mathbb E}
 \newcommand{\Var}{\operatorname{Var}}
-\title{A sharp Wigner-negativity bound for a single optical qubit}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}\\\small AI-assisted research note}
-\date{November 25, 2026}
+\title{\vspace{-1.65em}A sharp Wigner-negativity bound for a single optical qubit}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={A sharp Wigner-negativity bound for a single optical qubit}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\date{26 November 2026}
 \begin{document}\maketitle
 \begin{abstract}
 We prove Gagatsos's conjectured order-one-half Wigner--Husimi inequality for every state of one optical mode supported on zero and one photon, including arbitrary coherences and mixed states. A common noncentral Gaussian radius represents both sides for a pure state. The large-displacement argument uses the deficit in Gaussian Poincar\'e, and a finite rational coefficient certificate handles small displacement.
 \end{abstract}
+\small
 \begin{theorem}
 Let $\rho$ be supported on $\operatorname{span}\{|0\rangle,|1\rangle\}$. With $[x,p]=i$ and $Q=\langle\alpha|\rho|\alpha\rangle/(2\pi)$, $\alpha=(x+ip)/\sqrt2$, one has
 \[
@@ -67,6 +68,8 @@ Equivalently the degree-$k$ surplus exceeds $2^k/(100 k!)$. At degree zero the s
 
 \paragraph{Mixed states and equality.}
 In a pure-state decomposition the Wigner norm is convex and $H$ concave by the integral triangle inequality on the vector of square-root Husimi densities weighted by square-root probabilities \cite{gag}. Every nonvacuum state has a nonvacuum pure component with positive weight. The bound is strict there, while vacuum gives $\|W\|_1=H=1$. This finishes the proof. A common displacement translates both integrals, giving the same result for every displacement of this class.
+
+\paragraph{Edition note.} The seventeen coefficient comparisons check the finite polynomial estimate for $0\le t\le2$. Turning those signs into an inequality for every displacement also uses the analytic tail bound and the separate estimate for $t\ge2$. Convexity then extends the pure-state result to mixtures on the same two-dimensional support.
 
 \begin{thebibliography}{9}
 \bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Conjecture 1 and Proposition 1 (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.

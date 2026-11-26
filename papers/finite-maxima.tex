@@ -1,11 +1,11 @@
 \documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[hmargin=.9in,vmargin=.78in]{geometry}
 \usepackage{amsmath,booktabs,hyperref}
 \hypersetup{hidelinks}
-\title{Exact finite maxima for positive coordinate supports at the Werner endpoint}
-\hypersetup{pdfauthor={Aryan Singh}}
-\author{\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}\\\small Companion verification note}
-\date{}
+\title{\vspace{-1.65em}Exact finite maxima for positive coordinate supports at the Werner endpoint}
+\hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Exact finite maxima for positive coordinate supports at the Werner endpoint}}
+\author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
+\date{26 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -73,6 +73,8 @@ all outside fibers have size at most one, the bound is $t+d-1\le2d$.
 This exhausts the cases.
 \section*{Reproducibility and scope}
 The auditor rebuilds compatibility from the parity of three Hamming distances, replays each decision with sets, validates every color class, checks prefix coverage, and reconstructs the lower witness. An independent matrix test also checks the physical reduction on every two-copy qutrit support. Run \texttt{python3 continuous.py audit} from the repository root. The accompanying certificates specify every search leaf. The certificates prove finite maxima for this specified basis and endpoint. Priority in the combinatorics or quantum information literature remains unassessed. This is an internally reviewed working paper.
+
+\paragraph{Edition note.} For a table entry, the deposited support certifies the lower bound. To check the upper bound, replay the branches and verify that every color class contains mutually incompatible words. The formula $\max(8,2d)$ for three copies also has a matching proof that applies to dimensions beyond those tabulated.
 
 \smallskip\noindent Related formulation: P. Costa Rico, \emph{New partial trace inequalities and distillability of Werner states} (2025), \href{https://doi.org/10.1007/s11005-025-01935-y}{doi:10.1007/s11005-025-01935-y}. See also the companion manuscript, \emph{Positive coordinate compressions of tensor powers of a partially transposed Werner state}, in this repository.
 \end{document}
