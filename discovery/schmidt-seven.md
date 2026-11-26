@@ -1,0 +1,26 @@
+# Seven Schmidt coefficients on two three-qubit registers
+
+Two labs each hold three qubits. They can change the basis independently in each lab. Can any such change lower the stabilizer Rényi entropy below the value obtained by lining up the Schmidt coefficients, largest first, in the ordinary binary basis? Our working paper proves that this arrangement attains the minimum for every pure state with exactly seven nonzero coefficients on these two registers. The significance is that a continuous optimization over two arbitrary eight-dimensional unitaries becomes a formula in seven numbers. [Working paper](../papers/schmidt-rank-seven.pdf) · [Original conjecture](https://arxiv.org/html/2609.13106v2#S2.SS1) · [Catalogue E27](https://open-quantum-problems.vercel.app/p/E27)
+
+Sierant's rank-six result and rank-seven compression inequality supply the starting point. In local dimension eight the seven-dimensional support leaves exactly one unused direction. Subtracting the weight of that direction gives an identity for every pair of basis vectors. The remaining optimization reduces to 210 rational inequalities. Our checker reconstructs the finite problem, checks each inequality exactly, and recalculates three examples directly from all 4,096 Pauli observables. For seven equal coefficients the optimal purity is 211/343 and the minimum entropy is log₂(343/211) bits. The paper includes a short counting proof of this flat case. [Exact checker](../checks/schmidt7/verify.py) · [Rational certificates](../checks/schmidt7/duals.json)
+
+The proof also covers larger registers when the top three coefficients coincide, or when coefficients two through four coincide. The full conjecture allows arbitrary rank and register size. The general rank-seven case in larger registers still has five unresolved coefficient bounds in this approach.
+
+## Review and provenance
+
+The mathematical inputs are Lemma 1, Proposition 2, Theorem 7, Corollary 4, Proposition 10, and the plane projector in Eq. 39 of Sierant v2. The finite proof and the direct Pauli check run with the Python standard library. Run `python3 checks/schmidt7/verify.py` on the research branch. Lean 4.19.0 also checked all 210 finite inequalities in its kernel. Its checker counts allowed assignments to the four sorted slots by a product, independently of the permutation loop in Python. Run `python3 checks/schmidt7/lean_replay.py` with the pinned Lean toolchain. The analytic reduction remains a written proof. The note and checkers were produced in the same investigation. External mathematical review is pending.
+
+The 25 November 2026 priority screen checked the originating paper, the E27 catalogue, and searches for later rank-seven or general computational-basis optimality results. It did not locate an earlier proof of the stated rank-seven theorem. The original conjecture also appears in work by Liu and Cui. Other measures of nonlocal magic and the full optimization of this Rényi entropy are distinct claims. Priority remains provisional. [Originating work](https://arxiv.org/abs/2607.10714) · [Sierant](https://arxiv.org/abs/2609.13106)
+
+
+## The next search
+
+A single sufficient inequality would extend the finite certificate to arbitrary rank-seven spectra. Each pair of frame vectors would have to contribute at most two units of normalized plane weight across the other five vectors (last row of the paper’s table). This is an identity in dimension eight. In dimension sixteen the worker tests rational rotations of seven-frame vectors and independently reconstructs the best frame by four-by-four determinants. A score above two would invalidate this proposed proof route. It would take a separate entropy calculation to refute the physical conjecture. [Search code](../checks/schmidt7/pair_search.py) · [Search results](../campaign/schmidt-seven-pairs)
+
+## Extension to larger spectra, 25 November
+
+The revised paper proves the optimum in three regions that allow seven distinct nonzero Schmidt probabilities in registers of arbitrary size. Write them in decreasing order as $t_1,\dots,t_7$. It suffices that $t_1\le3t_7$, that $2t_2\le3t_7$, or that $t_4-t_5\ge t_7$. Each region has its own 210 exact certificates. A separate project reviewer reconstructed the coefficients and verified all 630. The factor three is sharp for the linear relaxation used in the first region. [Region verifier and certificate generator](../checks/schmidt7/regions.py) · [Mathematical review](../checks/schmidt7/review.md)
+
+There is also an analytic result of unbounded rank. In equal qubit registers, a list of Schmidt amplitudes with at most two exceptions to a common value attains its optimum in the sorted basis. For example, fourteen amplitudes proportional to 2, one proportional to 1 and one zero give exact optimal purity $2576747/3518667$. [Reviewed analytic proof](../checks/two-outliers/review.md) · [24 exact checks](../checks/schmidt7/two_exceptions.py)
+
+For the open pair-weight inequality, one team member established the desired bound in every dimension whenever the distinguished pair spans a stabilizer state. The remaining target is a pair without such a direction. The [proof](../checks/schmidt7/pair_extension.md) and [complex-frame search](../checks/schmidt7/pair_extension_optimize.py) are available for replay.

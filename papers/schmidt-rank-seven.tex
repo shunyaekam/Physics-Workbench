@@ -2,13 +2,13 @@
 \usepackage[margin=.75in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
-\title{\vspace{-2.2em}Computational-basis optimality of nonlocal stabilizer entropy\\at Schmidt rank seven on three qubits per party}
+\title{\vspace{-2.2em}Computational-basis optimality of nonlocal stabilizer entropy\\for rank-seven spectra and two exceptional amplitudes}
 \author{Physics Workbench\\\small Computational research note, available for independent review}
 \date{25 November 2026\vspace{-1.1em}}
 \begin{document}
 \maketitle
 \begin{abstract}
-For a pure state of two three-qubit registers with seven nonzero Schmidt coefficients, we show that the sorted computational-basis representative minimizes the stabilizer 2-R\'enyi entropy over all local unitaries. The coefficients are arbitrary. In larger registers the argument also covers rank-seven spectra whose three largest coefficients coincide, or whose second, third and fourth coefficients coincide. The proof uses Sierant's reduction to an exterior-algebra overlap. A pair occupation identity in dimension eight supplies additional constraints, and a rational certificate proves 210 coefficient inequalities. For the flat rank-seven spectrum the minimum is $\log_2(343/211)$ bits.
+We prove computational-basis optimality for every rank-seven bipartite pure state on two three-qubit registers. In arbitrary supporting register sizes, we give three full-dimensional rank-seven spectral regions with exact rational certificates. We also prove optimality at unbounded Schmidt rank for equal registers when all but two amplitudes coincide. The latter proof uses a two-particle occupation bound and gives an exact rank-15 example. These results use Sierant's analytic reduction of the local-unitary optimization. The unrestricted conjecture remains open.
 \end{abstract}
 
 \section{Statement and reduction}
@@ -17,7 +17,7 @@ Let $\mu_1\geq\cdots\geq\mu_7>0$, $\sum_i\mu_i^2=1$, and put $t_i=\mu_i^2$. Coor
  |\psi_0\rangle=\sum_{i=1}^{7}\mu_i|i-1\rangle_A|i-1\rangle_B,\qquad
  \mathcal P(\psi)=2^{-6}\sum_{P\in\{I,X,Y,Z\}^{\otimes6}}\langle\psi|P|\psi\rangle^4.
 \]
-The nonlocal stabilizer 2-R\'enyi entropy is $-\log_2$ of the maximum of $\mathcal P$ under separate unitaries on the registers. Conjecture 1 of Sierant [1] asks whether $|\psi_0\rangle$ is always optimal. His Theorems 1 and 2 cover dyadic-staircase spectra and ranks at most six, respectively.
+The nonlocal stabilizer 2-R\'enyi entropy is $-\log_2$ of the maximum of $\mathcal P$ under separate unitaries on the registers. Conjecture 1 of Sierant [1] asks whether $|\psi_0\rangle$ is always optimal. Earlier formulations appear in [2,3]. His Theorems 1 and 2 cover dyadic-staircase spectra and ranks at most six, respectively.
 
 \paragraph{Theorem.} For every rank-seven state on three qubits per party, the maximum is attained at $|\psi_0\rangle$. With $A$ ranging over four-element subsets of $\{1,\ldots,7\}$, its value is
 \[
@@ -70,7 +70,51 @@ Every one contains a member of $\{1,2\}$ and a member of $\{2,3\}$. Under either
 
 \paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence the entropy in the abstract. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
 
-\paragraph{Scope and replay.} Arbitrary rank-seven spectra in larger registers and unrestricted rank eight remain outside the theorem. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Independent review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. For the kernel replay run \texttt{python3 checks/schmidt7/lean\_replay.py} with the pinned Lean toolchain. \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/schmidt7}{Certificate and checkers.}
+
+\clearpage
+\section{Rank seven in larger registers}
+The following regions have interior among rank-seven spectra. For arbitrary supporting qubit registers, (1) gives the optimum whenever at least one of these conditions holds:
+\[
+ t_1\le 3t_7,\qquad 2t_2\le3t_7,\qquad t_4-t_5\ge t_7 .
+ \tag{3}
+\]
+These are conditions on the Schmidt \emph{probabilities}. Unlike the degeneracy corollaries, they permit seven different positive entries.
+
+\paragraph{Proof.} Denote the vector of seven ones by $\mathbf 1$ and the first-$j$ indicator by $E_j$. In each of the three regions, $t=\sum_{j=1}^7 h_j v_j$ for nonnegative $h_j$. In the first region take $v_j=\mathbf1+2E_j$ for $j<7$, $v_7=\mathbf1$, $h_j=g_j/2$ for $j<7$ and $h_7=(3t_7-t_1)/2$. In the second take $v_1=E_1$, $v_j=2\mathbf1+E_j$ for $2\le j<7$ and $v_7=\mathbf1$. Here $h_j=g_j$ for $j<7$ and $h_7=3t_7-2t_2$. In the third take $v_j=E_j$ for $j<7$ and $v_7=\mathbf1+E_4$. Here $h_j=g_j$ except $h_4=g_4-t_7$. All three substitutions recover each coordinate $t_i$.
+
+For each ordered multiset of four ray indices $j_1,\ldots,j_4$, use the weight
+\[
+ w_A=\sum_{\text{orderings }(i_1,\ldots,i_4)\text{ of }A}
+              \prod_{\ell=1}^4 (v_{j_\ell})_{i_\ell}.
+\]
+The earlier dual test applies unchanged to these weights. For each region its 210 deposited nonnegative rational multipliers (one vector per monomial) satisfy the two dual relations using only the first four row types of the table. These 630 certificates are checked exactly by \texttt{regions.py}; a separate implementation reconstructed the polynomial coefficients by multiplication and checked the certificates. This proves (2) throughout (3). The 630 new checks use rational arithmetic. The earlier Lean coverage is the 210 original inequalities.
+
+\paragraph{Limit of this method.} The factor three in the first condition is sharp for the four dimension-independent row types used here. Assign a four-set weight $1/5$, $1/8$ or $1/4$ according as it contains zero, one or two of the leading two indices. These nonnegative values satisfy every such row, as the checker verifies. For unnormalized $t=(R,R,1,1,1,1,1)$ their objective exceeds the coordinate objective by $R(R-3)/2$ when $R>3$. Normalization multiplies both objectives by the same positive factor. This is an obstruction to the linear relaxation. Physical realizability of these weights is a separate question.
+
+\clearpage
+\section{Two exceptional Schmidt amplitudes at arbitrary rank}
+Let the two registers have equal local dimension $d=2^n$. Suppose the entire list of $d$ Schmidt amplitudes consists of $d-2$ copies of $a$ and two entries $b,c$. The values are nonnegative and $(d-2)a^2+b^2+c^2=1$. The sorted computational-basis state attains the global optimum for every such spectrum, including zeros and exceptions below the common value. For $d\le4$ the source's rank theorem suffices. Consider $d\ge8$.
+
+Let $u,v$ be the orthogonal exceptional eigenvectors of $N$. On four-wedges write $n_u,n_v$ for the commuting projections testing occupancy of the two modes. Matching the four possible occupancy eigenvalues gives
+\[
+ \Lambda^4(N)=a^4 I+a^3(b-a)n_u+a^3(c-a)n_v+B\,n_u n_v,\qquad
+ B=a^2(b-a)(c-a).
+\]
+By the single-mode identity of [1, Appendix C, Theorem 17], $\Pi n_u\Pi=\Pi n_v\Pi=q\Pi$. Therefore the compression is $A\Pi+BK$ where
+\[
+ A=a^4+qa^3(b+c-2a),\qquad K=\Pi n_u n_v\Pi,\qquad 0\le K\le q\Pi .
+\]
+The scalar two-particle occupation matrix gives $T=\operatorname{Tr}K=q(d-2)/2$ independently of the pair. Thus $\operatorname{Tr}(K^2)\le qT$. For two coordinate vectors, each affine direction has at most one plane containing both vectors. The disjoint direction blocks in Eq.~39 of [1] then give eigenvalues zero and $q$ for $K$, attaining this bound. If $R=(d-1)(d-2)/6$ is the number of directions, the squared Hilbert--Schmidt norm is
+\[
+ Q=R A^2+2ABT+B^2\operatorname{Tr}(K^2).
+\]
+The variable term has coefficient $B^2\ge0$. The trace overlap for $N^2$ is constant, equal to $R A(a^2,b^2,c^2)+T B(a^2,b^2,c^2)$ using the same coefficient formulas. The coordinate pair therefore maximizes the two terms in Proposition 2 of [1], and the defect vanishes at that diagonal. Lemma 1 then gives the full two-unitary optimum. The proof requires the multiplicities in the ambient dimension $d$.
+
+For example, on two four-qubit registers, raw amplitudes $(2,\ldots,2,1,0)$ with fourteen twos give a rank-15 pure state. Its optimal purity is $2576747/3518667$, which a direct Pauli sum reproduces. Its last dyadic shell has unequal amplitudes, and its rank exceeds the rank-six theorem in [1]. Two exceptions above the background already give a sorted dyadic staircase; the theorem includes previously covered cases.
+
+
+\paragraph{Scope and replay.} General spectra in larger registers and unrestricted rank eight remain open. The argument relies on the cited preprint's analytic reduction and frame bounds. The finite certificate and occupation identities have executable checks. Separate project agents reviewed the physics reduction, tried adversarial complex frames, and replayed the finite checks. External review and publication priority remain open. Run \texttt{python3 checks/schmidt7/verify.py} on the research branch. For the kernel replay run \texttt{python3 checks/schmidt7/lean\_replay.py} with the pinned Lean toolchain. \href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/schmidt7}{Certificate and checkers.}
 
 \paragraph{Reference.} [1] P. Sierant, \emph{Spectral geometry of nonlocal stabilizer entropy}, \href{https://arxiv.org/html/2609.13106v2}{arXiv:2609.13106v2} (2026). The public problem listing is \href{https://open-quantum-problems.vercel.app/p/E27}{Open Quantum Problems E27}.
+ [2] \href{https://arxiv.org/abs/2607.10714}{Liu and Cui, arXiv:2607.10714}. [3] \href{https://arxiv.org/abs/2607.07808}{Torre, Franchini and Giampaolo, arXiv:2607.07808}.
 \end{document}
