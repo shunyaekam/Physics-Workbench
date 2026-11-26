@@ -1,4 +1,6 @@
-# Physics Workbench
+# Torus Sciences
+
+Torus Sciences is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.
 
 [Browse the public research catalogue](https://shunyaekam.github.io/Physics-Workbench/) to read the manuscripts and inspect the verification scope for each result.
 
