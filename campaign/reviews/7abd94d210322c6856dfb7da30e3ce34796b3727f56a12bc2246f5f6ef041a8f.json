@@ -1,0 +1,26 @@
+{
+  "manuscript_sha256": {
+    "coordinate-supports.tex": "cd410c0358c300bb2ce23a0fbba625429ac139d5dea2cecddf2782c83a870474",
+    "finite-maxima.tex": "07418b0d5a383b07599b2bf86ae0644804bb938c50b3c90d9c602a0655e71aab"
+  },
+  "method": "exact replay",
+  "mathematical_review": "pending",
+  "scrutiny.py": [
+    "Dense tensor, 512 supports: 97 PSD including empty",
+    "All anchored ternary supports, k = 1 maxima: (2, 0)",
+    "All anchored ternary supports, k = 2 maxima: (4, 3)",
+    "All anchored ternary supports, k = 3 maxima: (8, 6)",
+    "Corruptions rejected: 5"
+  ],
+  "thresholds.py": [
+    "12040 exact matrix/threshold comparisons passed"
+  ],
+  "independently_replayed_maxima": {
+    "4,4": 16,
+    "5,3": 10,
+    "6,3": 12,
+    "5,4": 25,
+    "7,3": 14,
+    "8,3": 16
+  }
+}
