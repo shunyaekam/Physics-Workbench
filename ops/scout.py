@@ -1,5 +1,6 @@
 """Screen one external intake lead against primary sources within the shared model quota."""
 import json
+import re
 from pathlib import Path
 import sys
 from urllib.parse import urlsplit
@@ -10,14 +11,49 @@ from lab import load,write
 from ops.witness import fingerprint
 
 
+def source_key(url):
+    parsed=urlsplit(url)
+    if parsed.hostname=="arxiv.org":
+        match=re.fullmatch(r"/(?:abs|html|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?(?:\.pdf)?",parsed.path)
+        if match:
+            return "arxiv:"+match[1]
+    return url.rstrip("/").replace("open-quantum-problems.vercel.app","openquantumproblems.com")
+
+
+def eligible(row):
+    scope=row.get("physics") or row["source"] in {"IQOQI Vienna","QIQCOP Zoo"} or "mathematical physics" in row.get("topics",[])
+    status=row.get("status","").lower()
+    return scope and row.get("kind") in {"problem","catalogue"} and status in {
+        "open","unsolved","active","improved","partially resolved","partially solved","partial","partially open"}
+
+
 def pending(root):
-    admitted={c["source"] for c in load(root/"discovery/targets.json")}
+    cards=load(root/"discovery/targets.json")
+    admitted={source_key(c["source"]) for c in cards}
+    catalogue_links={source_key(url) for c in cards for url in c["evidence_checked"]}
+    pool=[]
+    for index in sorted((root/"campaign/catalogue-index").glob("*.json")):
+        for row in load(index)["rows"]:
+            if not eligible(row) or source_key(row["url"]) in catalogue_links:
+                continue
+            title=row["title"].lower()
+            # This is a reading order for a literature scout, not a difficulty estimate.
+            concrete=any(word in title for word in ("counterexample","construction","circuit","finite-dimensional","smallest"))
+            lead=dict(id=row["id"],source=row["url"],question=row["title"],title=row["title"],
+                      catalogue=row["source"],listed_status=row.get("status"))
+            manageable=str(row.get("difficulty","")).startswith(("1/5","2/5"))
+            pool.append((0 if manageable and concrete else 1 if concrete else 3,lead))
     for batch in sorted((root/"campaign/intake").glob("*.json"),reverse=True):
-        for lead in load(batch):
-            key=fingerprint([lead["source"],lead["question"]])[:24]
-            path=root/"campaign/scouting"/(key+".json")
-            if lead["source"] not in admitted and not path.exists():
-                return lead,path
+        pool.extend((2,lead) for lead in load(batch))
+    for _,lead in sorted(pool,key=lambda pair:(pair[0],pair[1]["id"])):
+        if source_key(lead["source"]) in admitted:
+            continue
+        identity=([lead["catalogue"],lead["id"],lead["question"],lead["listed_status"]] if "catalogue" in lead
+                  else [lead["source"],lead["question"]])
+        key=fingerprint(identity)[:24]
+        path=root/"campaign/scouting"/(key+".json")
+        if not path.exists():
+            return lead,path
     return None
 
 

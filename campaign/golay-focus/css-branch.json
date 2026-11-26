@@ -1,0 +1,438 @@
+{
+  "problem_id": "golay43",
+  "method": "first-two-tree single-edge branching",
+  "start_seed": 230049,
+  "start_cnot_count": 47,
+  "trials": 168,
+  "tails_per_branch": 8,
+  "branches": [
+    {
+      "delta_depth": 0,
+      "edge": 0,
+      "parent_wire": 19,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 0,
+      "parent_wire": 10,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 0,
+      "parent_wire": 11,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 0,
+      "parent_wire": 8,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 0,
+      "parent_wire": 21,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 1,
+      "parent_wire": 11,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 0,
+      "edge": 1,
+      "parent_wire": 8,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 1,
+      "parent_wire": 15,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 0,
+      "edge": 1,
+      "parent_wire": 21,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 0,
+      "edge": 2,
+      "parent_wire": 11,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 2,
+      "parent_wire": 15,
+      "best_cost": 49
+    },
+    {
+      "delta_depth": 0,
+      "edge": 2,
+      "parent_wire": 21,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 3,
+      "parent_wire": 8,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 0,
+      "edge": 3,
+      "parent_wire": 21,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 0,
+      "edge": 4,
+      "parent_wire": 15,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 1,
+      "edge": 0,
+      "parent_wire": 13,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 1,
+      "edge": 0,
+      "parent_wire": 7,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 1,
+      "edge": 0,
+      "parent_wire": 3,
+      "best_cost": 47
+    },
+    {
+      "delta_depth": 1,
+      "edge": 1,
+      "parent_wire": 13,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 1,
+      "edge": 1,
+      "parent_wire": 3,
+      "best_cost": 48
+    },
+    {
+      "delta_depth": 1,
+      "edge": 2,
+      "parent_wire": 7,
+      "best_cost": 48
+    }
+  ],
+  "checked_gate_counts": {
+    "47": 22,
+    "48": 72,
+    "49": 50,
+    "50": 20,
+    "51": 4
+  },
+  "best": {
+    "branch": 0,
+    "seed": 1000004,
+    "result": {
+      "qubits": 23,
+      "cnot_count": 47,
+      "positive_target_generators": 23,
+      "target_prepared": true,
+      "decisive": false
+    },
+    "witness": {
+      "gates": [
+        [
+          "H",
+          8
+        ],
+        [
+          "H",
+          20
+        ],
+        [
+          "H",
+          1
+        ],
+        [
+          "H",
+          10
+        ],
+        [
+          "H",
+          15
+        ],
+        [
+          "H",
+          12
+        ],
+        [
+          "H",
+          17
+        ],
+        [
+          "H",
+          7
+        ],
+        [
+          "H",
+          9
+        ],
+        [
+          "H",
+          5
+        ],
+        [
+          "H",
+          2
+        ],
+        [
+          "CX",
+          2,
+          14
+        ],
+        [
+          "CX",
+          14,
+          4
+        ],
+        [
+          "CX",
+          5,
+          4
+        ],
+        [
+          "CX",
+          9,
+          14
+        ],
+        [
+          "CX",
+          14,
+          0
+        ],
+        [
+          "CX",
+          4,
+          14
+        ],
+        [
+          "CX",
+          7,
+          4
+        ],
+        [
+          "CX",
+          4,
+          9
+        ],
+        [
+          "CX",
+          9,
+          22
+        ],
+        [
+          "CX",
+          0,
+          13
+        ],
+        [
+          "CX",
+          17,
+          9
+        ],
+        [
+          "CX",
+          9,
+          13
+        ],
+        [
+          "CX",
+          14,
+          6
+        ],
+        [
+          "CX",
+          17,
+          6
+        ],
+        [
+          "CX",
+          12,
+          2
+        ],
+        [
+          "CX",
+          6,
+          19
+        ],
+        [
+          "CX",
+          2,
+          6
+        ],
+        [
+          "CX",
+          15,
+          17
+        ],
+        [
+          "CX",
+          15,
+          2
+        ],
+        [
+          "CX",
+          2,
+          9
+        ],
+        [
+          "CX",
+          10,
+          14
+        ],
+        [
+          "CX",
+          10,
+          11
+        ],
+        [
+          "CX",
+          13,
+          11
+        ],
+        [
+          "CX",
+          14,
+          13
+        ],
+        [
+          "CX",
+          1,
+          9
+        ],
+        [
+          "CX",
+          1,
+          13
+        ],
+        [
+          "CX",
+          20,
+          6
+        ],
+        [
+          "CX",
+          6,
+          0
+        ],
+        [
+          "CX",
+          7,
+          18
+        ],
+        [
+          "CX",
+          20,
+          18
+        ],
+        [
+          "CX",
+          1,
+          18
+        ],
+        [
+          "CX",
+          22,
+          16
+        ],
+        [
+          "CX",
+          17,
+          16
+        ],
+        [
+          "CX",
+          13,
+          16
+        ],
+        [
+          "CX",
+          8,
+          18
+        ],
+        [
+          "CX",
+          18,
+          11
+        ],
+        [
+          "CX",
+          8,
+          22
+        ],
+        [
+          "CX",
+          10,
+          3
+        ],
+        [
+          "CX",
+          22,
+          3
+        ],
+        [
+          "CX",
+          2,
+          10
+        ],
+        [
+          "CX",
+          18,
+          2
+        ],
+        [
+          "CX",
+          15,
+          21
+        ],
+        [
+          "CX",
+          8,
+          21
+        ],
+        [
+          "CX",
+          11,
+          15
+        ],
+        [
+          "CX",
+          10,
+          8
+        ],
+        [
+          "CX",
+          19,
+          10
+        ],
+        [
+          "CX",
+          0,
+          19
+        ]
+      ]
+    }
+  },
+  "scope": "Every alternate parent consistent with the existing leaf-removal order in the first or second extraction of one starting circuit. Eight sampled suffixes per branch."
+}

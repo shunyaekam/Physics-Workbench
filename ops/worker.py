@@ -31,7 +31,11 @@ def synchronize(ref,local,branch):
     if not local.is_dir() or local.resolve()==RUNTIME:
         return
     options=dict(root=local)
-    if git("remote","get-url","origin",**options).stdout.strip()!=ref:
+    probe=git("remote","get-url","origin",check=False,**options)
+    if probe.returncode:
+        print(f"Editable checkout currently inaccessible at {local}. Remote research is synchronized.",flush=True)
+        return
+    if probe.stdout.strip()!=ref:
         return
     if git("branch","--show-current",**options).stdout.strip()!=branch:
         return
@@ -84,6 +88,19 @@ def run():
     call([sys.executable,"review_papers.py"],timeout=240)
     call([sys.executable,"literature.py"],timeout=210)
     call([sys.executable,"ops/catalogue_watch.py"],timeout=40,check=False)
+    # Fetch full question rows once per week per importer. Keep the last complete snapshot after a failure.
+    week=datetime.datetime.now(datetime.timezone.utc).strftime("%G-W%V")
+    marker_dir=RUNTIME/"campaign/catalogue-scans"
+    for importer in ("catalogue_index","extra_catalogues"):
+        marker=marker_dir/(importer+"-"+week+".done")
+        if not marker.exists():
+            try:
+                completed=call([sys.executable,"ops/"+importer+".py"],timeout=180,check=False)
+                if completed.returncode==0:
+                    marker_dir.mkdir(exist_ok=True)
+                    marker.write_text(week+"\n")
+            except (OSError,subprocess.TimeoutExpired) as exc:
+                print(f"{importer} refresh pending: {exc}",flush=True)
     try:
         call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:

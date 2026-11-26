@@ -348,6 +348,17 @@ def build(root, now):
                               "replay":artifact(root,"checks/finite_spins.py")}))
         else:
             finite.append(row(ident,title,"queued",url,question))
+    focus_dir=root/"campaign/golay-focus"
+    for path in sorted(focus_dir.glob("*.json")):
+        from checks.golay_certificate import check
+        report=load(path)
+        best=report["best"]
+        result=check(best["witness"])
+        require(result==best["result"] and result["target_prepared"],"Stored focus circuit failed replay")
+        activity.insert(0,row("golay-"+path.stem,"Golay · "+report["method"],"checked_circuits",
+                    artifact(root,str(path.relative_to(root))),
+                    f'{report["trials"]} complete circuits tested. Best in this search: {result["cnot_count"]} CNOTs. Target: 43.',
+                    evidence={"construction":artifact(root,"checks/golay/css_peeling.md")}))
     certified=[]
     kernel_steps=[]
     if (root/"discovery/proof-contracts.json").is_file():

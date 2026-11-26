@@ -21,7 +21,7 @@ SOLVER_FIELDS=("approach","witness_json","derivation","what_would_change")
 NOTEBOOK={
     "transport-polygon":["formal/transport_literal/attempt.py","papers/transport-polygon.md"],
     "e27-schmidt":["checks/schmidt_orbit.py","checks/schmidt-orbit.md"],
-    "golay43":["checks/golay43.py","checks/golay_certificate.py","discovery/inputs/golay-44.json","lab.py","verify.py"],
+    "golay43":["checks/golay43.py","checks/golay_certificate.py","checks/golay/frontier_v2.md","checks/golay/css_peeling.py","checks/golay/css_peeling.md","discovery/inputs/golay-44.json","lab.py","verify.py"],
     "refined-bmv":["checks/bmv_certificate.py","checks/bmv_search.py","lab.py","verify.py"],
     "werner-endpoint":["checks/werner_witness.py","complex_search.py","verify.py"],
     "gagatsos-2026-c1":["three_level_search.py","wigner_search.py","lab.py","verify.py"]}
@@ -84,6 +84,12 @@ def advance_one(record,contract,card):
                 "Use a materially different construction after a negative result. The supplied checker "
                 "will be rerun outside the notebook. State the logical scope of the calculation.\n"+packet)
         files=[name for name in NOTEBOOK[pid] if (ROOT/name).is_file()]
+        if pid=="golay43":
+            receipts=sorted((ROOT/"campaign/golay-focus").glob("*.json"))
+            files.extend(str(path.relative_to(ROOT)) for path in receipts[-4:])
+            prompt += ("\nUse the frontier report and the focus receipts if available. "
+                       "The 44-gate circuit is the known control. Try a distinct construction "
+                       "or a justified pruning argument that makes the 43-gate search smaller.")
         proposal=answer(prompt,SOLVER_FIELDS,notebook=files)
         attempt=execute(pid,contract,proposal,attempts)
         attempt["origin"]=MODEL+" hosted solver"
@@ -125,6 +131,25 @@ def advance_one(record,contract,card):
     record["updated_at"]=now()
 
 
+def add_focus_circuit(rec,contract):
+    for path in sorted((ROOT/"campaign/golay-focus").glob("*.json")):
+        report=load(path)
+        best=report["best"]
+        if best["result"]["cnot_count"]>43 or not best["result"]["target_prepared"]:
+            continue
+        witness=best["witness"]
+        if any(a.get("witness_hash")==fingerprint(witness) for a in rec["attempts"]):
+            continue
+        proposal=dict(approach=report["method"],witness_json=json.dumps(witness),
+                      derivation=str(path.relative_to(ROOT)),what_would_change=contract["implication"])
+        tested=execute("golay43",contract,proposal,rec["attempts"])
+        tested["origin"]="focused circuit construction"
+        rec["attempts"].append(tested)
+        rec.update(status="math_review",updated_at=now())
+        return True
+    return False
+
+
 def add_discovered_circuit(rec,contract):
     # A signed candidate from an unattended search deserves the same reviews as an AI witness.
     for family in ("golay-graphs","golay-splices","golay-splice-tails","golay-repairs"):
@@ -149,6 +174,24 @@ def add_discovered_circuit(rec,contract):
     return False
 
 
+def dispatch(docket, scout_due, previous):
+    """Review a decisive witness first. Alternate the focus investigation with the other work."""
+    positives=[row for row in docket if not row[0]]
+    if positives:
+        return "review",min(positives)
+    focus=[row for row in docket if row[3]=="golay43"]
+    others=[row for row in docket if row[3]!="golay43"]
+    if focus and previous!="focus":
+        return "focus",min(focus)
+    if scout_due:
+        return "scout",None
+    if others:
+        return "rotation",min(others)
+    if focus:
+        return "focus",min(focus)
+    return "idle",None
+
+
 def tick():
     OUT.mkdir(exist_ok=True,parents=True)
     cards={c["id"]:c for c in load(ROOT/"discovery/targets.json")}
@@ -165,7 +208,7 @@ def tick():
         rec=load(path) if path.exists() else new_record(pid,contract)
         if pid=="golay43" and rec["status"] not in ("priority_review","ready_for_replay") and not (
             rec["attempts"] and rec["attempts"][-1].get("result",{}).get("decisive")
-        ) and add_discovered_circuit(rec,contract):
+        ) and (add_focus_circuit(rec,contract) or add_discovered_circuit(rec,contract)):
             write(path,rec)
         if rec["status"] in ("solve","math_review","priority_review"):
             pending_positive=bool(rec["attempts"] and rec["attempts"][-1].get("result",{}).get("decisive"))
@@ -176,20 +219,26 @@ def tick():
     # One intake slot per UTC day if research is still in progress.
     day=now()[:10]
     marker=ROOT/"campaign/scouting"/("day-"+day+".json")
-    if lead and (not docket or not marker.exists() and all(row[0] for row in docket)):
+    history=ROOT/"campaign/agent-dispatch.json"
+    previous=load(history).get("lane") if history.exists() else None
+    lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous)
+    if lane=="scout":
         try:
             screen(lead,answer)
             write(marker,{"lead":lead[0]["source"]})
         except HourlyLimit as exc:
             print(exc)
+            return
         except (ValueError, OSError, RuntimeError) as exc:
             marker.parent.mkdir(exist_ok=True)
             write(marker,{"lead":lead[0]["source"],"error":str(exc)})
+        write(history,{"lane":lane,"source":lead[0]["source"],"at":now()})
         return
-    if not docket:
+    if job is None:
         print("All registered attempts completed or parked")
         return
-    *_,pid,path,rec=min(docket)
+    *_,pid,path,rec=job
+    assigned_stage=rec["status"]
     try:
         advance_one(rec,contracts()[pid],cards[pid])
         rec.pop("last_error",None)
@@ -199,6 +248,7 @@ def tick():
     except (OSError,ValueError,RuntimeError) as err:
         rec.update(last_error=str(err),updated_at=now())
     write(path,rec)
+    write(history,{"lane":lane,"problem_id":pid,"stage":assigned_stage,"at":now()})
     print(pid,rec["status"],rec.get("last_error",""))
 
 

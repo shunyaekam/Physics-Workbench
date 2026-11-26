@@ -10,7 +10,7 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T02:41:53+00:00",
+  "updated_at": "2026-11-26T02:49:46+00:00",
   "counts": {
     "leads": 3,
     "problems": 6,
@@ -279,6 +279,36 @@
       "status": "math_review",
       "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/e27-schmidt-bf3fa5306b0ac563.json",
       "detail": "4 recorded attempts. Test coupled plane rotations on the nearly flat spectrum proposed by the independent critic."
+    },
+    {
+      "id": "golay-css-trees",
+      "title": "Golay \u00b7 minimum-weight CSS stabilizer tree peeling",
+      "status": "checked_circuits",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-trees.json",
+      "detail": "128 complete circuits tested. Best in this search: 47 CNOTs. Target: 43.",
+      "evidence": {
+        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+      }
+    },
+    {
+      "id": "golay-css-stars",
+      "title": "Golay \u00b7 minimum-weight CSS stabilizer star peeling",
+      "status": "checked_circuits",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-stars.json",
+      "detail": "128 complete circuits tested. Best in this search: 58 CNOTs. Target: 43.",
+      "evidence": {
+        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+      }
+    },
+    {
+      "id": "golay-css-branch",
+      "title": "Golay \u00b7 first-two-tree single-edge branching",
+      "status": "checked_circuits",
+      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-branch.json",
+      "detail": "168 complete circuits tested. Best in this search: 47 CNOTs. Target: 43.",
+      "evidence": {
+        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+      }
     },
     {
       "id": "schmidt-pair-search",
