@@ -5,36 +5,36 @@
       "id": "wei-12-3-4",
       "title": "[[12,3,4]] \u00b7 Optimal check weight 6",
       "status": "machine_checked_full",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-3-4.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/main/certificates/wei-12-3-4.json",
       "detail": "A code attains 6. Exact rational certificates exclude 5 for every eligible stabilizer group.",
       "problem_id": "wei-12-3-4",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "evidence": {
-        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+        "paper": "https://shunyaekam.github.io/oo-research/papers/distance-four.pdf"
       }
     },
     {
       "id": "wei-12-4-4",
       "title": "[[12,4,4]] \u00b7 Optimal check weight 7",
       "status": "machine_checked_full",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-12-4-4.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/main/certificates/wei-12-4-4.json",
       "detail": "A code attains 7. Exact rational certificates exclude 6 for every eligible stabilizer group.",
       "problem_id": "wei-12-4-4",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "evidence": {
-        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+        "paper": "https://shunyaekam.github.io/oo-research/papers/distance-four.pdf"
       }
     },
     {
       "id": "wei-10-2-4",
       "title": "[[10,2,4]] \u00b7 Optimal check weight 6",
       "status": "machine_checked_full",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/main/certificates/wei-10-2-4.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/main/certificates/wei-10-2-4.json",
       "detail": "The Grassl code attains six. Every distance-compatible subspace in the graph census has no nonidentity stabilizers of weight at most five.",
       "problem_id": "wei-10-2-4",
       "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
       "evidence": {
-        "paper": "https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf"
+        "paper": "https://shunyaekam.github.io/oo-research/papers/distance-four.pdf"
       }
     }
   ],
@@ -43,41 +43,41 @@
       "id": "counting-lemma",
       "title": "Counting bound for all directed cycles",
       "status": "lean_checked_scoped",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/formal/transport_literal/counting-proof.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/formal/transport_literal/counting-proof.md",
       "detail": "Lean checks the general counting lemma used in the transport manuscript."
     },
     {
       "id": "literal-transport",
       "title": "Three energy levels: exact line error 2/3",
       "status": "lean_checked_scoped",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/formal/transport_literal/README.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/formal/transport_literal/README.md",
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:32:59+00:00",
+  "updated_at": "2026-11-26T20:37:00+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 83457907384,
+    "attempts": 83641752336,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 872069,
-    "coherent-cats": 18688,
-    "coherent-bands": 6081,
-    "three-level": 12190,
+    "werner": 874268,
+    "coherent-cats": 18816,
+    "coherent-bands": 6112,
+    "three-level": 12254,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 3328000,
+    "golay-graphs": 3348000,
     "golay-repairs": 269543351,
-    "golay-splices": 5664176892,
-    "golay-splice-tails": 77519555652,
-    "schmidt-seven-pairs": 70200
+    "golay-splices": 5676661254,
+    "golay-splice-tails": 77690893280,
+    "schmidt-seven-pairs": 70740
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -91,9 +91,9 @@
       "question": "For every bipartite pure state of qubits, does the sorted computational-basis Schmidt representative minimize the stabilizer 2-R\u00e9nyi entropy over independent local unitaries?",
       "decisive_test": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
       "evidence": {
-        "working paper": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/schmidt-rank-seven.pdf",
-        "exact checker": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/schmidt7/verify.py",
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/1"
+        "working paper": "https://github.com/shunyaekam/oo-research/blob/research/papers/schmidt-rank-seven.pdf",
+        "exact checker": "https://github.com/shunyaekam/oo-research/blob/research/checks/schmidt7/verify.py",
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/1"
       }
     },
     {
@@ -107,9 +107,9 @@
       "decisive_test": "One explicitly reconstructed circuit with a signed-stabilizer verification in cyclic coordinates answers yes. A no requires a lower bound over all allowed circuits. Failed local searches establish neither a lower bound nor optimality.",
       "evidence": {
         "catalogue": "https://openquantumproblems.com/p/A50",
-        "experiment": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-        "selection": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/catalogue-intake.md",
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/2"
+        "experiment": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
+        "selection": "https://github.com/shunyaekam/oo-research/blob/research/discovery/catalogue-intake.md",
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/2"
       }
     },
     {
@@ -122,11 +122,11 @@
       "question": "For 0 < p \u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
       "decisive_test": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
       "evidence": {
-        "target and proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/transport-polygon.md",
-        "exact optimal labels": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport_optimum.py",
-        "mathematical review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/transport-review.md",
-        "priority audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/transport-priority.md",
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/3"
+        "target and proof": "https://github.com/shunyaekam/oo-research/blob/research/discovery/transport-polygon.md",
+        "exact optimal labels": "https://github.com/shunyaekam/oo-research/blob/research/checks/transport_optimum.py",
+        "mathematical review": "https://github.com/shunyaekam/oo-research/blob/research/checks/transport-review.md",
+        "priority audit": "https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/transport-priority.md",
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/3"
       }
     },
     {
@@ -139,7 +139,7 @@
       "question": "Does there exist a bipartite state with negative partial transpose from which no entanglement can be distilled using any finite number of copies?",
       "decisive_test": "A strict negative witness would settle distillability of the specified state at that copy count. The overarching existential question would remain open. Nonnegative samples and coordinate-support classifications leave even the finite-copy target unresolved.",
       "evidence": {
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/4"
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/4"
       }
     },
     {
@@ -152,7 +152,7 @@
       "question": "For every single-mode state, is the Wigner L1 norm at most the squared integral of sqrt(Q) divided by 8 pi, with equality exactly for coherent states?",
       "decisive_test": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement.",
       "evidence": {
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/5"
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/5"
       }
     },
     {
@@ -165,9 +165,9 @@
       "question": "For all finite-dimensional Hermitian H,K and positive integers n,m, is the mean trace of words with n factors exp(H) and m factors exp(K) at least Tr exp(nH+mK)?",
       "decisive_test": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
       "evidence": {
-        "binary-spectrum proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/bmv-trace-12-3.tex",
-        "exact follow-up": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_search.py",
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/6"
+        "binary-spectrum proof": "https://github.com/shunyaekam/oo-research/blob/research/papers/bmv-trace-12-3.tex",
+        "exact follow-up": "https://github.com/shunyaekam/oo-research/blob/research/checks/bmv_search.py",
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/6"
       }
     },
     {
@@ -180,7 +180,7 @@
       "question": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
       "decisive_test": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
       "evidence": {
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/8"
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/8"
       }
     },
     {
@@ -193,7 +193,7 @@
       "question": "What is the minimum possible maximum generator weight of a binary [[12,4,4]] stabilizer code, over all codes and generating sets?",
       "decisive_test": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
       "evidence": {
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/9"
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/9"
       }
     },
     {
@@ -206,7 +206,7 @@
       "question": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
       "decisive_test": "The Grassl code attains six. Over every graph-state parent from the Danielsen\u2013Parker classification including disconnected products, the distance-compatible rank-eight subspaces have no nonidentity stabilizers of weight at most five. Every eligible group extends to a graph-state parent up to weight-preserving equivalence.",
       "evidence": {
-        "tracking issue": "https://github.com/shunyaekam/Physics-Workbench/issues/10"
+        "tracking issue": "https://github.com/shunyaekam/oo-research/issues/10"
       }
     }
   ],
@@ -217,7 +217,7 @@
       "status": "unreviewed_lead",
       "url": "https://arxiv.org/abs/2611.31971v1",
       "detail": "Full identification of the sextic potential within a specific gauge-theory moduli dynamics remains open and is formulated as a research program.",
-      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+      "receipt": "https://github.com/shunyaekam/oo-research/blob/research/campaign/intake/2026-W48.json"
     },
     {
       "id": "arxiv-2611.31116v1",
@@ -225,7 +225,7 @@
       "status": "unreviewed_lead",
       "url": "https://arxiv.org/abs/2611.31116v1",
       "detail": "Whether every analytic zero in the lower half of the critical strip belongs to the physical spectral family remains open.",
-      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+      "receipt": "https://github.com/shunyaekam/oo-research/blob/research/campaign/intake/2026-W48.json"
     },
     {
       "id": "arxiv-2611.29650v1",
@@ -233,7 +233,7 @@
       "status": "unreviewed_lead",
       "url": "https://arxiv.org/abs/2611.29650v1",
       "detail": "It improves established benchmarks over broad parameter ranges, while the exact entanglement of the generalized resources remains open.",
-      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+      "receipt": "https://github.com/shunyaekam/oo-research/blob/research/campaign/intake/2026-W48.json"
     }
   ],
   "partial_results": [
@@ -241,7 +241,7 @@
       "id": "bmv-binary-spectrum",
       "title": "Two energy levels suffice for both refined trace bounds",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-blocks.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/checks/bmv-blocks.md",
       "detail": "Both bounds hold in every finite dimension and at all word lengths whenever either observable has at most two distinct levels, with arbitrary multiplicities. The general lower bound remains open.",
       "problem_id": "refined-bmv"
     },
@@ -249,7 +249,7 @@
       "id": "schmidt-seven",
       "title": "Rank-seven nonlocal magic on three qubits per party",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/schmidt-seven.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/schmidt-seven.md",
       "detail": "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank family with only two exceptional amplitudes in the full equal-register list (including zeros) have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
       "problem_id": "e27-schmidt"
     },
@@ -257,7 +257,7 @@
       "id": "phase-invariant",
       "title": "Photon-number mixtures",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/phase-invariant-wigner.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/checks/phase-invariant-wigner.md",
       "detail": "The written proof covers all photon-number distributions. Lean checks the arithmetic induction.",
       "problem_id": "gagatsos-2026-c1"
     },
@@ -265,7 +265,7 @@
       "id": "optical-qubit",
       "title": "The zero\u2013one-photon qubit",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/single-rail-wigner.tex",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/papers/single-rail-wigner.tex",
       "detail": "The proof covers pure and mixed states in the two-level optical subspace.",
       "problem_id": "gagatsos-2026-c1"
     },
@@ -273,7 +273,7 @@
       "id": "renyi-orders",
       "title": "R\u00e9nyi-order obstructions",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/renyi-obstructions.tex",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/papers/renyi-obstructions.tex",
       "detail": "The paper excludes orders and derives a sharp lower threshold on the optical qubit.",
       "problem_id": "gagatsos-2026-c1"
     },
@@ -281,7 +281,7 @@
       "id": "sparse",
       "title": "Two-level superpositions",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/sparse-fock-coherence.tex",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/papers/sparse-fock-coherence.tex",
       "detail": "The proof covers the convex hull of states supported on at most two Fock levels chosen from zero through five. Coherent superpositions on three or more levels remain outside this case.",
       "problem_id": "gagatsos-2026-c1"
     },
@@ -289,7 +289,7 @@
       "id": "cubic-phase",
       "title": "Cubic gates up to 0.15",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/cubic-strength.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/cubic-strength.md",
       "detail": "An interval certificate covers a continuum of weak cubic gates with arbitrary Gaussian processing.",
       "problem_id": "gagatsos-2026-c1"
     },
@@ -297,7 +297,7 @@
       "id": "coordinate",
       "title": "Coordinate support conditions",
       "status": "scoped_result",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/papers/coordinate-supports.tex",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/papers/coordinate-supports.tex",
       "detail": "The parity theorem characterizes positive coordinate compressions. Its companion table checks the construction; for three copies the maximum is max(8, 2d) in all dimensions d \u2265 2. Rank-two distillability remains open.",
       "problem_id": "werner-endpoint"
     }
@@ -307,16 +307,16 @@
       "id": "transport-polygon",
       "title": "Exact polygon error for finite-spectrum quantum transport",
       "status": "reviewed_resolution",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
       "detail": "For 0 < p \u2264 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
       "problem_id": "transport-polygon",
       "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
       "evidence": {
-        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
-        "independent_review": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/checks/transport-review.md",
-        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/sources/transport-priority.md"
+        "proof": "https://github.com/shunyaekam/oo-research/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/papers/transport-polygon.md",
+        "independent_review": "https://github.com/shunyaekam/oo-research/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/checks/transport-review.md",
+        "priority_audit": "https://github.com/shunyaekam/oo-research/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/sources/transport-priority.md"
       },
-      "decision_url": "https://github.com/shunyaekam/Physics-Workbench/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/resolutions/transport-polygon.json"
+      "decision_url": "https://github.com/shunyaekam/oo-research/blob/f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417/discovery/resolutions/transport-polygon.json"
     }
   ],
   "candidates": [],
@@ -325,124 +325,124 @@
       "id": "flow-werner-endpoint",
       "title": "werner-endpoint",
       "status": "math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/werner-endpoint-0a8e18bf9da58dcb.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/werner-endpoint-0a8e18bf9da58dcb.json",
       "detail": "1 recorded attempts. Check the rank-two zero-score control."
     },
     {
       "id": "flow-wei-12-4-4",
       "title": "Optimal check weight for twelve physical qubits encoding four",
       "status": "ready_for_replay",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-4-4-a13becb2b7dbf8cb.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/wei-12-4-4-a13becb2b7dbf8cb.json",
       "detail": "1 recorded attempts. Search neighbors sharing seven checks with Grassl\u2019s code, then bound the total number of checks of weight at most six."
     },
     {
       "id": "flow-wei-12-3-4",
       "title": "Optimal check weight for twelve physical qubits encoding three",
       "status": "ready_for_replay",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-12-3-4-d690cba980d93f08.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/wei-12-3-4-d690cba980d93f08.json",
       "detail": "1 recorded attempts. Use commuting checks of weight six and bound the total number of lighter stabilizers."
     },
     {
       "id": "flow-wei-10-2-4",
       "title": "Optimal check weight for ten qubits encoding two",
       "status": "ready_for_replay",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/wei-10-2-4-0744136fd9a96a32.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/wei-10-2-4-0744136fd9a96a32.json",
       "detail": "1 recorded attempts. Use Grassl\u2019s construction for the upper bound and enumerate distance-compatible subspaces of every self-dual graph-state parent to exclude five."
     },
     {
       "id": "flow-transport-polygon",
       "title": "Exact approximation of quantum transport costs",
       "status": "counting_proof_replayed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/transport-polygon-9783d1a9bb39a040.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/transport-polygon-9783d1a9bb39a040.json",
       "detail": "1 recorded attempts. Inspect the general counting proposition after introducing its cycle and family."
     },
     {
       "id": "flow-refined-bmv",
       "title": "A lower bound for symmetrized quantum partition functions",
       "status": "math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
       "detail": "1 recorded attempts. Test a real three-level noncommuting pair using rational Taylor enclosures."
     },
     {
       "id": "flow-golay43",
       "title": "First priority \u00b7 A 43-gate Golay preparation",
       "status": "math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/golay43-065ee3f4684969f1.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/golay43-065ee3f4684969f1.json",
       "detail": "1 recorded attempts. Verify the deposited 44-CNOT circuit as an over-budget control."
     },
     {
       "id": "flow-gagatsos-2026-c1",
       "title": "gagatsos-2026-c1",
       "status": "math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/gagatsos-2026-c1-894dfc84ab2ceda0.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/gagatsos-2026-c1-894dfc84ab2ceda0.json",
       "detail": "1 recorded attempts. Recompute the archived optical state from the prior agent lane at both quadrature resolutions."
     },
     {
       "id": "flow-e27-schmidt",
       "title": "Does the sorted Schmidt basis minimize nonlocal magic?",
       "status": "math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/proof-flow/e27-schmidt-bf3fa5306b0ac563.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/e27-schmidt-bf3fa5306b0ac563.json",
       "detail": "4 recorded attempts. Test coupled plane rotations on the nearly flat spectrum proposed by the independent critic."
     },
     {
       "id": "golay-css-trees",
       "title": "Golay \u00b7 minimum-weight CSS stabilizer tree peeling",
       "status": "checked_circuits",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-trees.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/golay-focus/css-trees.json",
       "detail": "128 complete circuits tested. Best in this search: 47 CNOTs. Target: 43.",
       "evidence": {
-        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+        "construction": "https://github.com/shunyaekam/oo-research/blob/research/checks/golay/css_peeling.md"
       }
     },
     {
       "id": "golay-css-stars",
       "title": "Golay \u00b7 minimum-weight CSS stabilizer star peeling",
       "status": "checked_circuits",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-stars.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/golay-focus/css-stars.json",
       "detail": "128 complete circuits tested. Best in this search: 58 CNOTs. Target: 43.",
       "evidence": {
-        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+        "construction": "https://github.com/shunyaekam/oo-research/blob/research/checks/golay/css_peeling.md"
       }
     },
     {
       "id": "golay-css-branch",
       "title": "Golay \u00b7 first-two-tree single-edge branching",
       "status": "checked_circuits",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay-focus/css-branch.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/golay-focus/css-branch.json",
       "detail": "168 complete circuits tested. Best in this search: 47 CNOTs. Target: 43.",
       "evidence": {
-        "construction": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/golay/css_peeling.md"
+        "construction": "https://github.com/shunyaekam/oo-research/blob/research/checks/golay/css_peeling.md"
       }
     },
     {
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/schmidt-seven-pairs/000129.json",
-      "detail": "70,200 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000130.json",
+      "detail": "70,740 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
       "id": "golay-splice-tails",
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "77,519,555,652 edits with one insertion anywhere and one optional inverse-end gate across 152 records. No circuit reached the 43-gate target in these edits.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
+      "detail": "77,690,893,280 edits with one insertion anywhere and one optional inverse-end gate across 153 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
       "id": "golay-splices",
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "5,664,176,892 edits across 152 records. No circuit reached the 43-gate target in these edits.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
+      "detail": "5,676,661,254 edits across 153 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
       "id": "golay-repairs",
       "title": "Can a shorter ending repair a Golay circuit?",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
       "detail": "269,543,351 deletion patterns across 119 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
@@ -450,15 +450,15 @@
       "id": "golay-graphs",
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/golay43.md",
-      "detail": "3,328,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
+      "detail": "3,348,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
       "id": "golay-search",
       "title": "43-gate Golay circuit search",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/golay43/007.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/golay43/007.json",
       "detail": "322,980 trials. Best reverse circuit leaves 2 mixed qubits; zero is required.",
       "problem_id": "golay43"
     },
@@ -466,7 +466,7 @@
       "id": "polygon-search",
       "title": "Quantum transport polygon search",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/transport-polygon/007.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/transport-polygon/007.json",
       "detail": "1088 finite spectrum/exponent pairs checked across published batches.",
       "problem_id": "transport-polygon"
     },
@@ -474,40 +474,40 @@
       "id": "bmv-three-level",
       "title": "Trace bounds with three distinct energy levels",
       "status": "exact_search",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/bmv-three-level/000005.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/bmv-three-level/000005.json",
       "detail": "192 matrix pairs checked by exact word recursion.",
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-208",
-      "title": "Research round 208",
+      "id": "round-209",
+      "title": "Research round 209",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/rounds/00000208.json",
-      "detail": "8,889 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000209.json",
+      "detail": "2,199 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T20:23:22.407196+00:00"
+      "updated_at": "2026-11-26T20:34:49.775258+00:00"
     },
     {
-      "id": "coherent-bands-00000192",
+      "id": "coherent-bands-00000193",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/coherent-bands/00000192.json",
-      "detail": "31 states tested on photon levels 2, 3, 4, 5, 6, 7.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000193.json",
+      "detail": "31 states tested on photon levels 0, 1, 3, 6, 9, 12.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000191",
+      "id": "three-level-batch-00000192",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/three-level/batch-00000191.json",
-      "detail": "64 states tested on photon levels 1, 2, 3.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000192.json",
+      "detail": "64 states tested on photon levels 1, 2, 4.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
       "id": "lane-e27-schmidt-52687ee3011a4c80",
       "title": "e27-schmidt agent handoff",
       "status": "critique_pending",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-52687ee3011a4c80.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/agent-lanes/e27-schmidt-52687ee3011a4c80.json",
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "e27-schmidt",
       "updated_at": "2026-11-26T01:32:32.212114+00:00"
@@ -516,7 +516,7 @@
       "id": "lane-e27-schmidt-c0c172bf9fc1160e",
       "title": "e27-schmidt agent handoff",
       "status": "needs_math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-c0c172bf9fc1160e.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/agent-lanes/e27-schmidt-c0c172bf9fc1160e.json",
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "e27-schmidt",
       "updated_at": "2026-11-26T01:08:03.952053+00:00"
@@ -525,7 +525,7 @@
       "id": "lane-e27-schmidt-959b891423c6a7bb",
       "title": "e27-schmidt agent handoff",
       "status": "needs_math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/e27-schmidt-959b891423c6a7bb.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/agent-lanes/e27-schmidt-959b891423c6a7bb.json",
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "e27-schmidt",
       "updated_at": "2026-11-25T23:09:30.895033+00:00"
@@ -534,7 +534,7 @@
       "id": "lane-transport-polygon-f8365a5893e30b97",
       "title": "transport-polygon agent handoff",
       "status": "needs_math_review",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/agent-lanes/transport-polygon-f8365a5893e30b97.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/agent-lanes/transport-polygon-f8365a5893e30b97.json",
       "detail": "AI research proposal and critique workflow.",
       "problem_id": "transport-polygon",
       "updated_at": "2026-11-25T20:48:12.950055+00:00"
@@ -545,43 +545,43 @@
       "id": "arxiv-2611.31308v1",
       "title": "Strong Ho\u2013Hsieh circuit saturation conjecture",
       "status": "prior_counterexample",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/ho-hsieh.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/ho-hsieh.md",
       "detail": "Jiang\u2019s four-qubit counterexample already disproves the strong claim captured by our scanner. The source distinguishes a narrower ground-state question.",
       "evidence": {
         "source": "https://arxiv.org/abs/2611.31308v1"
       },
-      "receipt": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/intake/2026-W48.json"
+      "receipt": "https://github.com/shunyaekam/oo-research/blob/research/campaign/intake/2026-W48.json"
     },
     {
       "id": "multimode",
       "title": "Weak multimode bound",
       "status": "prior_art",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/checks/multimode-priority.md",
       "detail": "The derivation passes mathematical review. The classical STFT change-of-window inequality already gives the claimed constant. The sharp parent question remains open.",
       "problem_id": "gagatsos-2026-c1",
       "reviewed_on": "2026-11-25",
-      "review_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
-      "priority_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md",
+      "review_url": "https://github.com/shunyaekam/oo-research/blob/research/checks/multimode-review.md",
+      "priority_url": "https://github.com/shunyaekam/oo-research/blob/research/checks/multimode-priority.md",
       "evidence": {
-        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/coherent-optimality.md#a-second-check-against-the-source-question",
-        "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-review.md",
-        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/multimode-priority.md"
+        "proof": "https://github.com/shunyaekam/oo-research/blob/research/discovery/coherent-optimality.md#a-second-check-against-the-source-question",
+        "math_review": "https://github.com/shunyaekam/oo-research/blob/research/checks/multimode-review.md",
+        "priority_audit": "https://github.com/shunyaekam/oo-research/blob/research/checks/multimode-priority.md"
       }
     },
     {
       "id": "bmv-finite-replication",
       "title": "Finite three-factor BMV certificates",
       "status": "prior_art",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/next-intake.md",
       "detail": "Two exact implementations agreed across 26 word counts. A preexisting formal theorem already covers them all. The project records one replication.",
       "problem_id": "refined-bmv",
       "reviewed_on": "2026-11-25",
-      "review_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-range-review.md",
-      "priority_url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md",
+      "review_url": "https://github.com/shunyaekam/oo-research/blob/research/checks/bmv-range-review.md",
+      "priority_url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/next-intake.md",
       "evidence": {
-        "proof": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv_range_review.py",
-        "math_review": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/bmv-range-review.md",
-        "priority_audit": "https://github.com/shunyaekam/Physics-Workbench/blob/research/discovery/sources/next-intake.md"
+        "proof": "https://github.com/shunyaekam/oo-research/blob/research/checks/bmv_range_review.py",
+        "math_review": "https://github.com/shunyaekam/oo-research/blob/research/checks/bmv-range-review.md",
+        "priority_audit": "https://github.com/shunyaekam/oo-research/blob/research/discovery/sources/next-intake.md"
       }
     }
   ],
@@ -590,177 +590,177 @@
       "id": "table2-audit",
       "title": "Five distances in a spin-chain preprint",
       "status": "table_audit",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/zhang-table2.md",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/checks/zhang-table2.md",
       "detail": "5 of 12 even-length entries exceed the minimum under Eq. (9). One 92-spin entry gives 9 where Table 2 reports 12. The note includes a hand-checkable example.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v2#S4.T2",
-        "exact_results": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins-table2.json",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/zhang_table.py"
+        "exact_results": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins-table2.json",
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/zhang_table.py"
       }
     },
     {
       "id": "chain-13-global",
       "title": "13-spin chain \u00b7 all arrangements",
       "status": "reproduced_benchmark",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-13-global.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-13-global.json",
       "detail": "Lowest energy 6. Exactly 4 arrangements attain it among all 8,192. Reproduces a known minimum.",
       "evidence": {
         "source": "https://oeis.org/A102780/b102780.txt",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-16-global",
       "title": "16-spin chain \u00b7 all arrangements",
       "status": "reproduced_benchmark",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-16-global.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-16-global.json",
       "detail": "Lowest energy 24. Exactly 32 arrangements attain it among all 65,536. Reproduces a known minimum.",
       "evidence": {
         "source": "https://oeis.org/A102780/b102780.txt",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-99-0cf30c003783cbcc8da92aad4",
       "title": "99-spin chain \u00b7 0CF3\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-99-0cf30c003783cbcc8da92aad4.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-99-0cf30c003783cbcc8da92aad4.json",
       "detail": "Starting energy 553. Best energy after exactly one, two and three flips, respectively: 649, 713, 797. All 161,800 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 797. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-107-a78785b8d72aea6d99decdfd004",
       "title": "107-spin chain \u00b7 A787\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-107-a78785b8d72aea6d99decdfd004.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-107-a78785b8d72aea6d99decdfd004.json",
       "detail": "Starting energy 673. Best energy after exactly one, two and three flips, respectively: 781, 881, 969. All 204,264 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 969. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-92-ee01c0e77667dd34dae94b5",
       "title": "92-spin chain \u00b7 EE01\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-92-ee01c0e77667dd34dae94b5.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-92-ee01c0e77667dd34dae94b5.json",
       "detail": "Starting energy 490. Best energy after exactly one, two and three flips, respectively: 638, 650, 726. All 129,859 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 726. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-92-bb5495b2233288618fbc1e0",
       "title": "92-spin chain \u00b7 BB54\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-92-bb5495b2233288618fbc1e0.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-92-bb5495b2233288618fbc1e0.json",
       "detail": "Starting energy 490. Best energy after exactly one, two and three flips, respectively: 638, 650, 726. All 129,859 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 726. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-98-993a76393cdb4bcf78ff00aa8",
       "title": "98-spin chain \u00b7 993A\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-98-993a76393cdb4bcf78ff00aa8.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-98-993a76393cdb4bcf78ff00aa8.json",
       "detail": "Starting energy 529. Best energy after exactly one, two and three flips, respectively: 593, 745, 785. All 156,948 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 785. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-104-0f80f3c20aab1844295b6ed666",
       "title": "104-spin chain \u00b7 0F80\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-104-0f80f3c20aab1844295b6ed666.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-104-0f80f3c20aab1844295b6ed666.json",
       "detail": "Starting energy 600. Best energy after exactly one, two and three flips, respectively: 772, 896, 924. All 187,565 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 924. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-106-696d27ca748c66071eafdd1177c",
       "title": "106-spin chain \u00b7 696D\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-106-696d27ca748c66071eafdd1177c.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-106-696d27ca748c66071eafdd1177c.json",
       "detail": "Starting energy 645. Best energy after exactly one, two and three flips, respectively: 789, 893, 925. All 198,592 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 941. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-108-f2401f3d9ff1cf46d58d96aa959",
       "title": "108-spin chain \u00b7 F240\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-108-f2401f3d9ff1cf46d58d96aa959.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-108-f2401f3d9ff1cf46d58d96aa959.json",
       "detail": "Starting energy 670. Best energy after exactly one, two and three flips, respectively: 794, 870, 978. All 210,043 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 978. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-110-33f83762f128df55064b5b7be79c",
       "title": "110-spin chain \u00b7 33F8\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-110-33f83762f128df55064b5b7be79c.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-110-33f83762f128df55064b5b7be79c.json",
       "detail": "Starting energy 707. Best energy after exactly one, two and three flips, respectively: 747, 907, 995. All 221,926 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 995. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-112-a0496a493faeccc8afc3d50e738f",
       "title": "112-spin chain \u00b7 A049\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-112-a0496a493faeccc8afc3d50e738f.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-112-a0496a493faeccc8afc3d50e738f.json",
       "detail": "Starting energy 728. Best energy after exactly one, two and three flips, respectively: 828, 984, 1012. All 234,249 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 1012. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-114-b6c3648db19c8c387a9eaa8578000",
       "title": "114-spin chain \u00b7 B6C3\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-114-b6c3648db19c8c387a9eaa8578000.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-114-b6c3648db19c8c387a9eaa8578000.json",
       "detail": "Starting energy 777. Best energy after exactly one, two and three flips, respectively: 905, 977, 1041. All 247,020 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 1041. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-116-52df72096b92dcc87407044c8e1d5",
       "title": "116-spin chain \u00b7 52DF\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-116-52df72096b92dcc87407044c8e1d5.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-116-52df72096b92dcc87407044c8e1d5.json",
       "detail": "Starting energy 802. Best energy after exactly one, two and three flips, respectively: 870, 970, 1086. All 260,247 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 1086. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     },
     {
       "id": "chain-118-e003fb9f87c674e5cd6d34ccb2ad54",
       "title": "118-spin chain \u00b7 E003\u2026",
       "status": "exact_neighborhood",
-      "url": "https://github.com/shunyaekam/Physics-Workbench/blob/research/campaign/finite-spins/chain-118-e003fb9f87c674e5cd6d34ccb2ad54.json",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/finite-spins/chain-118-e003fb9f87c674e5cd6d34ccb2ad54.json",
       "detail": "Starting energy 807. Best energy after exactly one, two and three flips, respectively: 879, 1023, 1087. All 273,938 arrangements in this neighborhood checked. Reaching three changed spins one flip at a time requires a peak of at least 1087. A recorded path attains it.",
       "evidence": {
         "source": "https://arxiv.org/html/2504.00987v1#S4.T2",
-        "replay": "https://github.com/shunyaekam/Physics-Workbench/blob/research/checks/finite_spins.py"
+        "replay": "https://github.com/shunyaekam/oo-research/blob/research/checks/finite_spins.py"
       }
     }
   ]

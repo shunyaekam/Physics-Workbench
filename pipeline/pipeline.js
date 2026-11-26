@@ -1,5 +1,5 @@
 'use strict';
-const repo = 'https://github.com/shunyaekam/Physics-Workbench';
+const repo = 'https://github.com/shunyaekam/oo-research';
 const research = repo + '/blob/research/';
 const cinna = 'https://github.com/1337isnot1337/solved-conjectures';
 const pub = cinna + '/blob/a51917c3fccb97c4a5c34537d5e2e4ad612f109e/';
@@ -7,7 +7,7 @@ const work = cinna + '/blob/31df82431bf2d04979544b6f5c249e2e0958c788/';
 const bm = pub + 'results/brown-mol/';
 const systems = {
   ours: [
-    [['Scout','Find problems','The source index lists catalogue entries before screening. We trace each question to its authors, look for newer solutions, and rank the cheapest tests that could settle the question.','https://shunyaekam.github.io/Physics-Workbench/pipeline/indexed.html','Search the source index']],
+    [['Scout','Find problems','The source index lists catalogue entries before screening. We trace each question to its authors, look for newer solutions, and rank the cheapest tests that could settle the question.','https://shunyaekam.github.io/oo-research/pipeline/indexed.html','Search the source index']],
     [['Solver','Build a witness','Hosted Codex can run mathematical experiments in a disposable workspace. Each witness goes to the registered checker. The next solver receives the measured outcome and an independent critique.',research+'ops/proof_flow.py','Solver and critic']],
     [['Math reviewer','Challenge the proof','A fresh-context critic challenges proposals. A separate mathematical review rederived our multimode result, including the constants and the mixed-state argument.',research+'checks/multimode-review.md','Math review'],['Priority reviewer','Check earlier work','Check alternate names and equivalent theorems. The weak multimode result follows from a classical Fourier inequality, so its derivation earns zero discovery credit.',research+'checks/multimode-priority.md','Priority decision']],
     [['Verifier','Replay evidence','For transport, the reviewer reconstructed the argument, then challenged the counting step on 125,664 directed cycles. Lean checks the lower bound for arbitrary chain lengths and a local step in the upper bound.',research+'checks/transport-review.md','Transport review']],
@@ -163,7 +163,7 @@ async function getFeed(url) {
     return await response.json();
   } finally {clearTimeout(timer);}
 }
-const liveUrl='https://raw.githubusercontent.com/shunyaekam/Physics-Workbench/research/campaign/pipeline.json';
+const liveUrl='https://raw.githubusercontent.com/shunyaekam/oo-research/research/campaign/pipeline.json';
 const pollMillis=60_000;
 let loading=false;
 function showFreshness(origin) {

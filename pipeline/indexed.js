@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const files = ['catalogues', 'other'];
-const prefix = 'https://raw.githubusercontent.com/shunyaekam/Physics-Workbench/research/campaign/catalogue-index/';
+const prefix = 'https://raw.githubusercontent.com/shunyaekam/oo-research/research/campaign/catalogue-index/';
 let rows = [], filtered = [], shown = 0;
 const pageSize = 50;
 function label(...values) {
