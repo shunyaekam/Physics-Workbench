@@ -94,7 +94,7 @@
   previous.onclick = () => go(current - 1);
   next.onclick = () => go(current + 1);
   document.addEventListener('keydown', e => {
-    if (e.defaultPrevented || menu.open || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.target.closest('.table-box,.math-box')) return;
+    if (e.defaultPrevented || document.querySelector('dialog[open]') || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.target.closest('.table-box,.math-box')) return;
     if (['ArrowRight','PageDown','ArrowLeft','PageUp'].includes(e.key)) {
       e.preventDefault(); go(current + (['ArrowRight','PageDown'].includes(e.key) ? 1 : -1));
     }

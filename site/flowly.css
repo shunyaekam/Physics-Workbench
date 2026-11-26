@@ -6,8 +6,7 @@ button,input,select,textarea{font-family:inherit}
 code,kbd,samp,.pauli span{font-family:var(--mono)}
 .description h1,.menu-body nav a,.paper-title,.paper-library h2,.hero h1,.mast h1{font-weight:400;letter-spacing:-.025em}
 .measurement output{font-family:var(--sans);font-weight:400;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
-dialog#menu,.sheet::backdrop{background:rgba(0,0,0,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-dialog#menu .menu-body nav a{font-weight:300}
+.sheet::backdrop{background:rgba(0,0,0,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .node:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--scene-vignette);opacity:0;transition:opacity .2s;pointer-events:none}
 .node:is(:hover,:focus-visible):after{opacity:1}
 .node:is(:hover,:focus-visible)>*{position:relative;z-index:1}

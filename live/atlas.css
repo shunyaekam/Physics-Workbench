@@ -66,3 +66,38 @@ body.quiet:not(.paused) .field.selected.has-publications ul:after{display:block;
  .mapbar{gap:.25rem}.legend{gap:.45rem}#sheets{gap:.05rem}#sheets button{width:24px}
  footer{gap:.22rem .4rem}#connection{font-size:.65rem}
 }
+/* Spatial map: the subject list remains in the document as the source for
+   accessible links and the no-script fallback. */
+.enhanced #fields{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.enhanced #mapboard{overflow:hidden;padding:0}
+#wires,#nodes{position:absolute;inset:0;width:100%;height:100%}
+#nodes{pointer-events:none}
+.vertex{position:absolute;pointer-events:auto;display:grid;place-items:center;transform:translate(-50%,-50%);padding:0;min-width:27px;min-height:27px;line-height:1.15;isolation:isolate}
+.vertex .dot{width:8px;height:8px;background:#f9fbfc;border:1.4px solid var(--tint);border-radius:50%;position:relative}
+.vertex.topic .dot{width:15px;height:15px;background:white;border-width:2px}
+.vertex.active .dot,.vertex.topic.branch .dot{background:var(--tint)}
+.vertex .label{position:absolute;top:calc(50% + 12px);left:50%;transform:translateX(-50%);width:max-content;max-width:clamp(70px,10vw,138px);font-size:clamp(.72rem,.96vw,.92rem);line-height:1.12;text-align:center;color:#343f45;text-shadow:0 1px 4px #fff,0 -1px 4px #fff;background:#ffffffce;border-radius:4px;padding:0 2px}
+.vertex.core{width:67px;height:67px;border-radius:50%;background:#fff;border:1px solid #bdc9d1;box-shadow:0 0 0 5px #ffffffc9,0 0 0 6px #dce4e7,0 4px 29px #7b9cb532}
+.vertex.core img{width:75%;height:75%}.vertex.core .label{top:calc(100% + 8px);font-size:.77rem}
+.vertex:hover .dot,.vertex:focus-visible .dot{box-shadow:0 0 0 4px #9fbcd14d}
+@media(max-width:549px){.vertex .label{font-size:.68rem;max-width:82px}.vertex.core{width:43px;height:43px}.vertex.core .label{display:none}}
+.enhanced #fields{display:none}
+.vertex.paper-node .dot{border-radius:0;background:var(--tint)}
+.vertex.record .label{display:none;top:auto;bottom:calc(50% + 10px);width:max-content;max-width:180px;font-size:.73rem;padding:.3rem .45rem;background:white;box-shadow:0 2px 12px #253b482b;z-index:4}
+.vertex.record:hover,.vertex.record:focus-visible{z-index:8}
+.vertex.record:hover .label,.vertex.record:focus-visible .label{display:block}
+
+body.inspecting main{grid-template-columns:minmax(0,2fr) minmax(16rem,1fr);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:"mast mast" "graph inspector" "legend legend"}
+body.inspecting .mast{grid-area:mast}body.inspecting #mapboard{grid-area:graph}body.inspecting .mapbar{grid-area:legend}
+dialog.spatial[open]{grid-area:inspector;position:static;inset:auto;width:100%;max-width:none;max-height:100%;align-self:center;margin:0;border:0;border-left:1px solid var(--line);border-radius:0;background:white;box-shadow:none;padding:clamp(1rem,2.25vw,2.2rem);overflow:auto}
+@media(max-width:720px){
+ body.inspecting main{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) minmax(0,.74fr) auto;grid-template-areas:"mast" "graph" "inspector" "legend"}
+ dialog.spatial[open]{align-self:stretch;border-left:0;border-top:1px solid var(--line);padding:.45rem 0}
+ dialog.spatial .drawer-top{min-height:22px}dialog.spatial #close{min-width:30px;min-height:28px;height:28px}
+ dialog.spatial #dialog-title{font-size:1.22rem;margin:0 0 .3rem}
+ dialog.spatial :is(.feed-tabs,.source-links,.arrows,.field-papers){margin:.28rem 0}
+ dialog.spatial #drawer-body :is(p,h3){margin:.35rem 0}
+}
+.vertex.record[data-tooltip-x=left] .label{left:0;transform:none}
+.vertex.record[data-tooltip-x=right] .label{left:auto;right:0;transform:none}
+.vertex.record[data-tooltip-y=below] .label{bottom:auto;top:calc(50% + 10px)}

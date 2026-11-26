@@ -54,30 +54,30 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T20:37:00+00:00",
+  "updated_at": "2026-11-26T22:29:36+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 83641752336,
+    "attempts": 85296354104,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 874268,
-    "coherent-cats": 18816,
-    "coherent-bands": 6112,
-    "three-level": 12254,
+    "werner": 891896,
+    "coherent-cats": 19328,
+    "coherent-bands": 6396,
+    "three-level": 12828,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 3348000,
+    "golay-graphs": 3528000,
     "golay-repairs": 269543351,
-    "golay-splices": 5676661254,
-    "golay-splice-tails": 77690893280,
-    "schmidt-seven-pairs": 70740
+    "golay-splices": 5789020512,
+    "golay-splice-tails": 79232931932,
+    "schmidt-seven-pairs": 75600
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -366,14 +366,14 @@
     {
       "id": "flow-golay43",
       "title": "First priority \u00b7 A 43-gate Golay preparation",
-      "status": "math_review",
+      "status": "parked",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/golay43-065ee3f4684969f1.json",
       "detail": "1 recorded attempts. Verify the deposited 44-CNOT circuit as an over-budget control."
     },
     {
       "id": "flow-gagatsos-2026-c1",
       "title": "gagatsos-2026-c1",
-      "status": "math_review",
+      "status": "parked",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/gagatsos-2026-c1-894dfc84ab2ceda0.json",
       "detail": "1 recorded attempts. Recompute the archived optical state from the prior agent lane at both quadrature resolutions."
     },
@@ -418,8 +418,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000130.json",
-      "detail": "70,740 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000139.json",
+      "detail": "75,600 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -427,7 +427,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "77,690,893,280 edits with one insertion anywhere and one optional inverse-end gate across 153 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "79,232,931,932 edits with one insertion anywhere and one optional inverse-end gate across 162 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -435,7 +435,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "5,676,661,254 edits across 153 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "5,789,020,512 edits across 162 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -451,7 +451,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "3,348,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "3,528,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -479,28 +479,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-209",
-      "title": "Research round 209",
+      "id": "round-214",
+      "title": "Research round 214",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000209.json",
-      "detail": "2,199 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000214.json",
+      "detail": "2,160 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T20:34:49.775258+00:00"
+      "updated_at": "2026-11-26T22:28:27.076233+00:00"
     },
     {
-      "id": "coherent-bands-00000193",
+      "id": "coherent-bands-00000202",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000193.json",
-      "detail": "31 states tested on photon levels 0, 1, 3, 6, 9, 12.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000202.json",
+      "detail": "32 states tested on photon levels 2, 3, 4, 5, 6, 7.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000192",
+      "id": "three-level-batch-00000201",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000192.json",
-      "detail": "64 states tested on photon levels 1, 2, 4.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000201.json",
+      "detail": "64 states tested on photon levels 0, 1, 2.",
       "problem_id": "gagatsos-2026-c1"
     },
     {

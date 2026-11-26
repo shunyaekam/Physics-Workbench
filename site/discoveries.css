@@ -9,7 +9,6 @@ header,footer{display:flex;align-items:center;justify-content:space-between;marg
 header nav,footer nav,.switch,figcaption{display:flex;align-items:center}
 header nav{gap:clamp(1.4rem,3vw,3rem)}header nav a,header button,footer{font-size:.9rem}
 .focus-pair{display:inline-flex;align-items:center;gap:.55rem}
-#menu-open span{font-size:.9em;margin-left:.33rem}
 main{min-width:0;align-self:center}.result{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(1.5rem,5vw,6rem);width:min(82%,73rem);margin:0 auto}
 .field,.record,figcaption,.measurement span{font-size:.84rem;color:var(--muted)}
 .field{margin:0 0 1.3rem}.description h1{font-size:clamp(2.6rem,min(5.1vw,8.5vh),5.4rem);line-height:.99;font-weight:450;letter-spacing:-.078em;margin:0;max-width:13ch}
@@ -24,10 +23,7 @@ figcaption{justify-content:center;gap:1.35rem;line-height:1.2;min-height:2.7rem;
 .code-figure{display:grid;align-items:center}.code-figure>div{display:grid;gap:3px}.pauli{display:flex;justify-content:space-between;align-items:center;gap:2px}.pauli span{width:7.5%;aspect-ratio:1;display:grid;place-items:center;font:clamp(.62rem,1.05vw,.94rem) ui-monospace,monospace;border-radius:50%;background:#edf0f2;color:#2b3640}.pauli .identity{color:#a0a7ac;background:transparent}.pauli:first-child span:not(.identity){background:#d4e5f8;color:#174674}
 .histogram{display:flex;align-items:flex-end;justify-content:center;gap:8%;padding:10% 4% 8%}.histogram div{height:100%;width:15%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}.histogram i{width:100%;height:var(--h);min-height:2px;background:#6d7982}.histogram div:nth-child(3) i{background:var(--blue)}.histogram b,.histogram small{font-size:.8rem;font-weight:400}
 footer{border-top:1px solid var(--rule);gap:1rem}footer nav{gap:clamp(1rem,3vw,3rem)}footer nav a{padding:.6rem 0;color:var(--muted);border-bottom:1px solid transparent}footer nav a[aria-current]{color:var(--ink);border-color:currentColor}
-dialog{position:fixed;inset:0;height:100%;width:100%;max-width:none;max-height:none;border:0;padding:0;margin:0;background:rgba(21,25,28,.63);color:white;backdrop-filter:blur(19px);-webkit-backdrop-filter:blur(19px)}dialog::backdrop{background:transparent}
-.menu-body{height:100%;display:grid;place-content:center}.menu-body nav{display:grid;gap:.45rem}.menu-body nav a{font-size:clamp(1.8rem,5vw,4rem);font-weight:400;letter-spacing:-.065em;line-height:1.2}.menu-body nav a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.12em}
-#menu-close{position:absolute;right:5%;top:4%}#sound{margin-top:1.5rem;text-align:left;font-size:.85rem}
-@media(prefers-reduced-motion:no-preference){a,button{transition:color .15s,background .15s}dialog[open] .menu-body nav{animation:appear .17s ease-out}@keyframes appear{from{opacity:0;transform:translateY(5px)}}}
+@media(prefers-reduced-motion:no-preference){a,button{transition:color .15s,background .15s}}
 @media(max-width:650px) and (min-height:501px){
  .result{width:min(88%,29rem);grid-template-columns:1fr;gap:.5rem}
  .description{display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:1rem}.description h1,.field,.claim{grid-column:1/-1}
@@ -44,5 +40,4 @@ footer a{white-space:nowrap}
 @media(max-width:370px){footer nav{gap:.6rem}footer nav a{font-size:.71rem}}
 .description h1{letter-spacing:-.058em}
 
-.menu-credit{max-width:32ch;font-size:.82rem;line-height:1.4;color:#f4f4f4;margin:1.4rem 0 0}.menu-credit a{text-decoration:underline}
 footer{justify-content:center}

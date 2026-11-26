@@ -1,11 +1,5 @@
 const results = [...document.querySelectorAll('[data-result]')];
 const selector = document.getElementById('selector');
-const menu = document.getElementById('menu');
-const openMenu = document.getElementById('menu-open');
-openMenu.onclick = () => { menu.showModal(); };
-document.getElementById('menu-close').onclick = () => menu.close();
-menu.addEventListener('click', e => { if (e.target === menu || e.target.className === 'menu-body') menu.close(); });
-menu.addEventListener('close', () => { openMenu.focus(); });
 const certificates = new Map();
 let logicalQubits = '4';
 async function showCode(k) {
@@ -61,7 +55,7 @@ function selectResult() {
   if (selected.dataset.result === 'code') showCode(logicalQubits);
 }
 document.addEventListener('keydown', e => {
-  if (e.defaultPrevented || menu.open || e.altKey || e.metaKey || e.ctrlKey || !['ArrowLeft','ArrowRight'].includes(e.key)) return;
+  if (e.defaultPrevented || document.querySelector("dialog[open]") || e.altKey || e.metaKey || e.ctrlKey || !['ArrowLeft','ArrowRight'].includes(e.key)) return;
   const current = results.findIndex(section => !section.hidden);
   const step = e.key === 'ArrowRight' ? 1 : -1;
   e.preventDefault();
