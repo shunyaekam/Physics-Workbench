@@ -54,30 +54,30 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-26T23:48:58+00:00",
+  "updated_at": "2026-11-26T23:59:51+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 86583281810,
+    "attempts": 86767126782,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 920584,
-    "coherent-cats": 19968,
-    "coherent-bands": 6620,
-    "three-level": 13272,
+    "werner": 922802,
+    "coherent-cats": 20096,
+    "coherent-bands": 6652,
+    "three-level": 13336,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 3668000,
+    "golay-graphs": 3688000,
     "golay-repairs": 269543351,
-    "golay-splices": 5876411046,
-    "golay-splice-tails": 80432295328,
-    "schmidt-seven-pairs": 79380
+    "golay-splices": 5888895408,
+    "golay-splice-tails": 80603632956,
+    "schmidt-seven-pairs": 79920
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -418,8 +418,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000146.json",
-      "detail": "79,380 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000147.json",
+      "detail": "79,920 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -427,7 +427,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "80,432,295,328 edits with one insertion anywhere and one optional inverse-end gate across 169 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "80,603,632,956 edits with one insertion anywhere and one optional inverse-end gate across 170 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -435,7 +435,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "5,876,411,046 edits across 169 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "5,888,895,408 edits across 170 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -451,7 +451,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "3,668,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "3,688,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -479,28 +479,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-221",
-      "title": "Research round 221",
+      "id": "round-222",
+      "title": "Research round 222",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000221.json",
-      "detail": "2,275 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000222.json",
+      "detail": "2,218 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-26T23:48:56.003738+00:00"
+      "updated_at": "2026-11-26T23:59:49.673603+00:00"
     },
     {
-      "id": "coherent-bands-00000209",
+      "id": "coherent-bands-00000210",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000209.json",
-      "detail": "32 states tested on photon levels 5, 6, 7, 8, 9, 10, 11.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000210.json",
+      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000208",
+      "id": "three-level-batch-00000209",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000208.json",
-      "detail": "64 states tested on photon levels 0, 3, 4.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000209.json",
+      "detail": "64 states tested on photon levels 0, 3, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
