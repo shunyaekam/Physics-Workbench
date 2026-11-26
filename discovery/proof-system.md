@@ -10,6 +10,7 @@ The contract records assumptions and the implication before an agent searches. T
 
 | Question | Object tested | What could follow |
 |---|---|---|
+| Twelve-qubit stabilizer optima | Pauli generators and rational dual certificates | Exact distance and rank give the construction. Weight-enumerator inequalities exclude all lighter generating sets. |
 | Sorted Schmidt basis | Exact paired states on the same local-unitary orbit | A larger exact Pauli fourth moment refutes the entropy minimum |
 | Quantum Golay preparation | Signed Clifford circuit on the 23 specified wires | The exact target state and at most 43 CNOTs prove existence |
 | Refined BMV lower bound | A rational symmetric pair and two word counts | A strictly negative upper endpoint of a rigorous trace-gap enclosure refutes the bound |

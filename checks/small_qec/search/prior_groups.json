@@ -1,0 +1,248 @@
+[
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=10&k=1",
+    "n": 10,
+    "k": 1,
+    "d": 4,
+    "minimum_basis_weight": 5,
+    "generators": [
+      "IXYYXIIIIX",
+      "XZZIZIIIIZ",
+      "ZXXYYZIIXI",
+      "YYZZZIIIZI",
+      "ZXXZXIIXII",
+      "XXYYIZIZII",
+      "YZZZYZXIII",
+      "YIYXZIZIII",
+      "YYXIXXIIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=10&k=2",
+    "n": 10,
+    "k": 2,
+    "d": 4,
+    "minimum_basis_weight": 6,
+    "generators": [
+      "YZZYIXIIIX",
+      "ZXYIYXIIIZ",
+      "XZIYZYIIXI",
+      "YYZZZIIIZI",
+      "ZXXZXIIXII",
+      "XXYYIZIZII",
+      "IXYZZYXIII",
+      "IYZXYXZIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=10&k=4",
+    "n": 10,
+    "k": 4,
+    "d": 3,
+    "minimum_basis_weight": 6,
+    "generators": [
+      "IZIZXYZIIX",
+      "IYIYZXYIIZ",
+      "XYYXXYZIXI",
+      "ZXXZZXYIZI",
+      "XXXXXXXXII",
+      "ZZZZZZZZII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=11&k=4",
+    "n": 11,
+    "k": 4,
+    "d": 3,
+    "minimum_basis_weight": 6,
+    "generators": [
+      "IIZIZXYZIIX",
+      "IIYIYZXYIIZ",
+      "IXYYXXYZIXI",
+      "IZXXZZXYIZI",
+      "IXXXXXXXXII",
+      "IZZZZZZZZII",
+      "XIIIIIIIIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=11&k=5",
+    "n": 11,
+    "k": 5,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "IZYXXYXIYIX",
+      "IYXZZXZIXIZ",
+      "ZZZZYYIIXXI",
+      "YYYYXXIIZZI",
+      "YYYYZZXXIII",
+      "XXXXYYZZIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=12&k=3",
+    "n": 12,
+    "k": 3,
+    "d": 4,
+    "minimum_basis_weight": 7,
+    "generators": [
+      "ZYZZXIIYIIIX",
+      "ZYIYZIYXZIIZ",
+      "XIIIXIXZIIXI",
+      "YZYIZIXYZIZI",
+      "XYYXIIYXIXII",
+      "YYZZIIZZZZII",
+      "YXZIIIZIXIII",
+      "XXXXXXIIIIII",
+      "ZZZZZZIIIIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=12&k=4",
+    "n": 12,
+    "k": 4,
+    "d": 4,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "XZIZXIZYXIIX",
+      "ZYIYZIYXZIIZ",
+      "ZXZIXIYZXIXI",
+      "YZYIZIXYZIZI",
+      "ZZXXIIXXXXII",
+      "YYZZIIZZZZII",
+      "XXXXXXIIIIII",
+      "ZZZZZZIIIIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=12&k=5",
+    "n": 12,
+    "k": 5,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "IIZYXXYXIYIX",
+      "IIYXZZXZIXIZ",
+      "IZZZZYYIIXXI",
+      "IYYYYXXIIZZI",
+      "IYYYYZZXXIII",
+      "IXXXXYYZZIII",
+      "XIIIIIIIIIII"
+    ]
+  },
+  {
+    "source": "https://codetables.de/QECC.php?q=4&n=12&k=6",
+    "n": 12,
+    "k": 6,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "XYXYZIXIYIIX",
+      "ZXZXYIZIXIIZ",
+      "IZZIXYYZYIXI",
+      "IYYIZXXYXIZI",
+      "XXXXXXXXXXII",
+      "ZZZZZZZZZZII"
+    ]
+  },
+  {
+    "source": "https://qecchallenge.com/codes/10-4-3-c.html",
+    "n": 10,
+    "k": 4,
+    "d": 3,
+    "minimum_basis_weight": 6,
+    "generators": [
+      "IIIIIZZZZZ",
+      "XIXYZXZIZX",
+      "ZIZXYZYIYZ",
+      "IXXZYXIZXZ",
+      "IZZYXZIYZY",
+      "IIXXXIXXZZ"
+    ]
+  },
+  {
+    "source": "https://qecchallenge.com/codes/11-5-3-f.html",
+    "n": 11,
+    "k": 5,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "IIIIIXXXXXX",
+      "IIIIIZZZZZZ",
+      "XIXYZIXZIZX",
+      "ZIZXYIZYIYZ",
+      "IXXZYIXIZXZ",
+      "IZZYXIZIYZY"
+    ]
+  },
+  {
+    "source": "https://qecchallenge.com/codes/11-5-3.html",
+    "n": 11,
+    "k": 5,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "XIYIXYXXYZI",
+      "ZIXIZXZZXYI",
+      "IXXIIYYZZZZ",
+      "IZZIIXXYYYY",
+      "IIIXXZZYYYY",
+      "IIIZZYYXXXX"
+    ]
+  },
+  {
+    "source": "https://qecchallenge.com/codes/12-3-3-s.html",
+    "n": 12,
+    "k": 3,
+    "d": 3,
+    "minimum_basis_weight": 4,
+    "generators": [
+      "YZXIXIIIIIII",
+      "YIIIIIIIXYIX",
+      "IXIIZIZXIIII",
+      "XYIIIIIYIIIY",
+      "IIZYZIIIIYII",
+      "IIIIIZXYIIZI",
+      "IIIZXXYIIIII",
+      "IIIIIXIIZIYY",
+      "IIIXIZIIYXII"
+    ]
+  },
+  {
+    "source": "https://qecchallenge.com/codes/12-4-3.html",
+    "n": 12,
+    "k": 4,
+    "d": 3,
+    "minimum_basis_weight": 6,
+    "generators": [
+      "XXIIXXXIIIXI",
+      "IXXXXIIXIIIX",
+      "XXXXIIXIXIII",
+      "XIIXXXIXIXII",
+      "IIXXXXIIXIXI",
+      "XXXIIXIIIXIX",
+      "ZIZIIIZIZZIZ",
+      "IZIZIIZZZIIZ",
+      "IIZIZIIZZIZZ",
+      "IIIZIZIZZZZI",
+      "ZIIIZIZZIZZI",
+      "IZIIIZZIIZZZ"
+    ]
+  },
+  {
+    "source": "https://arxiv.org/abs/1705.02329 (Fig. 3c)",
+    "n": 11,
+    "k": 5,
+    "d": 3,
+    "minimum_basis_weight": 8,
+    "generators": [
+      "IIIZZYYXXXX",
+      "IIIXXZZYYYY",
+      "IXXZZIIYYYY",
+      "IZZZZZZZZZZ",
+      "ZXIIZZXIYXZ",
+      "YIZIYZYYZXI"
+    ]
+  }
+]

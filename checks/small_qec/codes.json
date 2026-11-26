@@ -1,0 +1,140 @@
+[
+  {
+    "n": 10,
+    "k": 4,
+    "d": 3,
+    "weight": 6,
+    "generators": [
+      "YIYIXXIXXI",
+      "ZXZXIYIIYI",
+      "IZYIXIIZYY",
+      "ZYIYIIXIYZ",
+      "YYXIYIXIXI",
+      "XIIZYIYXIY"
+    ]
+  },
+  {
+    "n": 11,
+    "k": 4,
+    "d": 3,
+    "weight": 5,
+    "generators": [
+      "ZZIIIIIXYYI",
+      "IIIIXZYYXII",
+      "XXIZZIXIIII",
+      "IIYIZZIIYIX",
+      "IYIIYIIXIZY",
+      "IXXZIYIZIII",
+      "IIIYIXZIIYZ"
+    ]
+  },
+  {
+    "n": 11,
+    "k": 5,
+    "d": 3,
+    "weight": 7,
+    "generators": [
+      "YYZIZIIYZIX",
+      "IXYIIXXIYYY",
+      "YIYXYIZIYIZ",
+      "YZIIZIIZYXY",
+      "ZXZXZZXIIII",
+      "ZIZZIIYYIZZ"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 4,
+    "d": 3,
+    "weight": 5,
+    "generators": [
+      "IIXIIZZZZIII",
+      "YZIIZYIIYIII",
+      "ZIIIXIIZIYIY",
+      "IIIZIZYIXIXI",
+      "XIIYIIIXXIYI",
+      "IXIIYIZIIIYX",
+      "YZXIIIIIIXXI",
+      "IIZZIIIYIYIX"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 5,
+    "d": 3,
+    "weight": 6,
+    "generators": [
+      "XYYIYIIIZIYI",
+      "ZIYXIXIIIIZZ",
+      "IXIZIIZIXYIY",
+      "IZXIIZYIIZIZ",
+      "XIIXXZYIXIII",
+      "IIIIYIXYXXZI",
+      "IZIYIYXZYIII"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 6,
+    "d": 3,
+    "weight": 8,
+    "generators": [
+      "XYYIIXIXIZXI",
+      "XIIYXZYZYIXI",
+      "IIYZXXZIXIXX",
+      "ZIXZZIIYZZZI",
+      "ZXIYYXIXYIIZ",
+      "YXZIIIXXXYXI"
+    ]
+  },
+  {
+    "n": 10,
+    "k": 1,
+    "d": 4,
+    "weight": 4,
+    "generators": [
+      "YIIYYIXIII",
+      "IIIYIIIXXX",
+      "IIZIIXIZIZ",
+      "IIXIYYIIXI",
+      "IYIZXIIIZI",
+      "IXYIIIIYYI",
+      "XXIIZXIIII",
+      "ZIYIIZYIII",
+      "IXIXIIYIIZ"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 3,
+    "d": 4,
+    "weight": 6,
+    "generators": [
+      "ZIIYIYIXYIIZ",
+      "IIYIYXIIXYXI",
+      "ZIIZIXIZIIXY",
+      "XXYIZIIYYIII",
+      "XIIXIZZYIXII",
+      "IYYIIZIZIYYI",
+      "IIIIZXIZXXIY",
+      "XZZIIXYIIIZI",
+      "IYZZZXZIIIII"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 4,
+    "d": 4,
+    "weight": 7,
+    "generators": [
+      "IIIIIIYYZZXX",
+      "ZZZZZZIIIIII",
+      "ZXXXIXXIXIII",
+      "XIXIYXIZZIIY",
+      "IIYXXXZZIIXI",
+      "XXIZXXIIIIYZ",
+      "IYIIIXZYXIYY",
+      "XZXXXIIXIXII"
+    ]
+  }
+]

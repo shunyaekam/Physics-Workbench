@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.92in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,microtype}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\newcommand{\wt}{\operatorname{wt}}
+\newcommand{\F}{\mathbb F}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.43em}
+\title{The optimal check weight of an $[[11,5,3]]$\protect\\ binary stabilizer code is seven}
+\author{oo research}
+\date{25 November 2026 \quad$\cdot$\quad Research note}
+\begin{document}
+\maketitle
+\begin{abstract}
+How many data qubits must the largest stabilizer measurement touch when eleven physical qubits protect five logical qubits against an arbitrary single-qubit error? Wei et al.\ list the possible values as six through eight. Steane’s 1996 code already admits a weight-seven basis. Jing and Tu also settled the optimum using SAT certificates. We give an elementary proof of the same result. To rule out six, we count the syndromes of single-site Pauli errors. Minimum total incidence would force a distribution of syndrome weights incompatible with commutation. An adapted basis and a shortening argument cover degenerate codes. Both bounds concern arbitrary binary stabilizer codes, including non-CSS codes, with no geometric restriction.
+\end{abstract}
+\section*{An attaining code}
+Let $W$ be the smallest possible maximum Pauli weight of a generating set, minimized over the codes with the specified parameters. Deleting dependent generators never increases that maximum. The weight of a Pauli string counts its nonidentity positions. Read each row below as a Hermitian Pauli operator with positive sign, from qubit one on the left to qubit eleven on the right.
+\begin{center}\begin{tabular}{rlr}\toprule
+Check & Pauli string & Weight \\ \midrule
+1 & \texttt{YYZIZIIYZIX} & 7\\
+2 & \texttt{IXYIIXXIYYY} & 7\\
+3 & \texttt{YIYXYIZIYIZ} & 7\\
+4 & \texttt{YZIIZIIZYXY} & 7\\
+5 & \texttt{ZXZXZZXIIII} & 7\\
+6 & \texttt{ZIZZIIYYIZZ} & 7\\\bottomrule
+\end{tabular}\end{center}
+Each pair commutes. Their unsigned products are 64 distinct strings, so the generators are independent modulo phase. In particular no nonempty product is scalar, and the simultaneous $+1$ eigenspace has dimension $2^{11-6}=32$. Enumerating the Paulis of weights one, two and three gives precisely $0,0,79$ operators, respectively, that commute with all six generators and fall outside their span modulo phase. For example, $\mathtt{XXIYIIIIIII}$ is a weight-three logical. Thus $d=3$ and $W\le7$. The verification package includes the strings and a short exhaustive checker. Its search space at weights one and two contains $33+495=528$ strings.
+\newpage
+\section*{A lower bound for every generating basis}
+Suppose six generators of weight at most six define a code of length eleven encoding five qubits with distance at least three. All Pauli statements below are modulo scalar phase. The syndrome of a Pauli is its vector of anticommutation bits against an independent stabilizer basis. Two errors have equal syndrome exactly when their product commutes with the stabilizer. Such a product of weight at most two must belong to the stabilizer by the distance hypothesis.
+
+\textbf{Remove fixed factors.} A weight-one stabilizer fixes a single qubit. Two independent stabilizers on the same two-qubit support, in the absence of a weight-one stabilizer, fix a pure two-qubit factor. In the second case the local commuting Pauli space has dimension two and equals its own centralizer on that pair. The analogous statement holds in dimension one on a fixed qubit. Consequently the local restriction of any other check on the removed factor belongs to its local stabilizer. Strip the factor and take an independent subset of the restricted generators. This preserves five encoded qubits and the weight cap. A logical on the remainder lifts by identity to a logical of the same weight, so the distance remains at least three. Repeat until neither type of factor remains. Write $n$ for the remaining length and $r=n-5$ for its stabilizer rank, with $0\le r\le6$.
+
+\textbf{Account for repeated syndromes.} None of the $3n$ single-site errors has zero syndrome, since a commuting error of weight one would fix a qubit. The three errors on each site have distinct syndromes for the same reason. Inside any class of equal syndromes, two distinct errors act on different sites and their product is a weight-two stabilizer. Two distinct repeated classes cannot share a site. Indeed, the different Pauli labels there anticommute. Taking a partner for each error gives two stabilizers that would anticommute unless both partners are on the same second site. In that event they are independent stabilizers supported on that pair, a factor already removed.
+
+Let $t$ count all copies in excess of one per syndrome class. In each repeated class choose a root error and pair it with every other member. These $t$ weight-two products are independent: a leaf site occurs in only one selected product, and the classes have disjoint sites. Thus $t\le r$. Extend them to a stabilizer basis using checks from the weight-at-most-six generating set. A change of independent basis transforms syndrome vectors by an invertible binary matrix. It preserves which syndromes coincide and which are zero.
+
+Let $S$ denote the sum of the Hamming weights of the $3n$ single-site syndromes in this adapted basis, counting repetitions. Each nonidentity letter of a generator anticommutes with two of the three local Paulis. Hence
+\[
+ S=2\sum_{a=1}^r\wt(g_a)\ \le\ 2(2t+6(r-t))=12r-8t .
+\]
+There are $3n-t$ distinct nonzero $r$-bit strings. Each of the $t$ extra copies contributes at least one to $S$.
+
+\newpage
+\textbf{Exclude shortened cases.} If $r\le4$, at least $3(r+5)-r=2r+15$ distinct syndromes would have to fit in $2^r-1$ slots. This fails for every $0\le r\le4$. If $r=5$, the 30 cheapest distinct nonzero five-bit strings have total weight $5\cdot16-5=75$ (omit the all-ones string). Removing $t$ of the largest weights can save at most $5t$. Therefore $S\ge75-5t+t>60-8t$, another contradiction.
+
+\textbf{Force equality at length eleven.} For $r=6$, the 33 cheapest distinct nonzero strings have weights one (six times), two (fifteen times) and three (twelve times). Their total weight is $72$. Keeping $33-t$ distinct strings costs at least $72-3t$, so $S\ge72-2t$. Together with $S\le72-8t$ this forces $t=0$ and equality. Every candidate now has exactly the syndrome weight distribution just given.
+
+\textbf{Use commutation.} For each pair of distinct basis checks $a,b$, the integer $\sum_e s_a(e)s_b(e)$ is even, where $e$ runs over all single-site errors. On a site where both checks have the same nonidentity Pauli, two errors anticommute with both. Where they have different nonidentity Paulis, exactly one does. All other sites contribute zero. The parity is therefore the commutator bit of the two checks, which is zero. Summing over all pairs requires $\sum_e\binom{\wt(s(e))}{2}$ even. The forced distribution gives
+\[
+  6\binom{1}{2}+15\binom{2}{2}+12\binom{3}{2}=51.
+\]
+This contradiction rules out maximum weight six or less. The displayed code attains seven, proving $W=7$.\hfill$\square$
+
+\section*{Comparison and verification}
+Wei, Han, He, Li and Liu, \href{https://arxiv.org/html/2601.19848v2\#S7.T2}{\emph{Theory of low-weight quantum codes}, Table 2} (v2, September 2026) report the interval $[6,8]$. The lower bound applies across all such codes. Reconstructing the code in Eq.~(29) of \href{https://arxiv.org/abs/quant-ph/9605021}{Steane, \emph{Simple quantum error-correcting codes}} (1996) gives six independent weight-seven generators. It has 75 weight-three logical Pauli strings versus 79 here, so qubit permutations and single-qubit Clifford gates cannot relate the two. For comparison, the \href{https://codetables.de/QECC.php?q=4\&n=11\&k=5}{Grassl construction} and two entries in the \href{https://qecchallenge.com/codes/11-5-3.html}{QEC Challenge archive} have minimum basis weight eight, as checked by enumerating their stabilizer spans. Earlier work on weight-two clusters for the distinct $[[11,3,3]]$ question includes \href{https://yuxuanzhang1995.github.io/agentic-research/lowweight-11-3-3/}{Zhang's analysis}. \href{https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex}{Jing and Tu} had already proved seven optimal with 37 certified unsatisfiable instances in September 2026. The counting argument above is an alternative proof.
+
+\href{https://github.com/shunyaekam/Physics-Workbench/tree/research/checks/small_qec}{Reproduction package}: the upper-bound check enumerates all relevant Pauli strings, and the lower-bound check exhausts 28 arithmetic cases after the proved reduction. The reduction is a written mathematical proof, independently reviewed by a second AI session. The note has not undergone external peer review. Check weight measures the support of a Pauli measurement. Circuit depth, connectivity, ancilla costs and physical noise performance require separate analysis.
+\end{document}

@@ -110,5 +110,41 @@
     "full_vs_partial": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
     "stop_rule": "Promote only an explicit all-input certificate or a rigorously verified violating matrix pair. Keep finite word-count sweeps grouped in one result.",
     "checked": "2026-11-25"
+  },
+  {
+    "id": "wei-12-3-4",
+    "role": "external_problem",
+    "title": "Optimal check weight for twelve physical qubits encoding three",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, distance-four row n=12, k=3 (6–8); binary stabilizer codes.",
+    "question": "What is the minimum possible maximum generator weight of a binary [[12,3,4]] stabilizer code, over all codes and generating sets?",
+    "significance": "Measures the lightest possible largest parity check while encoding three logical qubits and detecting every Pauli error of weight up to three.",
+    "evidence_checked": [
+      "https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex",
+      "https://codetables.de/QECC.php?q=4&n=12&k=4"
+    ],
+    "known": "Wei et al. report 6–8. Jing and Tu retained that interval in their distance-four table.",
+    "experiment": "Generate bounded-weight commuting checks, fix one logical Pauli of known parent codes, and challenge the universal lower bound by exact weight-enumerator constraints.",
+    "full_vs_partial": "An independent rank-nine commuting basis of maximum weight six with exact distance four attains six. The quantum weight-enumerator constraints and two exact rational dual identities exclude nine weight-at-most-five stabilizers in any eligible code, including degenerate groups.",
+    "stop_rule": "Release only after independent review of the source, both bounds and priority.",
+    "checked": "2026-11-26"
+  },
+  {
+    "id": "wei-12-4-4",
+    "role": "external_problem",
+    "title": "Optimal check weight for twelve physical qubits encoding four",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "locator": "Wei et al., Table 2, distance-four row n=12, k=4 (7–8); binary stabilizer codes.",
+    "question": "What is the minimum possible maximum generator weight of a binary [[12,4,4]] stabilizer code, over all codes and generating sets?",
+    "significance": "A distance-four code storing four logical qubits achieves seven-qubit parity checks, fewer than the eight used by the tabulated construction.",
+    "evidence_checked": [
+      "https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex",
+      "https://codetables.de/QECC.php?q=4&n=12&k=4"
+    ],
+    "known": "The two compared tables retain the interval 7–8. The archived Grassl code needs weight eight in any basis.",
+    "experiment": "Keep seven independent checks of the Grassl group and replace its eighth. Check distance and the minimum generating weight of each new group.",
+    "full_vs_partial": "An independent rank-eight commuting basis of maximum weight seven with exact distance four attains seven. Two rational dual identities bound the number of stabilizers with support at most six by six or two according to parity, covering degenerate codes as well.",
+    "stop_rule": "Release only after independent review of the source, both bounds and priority.",
+    "checked": "2026-11-26"
   }
 ]

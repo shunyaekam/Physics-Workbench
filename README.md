@@ -1,5 +1,7 @@
 # oo research
 
+**Distance-four quantum error correction.** On twelve physical qubits, the least possible largest stabilizer check has weight seven when encoding four logical qubits and six when encoding three. [Read the paper](https://shunyaekam.github.io/Physics-Workbench/papers/distance-four.pdf) or [replay the exact certificates](checks/small_qec/README.md).
+
 [What counts as a solution](discovery/proof-system.md) · [Full machine-checked results](https://shunyaekam.github.io/Physics-Workbench/pipeline/#certified)
 
 oo research is an open mathematical physics lab. We investigate published conjectures and share our proofs, computations, and verification records.

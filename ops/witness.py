@@ -18,7 +18,12 @@ def contracts(root=ROOT):
 
 
 def replay(problem, witness):
-    if problem=="e27-schmidt":
+    if problem=="wei-12-4-4":
+        from checks.small_qec.target import check
+        return check(witness, k=4)
+    if problem=="wei-12-3-4":
+        from checks.small_qec.target import check
+    elif problem=="e27-schmidt":
         from checks.schmidt_orbit import check
     elif problem=="transport-polygon":
         from formal.transport_literal.attempt import check

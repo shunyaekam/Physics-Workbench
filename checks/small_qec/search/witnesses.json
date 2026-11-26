@@ -1,0 +1,174 @@
+[
+  {
+    "n": 10,
+    "k": 4,
+    "W": 6,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      60
+    ],
+    "logical_example": "XXXIIIIIII",
+    "generators": [
+      "YIYIXXIXXI",
+      "ZXZXIYIIYI",
+      "IZYIXIIZYY",
+      "ZYIYIIXIYZ",
+      "YYXIYIXIXI",
+      "XIIZYIYXIY"
+    ]
+  },
+  {
+    "n": 11,
+    "k": 4,
+    "W": 5,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      49
+    ],
+    "logical_example": "YYYIIIIIIII",
+    "generators": [
+      "ZZIIIIIXYYI",
+      "IIIIXZYYXII",
+      "XXIZZIXIIII",
+      "IIYIZZIIYIX",
+      "IYIIYIIXIZY",
+      "IXXZIYIZIII",
+      "IIIYIXZIIYZ"
+    ]
+  },
+  {
+    "n": 11,
+    "k": 5,
+    "W": 7,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      79
+    ],
+    "logical_example": "XXIYIIIIIII",
+    "generators": [
+      "YYZIZIIYZIX",
+      "IXYIIXXIYYY",
+      "YIYXYIZIYIZ",
+      "YZIIZIIZYXY",
+      "ZXZXZZXIIII",
+      "ZIZZIIYYIZZ"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 4,
+    "W": 5,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      36
+    ],
+    "logical_example": "ZXIZIIIIIIII",
+    "generators": [
+      "IIXIIZZZZIII",
+      "YZIIZYIIYIII",
+      "ZIIIXIIZIYIY",
+      "IIIZIZYIXIXI",
+      "XIIYIIIXXIYI",
+      "IXIIYIZIIIYX",
+      "YZXIIIIIIXXI",
+      "IIZZIIIYIYIX"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 5,
+    "W": 6,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      56
+    ],
+    "logical_example": "YZIYIIIIIIII",
+    "generators": [
+      "XYYIYIIIZIYI",
+      "ZIYXIXIIIIZZ",
+      "IXIZIIZIXYIY",
+      "IZXIIZYIIZIZ",
+      "XIIXXZYIXIII",
+      "IIIIYIXYXXZI",
+      "IZIYIYXZYIII"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 6,
+    "W": 8,
+    "distance": 3,
+    "logical_counts": [
+      0,
+      0,
+      104
+    ],
+    "logical_example": "ZZIZIIIIIIII",
+    "generators": [
+      "XYYIIXIXIZXI",
+      "XIIYXZYZYIXI",
+      "IIYZXXZIXIXX",
+      "ZIXZZIIYZZZI",
+      "ZXIYYXIXYIIZ",
+      "YXZIIIXXXYXI"
+    ]
+  },
+  {
+    "n": 10,
+    "k": 1,
+    "W": 4,
+    "distance": 4,
+    "logical_counts": [
+      0,
+      0,
+      0,
+      40
+    ],
+    "logical_example": "YYXIIIIIIX",
+    "generators": [
+      "YIIYYIXIII",
+      "IIIYIIIXXX",
+      "IIZIIXIZIZ",
+      "IIXIYYIIXI",
+      "IYIZXIIIZI",
+      "IXYIIIIYYI",
+      "XXIIZXIIII",
+      "ZIYIIZYIII",
+      "IXIXIIYIIZ"
+    ]
+  },
+  {
+    "n": 12,
+    "k": 3,
+    "W": 6,
+    "distance": 4,
+    "logical_counts": [
+      0,
+      0,
+      0,
+      105
+    ],
+    "logical_example": "ZYYIIIXIIIII",
+    "generators": [
+      "ZIIYIYIXYIIZ",
+      "IIYIYXIIXYXI",
+      "ZIIZIXIZIIXY",
+      "XXYIZIIYYIII",
+      "XIIXIZZYIXII",
+      "IYYIIZIZIYYI",
+      "IIIIZXIZXXIY",
+      "XZZIIXYIIIZI",
+      "IYZZZXZIIIII"
+    ]
+  }
+]
