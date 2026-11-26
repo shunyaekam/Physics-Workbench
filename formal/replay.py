@@ -11,7 +11,7 @@ VERSION = (HERE / "lean-toolchain").read_text().strip().split(":v")[1]
 CLAIMS = ["Workbench.triangle_parity", "Workbench.anchor_iff_all"]
 
 
-def replay():
+def pinned_lean():
     cached = Path.home() / "Library/Caches/Physics-Workbench" / f"lean-{VERSION}-darwin_aarch64/bin/lean"
     lean = os.environ.get("WORKBENCH_LEAN") or (str(cached) if cached.exists() else shutil.which("lean"))
     if not lean:
@@ -19,6 +19,11 @@ def replay():
     version = subprocess.check_output([lean, "--version"], text=True, cwd=HERE).strip()
     if f"version {VERSION}," not in version:
         raise ValueError(f"Expected Lean {VERSION}, got {version}")
+    return lean, version
+
+
+def replay():
+    lean, version = pinned_lean()
     file = HERE / "SupportParity.lean"
     result = subprocess.run([lean, "-DwarningAsError=true", file.name], cwd=HERE, capture_output=True,
                             text=True, check=True)

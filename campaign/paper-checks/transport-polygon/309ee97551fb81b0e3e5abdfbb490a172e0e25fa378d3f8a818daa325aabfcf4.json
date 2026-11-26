@@ -1,0 +1,38 @@
+{
+  "paper": "transport-polygon",
+  "inputs": {
+    "papers/transport-polygon.tex": "7ae2a914092f59d1add501682ff866141937cf5c5568bd6a032fc95c27817fe2",
+    "checks/transport_optimum.py": "944cf0758b2b9b50f21e4471b8807ced104224d702cef57520a44d651e2c82ac",
+    "checks/transport_polygon.py": "1ea4adb0713542087084454aa21b3b8fc70ee4e0453a7992b119f07d201cbdef",
+    "checks/transport_regression.py": "9095a564c393b8c716acb9c525ba15ede8371927494bf17b7cea19ab8652be0f",
+    "checks/transport_review.py": "6e7ec5384410b274f4031708815965715b44b41fe8dbb68ee067cfc8d94a38d7",
+    "formal/TransportPolygon.lean": "121673de15521dabc0c7538e62db25e0f55664bf037b8dbfecc23caabc3e15b0",
+    "formal/replay.py": "7b1f9ae89ea76e08f631c4b0c56867de0826d0f91a2664f6a4f4f0016cd71e07",
+    "formal/transport_replay.py": "e9b413f6a1e731c9d32dafc43b8766148ef64205bbdf3b9ef6691535106cf2cd",
+    "formal/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "ops/paper_checks.py": "145fca7bb422d7f7d161ee6acf9f965afd3bda1578ed69212695d3c1c355a1f3"
+  },
+  "checks": [
+    {
+      "command": [
+        "checks/transport_regression.py"
+      ],
+      "stdout": "988 exact comparisons; attaining labels checked for every input"
+    },
+    {
+      "command": [
+        "checks/transport_review.py",
+        "--sites",
+        "9"
+      ],
+      "stdout": "125664 directed simple cycles, 111044 with positive demand, maximum atom demand 3; all reconstructed chains satisfy every atom and the cycle budget."
+    },
+    {
+      "command": [
+        "formal/transport_replay.py"
+      ],
+      "stdout": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)\n'Workbench.TransportPolygon.triangleAlongWalk' does not depend on any axioms\n'Workbench.TransportPolygon.pathError' does not depend on any axioms\n'Workbench.TransportPolygon.polygonLowerBound' does not depend on any axioms\n'Workbench.TransportPolygon.integerPolygonLowerBound' depends on axioms: [propext]\n'Workbench.TransportPolygon.markedEntryCrossesUp' does not depend on any axioms"
+    }
+  ],
+  "scope": "Computational steps only. Mathematical review is a separate record."
+}

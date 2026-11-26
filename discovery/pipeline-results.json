@@ -1,13 +1,68 @@
 {
   "partial_results": [
-    ["e27-schmidt","schmidt-seven","Rank-seven nonlocal magic on three qubits per party","A working proof covers all seven-coefficient spectra on two three-qubit registers. Exact rational certificates settle 210 inequalities. Independent review is pending.","discovery/schmidt-seven.md"],
-    ["gagatsos-2026-c1","phase-invariant","Photon-number mixtures","The written proof covers all photon-number distributions. Lean checks the arithmetic induction.","checks/phase-invariant-wigner.md"],
-    ["gagatsos-2026-c1","optical-qubit","The zero–one-photon qubit","The proof covers pure and mixed states in the two-level optical subspace.","papers/single-rail-wigner.tex"],
-    ["gagatsos-2026-c1","renyi-orders","Rényi-order obstructions","The paper excludes orders and derives a sharp lower threshold on the optical qubit.","papers/renyi-obstructions.tex"],
-    ["gagatsos-2026-c1","sparse","Two-level superpositions","The sparse-state argument restricts possible counterexamples within levels zero to five.","papers/sparse-fock-coherence.tex"],
-    ["gagatsos-2026-c1","cubic-phase","Cubic gates up to 0.15","An interval certificate covers a continuum of weak cubic gates with arbitrary Gaussian processing.","discovery/cubic-strength.md"],
-    ["werner-endpoint","coordinate","Coordinate support conditions","The argument restricts a witness search by classifying coordinate sets with positive compression.","papers/coordinate-supports.tex"],
-    ["werner-endpoint","finite-maxima","Finite support maxima","Complete finite search certificates establish the reported support maxima for the specified instances.","papers/finite-maxima.tex"]
+    [
+      "refined-bmv",
+      "bmv-binary-spectrum",
+      "Two energy levels suffice for both refined trace bounds",
+      "Both bounds hold in every finite dimension and at all word lengths whenever either observable has at most two distinct levels, with arbitrary multiplicities. The general lower bound remains open.",
+      "checks/bmv-blocks.md"
+    ],
+    [
+      "e27-schmidt",
+      "schmidt-seven",
+      "Rank-seven nonlocal magic on three qubits per party",
+      "All rank-seven spectra on two three-qubit registers, three larger-register regions and an unbounded-rank two-exception family have proofs. Separate project reviewers checked the reductions and exact certificates. External review is pending.",
+      "discovery/schmidt-seven.md"
+    ],
+    [
+      "gagatsos-2026-c1",
+      "phase-invariant",
+      "Photon-number mixtures",
+      "The written proof covers all photon-number distributions. Lean checks the arithmetic induction.",
+      "checks/phase-invariant-wigner.md"
+    ],
+    [
+      "gagatsos-2026-c1",
+      "optical-qubit",
+      "The zero–one-photon qubit",
+      "The proof covers pure and mixed states in the two-level optical subspace.",
+      "papers/single-rail-wigner.tex"
+    ],
+    [
+      "gagatsos-2026-c1",
+      "renyi-orders",
+      "Rényi-order obstructions",
+      "The paper excludes orders and derives a sharp lower threshold on the optical qubit.",
+      "papers/renyi-obstructions.tex"
+    ],
+    [
+      "gagatsos-2026-c1",
+      "sparse",
+      "Two-level superpositions",
+      "The sparse-state argument restricts possible counterexamples within levels zero to five.",
+      "papers/sparse-fock-coherence.tex"
+    ],
+    [
+      "gagatsos-2026-c1",
+      "cubic-phase",
+      "Cubic gates up to 0.15",
+      "An interval certificate covers a continuum of weak cubic gates with arbitrary Gaussian processing.",
+      "discovery/cubic-strength.md"
+    ],
+    [
+      "werner-endpoint",
+      "coordinate",
+      "Coordinate support conditions",
+      "The argument restricts a witness search by classifying coordinate sets with positive compression.",
+      "papers/coordinate-supports.tex"
+    ],
+    [
+      "werner-endpoint",
+      "finite-maxima",
+      "Finite support maxima",
+      "Complete finite search certificates establish the reported support maxima for the specified instances.",
+      "papers/finite-maxima.tex"
+    ]
   ],
   "exclusions": [
     {
@@ -19,6 +74,17 @@
       "proof": "discovery/coherent-optimality.md#a-second-check-against-the-source-question",
       "math_review": "checks/multimode-review.md",
       "priority_audit": "checks/multimode-priority.md",
+      "reviewed_on": "2026-11-25"
+    },
+    {
+      "id": "bmv-finite-replication",
+      "problem_id": "refined-bmv",
+      "title": "Finite three-factor BMV certificates",
+      "status": "prior_art",
+      "detail": "Two exact implementations agreed across 26 word counts. A preexisting formal theorem already covers them all. The project records one replication.",
+      "proof": "checks/bmv_range_review.py",
+      "math_review": "checks/bmv-range-review.md",
+      "priority_audit": "discovery/sources/next-intake.md",
       "reviewed_on": "2026-11-25"
     }
   ],
@@ -32,5 +98,10 @@
       "audit": "discovery/sources/ho-hsieh.md"
     }
   ],
-  "solutions": []
+  "solutions": [
+    {
+      "problem_id": "transport-polygon",
+      "publication_commit": "f9d0d8e58a6f0e5cdc4a026b0641dddf67bec417"
+    }
+  ]
 }

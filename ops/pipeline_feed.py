@@ -146,7 +146,6 @@ def build(root, now):
     solutions = [published_solution(root,s,targets) for s in ledger["solutions"]]
     solved = {s["id"] for s in solutions}
     require(len(solved) == len(solutions), "Duplicate full resolution for the same target")
-    require(len(solved)==len(solutions),"Duplicate full resolution")
     for problem in problems:
         if problem["id"] in solved:
             problem["status"] = "reviewed_resolution"
@@ -220,6 +219,27 @@ def build(root, now):
                                 status,detail,pid,flag,date=lane["updated_at"]))
     activity.extend(sorted(lane_rows,key=lambda x:x["updated_at"],reverse=True)[:4])
 
+    bmv_paths=sorted((root/"campaign/bmv-three-level").glob("*.json"))
+    if bmv_paths:
+        pid="refined-bmv"
+        require(pid in targets,"Three-spectrum search has no registered question")
+        tested=0
+        for path in bmv_paths:
+            batch=load(path)
+            tested+=tally(batch["tested"])
+            flagged=batch["status"]=="balanced_product_violation"
+            require(batch["closest"]["reference"]>0 and flagged==(batch["closest"]["gap"]<0),
+                    "BMV signed gap and verdict differ")
+            if flagged:
+                record(path,"ternary-bmv-"+path.stem,"Check a balanced-product violation",batch["status"],
+                       "A negative exact gap challenges the stronger product bound. The partition-function bound needs its own check.",pid,True)
+        counts["bmv-three-level"]=tested
+        activity.insert(0,record(bmv_paths[-1],"bmv-three-level","Trace bounds with three distinct energy levels",
+                                 "exact_search",f"{tested} matrix pairs checked by exact word recursion.",pid))
+        problem=next(p for p in problems if p["id"]==pid)
+        problem["evidence"]={"binary-spectrum proof":artifact(root,"papers/bmv-trace-12-3.tex"),
+                             "exact follow-up":artifact(root,"checks/bmv_search.py")}
+
     transport_batches = sorted((root/"campaign/transport-polygon").glob("*.json"))
     if transport_batches:
         pid = "transport-polygon"
@@ -236,7 +256,9 @@ def build(root, now):
         counts["transport-polygons"] = total
         problem = next(p for p in problems if p["id"] == pid)
         problem["evidence"] = {"target and proof":artifact(root,"discovery/transport-polygon.md"),
-                               "catalogue selection":artifact(root,"discovery/catalogue-intake.md")}
+                               "exact optimal labels":artifact(root,"checks/transport_optimum.py"),
+                               "mathematical review":artifact(root,"checks/transport-review.md"),
+                               "priority audit":artifact(root,"discovery/sources/transport-priority.md")}
     golay_batches = sorted((root/"campaign/golay43").glob("*.json"))
     if golay_batches:
         pid = "golay43"

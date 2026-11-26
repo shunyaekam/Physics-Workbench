@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <string>
+#include <map>
 
 struct Pauli {Bits x=0,z=0;};
 Pauli operator^(Pauli a,Pauli b){return {a.x^b.x,a.z^b.z};}
@@ -30,12 +31,31 @@ bool reachable_after(const State& end,const std::vector<int>& order,
     }
     return true;
 }
+// Controlled Pauli gates are polynomials in their two one-wire axes.
+bool obviously_commutes(Gate a, Gate b){
+    return (a.a!=b.a || a.p==b.p) && (a.a!=b.b || a.p==b.q) &&
+           (a.b!=b.a || a.q==b.p) && (a.b!=b.b || a.q==b.q);
+}
+void check_swap(Gate a,Gate b){
+    // Two batches span all single-qubit X and Z Paulis. Splice predicates
+    // depend only on this binary action. The local-axis test also certifies
+    // exact unitary commutation from the controlled-phase polynomial.
+    for(int axis=0;axis<2;++axis){
+        State first{};
+        for(int i=0;i<n;++i) (axis ? first.z : first.x)[i]=1u<<i;
+        State second=first;
+        apply(first,a);apply(first,b);
+        apply(second,b);apply(second,a);
+        if(first.x!=second.x || first.z!=second.z) throw std::logic_error("Invalid commute pruning");
+    }
+}
 int main(int argc,char** argv){
-    bool check=false,tail=false;
+    bool check=false,tail=false,canonical=false;
     for(int i=1;i<argc;++i){
         std::string option(argv[i]);
         if(option=="--check") check=true;
         else if(option=="--tail") tail=true;
+        else if(option=="--canonical") canonical=true;
         else return 2;
     }
     const int allowed=tail?2:0;
@@ -47,7 +67,20 @@ int main(int argc,char** argv){
     }
     if(seed.size()<2 || seed.size()>44) return 2;
     if(tail && seed.size()<3) return 2;
-    uint64_t trials=0,direct=0;
+    std::vector<Gate> all;
+    for(int a=0;a<n;++a) for(int p=1;p<=3;++p)
+        for(int b=a+1;b<n;++b) for(int q=1;q<=3;++q) all.push_back({a,b,p,q});
+    std::map<std::array<int,4>,std::vector<Gate>> blocked;
+    if(canonical) for(auto next:seed){
+        auto key=std::array<int,4>{next.a,next.b,next.p,next.q};
+        if(blocked.count(key)) continue;
+        auto& options=blocked[key];
+        for(auto insert:all){
+            if(!obviously_commutes(insert,next)) options.push_back(insert);
+            else if(check) check_swap(insert,next);
+        }
+    }
+    uint64_t trials=0,direct=0,skipped=0;
     for(size_t first=0;first<seed.size();++first) for(size_t second=first+1;second<seed.size();++second)
     for(size_t third=tail?second+1:seed.size();third<(tail?seed.size():seed.size()+1);++third){
         std::vector<Gate> retained;
@@ -65,52 +98,62 @@ int main(int argc,char** argv){
         }
         for(int cut=int(retained.size());cut>=0;--cut){
             const State& prefix=before[cut];
-            for(int a=0;a<n;++a) for(int p=1;p<=3;++p){
-                Bits au=anti(prefix,a,p);
-                for(int b=a+1;b<n;++b)for(int q=1;q<=3;++q){
-                    ++trials;Bits av=anti(prefix,b,q);
-                    bool passes=true;
-                    // A rank-two site's columns can become dependent only if
-                    // their span and span(au,av) share a nonzero vector.
-                    int permanent=0;
-                    for(int site=0;site<n_mixed;++site){
-                        int i=order[site];
-                        Bits x=end.x[i],z=end.z[i];
-                        if(!in_plane(x,au,av) && !in_plane(z,au,av) && !in_plane(x^z,au,av)){
-                            if(++permanent>allowed){passes=false;break;}
-                        }
-                        if(!tail) break;
+            // Test the rightmost cut in each commuting run. A left cut with a
+            // commuting next gate is represented by a later cut of this mask.
+            auto options=&all;
+            if(canonical && size_t(cut)<retained.size()){
+                auto next=retained[cut];
+                options=&blocked.at({next.a,next.b,next.p,next.q});
+            }
+            skipped+=all.size()-options->size();
+            for(auto insert:*options){
+                int a=insert.a,b=insert.b,p=insert.p,q=insert.q;
+                ++trials;Bits au=anti(prefix,a,p),av=anti(prefix,b,q);
+                bool passes=true;
+                // A rank-two site's columns can become dependent only if
+                // their span and span(au,av) share a nonzero vector.
+                int permanent=0;
+                for(int site=0;site<n_mixed;++site){
+                    int i=order[site];
+                    Bits x=end.x[i],z=end.z[i];
+                    if(!in_plane(x,au,av) && !in_plane(z,au,av) && !in_plane(x^z,au,av)){
+                        if(++permanent>allowed){passes=false;break;}
                     }
-                    if(check && (trials<=3 || trials%65537==0)){
-                        State slow=prefix;
-                        apply(slow,{a,b,p,q});
-                        for(size_t j=cut;j<retained.size();++j) apply(slow,retained[j]);
-                        auto u=images[a][p],v=images[b][q];
-                        int slow_mixed=0;
-                        for(int i=0;i<n;++i){
-                            Bits x=end.x[i]^(((v.x>>i)&1)?au:0)^(((u.x>>i)&1)?av:0);
-                            Bits z=end.z[i]^(((v.z>>i)&1)?au:0)^(((u.z>>i)&1)?av:0);
-                            if(x!=slow.x[i] || z!=slow.z[i])
-                                throw std::logic_error("Suffix transform disagrees with direct replay");
-                            if(mixed(slow,i)) ++slow_mixed;
-                        }
-                        if((slow_mixed<=allowed)!=(passes && reachable_after(end,order,u,v,au,av,allowed)))
-                            throw std::logic_error("Product predicate disagrees with direct replay");
+                    if(!tail) break;
+                }
+                if(check && (trials<=3 || trials%65537==0)){
+                    State slow=prefix;
+                    apply(slow,{a,b,p,q});
+                    for(size_t j=cut;j<retained.size();++j) apply(slow,retained[j]);
+                    auto u=images[a][p],v=images[b][q];
+                    int slow_mixed=0;
+                    for(int i=0;i<n;++i){
+                        Bits x=end.x[i]^(((v.x>>i)&1)?au:0)^(((u.x>>i)&1)?av:0);
+                        Bits z=end.z[i]^(((v.z>>i)&1)?au:0)^(((u.z>>i)&1)?av:0);
+                        if(x!=slow.x[i] || z!=slow.z[i])
+                            throw std::logic_error("Suffix transform disagrees with direct replay");
+                        if(mixed(slow,i)) ++slow_mixed;
                     }
-                    if(!passes) continue;
-                    ++direct;
-                    if(reachable_after(end,order,images[a][p],images[b][q],au,av,allowed)){
-                        std::cout<<"{\"found\":true,\"trials\":"<<trials<<",\"direct\":"<<direct
-                                 <<",\"omit\":["<<first<<","<<second;
-                        if(tail) std::cout<<","<<third;
-                        std::cout<<"],\"insert_at\":"<<cut
-                                 <<",\"gate\":["<<a<<","<<b<<","<<p<<","<<q<<"]}\n";
-                        return 0;
-                    }
+                    if((slow_mixed<=allowed)!=(passes && reachable_after(end,order,u,v,au,av,allowed)))
+                        throw std::logic_error("Product predicate disagrees with direct replay");
+                }
+                if(!passes) continue;
+                ++direct;
+                if(reachable_after(end,order,images[a][p],images[b][q],au,av,allowed)){
+                    std::cout<<"{";
+                    if(canonical) std::cout<<"\"equivalent_skipped\":"<<skipped<<",";
+                    std::cout<<"\"found\":true,\"trials\":"<<trials<<",\"direct\":"<<direct
+                             <<",\"omit\":["<<first<<","<<second;
+                    if(tail) std::cout<<","<<third;
+                    std::cout<<"],\"insert_at\":"<<cut
+                             <<",\"gate\":["<<a<<","<<b<<","<<p<<","<<q<<"]}\n";
+                    return 0;
                 }
             }
             if(cut)extend(images,retained[cut-1]);
         }
     }
-    std::cout<<"{\"found\":false,\"trials\":"<<trials<<",\"direct\":"<<direct<<"}\n";
+    std::cout<<"{";
+    if(canonical) std::cout<<"\"equivalent_skipped\":"<<skipped<<",";
+    std::cout<<"\"found\":false,\"trials\":"<<trials<<",\"direct\":"<<direct<<"}\n";
 }

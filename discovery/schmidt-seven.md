@@ -16,3 +16,11 @@ The 25 November 2026 priority screen checked the originating paper, the E27 cata
 ## The next search
 
 A single sufficient inequality would extend the finite certificate to arbitrary rank-seven spectra. Each pair of frame vectors would have to contribute at most two units of normalized plane weight across the other five vectors (last row of the paper’s table). This is an identity in dimension eight. In dimension sixteen the worker tests rational rotations of seven-frame vectors and independently reconstructs the best frame by four-by-four determinants. A score above two would invalidate this proposed proof route. It would take a separate entropy calculation to refute the physical conjecture. [Search code](../checks/schmidt7/pair_search.py) · [Search results](../campaign/schmidt-seven-pairs)
+
+## Extension to larger spectra, 25 November
+
+The revised paper proves the optimum in three regions that allow seven distinct nonzero Schmidt probabilities in registers of arbitrary size. Write them in decreasing order as $t_1,\dots,t_7$. It suffices that $t_1\le3t_7$, that $2t_2\le3t_7$, or that $t_4-t_5\ge t_7$. Each region has its own 210 exact certificates. A separate project reviewer reconstructed the coefficients and verified all 630. The factor three is sharp for the linear relaxation used in the first region. [Region verifier and certificate generator](../checks/schmidt7/regions.py) · [Mathematical review](../checks/schmidt7/review.md)
+
+There is also an analytic result of unbounded rank. In equal qubit registers, a list of Schmidt amplitudes with at most two exceptions to a common value attains its optimum in the sorted basis. For example, fourteen amplitudes proportional to 2, one proportional to 1 and one zero give exact optimal purity $2576747/3518667$. [Reviewed analytic proof](../checks/two-outliers/review.md) · [24 exact checks](../checks/schmidt7/two_exceptions.py)
+
+For the open pair-weight inequality, one team member established the desired bound in every dimension whenever the distinguished pair spans a stabilizer state. The remaining target is a pair without such a direction. The [proof](../checks/schmidt7/pair_extension.md) and [complex-frame search](../checks/schmidt7/pair_extension_optimize.py) are available for replay.

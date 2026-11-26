@@ -41,7 +41,7 @@ def decompose(prefix):
     return edges,local
 
 
-def frontiers(batch, seed=None):
+def deletion_frontiers(batch, seed=None):
     rng=random.Random(12043+batch)
     if seed is None: seed=g.seed_schedule()
     result=[seed[:k] for k in range(0,42)]
@@ -53,7 +53,48 @@ def frontiers(batch, seed=None):
             result.append([gate for j,gate in enumerate(seed[:k]) if j not in drop])
     return result
 
+def frontiers(batch, seed=None, schema=1):
+    if seed is None: seed=g.seed_schedule()
+    old=deletion_frontiers(batch,seed)
+    if schema==1:
+        return old
+    if schema!=2:
+        raise ValueError("Unknown graph frontier version")
+    rng=random.Random(240043+batch)
+    result=old[:32]
+    for i in range(96):
+        k=rng.randint(14,min(41,len(seed)))
+        # Explore near the middle or end of the seed, so regrown prefixes
+        # share actual target structure but can contain new two-wire gates.
+        j=rng.randrange(max(0,k-12),k)
+        a,b,p,q=seed[j]
+        options=[]
+        if i<48:
+            for _ in range(8):
+                target=rng.choice([z for z in range(g.N) if z not in (a,b)])
+                gate=(a,target,p,rng.choice("XYZ")) if rng.randrange(2) else (target,b,rng.choice("XYZ"),q)
+                options.append(seed[:j]+[gate]+seed[j+1:k])
+        else:
+            width=rng.randint(2,5)
+            j=min(j,k-width)
+            wires=sorted({t for gate in seed[j:j+width] for t in gate[:2]})
+            for _ in range(8):
+                fresh=[]
+                for _ in range(width-1):
+                    a=rng.choice(wires)
+                    b=rng.choice([t for t in range(g.N) if t!=a])
+                    fresh.append((a,b,rng.choice("XYZ"),rng.choice("XYZ")))
+                options.append(seed[:j]+fresh+seed[j+width:k])
+        # The number of still-entangled qubits is an inexpensive exact score.
+        # Stable tie-breaking retains the seeded order of the draws.
+        result.append(min(options,key=g.mixed))
+    return result
+
+
+def strategy(index):
+    return "deletion" if index<32 else "rewire" if index<80 else "regrow"
+
 
 if __name__=="__main__":
-    for prefix in frontiers(int(sys.argv[1])):
+    for prefix in deletion_frontiers(int(sys.argv[1])):
         print(len(prefix),*decompose(prefix)[0])

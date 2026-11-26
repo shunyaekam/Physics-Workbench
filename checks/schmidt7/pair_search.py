@@ -80,7 +80,9 @@ def direct(frame,moves):
     return Fraction(total,scale**8)
 
 
-def run(batch):
+def run(batch, version=2):
+    if version not in (1, 2):
+        raise ValueError("Unknown pair-search version")
     rng=random.Random(86007+batch)
     best=Fraction(-1)
     best_state=None
@@ -90,6 +92,17 @@ def run(batch):
         wedges=initial(frame)
         den=1
         history=[]
+        if version==2:
+            # Each distinguished vector gets its own pair of unequal amplitudes.
+            # Disjoint supports imply no nonzero combination has constant modulus
+            # on its support, a necessary property of every stabilizer state.
+            unused=rng.sample([j for j in LABELS if j not in frame],2)
+            for col,other in zip(frame[:2],unused):
+                i,j=sorted((col,other))
+                c,s,h=rng.choice([(3,4,5),(5,12,13),(7,24,25)])
+                wedges=rotate(wedges,i,j,c,s,h)
+                den*=h
+                history.append([i,j,c,s,h])
         for step in range(9):
             if step:
                 i,j=sorted(rng.sample(LABELS,2))
@@ -111,8 +124,11 @@ def run(batch):
         if best>2: break
     frame,history=best_state
     if direct(frame,history)!=best: raise ArithmeticError("Pair-bound witness did not replay")
-    return dict(batch=batch,dimension=16,domain="real rational orthonormal seven-frames",evaluations=tested,
+    result=dict(batch=batch,dimension=16,domain="real rational orthonormal seven-frames",evaluations=tested,
                 maximum=str(best),violates_sufficient_bound=best>2,initial_frame=frame,rotations=history)
+    if version==2:
+        result["version"]=version
+    return result
 
 
 if __name__=="__main__":
@@ -123,7 +139,8 @@ if __name__=="__main__":
     paths=sorted(OUT.glob("*.json"))
     if args.action=="replay":
         for p in paths:
-            if run(int(p.stem))!=load(p): raise ArithmeticError("Pair batch replay failed")
+            stored=load(p)
+            if run(int(p.stem),stored.get("version",1))!=stored: raise ArithmeticError("Pair batch replay failed")
     elif not any(load(p)["violates_sufficient_bound"] for p in paths):
         batch=len(paths)
         result=run(batch)

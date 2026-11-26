@@ -11,8 +11,8 @@
       "https://open-quantum-problems.vercel.app/p/E27",
       "https://arxiv.org/abs/2607.10714"
     ],
-    "known": "Sierant proves the dyadic-staircase and rank-at-most-six cases. Our working paper gives a scoped rank-seven result for external review.",
-    "experiment": "Prove the missing overlap inequalities for seven-dimensional supports and validate the exact certificate.",
+    "known": "The working paper covers all rank-seven spectra for three qubits per party, three open regions of the larger-register problem and spectra with two exceptional amplitudes in equal registers. Independent project review is available.",
+    "experiment": "Test the unresolved pair-frame inequality outside spans containing a stabilizer direction. An exact violation would identify the limit of this proof route.",
     "full_vs_partial": "Arbitrary rank and local register sizes are required for the full conjecture. A strictly lower entropy for a state on the same local-unitary orbit would refute it.",
     "stop_rule": "For larger registers, test the five outstanding coefficient inequalities against physical frames before extending the theorem.",
     "checked": "2026-11-25"
@@ -40,7 +40,7 @@
   {
     "id": "transport-polygon",
     "role": "external_problem",
-    "title": "Second priority · Quantum transport polygon bound",
+    "title": "Exact approximation of quantum transport costs",
     "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
     "locator": "Pitchford, Conjecture 7.7 and Proposition 7.5, release v0.1.0-candidate",
     "question": "For 0 < p ≤ 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
@@ -49,7 +49,7 @@
       "https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L522",
       "https://openquantumproblems.com/p/C14"
     ],
-    "known": "Author proves three levels in this regime. The literal q < 1 single-function clause fails on a 3–4–5 triangle; it leaves this q > 1 target open.",
+    "known": "Project proof and separate project-agent mathematical review cover every finite spectrum in the registered range. External review is pending.",
     "experiment": "Enumerate every polygon chain for integer spectra and exponents, then solve the difference constraints exactly. Save labels; verify each pair. Audit every ordering for a small obstruction.",
     "full_vs_partial": "A proof for all finite spectra or one certified counterexample to either prediction settles the stated conjunction. A failed monotone fit alone is insufficient. A strict distance failure requires a bound against the full cut cone.",
     "stop_rule": "Rotate away after eight unchanged batches of integer spectra. Keep attained instances as evidence, without discovery credit.",
@@ -90,6 +90,25 @@
     "experiment": "Optimize squeeze, weight, separation and phase of a normalized pure two-coherent-state superposition. Use two refined grids and analytic positive/negative-Wigner controls.",
     "full_vs_partial": "A single state with a rigorously positive residual would refute the universal inequality. Floating point can nominate it; original normalization, explicit quadrature error and tail bounds must then be verified. No violation in a family gives no proof of the universal statement.",
     "stop_rule": "A positive refined residual is queued for error-bounded validation. Without a crossing, record the family, parameters and residual and retain proof status as open.",
+    "checked": "2026-11-25"
+  },
+  {
+    "id": "refined-bmv",
+    "role": "external_problem",
+    "title": "A lower bound for symmetrized quantum partition functions",
+    "source": "https://oqp.iqoqi.oeaw.ac.at/refinement-of-the-bessis-moussa-villani-conjecture/",
+    "locator": "IQOQI problem 40, lower bound. Hägele, arXiv:2611.00129v1, Eq. (1) and Lemmas 2, 5 and 6.",
+    "question": "For all finite-dimensional Hermitian H,K and positive integers n,m, is the mean trace of words with n factors exp(H) and m factors exp(K) at least Tr exp(nH+mK)?",
+    "significance": "This would bound a quantum partition function using symmetrized products of two noncommuting positive matrices.",
+    "evidence_checked": [
+      "https://arxiv.org/html/2611.00129v1",
+      "https://open-quantum-problems.vercel.app/p/M14",
+      "https://github.com/the-omega-institute/trureturing/blob/51dca4f1542baa532983864568d6a8ca3470e745/D5/S3/Quantum/Analysis/RefinedBMVThreeSpectrumCertificate.lean#L42-L57"
+    ],
+    "known": "The all-degree three-second-factor theorem for up to three first-matrix eigenvalues is already public. We independently reproduced 26 of its cases. The binary-spectrum coefficient argument covers both bounds and arbitrary word counts.",
+    "experiment": "For three spectral values and at least four factors of the second matrix, analyze the histogram weights in the trace of a three-variable matrix pencil. Identify which signed coefficients can survive the weighted sum in the lower bound.",
+    "full_vs_partial": "The catalogue lower bound quantifies over all finite dimensions and both word counts. A proof in dimension three with three second factors is partial.",
+    "stop_rule": "Promote only an explicit all-input certificate or a rigorously verified violating matrix pair. Keep finite word-count sweeps grouped in one result.",
     "checked": "2026-11-25"
   }
 ]

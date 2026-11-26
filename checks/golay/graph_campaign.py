@@ -8,13 +8,13 @@ from tempfile import TemporaryDirectory
 
 import stim
 
-from graph_inputs import frontiers, g, decompose, target_sim
+from graph_inputs import frontiers, g, decompose, target_sim, strategy
 from graph_replay import construct,inverse_axes
 from lab import load, write
 
 HERE=Path(__file__).resolve().parent
 OUT=g.ROOT/"campaign/golay-graphs"
-SCHEMA=1
+SCHEMA=2
 
 
 def verify(receipt):
@@ -33,7 +33,7 @@ def verify(receipt):
     return axes
 
 
-def run(exe,batch):
+def run(exe,batch,schema=SCHEMA):
     # The first five runs reproduce the initial screen. Four separate lineages
     # then feed previously verified circuits back into the search.
     parent=batch-4 if batch>=5 else None
@@ -44,15 +44,40 @@ def run(exe,batch):
             seed=verify(previous)
         else:
             parent=None
-    prefixes=frontiers(batch,seed)
+    prefixes=frontiers(batch,seed,schema)
     rows=[" ".join(map(str,[len(p),*decompose(p)[0]])) for p in prefixes]
     trials=8000 if batch==0 else 100000 if batch<=4 else 20000
-    result=json.loads(subprocess.check_output([str(exe),str(17043+batch),str(trials)],
-                           input="\n".join(rows)+"\n",text=True))
+    def walk(first,last,rng_seed,budget):
+        encoded="\n".join(rows[first:last])+"\n"
+        result=json.loads(subprocess.check_output([str(exe),str(rng_seed),str(budget)],input=encoded,text=True))
+        result["frontier"]+=first
+        return result
+
+    arms={}
+    if schema==1:
+        result=walk(0,len(rows),17043+batch,trials)
+        actual_trials=result["trials"]
+    else:
+        # Isolate incumbents: a cheap deletion-derived circuit should not prune
+        # new strategies before we learn their best result. Prefer a new family
+        # on ties, and retain the combined historic trial budget.
+        results=[]
+        for i,(first,last) in enumerate(((32,80),(80,128),(0,32))):
+            budget=trials*(last-first)//128
+            candidate=walk(first,last,17043+batch+1000000*i,budget)
+            results.append(candidate)
+            family=strategy(first)
+            arms[family]=dict(frontiers=last-first,trials=candidate["trials"],cost=candidate["cost"])
+            if candidate["cost"]<=43: break
+        result=min(results,key=lambda row:row["cost"])
+        actual_trials=sum(row["trials"] for row in results)
     forward=construct(prefixes[result["frontier"]],result)
-    receipt=dict(schema=SCHEMA,batch=batch,parent=parent,trials=result["trials"],cost=result["cost"],
+    receipt=dict(schema=schema,batch=batch,parent=parent,trials=actual_trials,cost=result["cost"],
                  frontier=result["frontier"],moves=result["moves"],forward_stim=str(forward),
                  forward_sha256=sha256(str(forward).encode()).hexdigest())
+    if schema==2:
+        receipt.update(strategies=arms,winning_strategy=strategy(result["frontier"]),
+                       frontiers_sha256=sha256(json.dumps(prefixes,separators=(",",":")).encode()).hexdigest())
     verify(receipt)
     return receipt
 
@@ -68,7 +93,7 @@ def advance(exe,batch):
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
-    parser.add_argument("action",choices=["advance","check","replay"])
+    parser.add_argument("action",choices=["advance","check","replay","preview"])
     parser.add_argument("--batch",type=int)
     args=parser.parse_args();OUT.mkdir(exist_ok=True)
     paths=sorted(OUT.glob("*.json"))
@@ -82,6 +107,10 @@ if __name__=="__main__":
             if args.action=="replay":
                 for path in paths:
                     old=load(path)
-                    if run(exe,old["batch"])!=old: raise ArithmeticError(f"Replay failed: {path}")
+                    if args.batch is not None and old["batch"]!=args.batch: continue
+                    if run(exe,old["batch"],old["schema"])!=old: raise ArithmeticError(f"Replay failed: {path}")
+            elif args.action=="preview":
+                batch=len(paths) if args.batch is None else args.batch
+                print(json.dumps(run(exe,batch),indent=2))
             else:
                 advance(exe,len(paths) if args.batch is None else args.batch)

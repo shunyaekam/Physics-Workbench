@@ -1,0 +1,88 @@
+# The polygon bound for finite-spectrum quantum transport costs
+
+Physics Workbench · Research manuscript · November 25, 2026
+
+**Abstract.** Suppose the energy levels of an observable are ordered and transporting between two levels costs their separation raised to a power greater than one. We determine the smallest uniform error incurred when this cost is replaced by lower-exponent quantum transport costs, for every lower exponent in $(0,1]$. A single nondecreasing relabeling of the levels achieves the optimum. This proves the convex-power case of Iain Pitchford’s Conjecture 7.7. The scalar argument applies to any array that is a nonnegative sum of indicators of contained intervals. The proof combines a difference-constraints criterion with a counting argument for directed cycles. [Original problem, Proposition 7.5 and Conjecture 7.7](https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L521-L563)
+
+## The formula
+
+For a finite-spectrum observable $B$, let $G_p(B)=|B\otimes I-I\otimes B^T|^p$ on the Hilbert space tensored with its conjugate. The cone $\mathcal C_p$ consists of finite sums of these operators. A pair of pure states has a unique product coupling in the transport problem, so the cost for this pair is the expectation of the cost operator on that product.
+
+Let $x_1<\dots<x_n$ be the distinct eigenvalues of a finite-spectrum observable $A$. Write $d_{ij}=(x_j-x_i)^q$ for $i<j$. For an increasing chain $C=(i_0,\dots,i_m)$ define
+$$
+E(C)=d_{i_0i_m}-\sum_{t=1}^m d_{i_{t-1}i_t},\qquad
+\delta=\max_C \frac{E(C)}{m+1}.
+$$
+Include two-vertex chains, which have zero deficit. Set $\delta=0$ for one level.
+
+**Theorem.** For $0<p\leq 1$ and $q\geq1$, the operator-norm distance from the single-observable cost $G_q(A)$ to the finite-sum cone $\mathcal C_p$ equals $\delta$. There exist $y_1\leq\cdots\leq y_n$ such that $|(y_j-y_i)-d_{ij}|\leq\delta$ for every $i<j$. Thus $G_1(f(A))$, where $f(x_i)=y_i$, attains the distance. At most $n-1$ scaled spectral-projection costs at exponent $p$ realize this same operator. The same optimum holds for the worst absolute error in pure-state transport values under the source’s definition.
+
+Any line approximation of error $e$ satisfies $E(C)\leq (m+1)e$ by addition along a chain. Pitchford’s Proposition 7.5 establishes this lower bound for the entire operator cone and for the pure-state error. For a direct proof, choose a unit eigenvector $e_i$ at each level of $A$. For any generator $G_p(B)$ the expectation on $e_i\otimes\overline{e_j}$, $i\ne j$, equals the mean of $|X_i-X_j|^p$, where the $X_i$ are independent random variables drawn from the spectral distributions of $B$ on the respective $e_i$. The scalar triangle inequality and subadditivity of the $p$-power give the polygon inequality along every increasing chain, pointwise and hence in expectation. Summing over generators preserves it. An error of at most $e$ on all such product states forces $E(C)\leq(m+1)e$. The operator norm also bounds each of these expectation errors.
+
+It remains to construct the line. For example, on levels $0,1,2,3,4$ with $q=2$, the chain $0,2,4$ gives $\delta\geq 8/3$ and $y=(0,10/3,20/3,10,40/3)$ attains it. [Source’s operator reduction and pure-state bound](https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L521-L532)
+
+## Interval weights
+
+For $a<b$, assign weight $w_{ab}=d_{ab}$ if $b=a+1$, and otherwise
+$$
+ w_{ab}=d_{ab}-d_{a+1,b}-d_{a,b-1}+d_{a+1,b-1},
+$$
+where $d_{ii}=0$. All weights are nonnegative. For example, for nonadjacent $a,b$, writing $u=x_{a+1}-x_a$, the difference $t^q-(t-u)^q$ is nondecreasing for $t\geq u$, and its values at $x_b-x_a$ and $x_{b-1}-x_a$ differ by $w_{ab}$. Double telescoping gives
+$$
+ d_{ij}=\sum_{i\le a<b\le j}w_{ab}.
+$$
+The rest of the scalar proof needs only this identity and nonnegative weights.
+
+A chain from $1$ to $n$ with internal index set $S$ has deficit equal to the sum of weights $w_{ab}$ for which $S$ contains an index strictly between $a$ and $b$. Indeed, an interval contributes to precisely one segment when no internal index cuts it, and to no segment when it is cut. In particular, it suffices to use chains with endpoints $1,n$ in the formula for $\delta$. Replacing the first and last index of any chain by the extreme indices preserves its internal set and retains every weight previously cut.
+
+## Directed cycles
+
+First allow arbitrary signed labels $z_i$ and impose $d_{ij}-\delta\le z_j-z_i\le d_{ij}+\delta$ for $i<j$. An upward edge $i\to j$ has upper constraint weight $\delta+d_{ij}$ and a downward edge $j\to i$ has weight $\delta-d_{ij}$. The system is feasible if each simple directed cycle has nonnegative total weight. Indeed, add an auxiliary source with zero-cost edges to all vertices and take shortest-path distances. In the absence of a negative simple cycle a minimum is attained by a simple path and obeys each constraint.
+
+Fix a directed simple cycle of length $k$. For each interval $I=[a,b]$ let $h(I)$ count its downward spanning edges minus its upward spanning edges. An edge spans $I$ when its unordered endpoints enclose $I$. The cycle weight is
+$$
+ k\delta-\sum_I w_I h(I).
+$$
+For adjacent $a,b$, upward and downward crossings of the cut balance, so $h(I)=0$. If all coefficients are nonpositive, the weight is nonnegative. Otherwise put $r=\max_I h(I)>0$.
+
+**Counting lemma.** For every family of intervals with pairwise disjoint sets of *strictly interior level indices*,
+$$
+ \sum_{I\ \mathrm{in\ family}}\max(h(I),0)\le k-2r.
+$$
+
+Discard family members with nonpositive demand. Fix a maximizing interval $J$ with $b_0$ downward and $f_0$ upward spanning edges, so $r=b_0-f_0$. Mark both endpoints of the downward spanning edges. There are exactly $2b_0$ marked cycle vertices. Two such edges cannot be consecutive, since one ends to the left of $J$ and the next would need to start to its right.
+
+For a family member $I=[a,b]$, classify cycle vertices by $L=\{i\le a\}$, $M=\{a<i<b\}$, $R=\{i\ge b\}$. In the cyclic sequence with $M$ omitted, transitions from $L$ to $R$ balance those from $R$ to $L$. Consequently $h(I)$ equals the number of $L$-to-$R$ traversals through a nonempty run in $M$ minus the reverse count. Across all family members the internal vertices of the forward traversals are disjoint. Each traversal with any unmarked internal vertex uses one of the $k-2b_0$ unmarked vertices.
+
+Consider a forward traversal all of whose internal vertices are marked. Its first internal vertex follows a smaller vertex from $L$. It cannot be the head of a downward crossing of $J$. It must therefore be the tail of one. Its successor lies lower and cannot be the exit to $R$, so the successor is another internal vertex. The entry vertex in $L$ is smaller than that successor. The entry edge thus crosses all of $J$ upward. Distinct such traversals have distinct entry edges, as their first internal vertices are distinct. There are at most $f_0$ such traversals. Summing proves the stronger bound $k-2b_0+f_0\le k-2r$. This proves the lemma.
+
+## Covering the cycle by chains
+
+For each interval $[a,b]$ with nonempty interior, require $m_{ab}=\max(h([a,b]),0)$ points, with multiplicity, in its interior. Set $T_1=0$ and, for $t=2,\ldots,n-1$, take the maximum of $T_{t-1}$ and the numbers $T_a+m_{a,t+1}$ for $1\le a<t$. This is the largest total demand of any disjoint collection of interior index sets contained in $\{2,\dots,t\}$. In the recurrence one either skips $t$ or chooses a last interval ending there. By the lemma $T_{n-1}\le k-2r$.
+
+Place $T_t-T_{t-1}$ point copies at each index $t$. Every interval receives at least its demand, by the recurrence. Color the sorted list of copies cyclically with $r$ colors. The copies inside any interval occupy consecutive positions, so positive demand $h(I)\le r$ gives at least $h(I)$ distinct colors inside it. For each color take the chain from $1$ to $n$ through the distinct indices of that color, merging duplicate copies at a single index. The total number of vertices, summed over these $r$ chains, is at most $2r+T_{n-1}\le k$.
+
+Each positive-demand interval contributes its weight to at least $h(I)$ chain deficits. Nonnegative weights now give
+$$
+ \sum_I w_Ih(I)\le \sum_{\rm colors} E(C)\le \sum_{\rm colors}|C|\delta\le k\delta.
+$$
+All cycle weights are therefore nonnegative, proving feasibility of the signed labels.
+
+Finally set $y_j=\max_{t\le j}z_t$. For $i<j$, take $a\le i$ attaining $y_i$. Then $y_j-y_i\ge z_j-z_a\ge d_{aj}-\delta\ge d_{ij}-\delta$. If $y_j>y_i$, its maximizing index $b$ lies in $(i,j]$, so $y_j-y_i\le z_b-z_i\le d_{ib}+\delta\le d_{ij}+\delta$. If $y_j=y_i$, the upper inequality holds as well.
+
+For each index $s$ the gap $y_{s+1}-y_s$ is a nonnegative weight on the cut separating levels $1,\dots,s$ from $s+1,\dots,n$. The sum of these weighted cut costs on $(i,j)$ is $y_j-y_i$. Multiplying the associated projection by $(y_{s+1}-y_s)^{1/p}$ realizes the weighted cost at exponent $p$. Orthogonality of the spectral blocks makes the operator-norm error the largest pairwise error. Expectations on any product pure state average the block errors and have the same upper bound. Together with the source’s lower bound, this proves the theorem.
+
+## Computing the optimum
+
+Write $F_m(j)$ for the smallest sum of costs of an increasing path from $1$ to $j$ with exactly $m$ edges. Initialize $F_0(1)=0$ and all other entries at level zero to infinity. The update $F_m(j)=\min_{i<j}(F_{m-1}(i)+d_{ij})$ gives all needed values in $O(n^3)$ arithmetic operations. For $n\ge2$, the exact error is the maximum of $(d_{1n}-F_m(n))/(m+1)$ over $1\le m<n$. Predecessors recover a lower-bound chain. The shortest-path constraints and prefix maxima above recover an upper-bound labeling in another $O(n^3)$ operations. For integer powers and rational levels, both certificates use only rational arithmetic.
+
+## Scope and priority
+
+For $0<q<1$, the polygon bound is zero by subadditivity. To see attainment in the cone directly, use the indicator $H_{u,t}(x)$ of $[u,u+t]$. Then
+$$
+ |x-y|^q=\frac{q(1-q)}{2}\int_0^\infty t^{q-2}\int_{\mathbb R}
+ |H_{u,t}(x)-H_{u,t}(y)|\,du\,dt .
+$$
+Indeed the inner integral is $2\min(t,|x-y|)$. On a finite spectrum the indicators induce only finitely many cuts. Their nonconstant patterns have finite weights, since each separates at least one pair of levels and every pair integral is finite. Aggregating by these patterns gives an exact finite sum of weighted cuts, realizable at every $p>0$ by rescaling the corresponding projections. For $n\ge3$, every triple of distinct levels has strict triangle inequalities after taking its $q$-power, while three points on a real line obey one triangle equality. Hence the single-function clause fails throughout $0<q<1$, $n\ge3$. For $q=1$ the identity relabeling already realizes zero error. With at most two levels a single function realizes the cost for every $q>0$. This classifies both clauses throughout the printed lower-exponent range. For $p>1$ the source gives a four-level failure. [Printed scope and counterexample](https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L535-L563)
+
+The named conjecture appeared in an AI-assisted manuscript dated November 15, 2026. This is a mathematical result about the approximation of finite-spectrum costs. The public source proves the three-level case and reports numerical higher-level checks. Searches on November 25 under the conjecture title, ordered line-metric approximation, additive distortion, Monge arrays and interval games did not locate an earlier proof of this exact formula. The general maximum-cycle-mean characterization for fitting differences of potentials is classical ([Krivulin and Sergeev, Lemma 3.2](https://arxiv.org/abs/1802.01989)). The counting argument here reduces the maximum to increasing chains for these costs. Lean 4.19.0 verifies the chain lower bound and the local crossing implication. The global counting and attainment arguments are supplied in the preceding sections. This bounded search leaves priority open. The manuscript supplies a hand proof and is awaiting external review. [Original release](https://www.evidencepress.org/releases/quantum-transport-cost-cones/) · [Related ordinal embedding problem](https://people.csail.mit.edu/edemaine/papers/Ordinal_TAlg/paper.pdf) · [Related cooperative-game problem](https://web.mit.edu/schulz/www/epapers/su-do-2013.pdf)

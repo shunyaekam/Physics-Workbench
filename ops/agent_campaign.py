@@ -20,7 +20,9 @@ REVIEW = ("scope_mismatch", "counterexample_attempt", "weakest_step", "replay_ne
 # A changed argument or a new enrolled target produces a new packet.
 EVIDENCE = {
     "gagatsos-2026-c1": "discovery/cubic-strength.md",
+    "refined-bmv": "discovery/sources/next-intake.md",
     "werner-endpoint": "checks/referee-audit.md",
+    "e27-schmidt": "checks/schmidt7/pair_extension.md",
 }
 
 
@@ -96,7 +98,10 @@ def advance():
     if MODEL not in installed:
         print("Proposal and critic waiting for installed model", MODEL)
         return
+    closed={entry["problem_id"] for entry in load(ROOT/"discovery/pipeline-results.json").get("solutions",[])}
     for card in cards:
+        if card["id"] in closed:
+            continue
         context = packet(card)
         key = digest([VERSION, context, MODEL, installed[MODEL]])
         path = OUT/(card["id"]+"-"+key[:16]+".json")

@@ -1,0 +1,17 @@
+{
+  "problem_id": "transport-polygon",
+  "title": "Exact polygon error for finite-spectrum quantum transport",
+  "statement": "For 0 < p ≤ 1 < q, is the polygon bound exact for every finite spectrum and attained by a single exponent-one function of the observable?",
+  "source": "https://evidencepress.org/releases/quantum-transport-cost-cones/",
+  "scope": "full",
+  "decision": "accepted",
+  "math_verdict": "accepted",
+  "prior_art_verdict": "cleared",
+  "proof_author": "Physics Workbench constructive agent (reference)",
+  "math_reviewer": "Physics Workbench adversarial agent (feed)",
+  "priority_reviewer": "Physics Workbench source reviewer (review)",
+  "proof": "papers/transport-polygon.md",
+  "independent_review": "checks/transport-review.md",
+  "priority_audit": "discovery/sources/transport-priority.md",
+  "review_scope": "Internal AI-assisted mathematical review. The public-literature audit found no earlier proof of this exact result. External peer review and confirmation of priority are pending."
+}
