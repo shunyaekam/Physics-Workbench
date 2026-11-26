@@ -1,6 +1,6 @@
 # The polygon bound for finite-spectrum quantum transport costs
 
-Aryan Singh · oo research · Research manuscript · November 25, 2026
+[Aryan Singh](https://www.researchgate.net/profile/Aryan-Singh-101) · oo research · The Open University (student) · Research manuscript · November 25, 2026
 
 **Abstract.** Suppose the energy levels of an observable are ordered and transporting between two levels costs their separation raised to a power greater than one. We determine the smallest uniform error incurred when this cost is replaced by lower-exponent quantum transport costs, for every lower exponent in $(0,1]$. A single nondecreasing relabeling of the levels achieves the optimum. This proves the convex-power case of Iain Pitchford’s Conjecture 7.7. More generally, the scalar formula gives the entrywise uniform distance from a nonnegative hollow symmetric Monge matrix to the cone of ordered line distances. The proof combines a difference-constraints criterion with a counting argument for directed cycles. [Original problem, Proposition 7.5 and Conjecture 7.7](https://github.com/ipitchford/quantum-transport-cost-cones/blob/270f5dba795ffd73d271bfde959237b730227c5e/manuscript.tex#L521-L563)
 
