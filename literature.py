@@ -1,8 +1,6 @@
 """Weekly source-backed intake. Leads and model notes have no result status."""
 from datetime import datetime,timezone
 import re
-import subprocess
-import sys
 from urllib.parse import urlencode
 from urllib.request import Request,urlopen
 from xml.etree import ElementTree as ET
@@ -51,15 +49,5 @@ def poll():
     except (OSError,ET.ParseError) as exc:
         print("Literature lookup deferred:",exc)
         return
-    # One fresh-context proposer/critic pair per intake. The papers and their
-    # abstracts cannot set executable actions or alter the verified registry.
-    selected=next((c for c in cards if "inequality" in c["title"].lower()),cards[0])
-    try:
-        subprocess.run([sys.executable,str(ROOT/"research.py"),"--catalog",str(path),
-                       "--out",str(BASE/"notes"),"--only",selected["id"]],timeout=150,check=True)
-    except (OSError,subprocess.SubprocessError) as exc:
-        print("Lead preserved; model exploration unavailable:",exc)
-
-
 if __name__=="__main__":
     poll()

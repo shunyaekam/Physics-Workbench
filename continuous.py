@@ -92,27 +92,6 @@ def audit_score(r):
         require(varied_on_every_site(matrix(w,r["d"],r["k"]),r["d"],r["k"]),"fixed-site witness in multicopy arm")
 
 
-def model_plan(number,history):
-    from lab import ollama
-    fallback=dict(trials4=6000,trials5=6000)
-    if number%4:
-        return fallback,{}
-    prompt=("Allocate a bounded batch of exact rank-two Werner searches between four and five copies. "
-            "Each family needs 2000 to 10000 trials and the total is 12000. "
-            "We minimize exact expectation. Use the recorded campaign history. Return trials4 only.\n"+
-            json.dumps(history))
-    schema={"type":"object","properties":{"trials4":{"type":"integer","minimum":2000,"maximum":10000}},
-            "required":["trials4"],"additionalProperties":False}
-    try:
-        reply=ollama("generate",dict(model="llama3.2:3b",prompt=prompt,format=schema,stream=False,
-                                     options={"seed":number,"num_predict":50}),timeout=30)
-        n=json.loads(reply["response"])["trials4"]
-        require(type(n) is int and 2000<=n<=10000,"invalid allocation")
-        return dict(trials4=n,trials5=12000-n),dict(prompt=prompt,response=reply["response"],model=reply["model"])
-    except Exception as e:
-        return fallback,dict(fallback=str(e))
-
-
 def round_once(nodes):
     ROUNDS.mkdir(exist_ok=True,parents=True)
     previous=sorted(ROUNDS.glob("*.json"))
@@ -120,7 +99,7 @@ def round_once(nodes):
     seed=17000+number
     hist=[load(p) for p in previous[-3:]]
     controls()
-    plan,model=model_plan(number,[{str(r["k"]):r["score"] for r in h["quantum"]} for h in hist])
+    plan=dict(trials4=6000,trials5=6000)
     from discovery_queue import select
     dispatch=select(number,hist)
     wigner_runs=[]
@@ -157,7 +136,7 @@ def round_once(nodes):
     frontier=(advance_frontier(nodes) if dispatch["support_benchmark_due"] else
               {"status":"support enumeration deferred to eighth-round benchmark slot"})
     render()
-    receipt=dict(round=number,utc=datetime.now(timezone.utc).isoformat(),allocation=plan,model=model,
+    receipt=dict(round=number,utc=datetime.now(timezone.utc).isoformat(),allocation=plan,model={},
                  code={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in
                        ("supports.py","archive_supports.py","complex_search.py","continuous.py","sphere_bounds.py","wigner_search.py","discovery_queue.py","discovery/targets.json")},
                  quantum=results,sphere=sphere,frontier=frontier,dispatch=dispatch,wigner=wigner_runs)
