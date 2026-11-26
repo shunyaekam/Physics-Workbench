@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 
+from paper_build import stage_paper_directory
 from archive_supports import read,save
 from complex_search import controls,direct,partial_traces,search
 from lab import ROOT,load,write
@@ -52,7 +53,7 @@ def render():
         return
     read_cases(check=True)
     with tempfile.TemporaryDirectory() as dirname:
-        stage=Path(dirname)/tex.name
+        stage=stage_paper_directory(dirname,ROOT)/tex.name
         stage.write_text(src)
         subprocess.run(["tectonic",str(stage)],check=True,timeout=120,stdout=subprocess.DEVNULL)
         pdf.write_bytes(stage.with_suffix(".pdf").read_bytes())

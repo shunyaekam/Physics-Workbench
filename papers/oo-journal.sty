@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{oo-journal}[2026/11/26 oo research print edition]
+\RequirePackage{geometry}
+\geometry{letterpaper,hmargin=.86in,top=.96in,bottom=.83in,headheight=18pt,headsep=14pt,footskip=28pt}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\definecolor{ooInk}{HTML}{151817}
+\definecolor{ooMuted}{HTML}{4D5754}
+\definecolor{ooRule}{HTML}{B7BFBA}
+\definecolor{ooLink}{HTML}{155B52}
+\DeclareFontFamily{TU}{ooPlay}{}
+\DeclareFontShape{TU}{ooPlay}{m}{n}{<-> "[../site/assets/fonts/play-regular.ttf]:mapping=tex-text"}{}
+\newcommand{\ooSans}{\fontencoding{TU}\fontfamily{ooPlay}\fontseries{m}\fontshape{n}\selectfont}
+\newcommand{\ooshorttitle}[1]{\def\ooRunningTitle{#1}}
+\ooshorttitle{}
+\AtBeginDocument{%
+  \hypersetup{linkcolor=ooLink,citecolor=ooLink,urlcolor=ooLink}%
+  \color{ooInk}%
+}
+\def\ooImprint{\raisebox{-2.5pt}{\includegraphics[height=12pt]{../site/assets/torus.png}}\hspace{5pt}oo research}
+\def\ooHeader#1{\vbox{\hbox to\textwidth{{\ooSans\fontsize{9}{10}\selectfont\color{ooMuted}\ooImprint\hfill #1}}%
+  \vskip5pt{\color{ooRule}\hrule height.35pt}}}
+\def\ooFooter{\hfill{\ooSans\fontsize{9}{10}\selectfont\color{ooMuted}\thepage}}
+\def\ps@ooarticle{\def\@oddhead{\ooHeader{\ooRunningTitle}}\let\@evenhead\@oddhead
+  \def\@oddfoot{\ooFooter}\let\@evenfoot\@oddfoot}
+\def\ps@oofirst{\ps@ooarticle\def\@oddhead{\ooHeader{}}\let\@evenhead\@oddhead}
+\pagestyle{ooarticle}
+\renewcommand{\maketitle}{%
+  \thispagestyle{oofirst}%
+  {\raggedright\ooSans\fontsize{26}{29}\selectfont\@title\par}%
+  \vspace{10pt}%
+  {\raggedright\fontsize{11}{15}\selectfont\@author\par}%
+  \vspace{4pt}%
+  {\ooSans\fontsize{9.5}{12}\selectfont\color{ooMuted}\@date\par}%
+  \vspace{12pt}}
+\renewenvironment{abstract}{%
+  \par{\ooSans\fontsize{13}{16}\selectfont Abstract\par}\nobreak\vspace{2pt}%
+  \normalfont\normalsize\noindent\ignorespaces
+}{\par\nobreak\vspace{8pt}{\color{ooRule}\hrule height .35pt}\vspace{5pt}}
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{-13pt plus -3pt minus -1pt}{5pt}%
+  {\normalfont\ooSans\fontsize{16}{19}\selectfont\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{-9pt plus -2pt minus -1pt}{3pt}%
+  {\normalfont\ooSans\fontsize{13}{16}\selectfont\raggedright}}
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{0pt}{7pt plus 2pt minus 1pt}{-.65em}%
+  {\normalfont\bfseries}}
+\let\ooNormalSize\normalsize
+\renewcommand{\normalsize}{\ooNormalSize\@setfontsize\normalsize{10.5}{13.2}}
+\AtBeginDocument{\normalsize}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt plus .7pt minus .5pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom

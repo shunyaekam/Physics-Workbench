@@ -1,11 +1,12 @@
 \documentclass[11pt]{article}
-\usepackage[margin=.75in]{geometry}
-\usepackage{amsmath,amssymb,booktabs,hyperref}
-\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
-\title{\vspace{-2.2em}Computational-basis optimality of nonlocal stabilizer entropy\\for rank-seven spectra and two exceptional amplitudes}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[colorlinks]{hyperref}
+\usepackage{oo-journal}
+\ooshorttitle{Nonlocal stabilizer entropy}
+\title{Computational-basis optimality of nonlocal stabilizer entropy for rank-seven spectra and two exceptional amplitudes}
 \hypersetup{pdfauthor={GPT-6.2 Astra (high), Aryan Singh},pdftitle={Computational-basis optimality of nonlocal stabilizer entropy for rank-seven spectra and two exceptional amplitudes}}
 \author{GPT-6.2 Astra (high)\enspace{\small(lead AI author of this edition)}\\\href{https://www.researchgate.net/profile/Aryan-Singh-101}{Aryan Singh}\enspace{\small$\cdot$\enspace oo research\enspace$\cdot$\enspace The Open University (student)}}
-\date{26 November 2026\vspace{-1.1em}}
+\date{26 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -34,7 +35,6 @@ Here $\oplus$ is binary XOR. The same conclusion holds for arbitrary qubit regis
 \]
 Indeed, Lemma 1 of [1] reduces the two-unitary maximum to a single unitary. Proposition 2 and Theorem 7 there give $G\leq \mathcal I+42d\,c_{\rm F}(N^2)$, with equality at the sorted computational frame on the first seven labels. The spectral term $\mathcal I$ is the first two terms of (1), and $42dq=168$. Padding the smaller register with product qubits extends every dimension-independent statement to unequal registers by [1, Sec.~III.1].
 
-\clearpage
 \section{Rows valid for physical frames}
 All $x_A$ are nonnegative. The certificate uses the following inequalities. The sets and distinguished indices in each row can be chosen arbitrarily in the seven-frame.
 \begin{center}\begin{tabular}{lll}
@@ -53,7 +53,6 @@ For the triple and pair rows, write the coordinate projector as one rank-one blo
 
 Complete the frame to an orthonormal basis. For a fixed triple, the sum of the unscaled four-wedge weights in the complete basis is $q$. Keeping only frame indices gives the first row. When $d=8$ there is exactly one omitted basis vector $h$. For a fixed pair the complete sum is $3q$, and the contribution containing $h$ is exactly the complete triple sum $q$. The frame pair sum therefore equals $2q$. This subtraction uses the codimension-one hypothesis.
 
-\clearpage
 \section{Exact coefficient certificate}
 Set $t_8=0$ and write $g_j=t_j-t_{j+1}\geq0$, so $t_i=\sum_{j\geq i}g_j$. Expand (2) in the $g_j$. There are $\binom{10}{4}=210$ quartic monomials. Given $1\leq j_1\leq\cdots\leq j_4\leq7$, define $w_A$ as the number of orderings $(i_1,\ldots,i_4)$ of $A$ with $i_\ell\leq j_\ell$ at all four positions. This is the coefficient of $\prod_\ell g_{j_\ell}$ multiplied by the product of the multiplicity factorials, common to both sides. The required inequalities are $w^{\mathsf T}x\leq w^{\mathsf T}x^0$.
 
@@ -72,7 +71,6 @@ Every one contains a member of $\{1,2\}$ and a member of $\{2,3\}$. Under either
 \paragraph{A check by hand.} For flat rank seven, sum the six-site inequality over the seven possible omitted indices. Every four-set survives three times, so $\sum_A x_A\leq7$. Exactly seven affine planes occur among the first seven labels, attaining equality. This proves flat optimality for every supporting register size. Substituting $t_i=1/7$ in (1) gives $211/343$ and hence a minimum entropy of $\log_2(343/211)$ bits. Independently, a direct sum over all 4,096 six-qubit Paulis checks this value and two unequal spectra. The unequal amplitudes proportional to $(7,6,5,4,3,2,1)$ give $134539/214375$.
 
 
-\clearpage
 \section{Rank seven in larger registers}
 The following regions have interior among rank-seven spectra. For arbitrary supporting qubit registers, (1) gives the optimum whenever at least one of these conditions holds:
 \[
@@ -92,7 +90,6 @@ The earlier dual test applies unchanged to these weights. For each region its 21
 
 \paragraph{Limit of this method.} The factor three in the first condition is sharp for the four dimension-independent row types used here. Assign a four-set weight $1/5$, $1/8$ or $1/4$ according as it contains zero, one or two of the leading two indices. These nonnegative values satisfy every such row, as the checker verifies. For unnormalized $t=(R,R,1,1,1,1,1)$ their objective exceeds the coordinate objective by $R(R-3)/2$ when $R>3$. Normalization multiplies both objectives by the same positive factor. This is an obstruction to the linear relaxation. Physical realizability of these weights is a separate question.
 
-\clearpage
 \section{Two exceptional Schmidt amplitudes at arbitrary rank}
 Let the two registers have equal local dimension $d=2^n$. Suppose the entire list of $d$ Schmidt amplitudes consists of $d-2$ copies of $a$ and two entries $b,c$. The values are nonnegative and $(d-2)a^2+b^2+c^2=1$. The sorted computational-basis state attains the global optimum for every such spectrum, including zeros and exceptions below the common value. For $d\le4$ the source's rank theorem suffices. Consider $d\ge8$.
 
