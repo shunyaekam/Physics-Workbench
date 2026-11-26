@@ -10,5 +10,11 @@
     "file": "wei-12-4-4.json",
     "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
     "kind": "full_optimum"
+  },
+  "wei-10-2-4": {
+    "title": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
+    "file": "wei-10-2-4.json",
+    "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+    "kind": "full_optimum"
   }
 }

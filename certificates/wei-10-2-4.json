@@ -1,0 +1,63 @@
+{
+  "problem_id": "wei-10-2-4",
+  "scope": "full",
+  "kind": "full_optimum",
+  "statement": "What is the minimum possible maximum generator weight of a binary [[10,2,4]] stabilizer code, over all codes and generating sets?",
+  "source": "https://arxiv.org/html/2601.19848v2#S7.T2",
+  "locator": "Wei et al., Table 2, n=10, k=2, d=4 (5\u20136).",
+  "implication": "The Grassl code attains six. Over every graph-state parent from the Danielsen\u2013Parker classification including disconnected products, the distance-compatible rank-eight subspaces have no nonidentity stabilizers of weight at most five. Every eligible group extends to a graph-state parent up to weight-preserving equivalence.",
+  "contract_hash": "0744136fd9a96a32a6e5922ff0d2168095d19fe65b39157045d95e8005e0a5f2",
+  "witness": {
+    "generators": [
+      "XIIIXIYZZY",
+      "ZIIIXYIYXZ",
+      "IXIIYZYIZX",
+      "IZIIIZZZYY",
+      "IIXIIXZXXZ",
+      "IIZIZIYYXX",
+      "IIIXYZZYXI",
+      "IIIZXYXZYI"
+    ]
+  },
+  "result": {
+    "n": 10,
+    "k": 2,
+    "d": 4,
+    "weight": 6,
+    "group_size": 256,
+    "logicals_by_weight": [
+      0,
+      0,
+      0,
+      90
+    ],
+    "example_logical": "XZYIIIIIIY",
+    "graph_census": {
+      "counts": {
+        "parents": 3990,
+        "parents_with_missing_syndrome": 3903,
+        "parents_with_any_distance_at_least_four": 10,
+        "parent_plane_pairs_distance_at_least_four": 47
+      },
+      "light_stabilizer_rank_histogram": {
+        "0": 47
+      },
+      "excluded_check_weight": 5
+    },
+    "optimal_check_weight": 6,
+    "decisive": true
+  },
+  "checker_commit": "23a3f588d19580ceefe8c88a3a673d19e52091b9",
+  "research_commit": "bcefacc08efaa9d77b26dc311878ba95ae7ea7c7",
+  "math_review": {
+    "verdict": "pass",
+    "hypotheses": "Binary stabilizer codes, no geometry assumptions. Every rank-eight isotropic subspace extends to a rank-ten graph-state parent up to a weight-preserving equivalence. All connected-component multisets are included. The independent Python graph6 decoder and census reproduced the C++ totals.",
+    "weakest_step": "Low-weight errors of zero parent syndrome must be members of the selected subspace. Both implementations imposed this degeneracy condition and the missing-nonzero-syndrome condition. For all 47 embeddings among 3990 parent representatives the rank of nonidentity stabilizers of weight at most five was zero."
+  },
+  "priority_review": {
+    "verdict": "clear_within_search",
+    "sources": "[\"https://arxiv.org/html/2601.19848v2#S7.T2\", \"https://doi.org/10.1016/j.jcta.2005.12.004\", \"https://www.codetables.de/larsed/vncorbits/\", \"https://qecchallenge.com/codes/10-2-4.html\", \"https://yuxuanzhang1995.github.io/agentic-research/lowweight-two-logical-distance-four/\"]",
+    "comparison": "The upper construction is Grassl\u2019s. Zhang addressed lengths eleven and twelve using graph-state parents and excluded weight four at length ten. The reviewed primary sources did not explicitly resolve five versus six at length ten. This classification-assisted exclusion supplies the missing lower endpoint improvement, with the published graph-state classification as an external premise."
+  },
+  "priority_scope": "bounded search; priority is distinct from witness correctness"
+}
