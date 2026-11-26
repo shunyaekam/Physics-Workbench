@@ -27,3 +27,11 @@ body:has(#connection[data-state=recent]) .navigator #trace [aria-current=true]{b
 #menu-close{font-size:1.4rem}
 body .paper-counter,body #kind,body #position{font-family:var(--sans);font-variant-numeric:tabular-nums}
 @media(max-width:450px){.lab-mark img{width:34px;height:34px}}
+
+.edition-model{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:.55em;font-family:var(--sans);line-height:1.3}
+.edition-model strong{font-weight:400;font-size:1.25rem;color:#202326}
+.edition-model span{color:#525b61;font-size:.8rem}
+.paper-library .project-credit,#text .project-credit,.hero .small{font-size:.86rem}
+.paper-library .section-title .edition-model{margin-top:.55rem}
+.paper-library .section-title .project-credit{margin:.2rem 0}
+@media print{.edition-model{display:none!important}}

@@ -55,3 +55,11 @@ body.paged{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto
  #text .paper-title{font-size:23pt}#text{font-size:10.5pt;line-height:1.28}
  #text .project-credit{font-size:10pt}#text .date{font-size:8.5pt}
 }
+#text .edition-model{margin:.15rem 0 .28rem}
+@media print{
+ #text::before{display:none}
+ #text .paper-title,#text .project-credit,#text .date{text-align:center;font-family:var(--prose)}
+ #text :is(h2,h3,h4,h5){font-family:var(--prose);font-weight:bold}
+ #text section[aria-label="Abstract"]{margin:1em 5% 1.4em;border:0}
+ #text section[aria-label="Abstract"] h2{text-align:center}
+}

@@ -2,18 +2,27 @@
 main p,main table,.hero .small{font-family:"Latin Modern Roman",Georgia,serif}
 .hero,.tablewrap{border-bottom:1px solid #bdc2c1}
 .hero h1,main h2{font-family:var(--sans);font-weight:400;letter-spacing:-.025em}
-.print-imprint{display:none}
+.print-only{display:none}
 @media print{
- @page{size:A4;margin:17mm 20mm}
- .print-imprint{display:flex;align-items:center;gap:4px;font:8.5pt var(--sans);color:#4d5351;border-bottom:.4pt solid #a7afad;padding-bottom:4pt;margin-bottom:9pt}
- .print-imprint img{width:15pt;height:15pt}.screen-instruction{display:none}
- main{color:#191b1b;font-size:10pt}
- main .hero{padding:0 0 7pt}.hero h1{font-size:23pt;line-height:1.12;margin:0 0 7pt}
- .hero .small{font-size:9pt}.hero p,.proof p{font-size:10pt;line-height:1.3;max-width:none;color:#212422}
- main h2{font-size:14pt;line-height:1.18}
- .tablewrap th{font:8.5pt var(--sans)}main figcaption .small{font-size:8pt}
- main figure{margin:7pt 0 10pt;grid-template-columns:42% 1fr;gap:1rem;align-items:center}
- main .canvascol{display:flex;justify-content:center}main canvas{width:150pt;height:150pt}
- .tablewrap,main figure{break-inside:avoid}.proof h2{margin:8pt 0 4pt}
+ @page{size:letter;margin:18mm 22mm;@bottom-center{content:counter(page);font:10pt "Latin Modern Roman",serif}}
+ .print-only{display:inline}.hero .print-only{display:block}
+ :root{--sans:"Latin Modern Roman",Georgia,serif}
+ main,main h1,main h2,main span,main output,main th{font-family:"Latin Modern Roman",Georgia,serif;color:#151515}
+ main{font-size:10.5pt;line-height:1.28}main .hero{border:0;padding:0}
+ main .hero h1{text-align:center;font:normal 21pt/1.14 "Latin Modern Roman",serif;letter-spacing:0;margin:0 0 8pt}
+ .hero>.small{display:block;text-align:center;font-size:9pt}
+ main .hero h2{font-size:11pt;font-weight:bold;text-align:center;margin:12pt 0 3pt}
+ main .hero p{margin:0 5% 6pt;max-width:none}
+ main h2{font-size:13pt;font-weight:bold;letter-spacing:0}
+ main figure{grid-template-columns:39% 1fr;gap:.75rem;margin:8pt 0}
+ main .canvascol{display:flex;justify-content:center}main canvas{width:118pt;height:118pt}
+ main figcaption h2{font-size:11pt;margin:2pt 0}
+ main .value{font-size:14pt;letter-spacing:0}main figcaption :is(span,.focus,p){font-size:9pt}
+ main figcaption .switch,.screen-instruction{display:none}
+ .tablewrap,main figure{break-inside:avoid}.tablewrap{border:0}
+ main table{font-size:9pt;border-top:.65pt solid black;border-bottom:.65pt solid black}
+ main table th{font-size:9pt;font-weight:bold;border-bottom:.45pt solid black}
+ main table td{border:0}
+ main .proof p{max-width:none;margin:.45em 0}
+ main a{color:inherit}
 }
-@page{@bottom-right{content:counter(page);font:8pt Play,sans-serif;color:#545b58}}

@@ -45,3 +45,6 @@ footer a{white-space:nowrap}
 .description h1{letter-spacing:-.058em}
 
 .menu-credit{max-width:32ch;font-size:.82rem;line-height:1.4;color:#f4f4f4;margin:1.4rem 0 0}.menu-credit a{text-decoration:underline}
+.home-credit{margin-inline:.6rem auto}.home-credit small{display:block;font-size:.76rem;color:var(--muted)}
+.home-credit .edition-model strong{font-size:1.02rem}.home-credit .edition-model span{font-size:.75rem}
+@media(max-width:600px){.home-credit .edition-model{display:block}.home-credit .edition-model strong{font-size:.88rem}.home-credit .edition-model span{display:block;font-size:.7rem}.home-credit small{font-size:.7rem}.home-credit{margin-inline:.25rem auto}header nav{gap:.55rem}}
