@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "run_id": "6d09b3140a9d4dcdbbd5c2a8b7f4d8b6",
+  "problem_id": "golay43",
+  "stage": "search",
+  "method": "checks/golay/advance.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "29e20d4a2a96c43589c846e866a6150e1fd62f64",
+  "started_at": "2026-11-27T10:29:41.119+00:00",
+  "elapsed_seconds": 0.247151,
+  "status": "failed",
+  "outcome": null,
+  "evidence": null,
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true,
+  "error_type": "CalledProcessError"
+}
