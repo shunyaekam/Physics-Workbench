@@ -40,7 +40,7 @@ jobs:
             ~/.elan
             fc/.lake
           key: lts-optics-9097e2f9
-      - name: Prove exact pinned theorem and inspect its axioms
+      - name: Check first-hit counting and discounted renewal and inspect their axioms
         working-directory: fc
         run: |
           set -o pipefail
@@ -48,3 +48,7 @@ jobs:
           printf '\n#print axioms DiffusionCylinder.first_hit_count\n' >> Cylinder.lean
           lake env lean Cylinder.lean | tee "$RUNNER_TEMP/cylinder.log"
           grep -Fx "'DiffusionCylinder.first_hit_count' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/cylinder.log"
+          cp ../checks/left_to_solve/attempts/diffusion/Discount.lean Discount.lean
+          printf '\n#print axioms DiffusionDiscount.discounted_renewal\n' >> Discount.lean
+          lake env lean Discount.lean | tee "$RUNNER_TEMP/discount.log"
+          grep -Fx "'DiffusionDiscount.discounted_renewal' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/discount.log"
