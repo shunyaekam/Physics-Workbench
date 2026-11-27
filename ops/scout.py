@@ -110,7 +110,21 @@ def pending(root):
                     continue
                 review = load(followup)["review"]
                 followup = path.with_name(key + "-" + lead["checked_helper"][:16] + ".json")
-                if followup.exists() or review["verdict"] in {"duplicate", "prior_resolution"}:
+                if followup.exists():
+                    # Two bounded repair slots after a checked advance. A repeated source
+                    # hash cannot consume another slot, even if the previous draft failed.
+                    from hashlib import sha256
+                    from ops.hosted import SERVICE
+                    checkpoint = lean_loop.checkpoint_path(SERVICE,lead["id"])
+                    previous = sorted(path.parent.glob(followup.stem+"-repair-*.json"))
+                    if len(previous) >= 2 or not checkpoint.is_file():
+                        continue
+                    review = load(previous[0] if previous else followup)["review"]
+                    source_hash = sha256(checkpoint.read_bytes()).hexdigest()[:16]
+                    followup = path.with_name(followup.stem+"-repair-"+source_hash+".json")
+                    if followup.exists():
+                        continue
+                if review["verdict"] in {"duplicate", "prior_resolution"}:
                     continue
             if (review["verdict"] == "shortlist" or lead.get("checked_helper")) and all(
                     review.get(field, "").strip() for field in ("proof_or_witness", "remaining_obligation")):

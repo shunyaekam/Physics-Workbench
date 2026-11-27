@@ -97,7 +97,7 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
             from ops.proof_portfolio import handoff
             rules.update(local_lean)
             handoff(notebook_dir, problem_id)
-            checkpoint = SERVICE/"proof-checkpoints"/problem_id/lean_loop.BOARD/lean_loop.library_dir().name/"Candidate.lean"
+            checkpoint = lean_loop.checkpoint_path(SERVICE,problem_id)
             candidate = notebook_dir/"Candidate.lean"
             if checkpoint.exists():
                 candidate.write_bytes(checkpoint.read_bytes())

@@ -109,6 +109,10 @@ def notebook(work, problem=TARGET):
     return {str(FC):"read", str(SDK):"read", str(lib):"read"}
 
 
+def checkpoint_path(service, problem):
+    return service/"proof-checkpoints"/problem/BOARD/library_dir().name/"Candidate.lean"
+
+
 def save_progress(candidate, original, checkpoint):
     """Save source for another attempt as unverified text, including after a timeout."""
     try:
