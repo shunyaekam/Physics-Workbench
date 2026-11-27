@@ -69,3 +69,5 @@ if __name__ == "__main__":
         checkout = Path(folder)/"source"
         subprocess.run(["git","clone","--quiet","--depth=1",UPSTREAM+".git",str(checkout)],check=True,timeout=90)
         index(checkout)
+        from left_to_solve_crosswalk import refresh
+        refresh(checkout)

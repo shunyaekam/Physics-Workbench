@@ -1,0 +1,981 @@
+{
+  "schema_version": 1,
+  "scope": "Twelve articles published in the lab journal before the Left to Solve collaboration. Signatures identify related targets for source review and do not decide theorem equivalence.",
+  "protocol": {
+    "agent_rules": "https://lefttosolve.com/join.txt",
+    "paper_rules": "https://lefttosolve.com/papers/how",
+    "direct_submissions": "The desk accepts a Lean proof, reduction, or faithful first formalization for a leased catalogue ID. There is no documented self-enrolment or bulk external paper import. A paper pull request explains a kernel-accepted solution."
+  },
+  "outgoing_editorial": [
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+      "status": "editorial_draft_submitted",
+      "pr": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1401",
+      "strict_parent_replay": "https://github.com/shunyaekam/oo-research/actions/runs/45922396593"
+    }
+  ],
+  "searches": {
+    "optical": {
+      "regex": "\\b(wigner|husimi|gagatsos|heterodyne|fock|nonclassicality|single.rail)\\b|2611\\.30969",
+      "candidates": [
+        {
+          "id": "mo-100354",
+          "title": "Extreme eigenvalues of real symmetric matrix with main diagonal variance twice non-diagonal",
+          "statement_fingerprint": "70fac392a0b0e157a2700713518bc1028fd43e5a7bedcd6573766df99d04e922",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-107100",
+          "title": "Weyl quantization and convexity",
+          "statement_fingerprint": "497bdbc70652e70cc881f7ec73d5ab9af4f4c17058790551e78e32dad3c45253",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-135526",
+          "title": "semiclassical proof of Wigner semicircle",
+          "statement_fingerprint": "18f0eaad7c2d3291913c61f6ec34735f0ada0c3349e2bedd3df907f276b901a5",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-164739",
+          "title": "What is the general form of the duality transform for the Fock space?",
+          "statement_fingerprint": "08515356d3d060e9cd86eccb2a6c4a012f56c95b82649f44ce4c6921d11ffa3f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-182477",
+          "title": "Random matrices whose limit gives exact Wigner surmise",
+          "statement_fingerprint": "38220bdc67b0e0ca1c5498c6ef93371cfeeac684472760a21c61f5e70628559c",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-187429",
+          "title": "Can one classify irreducible unitary representations of the Weyl algebra?",
+          "statement_fingerprint": "3d466fa16923db6f570fa0f8caa7a5806e0481dfd57b5e4e601b4323b054ce13",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-187981",
+          "title": "\"Semiclassical approximation\" in random matrix theory",
+          "statement_fingerprint": "af719a43432ac1cf7f6a07d9070d46dc53e188c120740e63e0f657be7caa45e0",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-198790",
+          "title": "Can the GUE be thought of as a uniform point in a high-dimensional polytope",
+          "statement_fingerprint": "54ad884668c1b239020addc1be9dcf7c0db495e4b6d30d70a6dcfed1874f68d4",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-200925",
+          "title": "Normalizing Entries In Defining Random Matrices (Wigner Matrix)",
+          "statement_fingerprint": "e4e11f6e327bef752e65570f12388a23246005f91cf2abfa2002118df53efcf6",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-222040",
+          "title": "Supercommutator of exterior multiplication operators and their adjoints",
+          "statement_fingerprint": "f60296963271828c9afda38b14869be55af5de340171b515a0585d84582e680f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-222319",
+          "title": "Branches of 3j symbols",
+          "statement_fingerprint": "566bfd6ae68b17bd24b5011ebc6a5a6aa3e59d7e07a01fbaf212dc9c1fb6ee3d",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-23299",
+          "title": "edge distribution of random Young's tableaux from Okounkov's \"random matrices and random permutations\"",
+          "statement_fingerprint": "6a04af7a954af6d03df9c732c7ae928fd8432b59131ef11650ec549d859b9c37",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-238130",
+          "title": "Points of failure in definition of X- and A-moduli spaces for arbitrary G",
+          "statement_fingerprint": "bdf6fd387567308632b8bc688318c31a1b4d71b4532dec099fd5cafdf94534b9",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-242206",
+          "title": "Geometric quantization of Teichmuller space",
+          "statement_fingerprint": "840743aa2f204d64c23447a5c5d2fa209c87c0c2fc60626040bccd1f1f137c39",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-263321",
+          "title": "Is flatness of Wigner Ville Distribution of error function in Fourier Approximation possible? Is it required?",
+          "statement_fingerprint": "104e08ae70e5e1be3573b2edf4db72e2cb4dc9fa34812d31fe72149e20a9a137",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-263405",
+          "title": "Integration of Weyl operators multiplied by quasifree state over a symplectic space",
+          "statement_fingerprint": "e1ad29fed68d2a89d258b5bc195ab4f4f2380eb3a22bdf3ac4d3a2bbcd8c8a50",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-271427",
+          "title": "Questions about cluster $\\mathcal{X}$-varieties and amalgamation",
+          "statement_fingerprint": "d20f79b9833809f81ec37eb92e8a5ccd40b433f3eac9fb4c17fe2dc88d5c32e8",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-272620",
+          "title": "Question about the mutation of a cluster seed associated to any word of the braid semigroup",
+          "statement_fingerprint": "1d37922885d0a50b4b2ecc5e562caa99ee35aa7b0b4e37dac1e384561f3826fa",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-288165",
+          "title": "Modified Wigner semicircle law",
+          "statement_fingerprint": "288f03bd093e8826fa8ed7ed6a3aa9066c6e7ba0e8d24d433330c73b57b77728",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-302276",
+          "title": "Confused about the generality of statements regarding rank one deformations of Wigner matrices",
+          "statement_fingerprint": "272fba7cb6bad0f12dc4c9be93b5e9b8195cd1e7a49854ff7de2787bd171d769",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-302380",
+          "title": "The Fock space vs the Hilbert space in the context of quantum field theory",
+          "statement_fingerprint": "cfbef14761a33a21801ee34e7cde11dd38aea3cdf6c6c6dd2089c2d0183de534",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-304251",
+          "title": "Conjectural nonvanishing of some combinatorial sums (6j symbols)",
+          "statement_fingerprint": "9918155a21ad3fddd5e32ad49a997293173bec414ab16c46eac0c3bb3ee41e64",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-316515",
+          "title": "Yang-Mills theory v.s. Kaluza–Klein theory: Classical actions",
+          "statement_fingerprint": "12b9d28fb9761c8299fb35d4d30d20e26f267d64fcc807f203ed42aae3554676",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-324218",
+          "title": "Decomposition of the group of Bogoliubov transformations",
+          "statement_fingerprint": "11fe47a6002111be592f2f6014102ec60c2e520b8781dbe36a1a38fa976b0743",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-331332",
+          "title": "Enveloping von Neumann algebra of Clifford algebra",
+          "statement_fingerprint": "8857d432a6e4157c00e81d0b384f7045680b3c691f5ee8c1b4ac7fc742affae1",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-334799",
+          "title": "Fock space for distinguishable particles",
+          "statement_fingerprint": "8e307f8c661d0ecc41d700fa1fb106848324821dacbed2841fddf642a25a62ab",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-349152",
+          "title": "$GL(\\infty)$ group action through the boson-fermion correspondence",
+          "statement_fingerprint": "b1a7055fa7f68507f8455e274a8c743259c85625fa597ca22c72e83cb718ab29",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-349856",
+          "title": "The Fock space in Costello's paper \"Higher genus Gromov-Witten invariants as genus zero invariants of symmetric products\"",
+          "statement_fingerprint": "89bee67c46eadff551583c0b54689bea5b25b3ce9397c7cb7be450ab155854e8",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-362551",
+          "title": "Formally real non-Jordan algebras",
+          "statement_fingerprint": "801a8e81af9e95252bbf707e82e642314fb52d08100638ffaa1f0650ed0843bd",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-364720",
+          "title": "Diagonalization of the generalized 1-particle density matrix",
+          "statement_fingerprint": "ce67eb15ac5a731853985ad46296175e4f5db940e1211e55483df143b0086a0a",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-368420",
+          "title": "Twisted screening operators and twisted free-field realizations of $\\mathcal{W}_n$ algebras",
+          "statement_fingerprint": "19c210f50796c1e87b42856c88b0f2d815a70d21654e1b225bea724643b3754e",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-37081",
+          "title": "What categorical mathematical structure(s) best describe the space of \"localized events\" in \"relational quantum mechanics\"?",
+          "statement_fingerprint": "ba0be55e9fc73d0928e84bbbfb48feadfc1c444734d05820abec3e198c3cdb86",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-371319",
+          "title": "Doubt when calculating the S-transform of Hida differential operator",
+          "statement_fingerprint": "f1b37c1fcc8d5a5185e785d2c412bd9aa54a352afa1def426f087b4e9c32d892",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-374226",
+          "title": "Creation and annihilation operators as operator-valued distributions",
+          "statement_fingerprint": "3cb2be814a3369c4e5fa532e756adda92193156c49f7e84226e09dedd8841d91",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-394542",
+          "title": "Cluster algebras of type A and X",
+          "statement_fingerprint": "02fd0fe1739ff97f101ae4294ab528be0d0e08601449f08e3ee81ed5f74a7494",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-394853",
+          "title": "Construction of Dirac field theory",
+          "statement_fingerprint": "6df897347e9dbe2f6e59fec03e7b9388c6a5c11a2496e21471c17adf9e72acf0",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-395428",
+          "title": "Frontiers of QM and QFT",
+          "statement_fingerprint": "44d48ef3b78b0515f44c01c544297bacb2a1d4f9b4bd15bf743be6dc410c78cd",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-401060",
+          "title": "Two questions about Fock spaces",
+          "statement_fingerprint": "f26249557fe3052f7c0b886b830b5bad2843172c47505e2ca50d673f27bab0a5",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-404938",
+          "title": "LLT polynomials and graded Specht modules",
+          "statement_fingerprint": "67014f1598679d244024dfd4f31a66e178f3b37f85757a699a365986bbb8fd01",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-416120",
+          "title": "Isometries of the complex projective space for the Fubini Study metric",
+          "statement_fingerprint": "998365fb30c747da1a744db46b8cc0ecbd08d09a5ff369754f285b34fa4d1897",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-420930",
+          "title": "Most general space for the Wigner-Weyl transform",
+          "statement_fingerprint": "2a0cd8ab47b38df8435b258393aa9de5e2e60f7d19e6ba2682915e1ccadd72a4",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-422001",
+          "title": "Fenchel–Nielsen coordinates vs Fock–Goncharov coordinates",
+          "statement_fingerprint": "467e6d2e42445daf329bb17e77e741ca4abb646f97b32df54634f4fa282a9e26",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-424831",
+          "title": "Smallest eigenvalue separation in the Gaussian ensemble of random matrices",
+          "statement_fingerprint": "6cad35a4b97abc1ed55842c1eee02b5cfdaa80976b6ef7349ff7e89bee5446fb",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-428889",
+          "title": "Multiplier algebra of Fock space",
+          "statement_fingerprint": "ed235db27b3fabe671cdbfa7124f111864fd3818443c0091cbc311327c4eade9",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-441955",
+          "title": "Infinite-dimensional BRST reduction",
+          "statement_fingerprint": "16ce38479a4fe25b54d74c610b76c70456c9d3fa60030a9fe3ca1faebfd17dad",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-449640",
+          "title": "Matrix product of entire functions",
+          "statement_fingerprint": "1011f0ca85706e271eb231bf7ac314428db5f2580eab88c931dc1bd02c1ab24f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-462312",
+          "title": "Restricting unitary irreducible representations of the Poincaré group",
+          "statement_fingerprint": "bd194f182fe2d86868c0a3c5859d93cd75d78d54e86adec72ca0910f63e58322",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-476559",
+          "title": "Identification of Fock space and the $L^2$ space of tempered distributions",
+          "statement_fingerprint": "8ebc5999d1e1caa2c3eba07d0715bffa9456c8129f77e8018fb593b25dc829fb",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-486425",
+          "title": "Edge universality for Wigner matrix",
+          "statement_fingerprint": "bea101e69483bf8f2f823bca75fcf7722b0c52fabfa5be655928045649e5b7cd",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-489736",
+          "title": "Decomposition of a gauge-invariant 3-dimensional spin network state over the Wigner matrix elements",
+          "statement_fingerprint": "14bebfbdfd7a1f7a54e286861b03974df8580007e078ff0bb39661c470fe5589",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-492624",
+          "title": "How does the noncommutative analytical Toeplitz algebra (for $n=1$) relate to the classical Toeplitz algebra?",
+          "statement_fingerprint": "2acec430901b333353e2c4bb74b19cee19a9db4a41ea026b429e7d4d8f57e145",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-495247",
+          "title": "Morphisms linking Popescu’s Noncommutative Disc Algebra and the Noncommutative Torus via q-Commuting Isometries and the Toeplitz Noncommutative Torus",
+          "statement_fingerprint": "1e038e2cfbdddb1527aa2840faca8b75abe3f73ae46f772276ddeff3be5bbc14",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-510247",
+          "title": "Continuous cohomology of a profinite group",
+          "statement_fingerprint": "9d72b6addeec5d01b227c6a4ae836a3c5562cc076f1d37269f49d4046c2455de",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-511421",
+          "title": "Global gauge fixing without boundary conditions",
+          "statement_fingerprint": "9ef8935afb6340a09b7b33cd22a777344baba790a98c37cc33df3fb5eb40dbaf",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-512892",
+          "title": "Is $3D(z)-D(-z)=\\frac{11}{6}D(e^{i\\pi/3})$ a known Bloch–Wigner ladder relation for a CM quartic $z$?",
+          "statement_fingerprint": "7b746ffc9f1c6e9b7a6d956a385dd7cdd4812983c77d605dd8a0efcd87834ee6",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-66506",
+          "title": "In quantum dynamical simulations, what is the symmetric (Riemannian) analog of a Poisson bracket?",
+          "statement_fingerprint": "ec15a167f73ba05a3d37b530a979c28b4c3b6c7af0cd13541b6c6d2ef39e689f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-85150",
+          "title": "A specific projection and compactness on the Bargmann-Fock space",
+          "statement_fingerprint": "48d3a48038cfe00f7b9d98ad09d1236767cea3099d49b7dbee1bc7da9f2096d7",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-89915",
+          "title": "\"Natural\" Poisson structure on $(\\mathbb{P}^1)^N$",
+          "statement_fingerprint": "773ab43b26fe4c7176d0b5c17b5c998dd2328ce0f6498ef1c29fe735138d29a7",
+          "disposition": "distinct_statement"
+        }
+      ],
+      "scope_note": "Fock spaces, Wigner random matrices and Wigner rotations share terminology. The audited lab claims compare Wigner and Husimi distributions of one optical mode."
+    },
+    "entanglement": {
+      "regex": "\\b(werner|schmidt rank|distillab\\w*|sierant|stabili[sz]er entrop\\w*|entangle\\w*)\\b|2609\\.13106|s11005-025-01935-y",
+      "candidates": [
+        {
+          "id": "ArtinPrimitiveRootsConjecture.artin_primitive_roots.variants.part_ii_power_squarefreePart_modeq_one",
+          "title": "Artin's Conjecture on Primitive Roots — part ii power squarefreePart modeq one",
+          "statement_fingerprint": "1d83979eafd239d12ccc65406a7eb830522b0793bf993625415c4ab625a3c8a1",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "ArtinPrimitiveRootsConjecture.conditional_artin_primitive_roots.variants.part_ii_power_squarefreePart_modeq_one",
+          "title": "Artin's Conjecture on Primitive Roots — part ii power squarefreePart modeq one",
+          "statement_fingerprint": "861f87d9e5d9ba747a6fe4c1644c0cea88db07c3db848d1baec1204c04313295",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_10_10_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 10 10 open",
+          "statement_fingerprint": "1df09b120697e97ed9e2379ad4e617397d837d5333286539ab08d2ad3ae483f2",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_10_6_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 10 6 open",
+          "statement_fingerprint": "6b582d3597002af0f0c98a0a0cd0e5cc5b7b3b3370a9f28d9308585875d30091",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_11_3_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 11 3 open",
+          "statement_fingerprint": "4ecc9b2a2c6cf383aed0322bf5deb7d584d198b6ecfac5889070a8d29d161d76",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_11_6_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 11 6 open",
+          "statement_fingerprint": "e2af83d4ce6f2d16e8f4d9ff9fdf67c9003981bd04fa1db74dc683ef5b6c4250",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_12_10_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 12 10 open",
+          "statement_fingerprint": "826701c58c74a8d1e19d4f51564174768e3b03e5fa833e664ba481c8d71d002c",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_12_6_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 12 6 open",
+          "statement_fingerprint": "57d07366b5fa6005fb3897444cca515e08e8ecae3c55d14eedca7b5c623a3714",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_8_10_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 8 10 open",
+          "statement_fingerprint": "28a8871c49c0a5f2b2e55e0a4aeb9851df4bac3083d94055b160d4ab3d3d3293",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_8_4_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 8 4 open",
+          "statement_fingerprint": "42ab9c2a4a0769e15c687c23f27bc5000c58c0a3b9e9bab1ad7862b5550e6c77",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.ame_8_6_open",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — ame 8 6 open",
+          "statement_fingerprint": "cd2424ab6383d6771aa79bf4a25cfdc8514c951bd0e213919a9268f4b97332d0",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "OpenQuantumProblem35.oqp_35",
+          "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states — oqp 35",
+          "statement_fingerprint": "c7d9474fbcbe3b8f2f28db91ab2c3e126f30fe2487c3b286d4f4ebdc94ccde64",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-184542",
+          "title": "Average entropy of quantum system in bipartite pure state for finite temperature",
+          "statement_fingerprint": "7b739201276d101da5fb1d4f4512384455ccefca65aab91c1aafa2b4e9d24e97",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-201313",
+          "title": "A generalization of SOCA",
+          "statement_fingerprint": "19a42ad9957b632c36d6b25f6f289bd6b6e63d06a252700c7a55ed80f0b46b43",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-208081",
+          "title": "Question related to $h$-invariant of a form",
+          "statement_fingerprint": "ca54fe4dde796b77b1b3832c2e56516d8bc38a4798b762b62067b31f18fd6160",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-208442",
+          "title": "Geometric interpretation of Schmidt rank",
+          "statement_fingerprint": "f0fb58aaa2f2ca86348139155467e06710996edce476945defdfa548c25bc999",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-218745",
+          "title": "On discriminants of elliptic curves",
+          "statement_fingerprint": "cae5a293ba86c67f16f1cc27c05ea3bad092d60915e3c6e2fa3ad7924e130ef7",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-250801",
+          "title": "Entangled diophantine equations",
+          "statement_fingerprint": "97f6c5082b68553493f54596f5f8f7e0ca14d3cf27a336db34f76353294593a4",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-267356",
+          "title": "Hecke operator which changes character",
+          "statement_fingerprint": "f9fcbc9584b7e5434dd83f4cd8db5af515a5013f882021aca194a4c75e485f6a",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-331697",
+          "title": "Optimal $f$-vector properties of translationally invariant 3-honeycombs for error correction of a photonic quantum computer",
+          "statement_fingerprint": "501d902de340a5df9cafae2ea80b969769b688f99b46454a3b87fc4dd5b30a30",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-342446",
+          "title": "Perform certain constrained integrations over an ordered subsection of a 3-simplex, yielding \"absolute separability\" probabilities",
+          "statement_fingerprint": "8c55ac570bed1c18182d335948400202a08815d0fc172835c9e7dcc7ad78457a",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-346877",
+          "title": "Norm-attaining operators with values in a 2-dimensional Hilbert space",
+          "statement_fingerprint": "5f6429d0d70048d0b634e7efe3c9b4d934eb390ba6e10c917adb2c3205250566",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-374196",
+          "title": "Classification and computation of the entanglements of pairs of planar curves",
+          "statement_fingerprint": "1ab4c94cffc93da0384f986a51a0d4a766dd51cde649463adefa3e4e5cec40ed",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-383246",
+          "title": "What is Ryu-Takayanagi Entanglement Entropy?",
+          "statement_fingerprint": "4a669923b7634eb5231b7dccd4c94e336477ebe459a90b7b311d7c2e85308b2b",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-394635",
+          "title": "Existence of quantum states given reduced states on subsystems",
+          "statement_fingerprint": "784a94dbb6143ecef52d32e8b9731ffd62bf0732926f64ef366f745d8b5f6157",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-401942",
+          "title": "What are quantum extremal surfaces from a mathematical viewpoint?",
+          "statement_fingerprint": "7ca9d7a05c0a276480bf56fa259ab7f3546bed13f883a7dc1bc678ae4fd1be7b",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-412908",
+          "title": "What is the minimum nonzero rank in a random subspace of matrices?",
+          "statement_fingerprint": "73e92c5535aa0018a5d3d363f392b292e54603dd6e594faf83d07cba96d0c04b",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-441249",
+          "title": "Pancake sorting problem – Is computing f(n) NP-hard?",
+          "statement_fingerprint": "504efb05134a65f7dfd5db22f76d917ba99d3029fd36bdec788f25f851fe9a9f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-455279",
+          "title": "Proof of the convergence of the Rayleigh-Ritz Method?",
+          "statement_fingerprint": "d82973ddd8daa4966700b19542d2c3d3437b6e906df86e9aaa8275fcbf097200",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-463806",
+          "title": "Multi-scale 3- and 5-arm exponents for critical planar percolation",
+          "statement_fingerprint": "f00f74ae76d0ba0ba7570d77c3b359e3351214778cbed00383aba5a24aa7441d",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-467389",
+          "title": "Expansion of an ODE near irregular singularity",
+          "statement_fingerprint": "d5025cc8dbd2dd5b6ec3344461d4d91e0aa2e6c6ffd7ba4262fe91319bad270c",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-476233",
+          "title": "Ultraviolet divergences of entanglement entropy in QFT",
+          "statement_fingerprint": "7bf352b32c52952a79b9e42c0cfaa99abdf5eb1500b0385f0c192535439ee492",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-478996",
+          "title": "Combinatorial structure of the entanglement spectrum and quantum error correction in finite vector spaces",
+          "statement_fingerprint": "d082c87a950cf5439a7121fd4de2c0fcd79590e82a70b177e03ae2238f70d42e",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-485529",
+          "title": "Nonnegativity of a Hermitian form on orthonormal product states",
+          "statement_fingerprint": "d0848cb3129d33c818a5e6f5a9a6e45313b40122b43a7d25b07054c16a76552a",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-512916",
+          "title": "Is it known whether the composition of two PPT channels is always antidegradable?",
+          "statement_fingerprint": "0f45a271668aed1ad2efb01fde4a3a6f2926d0a52b9f046c424ffa6c6557521b",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-71022",
+          "title": "Entangled permutations of a multiset",
+          "statement_fingerprint": "483c6d7e3fd7799136d998738ab66b6b44b3e463240438f8b4ec6a41b45544a5",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a103141",
+          "title": "A103141: Riordan array (1/(1-x), x*(1 + x + x^2 + x^3)/(1-x)).",
+          "statement_fingerprint": "d186e3fc1fd97902e87dccd313f46d9180a61b1fd190b344a16bbdc4c6bf6ca3",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a105794",
+          "title": "A105794: Inverse of a generalized Stirling number triangle of first kind.",
+          "statement_fingerprint": "9517c2d99635c7c9de2eca7044f41d5ec139a9224472212f1fa6ed5120435aa7",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a152920",
+          "title": "A152920: Triangle read by rows: triangle A062111 reversed.",
+          "statement_fingerprint": "13520737a3dd2cc350494d37610fb2c89c42b416a4d0b87d599c2f3fe4939ad7",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a194959",
+          "title": "A194959: Fractalization of (1 + floor(n/2)).",
+          "statement_fingerprint": "864b6f2eddee0a1ca8f7e22ddb4945f7a5f1b2d6c3b145741bd73de17cb56498",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a246695",
+          "title": "A246695: Row sums of the triangular array A246694.",
+          "statement_fingerprint": "b37b4067f7295261d9be06cf97576438e6bc6126c53e2010a831afcab0267ae0",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "oeis-a320031",
+          "title": "A320031: Square array A(n,k), n >= 0, k >= 0, read by antidiagonals, where column k is the expansion of the e.g.f. exp(x)/(1 - k*x).",
+          "statement_fingerprint": "c1a19802a7c822c5cf52bbcc52a0ffd528cb047a23dc7d6bd0f2e2bc6b8356af",
+          "disposition": "distinct_statement"
+        }
+      ],
+      "scope_note": "Absolutely maximally entangled state existence, PPT channel composition and states with prescribed marginals are distinct from Werner coordinate compressions and local-basis optimizations."
+    },
+    "packing": {
+      "regex": "\\btammes\\b|spherical (?:code|packing)|spherical.caps?.{0,14}(?:pack|arrange|separation)|spherical-codes.org|cohn.{0,20}spherical|sphere packings?",
+      "candidates": [
+        {
+          "id": "mo-123022",
+          "title": "Computing the Volume of Closed 3-Manifolds and the Geometrization Conjecture",
+          "statement_fingerprint": "158d61c7ee0f0d322a81e51c2301faf9c9968f4ecc7964dc1a7f1ca772d7227e",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-132182",
+          "title": "Blowing up spheres in a face centered cubic (fcc) packing geometry just enough to cover the volume of the lattice",
+          "statement_fingerprint": "3dd084c89ee4001f0eb6180b3e72ca0f2333752da8645b8b3ee2034d1cd03f04",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-242227",
+          "title": "Finding good high-dimensional sphere coverings in Euclidean space",
+          "statement_fingerprint": "510a51f09b8a3776614db1da8ed3ec438ce7d449d3ffbfd6872e6d5e4b3edf33",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-261406",
+          "title": "Root system inside the indefinite even unimodular lattice $II_{10,2}$",
+          "statement_fingerprint": "672ba9cf3d38a7a38badee6e700027356fa84c11cbed337d7dcf9d6dafb38d02",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-294411",
+          "title": "Periodicity of density of laminated lattices",
+          "statement_fingerprint": "dd5e9a3677f9002b8e6fe09eaa2eadf7ba18299edde42b849bc4e752878ee565",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-297137",
+          "title": "Sets of points avoiding small angles",
+          "statement_fingerprint": "0f366be534dae9f1124e2e0e969b2a5d3a44fa6321cea7a8a7981991064b6350",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-34968",
+          "title": "Point cloud that maximizes the minimum pairwise distance in Euclidean space",
+          "statement_fingerprint": "b0de851183e2a8c5a852faa4e83fb10c62886ae764c091a18a79708b514c7c48",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-362013",
+          "title": "Aperiodic packings of the plane with disks of multiple radii",
+          "statement_fingerprint": "ad9c04b0d7131afb75f6e44c3da3b7f3763e9f8160177a87a07f4d1ad4f5936d",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-386754",
+          "title": "density of lattices",
+          "statement_fingerprint": "e30805f4d29371fc6550c53ef690b4590286cb9b2aea6b972267995041243c75",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-393175",
+          "title": "Dense and decodable lattices in high dimensions",
+          "statement_fingerprint": "353587c87444bcc34bf74d99421fea01654ffb65021804d9d354f24a87251cbe",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-447306",
+          "title": "Does this code have a name?",
+          "statement_fingerprint": "3ee461536b7f5352c70ed21e3bed310246a83eee538abb62c1afca2e8b1a4bd3",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-452963",
+          "title": "Characterizing the D4 lattice as a sphere packing",
+          "statement_fingerprint": "387e6995857334f3dfe9ac6154ca48f5c425425d347a418b6abbe1e454d5459f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-454107",
+          "title": "Sphere packing and modular forms in known dimensions (maybe 2)",
+          "statement_fingerprint": "eface92571a78f7138f80b082719c0e234015c72784c13fbd6dd03cdc4bcea3a",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-472150",
+          "title": "Are there other Euclidean lattices whose construction is based on number theoretic identities?",
+          "statement_fingerprint": "175e95f18f534bffdd56a232ed004945d210786df224727d2b93031d19eea13f",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "mo-49605",
+          "title": "Are spherical codes algebraic?",
+          "statement_fingerprint": "ef341488c0c64e769fde212c94e94389c8dffb9fa04f499a55edffc33554ab0f",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "oeis-a080866",
+          "title": "A080866: Number of equal shortest edges in the solutions of the Tammes' problem.",
+          "statement_fingerprint": "79afb0734d443b269ce465d835822bd9846372ec39e5b820de08fd93a98c7408",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "oeis-a084827",
+          "title": "A084827: Maximum number of spheres of volume one that can be packed in a sphere of volume n.",
+          "statement_fingerprint": "4435c5b3943d07f5cdc7bcab791e1a80860588f6061a43e118d91f49d36b171c",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "wp-sphere-packing",
+          "title": "Sphere packing",
+          "statement_fingerprint": "f534b1a4a377245d330860d4e315b1bc67eee2e54d055b9046d3ef1c1349bf38",
+          "disposition": "distinct_statement"
+        },
+        {
+          "id": "wp-tammes-problem-for-numbers-of-nodes-greater-than-14-except-24",
+          "title": "Tammes problem for numbers of nodes greater than 14 (except 24).",
+          "statement_fingerprint": "b09e1a2abc5653b96d4bab348a1fdf43e7b5381e3d674d59dfdd8dac0edb4d51",
+          "disposition": "related_scope_differs"
+        }
+      ],
+      "scope_note": "The Tammes entry seeks optimal S² codes. Feasible improvements at four cardinalities do not certify optimality. A080866 counts shortest edges of optimal solutions. Ambient seven-dimensional codes have a different domain."
+    },
+    "qec": {
+      "regex": "\\[\\s*\\[\\s*(?:10\\s*,\\s*2\\s*,\\s*4|11\\s*,\\s*5\\s*,\\s*3|12\\s*,\\s*[34]\\s*,\\s*4)|stabili[sz]er (?:code|check|generators?)|quantum (?:code|error.correct)|quantum ldpc|2601\\.19848",
+      "candidates": [
+        {
+          "id": "mo-331697",
+          "title": "Optimal $f$-vector properties of translationally invariant 3-honeycombs for error correction of a photonic quantum computer",
+          "statement_fingerprint": "501d902de340a5df9cafae2ea80b969769b688f99b46454a3b87fc4dd5b30a30",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "mo-478996",
+          "title": "Combinatorial structure of the entanglement spectrum and quantum error correction in finite vector spaces",
+          "statement_fingerprint": "d082c87a950cf5439a7121fd4de2c0fcd79590e82a70b177e03ae2238f70d42e",
+          "disposition": "related_scope_differs"
+        }
+      ],
+      "scope_note": "The indexed examples concern photonic honeycomb f-vectors or entanglement spectra. Neither asks for the exact largest generator weight of the specified finite stabilizer codes."
+    },
+    "bmv": {
+      "regex": "moussa|\\bbmv\\b|bessis|\\bhagele\\b|trace (?:of (?:all |the )?)?(?:a )?words?|2603\\.19927|2611\\.00129|lie[bp].seiringer",
+      "candidates": [],
+      "scope_note": "BMV trace-polynomial coefficient positivity and the refined two-sided trace-word comparison have distinct conclusions. A direct catalogue match was not identified."
+    },
+    "transport": {
+      "regex": "pitchford|monge (?:matrix|matrices|array)|quantum.{0,10}transport|transport.{0,9}(cost cones|cost matrix)|ordered line (?:distances|metric)|cost cones|270f5dba795ffd73d271bfde959237b730227c5e",
+      "candidates": [
+        {
+          "id": "oeis-a070056",
+          "title": "A070056: Number of Bottleneck-Monge matrices with 8 rows.",
+          "statement_fingerprint": "10d1f469440a9196700e926b4ed324074f525e69329df79ed1d6b571e2a199df",
+          "disposition": "related_scope_differs"
+        },
+        {
+          "id": "oeis-a070057",
+          "title": "A070057: Number of Bottleneck-Monge matrices with 9 rows.",
+          "statement_fingerprint": "e18c7771f0d4c54fe3c792f8c7262dec16edf598b85e2b3bc72f61d250f7b8a2",
+          "disposition": "related_scope_differs"
+        }
+      ],
+      "scope_note": "Counts of finite Bottleneck-Monge matrices are distinct from the uniform distance of a real Monge cost array to ordered line distances."
+    }
+  },
+  "papers": [
+    {
+      "slug": "sphere-packing",
+      "url": "https://shunyaekam.github.io/oo-research/papers/sphere-packing/",
+      "source_file": "checks/packing_bounds/comparisons.json",
+      "audited_source_sha256": "9b4de0e98e318cc2bba3ac861c6565a1f8707c5b24ebeaf2b6f955b8aa3b22a7",
+      "evidence": "checks/packing_bounds/receipt.json",
+      "claim": "Five improved feasible spherical-code configurations, four on S² and one on S⁶. Each certifies minimum angle above a bound; no global upper bound on attainable separation.",
+      "search": "packing",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "coordinate-supports",
+      "url": "https://shunyaekam.github.io/oo-research/papers/coordinate-supports/",
+      "source_file": "papers/coordinate-supports.tex",
+      "audited_source_sha256": "5feb707baafd44732b0d88b3bb40cb1018f43b30f27b8c13bf53e5493ef1af55",
+      "evidence": "formal/receipt.json",
+      "claim": "Positive computational-basis compressions of a partially transposed Werner state; odd triples give Schmidt-rank-three negative directions. Does not decide Schmidt-rank-two distillability.",
+      "search": "entanglement",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "finite-maxima",
+      "url": "https://shunyaekam.github.io/oo-research/papers/finite-maxima/",
+      "source_file": "papers/finite-maxima.tex",
+      "audited_source_sha256": "4638c0fc4c92832e1dc6661bcb5861490a02ea4a7ccf6ba4532d269ccc551d69",
+      "evidence": "campaign/support-5-3.json.gz",
+      "claim": "Maximum positive coordinate-support size for three copies is max(8,2d) for d≥2, with certified additional finite instances. The object maximized is a basis-word set.",
+      "search": "entanglement",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "schmidt-rank-seven",
+      "url": "https://shunyaekam.github.io/oo-research/papers/schmidt-rank-seven/",
+      "source_file": "papers/schmidt-rank-seven.tex",
+      "audited_source_sha256": "839d7b1471e0eb2e9c0f050c0930aa0d53babbf326387e32918a1b65e7d3d5d1",
+      "evidence": "checks/schmidt7",
+      "claim": "Nonlocal stabilizer entropy optimization at rank seven on two three-qubit registers, three higher-register spectral regions, and spectra with at most two exceptional amplitudes.",
+      "search": "entanglement",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "single-rail-wigner",
+      "url": "https://shunyaekam.github.io/oo-research/papers/single-rail-wigner/",
+      "source_file": "papers/single-rail-wigner.tex",
+      "audited_source_sha256": "84d8e204d4bc0e797b87907b658c24f7757346430c7478fd2fa86806631a28ad",
+      "evidence": "formal/receipt.json",
+      "claim": "Order-one-half Wigner–Husimi inequality on the zero–one photon Bloch ball.",
+      "search": "optical",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "phase-invariant-wigner",
+      "url": "https://shunyaekam.github.io/oo-research/papers/phase-invariant-wigner/",
+      "source_file": "papers/phase-invariant-wigner.tex",
+      "audited_source_sha256": "c6a65cbb1935de524e8928fff060508610e2087c035dd0abe5f6702d1f579e65",
+      "evidence": "checks/phase-invariant-wigner.md",
+      "claim": "Order-one-half Wigner–Husimi inequality for every photon-number-diagonal state, with equality only at vacuum.",
+      "search": "optical",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "sparse-fock-coherence",
+      "url": "https://shunyaekam.github.io/oo-research/papers/sparse-fock-coherence/",
+      "source_file": "papers/sparse-fock-coherence.tex",
+      "audited_source_sha256": "eed89d382eac09158e6d5738fbec9e6054897cef3c72ca0cebaf100b481b17ab",
+      "evidence": "checks/sparse_table.py",
+      "claim": "Order-one-half Wigner–Husimi inequality for arbitrary states in each span of vacuum and |n⟩ with n=2,3,4,5.",
+      "search": "optical",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "renyi-obstructions",
+      "url": "https://shunyaekam.github.io/oo-research/papers/renyi-obstructions/",
+      "source_file": "papers/renyi-obstructions.tex",
+      "audited_source_sha256": "2d7113231b2990d22de196c94e9f0335441f303e529357ecbaa92b3d84b7e0a4",
+      "evidence": "checks/thresholds.py",
+      "claim": "Rényi-order counterexamples at a<a* and a>1/2, including arbitrarily small energy in the latter range; restricted positive results in the remaining interval.",
+      "search": "optical",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "distance-four",
+      "url": "https://shunyaekam.github.io/oo-research/papers/distance-four/",
+      "source_file": "papers/distance-four.tex",
+      "audited_source_sha256": "199578c46a49f374e83e8fd124f44cd6a44d8dae370ff834d722fac170ac830b",
+      "evidence": "checks/small_qec/d4-review.md",
+      "claim": "Optimal maximum Pauli check weights for named binary stabilizer code parameters, with upper constructions and lower certificates.",
+      "search": "qec",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "eleven-five",
+      "url": "https://shunyaekam.github.io/oo-research/papers/eleven-five/",
+      "source_file": "papers/eleven-five.tex",
+      "audited_source_sha256": "423519ff60c684db4fe45459c73e4c80b7e00fb71e69dc06c07d8669f04df31c",
+      "evidence": "checks/small_qec/eleven-five-rows.txt",
+      "claim": "Independent proof that seven is the smallest maximum generator weight for a binary [[11,5,3]] stabilizer code.",
+      "search": "qec",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "bmv-trace-12-3",
+      "url": "https://shunyaekam.github.io/oo-research/papers/bmv-trace-12-3/",
+      "source_file": "papers/bmv-trace-12-3.tex",
+      "audited_source_sha256": "c13f983c91cbf180811d46c4d159a2506d9e1513db491de11c294b937452bd00",
+      "evidence": "checks/bmv-range-review.md",
+      "claim": "Two-sided refined Bessis–Moussa–Villani mean-word trace inequalities when A has at most two different eigenvalues; arbitrary finite size and positive exponents n,m.",
+      "search": "bmv",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    },
+    {
+      "slug": "transport-polygon",
+      "url": "https://shunyaekam.github.io/oo-research/papers/transport-polygon/",
+      "source_file": "papers/transport-polygon.tex",
+      "audited_source_sha256": "1bfa32896f57d4485ed380e0be4be547d5f0022df4d60f72f8172f2c0009a85c",
+      "evidence": "formal/transport_literal",
+      "claim": "Pitchford Conjecture 7.7 for convex power gaps and the entrywise approximation of nonnegative hollow symmetric Monge costs by ordered line distances.",
+      "search": "transport",
+      "reviewed_outcome": "no_exact_catalogue_target_identified",
+      "exact_target": null,
+      "status": "no_exact_catalogue_target_identified"
+    }
+  ],
+  "catalogue": {
+    "repo": "https://github.com/GuillaumeBAUD-coder/open-math-agents",
+    "revision": "486a1f7be7d78a02e34c35927ad49eb69e46fb9d",
+    "source_rows": {
+      "catalog.json": 3925,
+      "extra.json": 802,
+      "extra2.json": 19217,
+      "extra3.json.gz": 35608
+    },
+    "distinct_problem_ids": 59400,
+    "merged_reduction_steps": 349
+  },
+  "new_manuscripts_requiring_audit": [],
+  "pending_editorial": [
+    {
+      "id": "oeis-a293452",
+      "prerequisite_status": "await_upstream_statement_then_proof",
+      "statement_pr": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1071",
+      "local_proof": "checks/left_to_solve/oeis-a293452.lean",
+      "local_verification_run": null
+    },
+    {
+      "id": "oeis-a201488",
+      "prerequisite_status": "await_upstream_statement_then_proof",
+      "statement_pr": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1073",
+      "local_proof": "checks/left_to_solve/oeis-a201488.lean",
+      "local_verification_run": "https://github.com/shunyaekam/oo-research/actions/runs/45920326180"
+    },
+    {
+      "id": "oeis-a145646",
+      "prerequisite_status": "await_upstream_statement_then_proof",
+      "statement_pr": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1074",
+      "local_proof": "checks/left_to_solve/oeis-a145646.lean",
+      "local_verification_run": null
+    },
+    {
+      "id": "oeis-a145647",
+      "prerequisite_status": "await_upstream_statement_then_proof",
+      "statement_pr": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1084",
+      "local_proof": "checks/left_to_solve/oeis-a145647.lean",
+      "local_verification_run": null
+    }
+  ]
+}

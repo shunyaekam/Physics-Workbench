@@ -110,7 +110,7 @@ def run():
     except subprocess.TimeoutExpired:
         print("Left to Solve follow-up timed out; retry on the next eligible cycle.",flush=True)
     call([sys.executable,"ops/pipeline_feed.py"])
-    git("add","--","campaign","papers")
+    git("add","--","campaign","papers","checks/left_to_solve/lab-crosswalk.json")
     if git("diff","--cached","--quiet",check=False).returncode==1:
         git("commit","-qm","Advance audited physics search and update working papers")
     published = git("push","-u","origin","HEAD:research",check=False)
