@@ -54,21 +54,21 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-27T11:07:10+00:00",
+  "updated_at": "2026-11-27T11:19:19+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 92466483373,
+    "attempts": 92466486373,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 1137510,
-    "coherent-cats": 25344,
-    "coherent-bands": 8396,
-    "three-level": 16837,
+    "werner": 1139747,
+    "coherent-cats": 25472,
+    "coherent-bands": 8428,
+    "three-level": 16900,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
@@ -77,7 +77,7 @@
     "golay-repairs": 269543351,
     "golay-splices": 6275910630,
     "golay-splice-tails": 85915099424,
-    "schmidt-seven-pairs": 109620
+    "schmidt-seven-pairs": 110160
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -418,8 +418,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000202.json",
-      "detail": "109,620 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000203.json",
+      "detail": "110,160 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -479,28 +479,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-277",
-      "title": "Research round 277",
+      "id": "round-278",
+      "title": "Research round 278",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000277.json",
-      "detail": "2,220 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000278.json",
+      "detail": "2,237 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-27T11:06:58.854313+00:00"
+      "updated_at": "2026-11-27T11:19:11.159043+00:00"
     },
     {
-      "id": "coherent-bands-00000265",
+      "id": "coherent-bands-00000266",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000265.json",
-      "detail": "32 states tested on photon levels 0, 2, 4, 8, 16, 24.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000266.json",
+      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000264",
+      "id": "three-level-batch-00000265",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000264.json",
-      "detail": "63 states tested on photon levels 0, 1, 5.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000265.json",
+      "detail": "63 states tested on photon levels 0, 2, 3.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
