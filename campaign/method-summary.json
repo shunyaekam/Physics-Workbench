@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 82,
-      "seconds": "75.0",
+      "runs": 83,
+      "seconds": "75.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 82,
-      "seconds": "104.0",
+      "runs": 83,
+      "seconds": "104.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 309,
-      "seconds": "1,104.1",
+      "runs": 312,
+      "seconds": "1,109.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 165,
-      "seconds": "532.0",
+      "runs": 167,
+      "seconds": "532.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -101,17 +101,17 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 86,
-      "seconds": "214.7",
+      "runs": 87,
+      "seconds": "214.9",
       "tokens": "284,541 / 4,116",
       "coverage": "3/4",
-      "stage": "solve",
-      "outcome": "failed"
+      "stage": "search",
+      "outcome": "no_new_receipt"
     },
     {
       "problem": "support-enumeration",
-      "runs": 10,
-      "seconds": "332.1",
+      "runs": 11,
+      "seconds": "405.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 20,
-      "seconds": "10.3",
+      "runs": 21,
+      "seconds": "10.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -155,8 +155,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 165,
-      "seconds": "183.4",
+      "runs": 167,
+      "seconds": "190.9",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",

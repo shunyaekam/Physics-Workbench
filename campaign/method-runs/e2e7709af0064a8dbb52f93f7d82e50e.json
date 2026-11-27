@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "e2e7709af0064a8dbb52f93f7d82e50e",
+  "problem_id": "support-enumeration",
+  "stage": "search",
+  "method": "continuous.advance_frontier",
+  "model": null,
+  "contract_hash": null,
+  "revision": "d1bdfb6fa194eb5b5aed767804d33a1c7a7a5fc6",
+  "started_at": "2026-11-27T18:26:42.341+00:00",
+  "elapsed_seconds": 72.99818,
+  "status": "completed",
+  "outcome": "search_receipt",
+  "evidence": "campaign/rounds/00000312.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
