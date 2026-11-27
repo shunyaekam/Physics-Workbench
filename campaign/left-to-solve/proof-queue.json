@@ -1,44 +1,6 @@
 {
-  "checked_at": "2026-11-27T07:11:16+00:00",
+  "checked_at": "2026-11-27T08:21:08+00:00",
   "targets": [
-    {
-      "id": "Erdos1164.erdos_1164.R1.H2.R1.H1",
-      "title": "Discounted first arrival of a planar random walk \u00b7 step 1",
-      "kind": "step",
-      "points": 7,
-      "statement": "\u2203 c : \u211d, 0 < c \u2227\n    \u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n      {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}, IsSimpleRandomWalkSteps X \u2192\n      \u2200 (n d : \u2115), 4 \u2264 d \u2192 d \u2264 n \u2192 \u2200 a : \u2124, 2 \u2223 a \u2192 (d : \u2124) \u2264 |a| \u2192\n        c * Real.log d / Real.log n \u2264\n          1 - \u2211' k : \u2115, (1 - (1 : \u211d) / n) ^ (k + 1) *\n            (\u2119 {\u03c9 | position X (k + 1) \u03c9 = (a, 0) \u2227\n              \u2200 j < k + 1, position X j \u03c9 \u2260 (a, 0)}).toReal",
-      "source": "https://www.erdosproblems.com/1164",
-      "parent": "Erdos1164.erdos_1164.R1.H2",
-      "difficulty": null,
-      "notebook": [
-        "checks/left_to_solve/attempts/diffusion/proof.md",
-        "checks/left_to_solve/attempts/diffusion/check.py",
-        "checks/left_to_solve/attempts/diffusion/Bounds.lean",
-        "checks/left_to_solve/attempts/diffusion/Cylinder.lean",
-        "checks/left_to_solve/attempts/diffusion/Discount.lean",
-        "checks/left_to_solve/attempts/diffusion/Split.lean"
-      ]
-    },
-    {
-      "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
-      "title": "Erd\u0151s Problem 1166 \u2014 dembo peres rosen zeitouni \u00b7 step 2",
-      "kind": "step",
-      "points": 9,
-      "statement": "\u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}, IsSimpleRandomWalkSteps X \u2192\n    \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192\n      (\u2211' k : \u2115, \u2119 {\u03c9 | (maxLocalTime X (2 ^ k) \u03c9 : \u211d) /\n        (Real.log ((2 ^ k : \u2115) : \u211d)) ^ 2 < 1 / \u03c0 - \u03b5}) \u2260 \u221e",
-      "source": "https://www.erdosproblems.com/1166",
-      "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
-      "difficulty": 32
-    },
-    {
-      "id": "Erdos1164.erdos_1164.R1.H2",
-      "title": "Erd\u0151s Problem 1164 \u00b7 step 2",
-      "kind": "step",
-      "points": 14,
-      "statement": "\u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)] {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124},\n    IsSimpleRandomWalkSteps X \u2192 \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2203 C : \u211d, \u2200\u1da0 n : \u2115 in atTop,\n      1 - \u03b5 \u2264 (\u2119 {\u03c9 | Real.log (coveringRadius X n \u03c9) \u2264 C * Real.sqrt (Real.log n)}).toReal",
-      "source": "https://www.erdosproblems.com/1164",
-      "parent": "Erdos1164.erdos_1164",
-      "difficulty": 44
-    },
     {
       "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
       "title": "The Maxwell conjecture \u2014 three equal magnitudes",
@@ -78,16 +40,6 @@
       "source": "https://www.erdosproblems.com/1166",
       "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
       "difficulty": 32
-    },
-    {
-      "id": "Erdos1164.erdos_1164",
-      "title": "Erd\u0151s Problem 1164",
-      "kind": "known",
-      "points": 29,
-      "statement": "theorem erdos_1164 {\u03a9 : Type*} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124} (hX : IsSimpleRandomWalkSteps X) :\n    \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2203 c C : \u211d, 0 < c \u2227 \u2200\u1da0 n : \u2115 in atTop,\n      1 - \u03b5 \u2264 (\u2119 {\u03c9 | c * Real.sqrt (Real.log n) \u2264 Real.log (coveringRadius X n \u03c9) \u2227\n        Real.log (coveringRadius X n \u03c9) \u2264 C * Real.sqrt (Real.log n)}).toReal",
-      "source": "https://www.erdosproblems.com/1164",
-      "parent": "Erdos1164.erdos_1164",
-      "difficulty": 44
     },
     {
       "id": "Erdos1165.erdos_1165",
@@ -138,16 +90,6 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
       "parent": "OpenQuantumProblem35.ame_10_10_open",
       "difficulty": 58
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3",
-      "kind": "open",
-      "points": 68,
-      "statement": "theorem eqSystem6_no_solution_ge3 :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u2102, EqSystemN 6 D W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
-      "difficulty": 59
     },
     {
       "id": "OpenQuantumProblem13.mutuallyUnbiasedBases",
@@ -260,13 +202,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_12_10_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 10 open",
+      "id": "OpenQuantumProblem35.ame_11_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 11 6 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_12_10_open :\n    ExistsAME 12 10",
+      "statement": "theorem ame_11_6_open :\n    ExistsAME 11 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_12_10_open",
+      "parent": "OpenQuantumProblem35.ame_11_6_open",
       "difficulty": 58
     },
     {
@@ -290,13 +232,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_12_6_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 6 open",
+      "id": "OpenQuantumProblem35.ame_12_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 10 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_12_6_open :\n    ExistsAME 12 6",
+      "statement": "theorem ame_12_10_open :\n    ExistsAME 12 10",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_12_6_open",
+      "parent": "OpenQuantumProblem35.ame_12_10_open",
       "difficulty": 58
     },
     {
@@ -320,13 +262,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_10_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 10 open",
+      "id": "OpenQuantumProblem35.ame_12_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 6 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
+      "statement": "theorem ame_12_6_open :\n    ExistsAME 12 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_10_open",
+      "parent": "OpenQuantumProblem35.ame_12_6_open",
       "difficulty": 58
     },
     {
@@ -350,13 +292,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_4_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
+      "id": "OpenQuantumProblem35.ame_8_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 10 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
+      "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_4_open",
+      "parent": "OpenQuantumProblem35.ame_8_10_open",
       "difficulty": 58
     },
     {
@@ -370,14 +312,14 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.oqp_35",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
+      "id": "OpenQuantumProblem35.ame_8_4_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
       "kind": "open",
-      "points": 68,
-      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
+      "points": 66,
+      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.oqp_35",
-      "difficulty": 59
+      "parent": "OpenQuantumProblem35.ame_8_4_open",
+      "difficulty": 58
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_71",
@@ -388,6 +330,16 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_71",
       "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.oqp_35",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.oqp_35",
+      "difficulty": 59
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_72",
