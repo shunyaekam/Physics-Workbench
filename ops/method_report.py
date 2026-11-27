@@ -8,7 +8,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from lab import load
+from lab import load, write
 
 
 def git(*args):
@@ -91,7 +91,22 @@ def build():
         dates = git("log", "--diff-filter=A", "--format=%ct", ref, "--", path).splitlines()
         if dates:
             certificates[pid]=(int(dates[-1]), "https://github.com/shunyaekam/oo-research/blob/main/"+path)
-    output = render(read("method-runs"),certificates,read("method-trials"))
+    rows, trials = read("method-runs"), read("method-trials")
+    groups = defaultdict(list)
+    for _,r in rows:
+        groups[r["problem_id"]].append(r)
+    problems = []
+    for pid, group in sorted(groups.items()):
+        seconds, tokens, coverage = cost(group)
+        latest = max(group, key=lambda r:r["started_at"])
+        problems.append(dict(problem=pid, runs=len(group), seconds=seconds, tokens=tokens,
+                             coverage=coverage, stage=latest["stage"], outcome=latest.get("outcome") or latest["status"]))
+    trial = trials[-1][1] if trials else None
+    peek = dict(week=trial["week"], best=trial["best"]["result"]["cnot_count"], target=trial["goal_cnot"],
+                circuits=4*trial["seeds_per_split"], seconds=round(trial["elapsed_seconds"],2),
+                changed=trial["next_incumbent"]!=trial["incumbent"]["tree_depth"]) if trial else None
+    write(campaign/"method-summary.json",dict(problems=problems,comparison=peek))
+    output = render(rows,certificates,trials)
     (campaign/"research-methods.md").write_text(output)
 
 
