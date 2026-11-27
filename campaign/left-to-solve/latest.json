@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "key": "4cb7ae215323411f7823298e",
+    "title": "A022444: Number of self-avoiding closed walks (from (0,0) to (0,0)) of length 2n in strip {-1, 0, 1} X Z.",
+    "verdict": "shortlist"
+  }
+]
