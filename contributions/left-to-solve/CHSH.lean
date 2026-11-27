@@ -211,7 +211,7 @@ lemma inv_bound (n : ℕ) : |PowerSeries.coeff n invTheta| ≤ (3 : ℤ)^n := by
       simp [invTheta, PowerSeries.coeff_invOfUnit]
     · let F (p : ℕ × ℕ) : ℤ := if p.2 < n then
           PowerSeries.coeff p.1 (thetaSeries 1) * PowerSeries.coeff p.2 invTheta else 0
-      have idx : PowerSeries.coeff n invTheta = -(∑ p ∈ Finset.antidiagonal n, F p) := by
+      have idx : PowerSeries.coeff n invTheta = -(∑ p ∈ Finset.HasAntidiagonal.antidiagonal n, F p) := by
         rw [invTheta, PowerSeries.coeff_invOfUnit]
         simp only [if_neg hz, inv_one, Units.val_one, neg_one_mul]
         rfl
@@ -235,7 +235,7 @@ lemma inv_bound (n : ℕ) : |PowerSeries.coeff n invTheta| ≤ (3 : ℤ)^n := by
 
 noncomputable def nome := Real.exp (-Real.pi)
 noncomputable def weight (f : PowerSeries ℤ) (n : ℕ) : ℝ :=
-  (PowerSeries.coeff n f : ℝ) * nome ^ n
+  ((PowerSeries.coeff (R := ℤ) n f : ℤ) : ℝ) * nome ^ n
 
 lemma smallNome : 3 * nome < 1 := by
   have h : 3 < Real.exp Real.pi := by
@@ -254,11 +254,11 @@ lemma inv_summable : Summable (weight invTheta) := by
   exact_mod_cast inv_bound n
 
 lemma weight_mul (f g : PowerSeries ℤ) (n : ℕ) :
-    weight (f*g) n = ∑ p ∈ Finset.antidiagonal n, weight f p.1 * weight g p.2 := by
+    weight (f*g) n = ∑ p ∈ Finset.HasAntidiagonal.antidiagonal n, weight f p.1 * weight g p.2 := by
   simp only [weight, PowerSeries.coeff_mul, Int.cast_sum, Int.cast_mul, Finset.sum_mul]
   apply Finset.sum_congr rfl
   intro p hp
-  rw [← Finset.mem_antidiagonal.mp hp, pow_add]
+  rw [← Finset.HasAntidiagonal.mem_antidiagonal.mp hp, pow_add]
   ring
 
 lemma hasSum_product {f g : PowerSeries ℤ} {F G : ℝ}
@@ -273,7 +273,7 @@ lemma hasSum_product {f g : PowerSeries ℤ} {F G : ℝ}
 lemma one_eval : HasSum (weight 1) 1 := by
   convert hasSum_ite_eq (0:ℕ) (1:ℝ) using 1
   ext n
-  rcases n with _ | n <;> simp [weight]
+  rcases n with _ | n <;> simp [weight, PowerSeries.coeff_one]
 
 
 
@@ -290,12 +290,14 @@ lemma theta_eval {m : ℕ} (hm : 0 < m) : HasSum (weight (thetaSeries m)) (G m) 
     simpa [eq_comm] using (hasSum_ite_eq 0 (1:ℝ))
   have h := hg.nat_add_neg.sub hzero
   have hz : mass (m:ℝ) 0 = 1 := by simp [mass]
+  have hc : PowerSeries.constantCoeff (thetaSeries m) = 1 :=
+    (PowerSeries.coeff_zero_eq_constantCoeff_apply _).symm.trans (coeff_zero m)
   rw [hz, add_sub_cancel_right] at h
   apply (index_injective hm).hasSum_iff _ |>.mp
   · apply h.congr_fun
     intro n
     cases n with
-    | zero => simp [Function.comp, weight, coeff_zero, hz]
+    | zero => simp [Function.comp, weight, coeff_zero, hc, hz]
     | succ n =>
       change weight (thetaSeries m) (m*(n+1)^2) = _
       rw [weight, coeff_hit hm, nome_mass]

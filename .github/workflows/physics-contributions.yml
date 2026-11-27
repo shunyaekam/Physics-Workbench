@@ -21,7 +21,8 @@ jobs:
           ref: 0df444a360eaa60ab8c11dca51a86af692955474
           path: mathlib
       - name: Restore pinned Lean and Mathlib cache
-        uses: actions/cache@v4
+        id: cache
+        uses: actions/cache/restore@v4
         with:
           path: |
             ~/.elan
@@ -36,6 +37,14 @@ jobs:
           fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           "$HOME/.elan/bin/lake" exe cache get
+      - name: Cache the prepared environment for verification retries
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ~/.elan
+            mathlib/.lake
+          key: lts-physics-0df444a360eaa60ab8c11dca51a86af692955474
       - name: Compile the complete CHSH series theorem and inspect its axioms
         working-directory: mathlib
         run: |
