@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "batch": 173,
+  "parent": 169,
+  "trials": 20000,
+  "cost": 44,
+  "frontier": 69,
+  "moves": [
+    [
+      "L",
+      15,
+      15
+    ],
+    [
+      "L",
+      14,
+      14
+    ],
+    [
+      "L",
+      8,
+      8
+    ],
+    [
+      "L",
+      14,
+      14
+    ],
+    [
+      "L",
+      14,
+      14
+    ],
+    [
+      "L",
+      8,
+      8
+    ],
+    [
+      "Z",
+      12,
+      17
+    ],
+    [
+      "L",
+      6,
+      6
+    ],
+    [
+      "L",
+      6,
+      6
+    ],
+    [
+      "L",
+      22,
+      22
+    ],
+    [
+      "L",
+      19,
+      19
+    ],
+    [
+      "L",
+      10,
+      10
+    ],
+    [
+      "L",
+      22,
+      22
+    ],
+    [
+      "C",
+      15,
+      14
+    ],
+    [
+      "L",
+      18,
+      18
+    ],
+    [
+      "L",
+      10,
+      10
+    ],
+    [
+      "L",
+      6,
+      6
+    ],
+    [
+      "L",
+      18,
+      18
+    ],
+    [
+      "L",
+      19,
+      19
+    ],
+    [
+      "C",
+      18,
+      13
+    ],
+    [
+      "Z",
+      2,
+      16
+    ],
+    [
+      "Z",
+      5,
+      9
+    ],
+    [
+      "Z",
+      6,
+      13
+    ],
+    [
+      "Z",
+      8,
+      19
+    ],
+    [
+      "Z",
+      8,
+      22
+    ],
+    [
+      "Z",
+      9,
+      22
+    ],
+    [
+      "Z",
+      10,
+      19
+    ],
+    [
+      "Z",
+      12,
+      14
+    ],
+    [
+      "Z",
+      13,
+      14
+    ]
+  ],
+  "forward_stim": "H 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 14\nCX 13 14\nH 14 14\nCX 12 14\nH 14 19\nCX 10 19\nH 19 22\nCX 9 22\nH 22 22\nCX 8 22\nH 22 19\nCX 8 19\nH 19 13\nCX 6 13\nH 13 9\nCX 5 9\nH 9 16\nCX 2 16\nH 16\nCX 18 13\nS 10 8\nSQRT_X_DAG 19\nS 14 6\nSQRT_X_DAG 18\nS 18 14 13\nSQRT_X_DAG 6\nS 19 8\nSQRT_X_DAG 10\nS 13 6\nSQRT_X_DAG 18\nCX 15 14\nS 9 8\nSQRT_X_DAG 22\nS 19 8\nSQRT_X_DAG 10\nS 10 8\nSQRT_X_DAG 19\nS 9 8\nSQRT_X_DAG 22\nS 18 15 14\nSQRT_X_DAG 6\nS 18 15 14\nSQRT_X_DAG 6\nH 17\nCX 12 17\nH 17\nS 22 19\nSQRT_X_DAG 8\nS 12 6\nSQRT_X_DAG 14\nS 12 6\nSQRT_X_DAG 14\nS 22 19\nSQRT_X_DAG 8\nS 12 6\nSQRT_X_DAG 14\nS 12 6\nSQRT_X_DAG 15\nX 6 13 17 19 21\nY 8 10 14 15\nZ 2 12 18 22\nS 16 18 20\nH 1 2 3 4 6 8 9 10 11 12 13 16 20 21\nS 13 16 20 21\nH 2\nS_DAG 20\nH 20 20\nCX 2 20\nH 20 20\nS 20\nH 2 11 11\nCX 0 11\nH 11 11 1 11\nCX 1 11\nH 11 1 3 9\nCX 3 9\nH 9 3 1 12\nCX 1 12\nH 12 1 1 7\nCX 1 7\nH 7 1 13 13\nCX 7 13\nH 13 13 0 14\nCX 0 14\nH 14 0 4 4\nCX 6 4\nH 4 4 2 0\nCX 2 0\nH 0 2 21 21\nCX 7 21\nH 21 21 10 1\nCX 10 1\nH 1 10 4 10\nCX 4 10\nH 10 4 14 14\nCX 22 14\nH 14 14 12 5\nCX 12 5\nH 5 12 7 20\nCX 7 20\nH 20 7 19 16\nCX 19 16\nH 16 19 3 13\nCX 3 13\nH 13 3 16 12\nCX 16 12\nH 12 16 10 0\nCX 10 0\nH 0 10 18 19\nCX 18 19\nH 19 18 10 10\nCX 5 10\nH 10 10 21 21\nCX 4 21\nH 21 21 6 2\nCX 6 2\nH 2 6 20 20\nCX 3 20\nH 20 20 11 11\nCX 20 11\nH 11 11 9 9\nCX 4 9\nH 9 9 22 22\nCX 21 22\nH 22 22 4 11\nCX 4 11\nH 11 4 9 16\nCX 9 16\nH 16 9 21 21\nCX 2 21\nH 21 21 3 6\nCX 3 6\nH 6 3",
+  "forward_sha256": "a6aae116f431cf0be48671d45200001417aec841746b1f9672821e3ec89a595b",
+  "strategies": {
+    "rewire": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 44
+    },
+    "regrow": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 44
+    },
+    "deletion": {
+      "frontiers": 32,
+      "trials": 5000,
+      "cost": 44
+    }
+  },
+  "winning_strategy": "rewire",
+  "frontiers_sha256": "f7ae61d6cb75ba17f75ccdac6eaf49ca724203cab67e8ef1e52a9d97af66d98d"
+}
