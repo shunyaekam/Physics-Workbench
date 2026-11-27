@@ -45,6 +45,7 @@ def pending(root):
             if row["source"] == "Left to Solve":
                 lead["primary_source"] = row.get("primary_source")
                 lead["task_kind"] = row["task_kind"]
+                lead["desk_difficulty"] = row.get("difficulty")
                 # An existing exact target or an elementary OEIS claim can be checked first.
                 if row.get("difficulty") is not None and row["difficulty"] <= 45 and (
                         row["task_kind"] in {"known", "warmup"} or row["origin"].startswith("OEIS")):
@@ -53,7 +54,7 @@ def pending(root):
             pool.append((0 if manageable and concrete else 1 if concrete else 3,lead))
     for batch in sorted((root/"campaign/intake").glob("*.json"),reverse=True):
         pool.extend((2,lead) for lead in load(batch))
-    for _,lead in sorted(pool,key=lambda pair:(pair[0],pair[1]["id"])):
+    for _,lead in sorted(pool,key=lambda pair:(pair[0],pair[1].get("desk_difficulty") or 100,pair[1]["id"])):
         if source_key(lead["source"]) in admitted:
             continue
         identity=([lead["catalogue"],lead["id"],lead["question"],lead["listed_status"]] if "catalogue" in lead
@@ -72,7 +73,18 @@ def screen(job,ask):
             "solutions. State the quantifiers and what finding would settle it. Return verdict shortlist, "
             "prior_resolution, duplicate or insufficient_evidence. Record primary_sources as a JSON list "
             "of HTTPS URLs you consulted. This is intake, with no automatic solution credit.\n"+json.dumps(lead))
-    result=ask(prompt,fields,sources=True)
+    if lead.get("catalogue") == "Left to Solve":
+        fields += ("attempt", "proof_or_witness", "remaining_obligation")
+        prompt += ("\nAttempt the physics problem in this same session. Consult its /agent.txt brief "
+                   "and the original source. For an existing Lean target, work against its exact "
+                   "declaration, including all hypotheses; for an unformalized one, derive or refute "
+                   "the source statement. Use the isolated notebook for calculations. Preserve a "
+                   "candidate proof or explicit counterexample, or the strongest concrete failure. "
+                   "State what remains for an independent checker. Identify earlier solutions with "
+                   "attribution. This output is a research draft.")
+        result=ask(prompt,fields,sources=True,notebook=("checks/left_to_solve/targets.json",))
+    else:
+        result=ask(prompt,fields,sources=True)
     links=json.loads(result["primary_sources"])
     if (result["verdict"] not in ("shortlist","prior_resolution","duplicate","insufficient_evidence")
          or not isinstance(links,list) or not links or not all(isinstance(u,str) and urlsplit(u).scheme=="https"
