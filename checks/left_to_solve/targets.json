@@ -52,5 +52,29 @@
     "source": "https://mathoverflow.net/questions/283077",
     "issue": "https://github.com/shunyaekam/oo-research/issues/16",
     "status": "scoped derivation"
+  },
+  {
+    "problem": "oeis-a346784",
+    "title": "A missing triangular-lattice disk",
+    "target": "Does the nth strict site-count record equal the (n−1)st positive walk-length record for every n>2? Counterexample at rank ten.",
+    "source": "https://oeis.org/A346784",
+    "submission": 1209,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/18"
+  },
+  {
+    "problem": "oeis-a346126",
+    "title": "Record walks in a disk",
+    "target": "Must every walk attaining the minimal disk at a record length m>1 be closed?",
+    "source": "https://oeis.org/A346126",
+    "submission": 1202,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/17"
+  },
+  {
+    "problem": "oeis-a122226",
+    "title": "Triangular walks at integer diameters",
+    "target": "For every integer n>=2, does the longest open or closed walk in a freely centered disk of diameter n have length equal to the maximum attainable site count?",
+    "source": "https://oeis.org/A122226",
+    "submission": 1217,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/19"
   }
 ]

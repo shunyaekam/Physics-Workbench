@@ -8,6 +8,7 @@ from tempfile import TemporaryDirectory
 
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM = "https://github.com/GuillaumeBAUD-coder/open-math-agents"
+PRIOR_RESULTS = {"oeis-a348567": "https://github.com/guillochon/oeis-results/tree/main/A348567"}
 FIELDS = {"Quantum Theory", "Mechanics", "Optics"}
 SUBJECT = re.compile(r"\b(?:quantum|spin chain|sandpiles?|Ising|superconduct\w*|thermodynamic\w*|"
                      r"Schr[oö]dinger|Boltzmann|Navier.Stokes|Rydberg|hydrogen spectrum|entanglement|"
@@ -47,6 +48,9 @@ def index(checkout):
                          primary_source=item.get("ref"), origin=item["source"], source="Left to Solve",
                          kind="problem", task_kind=kind, topics=item["fields"], status=status,
                          physics=True, difficulty=item.get("difficulty"))
+        if key in PRIOR_RESULTS:
+            rows[key]["status"] = "prior resolution reported"
+            rows[key]["prior_source"] = PRIOR_RESULTS[key]
     revision = subprocess.check_output(["git","rev-parse","HEAD"],cwd=checkout,text=True).strip()
     result = dict(schema_version=1, sources=[dict(name="Left to Solve", url=UPSTREAM+"/tree/"+revision,
                   revision=revision, count=len(rows), scope="Quantum Theory, Mechanics or Optics field, "
