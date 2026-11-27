@@ -187,11 +187,13 @@ def add_discovered_circuit(rec,contract):
     return False
 
 
-def dispatch(docket, scout_due, previous):
+def dispatch(docket, scout_due, previous, scored=False):
     """Review a decisive witness first. Alternate the focus investigation with the other work."""
     positives=[row for row in docket if not row[0]]
     if positives:
         return "review",min(positives)
+    if scored and scout_due and previous != "scout":
+        return "scout",None
     focus=[row for row in docket if row[3]=="golay43"]
     others=[row for row in docket if row[3]!="golay43"]
     if focus and previous!="focus":
@@ -231,14 +233,17 @@ def tick():
     lead=pending(ROOT)
     # Keep active physics catalogue attempts moving within the shared hourly quota.
     timestamp=now()
-    if lead and lead[0].get("catalogue")=="Left to Solve":
+    scored = bool(lead and lead[0].get("listed_status")=="scored-proof")
+    if scored:
+        window="proof-"+timestamp[:13]
+    elif lead and lead[0].get("catalogue")=="Left to Solve":
         window="desk-"+timestamp[:10]+"-"+str(int(timestamp[11:13])//4)
     else:
         window="day-"+timestamp[:10]
     marker=ROOT/"campaign/scouting"/(window+".json")
     history=ROOT/"campaign/agent-dispatch.json"
     previous=load(history).get("lane") if history.exists() else None
-    lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous)
+    lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous,scored=scored)
     if lane=="scout":
         try:
             item, receipt = lead

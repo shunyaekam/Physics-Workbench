@@ -1,4 +1,5 @@
 """Screen one external intake lead against primary sources within the shared model quota."""
+from datetime import datetime, timezone
 import json
 import re
 from pathlib import Path
@@ -34,6 +35,17 @@ def pending(root):
     frontier_path=root/"checks/left_to_solve/frontier.json"
     frontier={r["problem"]:r for r in load(frontier_path)} if frontier_path.exists() else {}
     pool=[]
+    scored_path = root/"campaign/left-to-solve/proof-queue.json"
+    if scored_path.exists():
+        from ops.lts_standings import recent
+        scored = load(scored_path)
+        if recent(scored, datetime.now(timezone.utc), 2):
+            for i, row in enumerate(scored["targets"]):
+                lead = dict(id="lts-"+row["id"], source="https://lefttosolve.com/p/"+row["id"],
+                            question=row["statement"], title=row["title"], catalogue="Left to Solve",
+                            listed_status="scored-proof", task_kind=row["kind"], primary_source=row["source"],
+                            points=row["points"], desk_difficulty=row["difficulty"], notebook=row.get("notebook", []))
+                pool.append((-10000+i,lead))
     for index in sorted((root/"campaign/catalogue-index").glob("*.json")):
         for row in load(index)["rows"]:
             if not eligible(row) or source_key(row["url"]) in catalogue_links:
@@ -97,7 +109,12 @@ def screen(job,ask):
                    "candidate proof or explicit counterexample, or the strongest concrete failure. "
                    "State what remains for an independent checker. Identify earlier solutions with "
                    "attribution. This output is a research draft.")
-        result=ask(prompt,fields,sources=True,notebook=("checks/left_to_solve/targets.json",))
+        if lead.get("listed_status") == "scored-proof":
+            prompt += (" The live queue listed this target as point-bearing. Verify the current statement "
+                       "and existing proofs/PRs, then return the full Lean file in proof_or_witness "
+                       "if you can close it. Cite earlier authors for a formalization. Record the exact "
+                       "remaining lemma if unfinished. Only an independent kernel replay can certify it.")
+        result=ask(prompt,fields,sources=True,notebook=("checks/left_to_solve/targets.json", *lead.get("notebook", [])))
     else:
         result=ask(prompt,fields,sources=True)
     links=json.loads(result["primary_sources"])

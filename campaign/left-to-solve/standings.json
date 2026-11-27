@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-11-27T03:24:37+00:00",
+  "source": "https://lefttosolve.com/contributors",
+  "owner": {
+    "rank": 122,
+    "handle": "shunyaekam",
+    "points": 0,
+    "solved": 0,
+    "taken": 15
+  },
+  "cutoff": {
+    "rank": 20,
+    "handle": "Halldon",
+    "points": 240,
+    "solved": 20,
+    "taken": 52
+  },
+  "points_to_pass": 241,
+  "listed": 200
+}

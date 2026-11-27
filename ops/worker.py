@@ -134,6 +134,10 @@ def run():
             except (OSError,subprocess.TimeoutExpired) as exc:
                 print(f"{importer} refresh pending: {exc}",flush=True)
     try:
+        call([sys.executable,"ops/lts_standings.py"],timeout=150,check=False)
+    except subprocess.TimeoutExpired:
+        print("Score refresh timed out; retaining the last snapshot.",flush=True)
+    try:
         call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)

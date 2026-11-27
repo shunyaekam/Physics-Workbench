@@ -1,0 +1,519 @@
+{
+  "checked_at": "2026-11-27T03:24:37+00:00",
+  "targets": [
+    {
+      "id": "Erdos1164.erdos_1164.R1.H2.R1.H1",
+      "title": "Discounted first arrival of a planar random walk \u00b7 step 1",
+      "kind": "step",
+      "points": 7,
+      "statement": "\u2203 c : \u211d, 0 < c \u2227\n    \u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n      {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}, IsSimpleRandomWalkSteps X \u2192\n      \u2200 (n d : \u2115), 4 \u2264 d \u2192 d \u2264 n \u2192 \u2200 a : \u2124, 2 \u2223 a \u2192 (d : \u2124) \u2264 |a| \u2192\n        c * Real.log d / Real.log n \u2264\n          1 - \u2211' k : \u2115, (1 - (1 : \u211d) / n) ^ (k + 1) *\n            (\u2119 {\u03c9 | position X (k + 1) \u03c9 = (a, 0) \u2227\n              \u2200 j < k + 1, position X j \u03c9 \u2260 (a, 0)}).toReal",
+      "source": "https://www.erdosproblems.com/1164",
+      "parent": "Erdos1164.erdos_1164.R1.H2",
+      "difficulty": null,
+      "notebook": [
+        "checks/left_to_solve/attempts/diffusion/proof.md",
+        "checks/left_to_solve/attempts/diffusion/check.py"
+      ]
+    },
+    {
+      "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+      "title": "The Maxwell conjecture \u2014 three equal magnitudes",
+      "kind": "known",
+      "points": 18,
+      "statement": "theorem maxwell_conjecture.variants.three_equal_magnitudes (q : Fin 3 \u2192 \u211d)\n    (a : Fin 3 \u2192 EuclideanSpace \u211d (Fin 3)) (ha : Function.Injective a) (hq : \u2200 j, q j \u2260 0)\n    (hq' : \u2200 i j, |q i| = |q j|)\n    (hnd : \u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) :\n    (equilibria q a).encard \u2264 4",
+      "source": "https://arxiv.org/abs/2607.27197",
+      "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+      "difficulty": 32
+    },
+    {
+      "id": "Arxiv.2607.27197.maxwell_conjecture.iterated",
+      "title": "Proposition 1",
+      "kind": "known",
+      "points": 29,
+      "statement": "theorem maxwell_conjecture.iterated (m : \u2115) :\n    \u2203 (q : Fin (3 + 2 * m) \u2192 \u211d) (a : Fin (3 + 2 * m) \u2192 EuclideanSpace \u211d (Fin 3)),\n      Function.Injective a \u2227 (\u2200 j, 0 < q j) \u2227\n      (\u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) \u2227\n      (equilibria q a).Finite \u2227 4 + 20 * m \u2264 (equilibria q a).encard",
+      "source": "https://arxiv.org/abs/2607.27197",
+      "parent": "Arxiv.2607.27197.maxwell_conjecture.iterated",
+      "difficulty": 44
+    },
+    {
+      "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges",
+      "title": "The Maxwell conjecture \u2014 three charges",
+      "kind": "open",
+      "points": 48,
+      "statement": "theorem maxwell_conjecture.variants.three_charges :\n    \u2200 (q : Fin 3 \u2192 \u211d) (a : Fin 3 \u2192 EuclideanSpace \u211d (Fin 3)), Function.Injective a \u2192\n      (\u2200 j, q j \u2260 0) \u2192\n      (\u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) \u2192\n      (equilibria q a).encard \u2264 4",
+      "source": "https://arxiv.org/abs/2607.27197",
+      "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges",
+      "difficulty": 47
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d3",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 10 3 \u2102, EqSystemN 10 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_56",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 56",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_56 : HasSICPOVM 56",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_56",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_10_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 10 10 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_10_10_open :\n    ExistsAME 10 10",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_10_10_open",
+      "difficulty": 58
+    },
+    {
+      "id": "AtiyahSutcliffe.conjecture_one",
+      "title": "The first Atiyah--Sutcliffe conjecture",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem conjecture_one {n : \u2115} (x : Fin n \u2192 Point) (hx : Function.Injective x) :\n    LinearIndependent \u2102 (pointPolynomial x)",
+      "source": "https://doi.org/10.1098/rspa.2001.0913",
+      "parent": "AtiyahSutcliffe.conjecture_one",
+      "difficulty": 59
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases (d : \u2115) (hd : 2 \u2264 d) :\n    IsMaxMUBCount d (mutuallyUnbiasedBases.answer d)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases",
+      "difficulty": 59
+    },
+    {
+      "id": "NavierStokes.navier_stokes_existence_and_smoothness_R3",
+      "title": "Existence And Smoothness Of The Navier\u2013Stokes Equation \u2014 navier stokes existence and smoothness R3",
+      "kind": "open",
+      "points": 150,
+      "statement": "theorem navier_stokes_existence_and_smoothness_R3 (nu : \u211d) (hnu : nu > 0)\n    (u\u2080 : \u211d\u00b3 \u2192 \u211d\u00b3) (hu\u2080 : InitialVelocityConditionDecay u\u2080) :\n    \u2203 v p, NavierStokesExistenceAndSmoothnessRn nu u\u2080 (f := 0) v p",
+      "source": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
+      "parent": "NavierStokes.navier_stokes_existence_and_smoothness_R3",
+      "difficulty": 100
+    },
+    {
+      "id": "Arxiv.2607.27197.maxwell_conjecture.variants.polynomial_bound",
+      "title": "The Maxwell conjecture \u2014 polynomial bound",
+      "kind": "open",
+      "points": 50,
+      "statement": "theorem maxwell_conjecture.variants.polynomial_bound :\n    \u2203 C d : \u2115, \u2200 (n : \u2115), 0 < n \u2192 \u2200 (q : Fin n \u2192 \u211d) (a : Fin n \u2192 EuclideanSpace \u211d (Fin 3)),\n      Function.Injective a \u2192 (\u2200 j, q j \u2260 0) \u2192\n      (\u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) \u2192\n      (equilibria q a).encard \u2264 (C * n ^ d : \u2115)",
+      "source": "https://arxiv.org/abs/2607.27197",
+      "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.polynomial_bound",
+      "difficulty": 48
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3_real",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d3 real",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 10 3 \u211d, EqSystemN 10 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3_real",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_58",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 58",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_58 : HasSICPOVM 58",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_58",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_10_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 10 6 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_10_6_open :\n    ExistsAME 10 6",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_10_6_open",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim10",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases dim10",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases_dim10 :\n    IsMaxMUBCount 10 (mutuallyUnbiasedBases_dim10.answer)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim10",
+      "difficulty": 59
+    },
+    {
+      "id": "NavierStokes.navier_stokes_existence_and_smoothness_periodic",
+      "title": "Existence And Smoothness Of The Navier\u2013Stokes Equation \u2014 navier stokes existence and smoothness periodic",
+      "kind": "open",
+      "points": 150,
+      "statement": "theorem navier_stokes_existence_and_smoothness_periodic (nu : \u211d) (hnu : nu > 0)\n    (u\u2080 : \u211d\u00b3 \u2192 \u211d\u00b3) (hu\u2080 : InitialVelocityConditionPeriodic u\u2080) :\n    \u2203 v p, NavierStokesExistenceAndSmoothnessPeriodic nu u\u2080 (f := 0) v p",
+      "source": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
+      "parent": "NavierStokes.navier_stokes_existence_and_smoothness_periodic",
+      "difficulty": 100
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d4",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d4",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d4 :\n    \u00ac \u2203 W : WeightsN 10 4 \u2102, EqSystemN 10 4 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d4",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_59",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 59",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_59 : HasSICPOVM 59",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_59",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_11_3_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 11 3 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_11_3_open :\n    ExistsAME 11 3",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_11_3_open",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim12",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases dim12",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases_dim12 :\n    IsMaxMUBCount 12 (mutuallyUnbiasedBases_dim12.answer)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim12",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d5",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d5",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d5 :\n    \u00ac \u2203 W : WeightsN 10 5 \u2102, EqSystemN 10 5 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d5",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_60",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 60",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_60 : HasSICPOVM 60",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_60",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_11_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 11 6 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_11_6_open :\n    ExistsAME 11 6",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_11_6_open",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim14",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases dim14",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases_dim14 :\n    IsMaxMUBCount 14 (mutuallyUnbiasedBases_dim14.answer)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim14",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d6",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d6",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d6 :\n    \u00ac \u2203 W : WeightsN 10 6 \u2102, EqSystemN 10 6 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d6",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_64",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 64",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_64 : HasSICPOVM 64",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_64",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_12_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 10 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_12_10_open :\n    ExistsAME 12 10",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_12_10_open",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim15",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases dim15",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases_dim15 :\n    IsMaxMUBCount 15 (mutuallyUnbiasedBases_dim15.answer)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim15",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d7",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d7",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem10_no_solution_d7 :\n    \u00ac \u2203 W : WeightsN 10 7 \u2102, EqSystemN 10 7 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d7",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_68",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 68",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_68 : HasSICPOVM 68",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_68",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_12_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 6 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_12_6_open :\n    ExistsAME 12 6",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_12_6_open",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim6",
+      "title": "Open Quantum Problem 13: Mutually unbiased bases \u2014 mutuallyUnbiasedBases dim6",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem mutuallyUnbiasedBases_dim6 :\n    IsMaxMUBCount 6 (mutuallyUnbiasedBases_dim6.answer)",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
+      "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim6",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem12_no_solution_d3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem12 no solution d3",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem12_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 12 3 \u2102, EqSystemN 12 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem12_no_solution_d3",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_69",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 69",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_69 : HasSICPOVM 69",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_69",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_8_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 10 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_8_10_open",
+      "difficulty": 58
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem14_no_solution_d3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem14 no solution d3",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem14_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 14 3 \u2102, EqSystemN 14 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem14_no_solution_d3",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_70",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 70",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_70 : HasSICPOVM 70",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_70",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_8_4_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_8_4_open",
+      "difficulty": 58
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem16_no_solution_d3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem16 no solution d3",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem16_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 16 3 \u2102, EqSystemN 16 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem16_no_solution_d3",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_71",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 71",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_71 : HasSICPOVM 71",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_71",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.ame_8_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 6 open",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.ame_8_6_open",
+      "difficulty": 58
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_d3_real",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution d3 real",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem6_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 6 3 \u211d, EqSystemN 6 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_d3_real",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_72",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 72",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_72 : HasSICPOVM 72",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_72",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.oqp_35",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.oqp_35",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem8 no solution d3",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem8_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 8 3 \u2102, EqSystemN 8 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_75",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 75",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem hasSICPOVM_75 : HasSICPOVM 75",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_75",
+      "difficulty": 58
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3_real",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem8 no solution d3 real",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem eqSystem8_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 8 3 \u211d, EqSystemN 8 3 W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3_real",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.sicPOVMs",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 sicPOVMs",
+      "kind": "open",
+      "points": 66,
+      "statement": "theorem sicPOVMs :\n    \u2200 d : \u2115, 1 \u2264 d \u2192 HasSICPOVM d",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.sicPOVMs",
+      "difficulty": 58
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem eqSystem6_no_solution_ge3 :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u2102, EqSystemN 6 D W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3_real",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3 real",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem eqSystem6_no_solution_ge3_real :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u211d, EqSystemN 6 D W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3_real",
+      "difficulty": 59
+    },
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3_real",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem no solution ge6 ge3 real",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem eqSystem_no_solution_ge6_ge3_real :\n    \u2200 N D : Nat, N \u2265 6 \u2192 Even N \u2192 D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN N D \u211d, EqSystemN N D W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3_real",
+      "difficulty": 59
+    }
+  ]
+}
