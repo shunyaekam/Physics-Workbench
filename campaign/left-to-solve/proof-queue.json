@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T12:48:53+00:00",
+  "checked_at": "2026-11-27T13:54:23+00:00",
   "targets": [
     {
       "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
@@ -50,16 +50,6 @@
       "source": "https://www.erdosproblems.com/1165",
       "parent": "Erdos1165.erdos_1165",
       "difficulty": 44
-    },
-    {
-      "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
-      "title": "The Maxwell conjecture \u2014 three equal magnitudes",
-      "kind": "known",
-      "points": 18,
-      "statement": "theorem maxwell_conjecture.variants.three_equal_magnitudes (q : Fin 3 \u2192 \u211d)\n    (a : Fin 3 \u2192 EuclideanSpace \u211d (Fin 3)) (ha : Function.Injective a) (hq : \u2200 j, q j \u2260 0)\n    (hq' : \u2200 i j, |q i| = |q j|)\n    (hnd : \u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) :\n    (equilibria q a).encard \u2264 4",
-      "source": "https://arxiv.org/abs/2607.27197",
-      "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
-      "difficulty": 32
     },
     {
       "id": "Erdos1164.erdos_1164.variants.dembo_peres_rosen_zeitouni",
