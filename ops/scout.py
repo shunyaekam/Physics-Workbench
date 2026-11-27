@@ -51,7 +51,8 @@ def pending(root):
                 candidate=frontier.get(row["id"].removeprefix("lts-"))
                 if candidate:
                     lead.update(question=candidate["target"],decisive_test=candidate["decisive_test"],
-                                prior_source=candidate["prior_source"],blocker=candidate["blocker"])
+                                prior_source=candidate["prior_source"],blocker=candidate["blocker"],
+                                previous_attempt=candidate.get("attempt"))
                     pool.append((-2,lead))
                     continue
                 # Finite-width models admit exact transfer-matrix tests at every length.

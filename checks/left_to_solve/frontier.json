@@ -7,7 +7,9 @@
     "decisive_test": "Search cross-intersecting incidence families (rows and columns labelled by r-subsets of [2r−1]; rectangle t means both subsets contain t). For test matrices A depending only on intersection size the blocks lie in the Johnson association scheme. Maximize the uniform-vector Rayleigh quotient with each block norm ≤1 via rational linear inequalities in the orbit coefficients. Any strict violation certifies an explicit finite counterexample by exact matrix inequalities; no finite miss can prove the universal claim.",
     "prior_source": "https://mathoverflow.net/questions/338936/quantum-inspired-matrix-inequality/338942",
     "blocker": "The original poster identifies cancellation in the existing purported proof. The question is quantum-inspired matrix analysis, not an experimental prediction. May need other rectangle covers or a new norm-decomposition theorem. Ensure witnesses control complex singular values exactly before publication.",
-    "queue_stage": "ready"
+    "queue_stage": "ready",
+    "attempt": "Uniform-vector objective over intersection-invariant matrices, r=2 through 18: exact maximum r, below the required 2r−1. A fresh attempt should address other eigenvectors or asymmetric covers.",
+    "replay": "checks/left_to_solve/attempts/rectangle_cover.py"
   },
   {
     "problem": "oeis-a022444",
