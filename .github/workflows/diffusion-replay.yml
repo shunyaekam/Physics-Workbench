@@ -31,7 +31,7 @@ jobs:
           fi
           export PATH="$HOME/.elan/bin:$PATH"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-          lake exe cache get
+          if [ ! -f .lake/build/lib/lean/FormalConjectures/ErdosProblems/1165.olean ]; then lake exe cache get; fi
           lake build FormalConjecturesUtil
           mkdir -p .lake/build/lib/lean/FormalConjectures/ErdosProblems
           lake env lean -o .lake/build/lib/lean/FormalConjectures/ErdosProblems/1165.olean FormalConjectures/ErdosProblems/1165.lean
@@ -54,3 +54,7 @@ jobs:
           printf '\n#print axioms DiffusionDiscount.discounted_renewal\n' >> Discount.lean
           lake env lean Discount.lean | tee "$RUNNER_TEMP/discount.log"
           grep -Fx "'DiffusionDiscount.discounted_renewal' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/discount.log"
+          cp ../checks/left_to_solve/attempts/diffusion/Split.lean Split.lean
+          printf '\n#print axioms DiffusionSplit.joinEquiv\n' >> Split.lean
+          lake env lean Split.lean | tee "$RUNNER_TEMP/split.log"
+          grep -Fx "'DiffusionSplit.joinEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/split.log"

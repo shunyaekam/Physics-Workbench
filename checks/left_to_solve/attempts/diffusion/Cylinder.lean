@@ -69,9 +69,12 @@ theorem count_words {t : ℕ} (A : Finset (Fin t → ℤ × ℤ))
       (A.card : ℝ≥0∞) * (1 / 4 : ℝ≥0∞)^t := by
   classical
   let C := fun w : Fin t → ℤ × ℤ => {ω | ∀ i : Fin t, X i ω = w i}
-  have hm (w) : MeasurableSet (C w) :=
-    MeasurableSet.iInter (fun i : Fin t => (hX.measurable i) (measurableSet_singleton (w i))) |>
-      fun h => by simpa [C, Set.setOf_forall] using h
+  have hm (w) : MeasurableSet (C w) := by
+    have he : C w = ⋂ i : Fin t, X i ⁻¹' {w i} := by
+      ext ω
+      simp [C]
+    rw [he]
+    exact MeasurableSet.iInter (fun i : Fin t => (hX.measurable i) (measurableSet_singleton (w i)))
   have hd : Set.PairwiseDisjoint (A : Set (Fin t → ℤ × ℤ)) C := by
     intro u _ v _ huv
     refine Set.disjoint_left.mpr ?_
