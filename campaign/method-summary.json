@@ -1,22 +1,67 @@
 {
   "problems": [
     {
-      "problem": "gagatsos-2026-c1",
+      "problem": "bernasconi-table2",
       "runs": 1,
-      "seconds": "22.6",
+      "seconds": "0.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
-      "stage": "replay",
-      "outcome": "single_rail_order_cover_replayed"
+      "stage": "search",
+      "outcome": "no_new_receipt"
+    },
+    {
+      "problem": "e27-schmidt",
+      "runs": 1,
+      "seconds": "0.4",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "search",
+      "outcome": "search_receipt"
+    },
+    {
+      "problem": "gagatsos-2026-c1",
+      "runs": 5,
+      "seconds": "25.7",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "search",
+      "outcome": "bounded_result"
     },
     {
       "problem": "golay43",
-      "runs": 1,
-      "seconds": "0.0",
+      "runs": 3,
+      "seconds": "14.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
-      "stage": "replay",
-      "outcome": "signed_47_cnot_witness"
+      "stage": "search",
+      "outcome": "search_receipt"
+    },
+    {
+      "problem": "refined-bmv",
+      "runs": 1,
+      "seconds": "0.1",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "search",
+      "outcome": "no_new_receipt"
+    },
+    {
+      "problem": "thomson-13",
+      "runs": 1,
+      "seconds": "0.4",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "search",
+      "outcome": "bound_checked"
+    },
+    {
+      "problem": "werner-endpoint",
+      "runs": 2,
+      "seconds": "1.7",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "search",
+      "outcome": "bounded_result"
     }
   ],
   "comparison": {
