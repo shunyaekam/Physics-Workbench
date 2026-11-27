@@ -46,6 +46,12 @@ def pending(root):
                 lead["primary_source"] = row.get("primary_source")
                 lead["task_kind"] = row["task_kind"]
                 lead["desk_difficulty"] = row.get("difficulty")
+                # Finite-width models admit exact transfer-matrix tests at every length.
+                finite_strip = any(token in title for token in ("grid", "strip", "prudent")) and (
+                    any(token in title for token in ("self-avoiding", "self avoiding", "prudent")))
+                if finite_strip:
+                    pool.append((-1,lead))
+                    continue
                 # An existing exact target or an elementary OEIS claim can be checked first.
                 if row.get("difficulty") is not None and row["difficulty"] <= 45 and (
                         row["task_kind"] in {"known", "warmup"} or row["origin"].startswith("OEIS")):
@@ -92,3 +98,10 @@ def screen(job,ask):
         raise ValueError("Incomplete source screen")
     path.parent.mkdir(exist_ok=True)
     write(path,dict(lead=lead,review=result))
+
+    if lead.get("catalogue") == "Left to Solve":
+        feed = path.parents[1]/"left-to-solve"/"latest.json"
+        feed.parent.mkdir(exist_ok=True)
+        receipts = load(feed) if feed.exists() else []
+        receipt = dict(key=path.stem, title=lead["title"], verdict=result["verdict"])
+        write(feed, [receipt]+[r for r in receipts if r["key"]!=receipt["key"]][:19])

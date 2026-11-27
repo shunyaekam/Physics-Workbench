@@ -76,5 +76,37 @@
     "source": "https://oeis.org/A122226",
     "submission": 1217,
     "issue": "https://github.com/shunyaekam/oo-research/issues/19"
+  },
+  {
+    "problem": "oeis-a358696",
+    "title": "Boundary-covering loops on a five-row lattice strip",
+    "target": "For each integer n ≥ 11, let a(n) count unoriented simple cycle edge sets in the 5 by n grid of vertices containing all perimeter vertices. Prove that its preceding nine terms give a(n) with coefficients [6,1,-20,37,16,-12,-7,5,-1], in descending index order.",
+    "source": "https://oeis.org/A358696",
+    "submission": 1281,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/20"
+  },
+  {
+    "problem": "oeis-a333686",
+    "title": "Corner-to-corner self-avoiding paths through a marked midpoint",
+    "target": "On the nearest-neighbor grid of (2n+1) by 3 vertices, count all simple paths from one corner to its opposite that contain the central vertex. For every n ≥ 6 prove the recurrence with lag coefficients [10,10,0,-10,-10,1], with a(0)=1, or give one independently enumerable counterexample.",
+    "source": "https://oeis.org/A333686",
+    "submission": 1299,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/21"
+  },
+  {
+    "problem": "oeis-a216211",
+    "title": "Self-avoiding paths crossing a strip of width four",
+    "target": "Let a(n) count all simple nearest-neighbor paths from the NW to SW corner of the n-row by four-column grid, including the unique empty path when n=1. For every n ≥ 13 prove the order-12 recurrence with lag coefficients [12,-54,124,-133,-16,175,-94,-69,40,12,-4,-1] or find a counterexample.",
+    "source": "https://oeis.org/A216211",
+    "submission": 1302,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/22"
+  },
+  {
+    "problem": "oeis-a191625",
+    "title": "Coefficient recurrence for two-sided prudent walks ending at a northeast corner",
+    "target": "For every integer n ≥ 9, the sum over j=0,…,9 of c_j(n) a(n−j) vanishes, for c=[n+1,−4n,n−5,8n−6,−3n+9,2n−16,−n+13,−8n+56,2n−14,2n−18]. Here a counts square-lattice two-sided prudent n-step walks ending at the northeast corner of their bounding box, exactly as in A191625.",
+    "source": "https://oeis.org/A191625",
+    "submission": 1313,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/23"
   }
 ]

@@ -219,9 +219,13 @@ def tick():
                            rec["updated_at"],pid,path,rec))
     from ops.scout import pending,screen
     lead=pending(ROOT)
-    # One intake slot per UTC day if research is still in progress.
-    day=now()[:10]
-    marker=ROOT/"campaign/scouting"/("day-"+day+".json")
+    # Keep active physics catalogue attempts moving within the shared hourly quota.
+    timestamp=now()
+    if lead and lead[0].get("catalogue")=="Left to Solve":
+        window="desk-"+timestamp[:10]+"-"+str(int(timestamp[11:13])//4)
+    else:
+        window="day-"+timestamp[:10]
+    marker=ROOT/"campaign/scouting"/(window+".json")
     history=ROOT/"campaign/agent-dispatch.json"
     previous=load(history).get("lane") if history.exists() else None
     lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous)

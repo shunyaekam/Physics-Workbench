@@ -12,7 +12,7 @@ PRIOR_RESULTS = {"oeis-a348567": "https://github.com/guillochon/oeis-results/tre
 FIELDS = {"Quantum Theory", "Mechanics", "Optics"}
 SUBJECT = re.compile(r"\b(?:quantum|spin chain|sandpiles?|Ising|superconduct\w*|thermodynamic\w*|"
                      r"Schr[oö]dinger|Boltzmann|Navier.Stokes|Rydberg|hydrogen spectrum|entanglement|"
-                     r"self.avoiding walk|percolation|statistical mechanics|harmonic oscillator|"
+                     r"self.avoiding (?:walks?|paths?|polygons?|(?:closed |open )?loops?)|prudent walks?|percolation|statistical mechanics|harmonic oscillator|"
                      r"Bose.Einstein|photons?|black holes?|electrostatics|Riemannian Penrose)\b", re.I)
 
 
