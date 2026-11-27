@@ -132,7 +132,7 @@ function notebookPanel(key,group) {
   arrows.append(arrow('Previous entry',-1),make('output',row?(idx+1)+' / '+rows.length:'—'),arrow('Next entry',1));if(row) body.append(arrows);
   const links=make('div',null,'source-links');
   if(key)links.append(link('Full notebook','#rounds'));
-  links.append(link('Public feed',notebookURL));
+  links.append(link('Research methods','pipeline/#methods'),link('Public feed',notebookURL));
   body.append(links);
 }
 function showNote(paper) {
