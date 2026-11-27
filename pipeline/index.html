@@ -11,10 +11,11 @@
 <div class="switch" role="group" aria-label="Choose a system"><button id="ours" aria-pressed="true">oo research</button><button id="cinna" aria-pressed="false">Cinna</button></div></div>
 <div class="diagram"><canvas id="connections" aria-hidden="true"></canvas><div class="tracks" id="tracks" aria-label="Select a workflow stage"></div></div><div id="inspector" aria-live="polite"></div><div class="branch" id="branch"></div></section>
 <section class="primer" id="methods" aria-labelledby="methods-title"><h2 id="methods-title">Research methods</h2>
+<p><a href="https://lefttosolve.com/a/shunyaekam">Left to Solve</a> <span id="lts-standing" aria-live="polite"></span> · <a href="https://lefttosolve.com/contributors">All-time standings</a></p>
 <p id="method-experiment"></p><label id="method-picker" hidden>Problem <select id="method-problem"></select></label>
 <p id="method-reading" role="status"></p>
 <a href="https://github.com/shunyaekam/oo-research/blob/research/campaign/research-methods.md">Attempts, costs and evidence</a> · <a href="https://github.com/shunyaekam/oo-research/blob/research/discovery/publication-path.md">Publication decisions</a>
-</section><script src="methods.js" defer></script>
+</section><script src="methods.js?v=standings" defer></script>
 <section id="board" aria-labelledby="boardTitle"><div class="boardhead"><h2 id="boardTitle">Research board</h2><div><span id="fresh" role="status">Loading campaign records…</span><button id="refresh" type="button">Refresh</button></div></div><p class="pollnote">Refreshes every minute. The worker runs every ten minutes while awake.</p>
 <span id="finite"></span><span id="solutions"></span><div class="filters" id="filters" role="group" aria-label="Choose records"></div>
 <div id="records" aria-live="polite"></div><noscript><p>Open the <a href="https://github.com/shunyaekam/oo-research/blob/research/campaign/pipeline.json">campaign records</a> or the <a href="https://github.com/shunyaekam/oo-research/blob/main/discovery/cinna-system.md">agent workflow audit</a> to browse without JavaScript.</p></noscript></section>

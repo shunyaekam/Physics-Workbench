@@ -31,3 +31,18 @@
     reading.textContent = 'Live measurements are unavailable. The linked ledger contains the last published results.';
   }
 })();
+
+(async () => {
+  const standing = document.getElementById('lts-standing');
+  if (!standing) return;
+  try {
+    const response = await fetch('https://raw.githubusercontent.com/shunyaekam/oo-research/research/campaign/left-to-solve/standings.json', {cache:'no-cache'});
+    if (!response.ok) return;
+    const {owner, cutoff, checked_at} = await response.json();
+    const time = new Date(checked_at).toISOString().slice(0,16).replace('T',' ');
+    const position = owner ? '#' + owner.rank + ' · ' + owner.points + ' points' : 'Outside the displayed standings';
+    standing.textContent = position + ' · 20th place ' + cutoff.points + ' points · ' + time + ' UTC';
+  } catch {
+    // The two direct links remain available when the snapshot cannot be read.
+  }
+})();
