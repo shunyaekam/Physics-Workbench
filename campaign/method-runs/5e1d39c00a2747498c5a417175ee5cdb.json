@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_id": "5e1d39c00a2747498c5a417175ee5cdb",
+  "problem_id": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "7314a1730c8517185eed595cef8fbad8f74c2c80",
+  "started_at": "2026-11-27T17:11:25.418+00:00",
+  "elapsed_seconds": 240.402898,
+  "status": "timeout",
+  "outcome": null,
+  "evidence": null,
+  "usage": null,
+  "usage_complete": false,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "local_compiler_available": true,
+  "source_checkpoint_updated": true,
+  "hosted_elapsed_seconds": 240.062485,
+  "error_type": "TimeoutError"
+}

@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 76,
-      "seconds": "66.7",
+      "runs": 77,
+      "seconds": "67.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 76,
-      "seconds": "97.4",
+      "runs": 77,
+      "seconds": "100.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 286,
-      "seconds": "1,004.1",
+      "runs": 290,
+      "seconds": "1,022.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 153,
-      "seconds": "521.5",
+      "runs": 155,
+      "seconds": "522.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -47,10 +47,10 @@
     },
     {
       "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
-      "runs": 1,
-      "seconds": "15.6",
+      "runs": 2,
+      "seconds": "256.0",
       "tokens": "\u2014",
-      "coverage": "\u2014",
+      "coverage": "0/1",
       "stage": "scout",
       "outcome": "timeout"
     },
@@ -101,8 +101,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 79,
-      "seconds": "191.8",
+      "runs": 80,
+      "seconds": "191.9",
       "tokens": "284,541 / 4,116",
       "coverage": "3/3",
       "stage": "search",
@@ -137,8 +137,8 @@
     },
     {
       "problem": "thomson-13",
-      "runs": 19,
-      "seconds": "10.5",
+      "runs": 20,
+      "seconds": "10.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -155,8 +155,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 153,
-      "seconds": "171.8",
+      "runs": 155,
+      "seconds": "172.6",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -191,11 +191,11 @@
       "board_outcome": null,
       "first_logged_worker_attempt": "2026-11-27T08:46:08.559+00:00",
       "observed_hours_to_credit": null,
-      "hosted_calls": 0,
+      "hosted_calls": 1,
       "calls_with_usage": 0,
       "measured_uncached_input": 0,
       "measured_output": 0,
-      "measured_hosted_seconds": 0,
+      "measured_hosted_seconds": 240.062,
       "lifetime_local_tactic_seconds": 36.22
     },
     {
