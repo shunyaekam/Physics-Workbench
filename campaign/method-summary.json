@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 86,
-      "seconds": "76.5",
+      "runs": 87,
+      "seconds": "76.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 86,
-      "seconds": "106.2",
+      "runs": 87,
+      "seconds": "106.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 324,
-      "seconds": "1,124.1",
+      "runs": 327,
+      "seconds": "1,128.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 173,
-      "seconds": "533.0",
+      "runs": 175,
+      "seconds": "533.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -47,10 +47,10 @@
     },
     {
       "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
-      "runs": 2,
-      "seconds": "256.0",
+      "runs": 3,
+      "seconds": "496.3",
       "tokens": "\u2014",
-      "coverage": "0/1",
+      "coverage": "0/2",
       "stage": "scout",
       "outcome": "timeout"
     },
@@ -101,8 +101,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 90,
-      "seconds": "215.4",
+      "runs": 91,
+      "seconds": "215.5",
       "tokens": "284,541 / 4,116",
       "coverage": "3/4",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 21,
-      "seconds": "10.6",
+      "runs": 22,
+      "seconds": "10.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -155,8 +155,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 173,
-      "seconds": "196.0",
+      "runs": 175,
+      "seconds": "199.6",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -191,11 +191,11 @@
       "board_outcome": null,
       "first_logged_worker_attempt": "2026-11-27T08:46:08.559+00:00",
       "observed_hours_to_credit": null,
-      "hosted_calls": 1,
+      "hosted_calls": 2,
       "calls_with_usage": 0,
       "measured_uncached_input": 0,
       "measured_output": 0,
-      "measured_hosted_seconds": 240.062,
+      "measured_hosted_seconds": 480.083,
       "lifetime_local_tactic_seconds": 36.22
     },
     {

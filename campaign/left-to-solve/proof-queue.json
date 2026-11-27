@@ -1,16 +1,6 @@
 {
-  "checked_at": "2026-11-27T16:59:15+00:00",
+  "checked_at": "2026-11-27T19:15:04+00:00",
   "targets": [
-    {
-      "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
-      "title": "Erd\u0151s Problem 1166 \u2014 dembo peres rosen zeitouni \u00b7 step 2",
-      "kind": "step",
-      "points": 9,
-      "statement": "\u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}, IsSimpleRandomWalkSteps X \u2192\n    \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192\n      (\u2211' k : \u2115, \u2119 {\u03c9 | (maxLocalTime X (2 ^ k) \u03c9 : \u211d) /\n        (Real.log ((2 ^ k : \u2115) : \u211d)) ^ 2 < 1 / \u03c0 - \u03b5}) \u2260 \u221e",
-      "source": "https://www.erdosproblems.com/1166",
-      "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
-      "difficulty": 32
-    },
     {
       "id": "Erdos1165.erdos_1165.R1.H1",
       "title": "Erd\u0151s Problem 1165 \u00b7 step 1",
@@ -99,16 +89,6 @@
       "statement": "theorem erdos_1165 {\u03a9 : Type*} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124} (hX : IsSimpleRandomWalkSteps X) (r : \u2115) (hr : 3 \u2264 r) :\n    \u2119 {\u03c9 | \u2203\u1da0 n in atTop, (favouriteSites X n \u03c9).encard = (r : \u2115\u221e)} = erdos_1165.answer r",
       "source": "https://www.erdosproblems.com/1165",
       "parent": "Erdos1165.erdos_1165",
-      "difficulty": 44
-    },
-    {
-      "id": "Erdos1166.erdos_1166",
-      "title": "Erd\u0151s Problem 1166",
-      "kind": "known",
-      "points": 29,
-      "statement": "theorem erdos_1166 {\u03a9 : Type*} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124} (hX : IsSimpleRandomWalkSteps X) :\n    \u2203 C : \u2115, \u2200\u1d50 \u03c9, \u2200\u1da0 n : \u2115 in atTop,\n      ((\u22c3 k \u2264 n, favouriteSites X k \u03c9).encard : \u211d\u22650\u221e) \u2264 ENNReal.ofReal (Real.log n ^ C)",
-      "source": "https://www.erdosproblems.com/1166",
-      "parent": "Erdos1166.erdos_1166",
       "difficulty": 44
     },
     {
@@ -362,13 +342,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_6_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 6 open",
+      "id": "OpenQuantumProblem35.ame_8_4_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
+      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_6_open",
+      "parent": "OpenQuantumProblem35.ame_8_4_open",
       "difficulty": 58
     },
     {
@@ -382,14 +362,14 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.oqp_35",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
+      "id": "OpenQuantumProblem35.ame_8_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 6 open",
       "kind": "open",
-      "points": 68,
-      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
+      "points": 66,
+      "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.oqp_35",
-      "difficulty": 59
+      "parent": "OpenQuantumProblem35.ame_8_6_open",
+      "difficulty": 58
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_72",
@@ -400,6 +380,16 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_72",
       "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem35.oqp_35",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
+      "kind": "open",
+      "points": 68,
+      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
+      "parent": "OpenQuantumProblem35.oqp_35",
+      "difficulty": 59
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_75",
