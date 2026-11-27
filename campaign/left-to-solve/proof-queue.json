@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T15:58:58+00:00",
+  "checked_at": "2026-11-27T16:59:15+00:00",
   "targets": [
     {
       "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
@@ -59,6 +59,16 @@
       "statement": "theorem maxwell_conjecture.variants.three_equal_magnitudes (q : Fin 3 \u2192 \u211d)\n    (a : Fin 3 \u2192 EuclideanSpace \u211d (Fin 3)) (ha : Function.Injective a) (hq : \u2200 j, q j \u2260 0)\n    (hq' : \u2200 i j, |q i| = |q j|)\n    (hnd : \u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) :\n    (equilibria q a).encard \u2264 4",
       "source": "https://arxiv.org/abs/2607.27197",
       "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+      "difficulty": 32
+    },
+    {
+      "id": "Erdos1164.erdos_1164.variants.dembo_peres_rosen_zeitouni",
+      "title": "Erd\u0151s Problem 1164 \u2014 dembo peres rosen zeitouni",
+      "kind": "known",
+      "points": 18,
+      "statement": "theorem erdos_1164.variants.dembo_peres_rosen_zeitouni {\u03a9 : Type*} [MeasureSpace \u03a9]\n    [IsProbabilityMeasure (\u2119 : Measure \u03a9)] {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}\n    (hX : IsSimpleRandomWalkSteps X) (t : \u211d) (ht : 0 < t) :\n    Tendsto (fun n : \u2115 \u21a6\n      (\u2119 {\u03c9 | Covers X \u230aReal.exp (t * Real.log n ^ 2)\u230b\u208a \u03c9 (openDisc n)}).toReal)\n      atTop (\ud835\udcdd (Real.exp (-4 / t)))",
+      "source": "https://www.erdosproblems.com/1164",
+      "parent": "Erdos1164.erdos_1164.variants.dembo_peres_rosen_zeitouni",
       "difficulty": 32
     },
     {

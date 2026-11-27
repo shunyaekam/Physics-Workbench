@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-27T15:58:58+00:00",
+  "checked_at": "2026-11-27T16:59:15+00:00",
   "source": "https://lefttosolve.com/contributors",
   "owner": {
-    "rank": 127,
+    "rank": 129,
     "handle": "shunyaekam",
     "points": 34,
     "solved": 1,
@@ -10,11 +10,11 @@
   },
   "cutoff": {
     "rank": 20,
-    "handle": "luciusacarr",
-    "points": 550,
-    "solved": 34,
-    "taken": 769
+    "handle": "steveDOTdigital",
+    "points": 562,
+    "solved": 72,
+    "taken": 248
   },
-  "points_to_pass": 517,
+  "points_to_pass": 529,
   "listed": 200
 }
