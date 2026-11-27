@@ -31,6 +31,8 @@ def pending(root):
     cards=load(root/"discovery/targets.json")
     admitted={source_key(c["source"]) for c in cards}
     catalogue_links={source_key(url) for c in cards for url in c["evidence_checked"]}
+    frontier_path=root/"checks/left_to_solve/frontier.json"
+    frontier={r["problem"]:r for r in load(frontier_path)} if frontier_path.exists() else {}
     pool=[]
     for index in sorted((root/"campaign/catalogue-index").glob("*.json")):
         for row in load(index)["rows"]:
@@ -46,6 +48,12 @@ def pending(root):
                 lead["primary_source"] = row.get("primary_source")
                 lead["task_kind"] = row["task_kind"]
                 lead["desk_difficulty"] = row.get("difficulty")
+                candidate=frontier.get(row["id"].removeprefix("lts-"))
+                if candidate:
+                    lead.update(question=candidate["target"],decisive_test=candidate["decisive_test"],
+                                prior_source=candidate["prior_source"],blocker=candidate["blocker"])
+                    pool.append((-2,lead))
+                    continue
                 # Finite-width models admit exact transfer-matrix tests at every length.
                 finite_strip = any(token in title for token in ("grid", "strip", "prudent")) and (
                     any(token in title for token in ("self-avoiding", "self avoiding", "prudent")))

@@ -31,10 +31,11 @@ def index(checkout):
                              ref=f"https://mathoverflow.net/questions/{number}", kind="unformalized"))
     overrides = {r["id"]:r["status"] for r in read("status_overrides.json")["entries"]}
     active = {r["problem"] for r in json.loads((ROOT/"checks/left_to_solve/targets.json").read_text())}
+    active_candidates = {r["problem"] for r in json.loads((ROOT/"checks/left_to_solve/frontier.json").read_text())}
     rows = {}
     for item in core:
         key = item["id"]
-        if key in rows or not (FIELDS.intersection(item["fields"]) or SUBJECT.search(item["title"]) or key in active):
+        if key in rows or not (FIELDS.intersection(item["fields"]) or SUBJECT.search(item["title"]) or key in active or key in active_candidates):
             continue
         kind = item["kind"]
         if kind == "unformalized" and (checkout/"statements"/(key+".lean")).is_file():
@@ -54,7 +55,7 @@ def index(checkout):
     revision = subprocess.check_output(["git","rev-parse","HEAD"],cwd=checkout,text=True).strip()
     result = dict(schema_version=1, sources=[dict(name="Left to Solve", url=UPSTREAM+"/tree/"+revision,
                   revision=revision, count=len(rows), scope="Quantum Theory, Mechanics or Optics field, "
-                  "or physics terms in the title, plus enrolled targets. Catalogue leads require primary-source review.")],
+                  "or physics terms in the title, plus enrolled targets and reviewed candidates. Catalogue leads require primary-source review.")],
                   rows=sorted(rows.values(), key=lambda r:(r["difficulty"] is None,r["difficulty"] or 0,r["id"])))
     dest = ROOT/"campaign/catalogue-index/left-to-solve.json"
     temp = dest.with_suffix(".tmp")

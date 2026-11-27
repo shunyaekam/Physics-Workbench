@@ -1,0 +1,32 @@
+[
+  {
+    "problem": "mo-338936",
+    "title": "Spectral norm of a matrix covered by overlapping rectangular blocks",
+    "primary_source": "https://mathoverflow.net/questions/338936",
+    "target": "For all complex n-by-m matrices A and finite families of rectangles I_t×J_t covering every coordinate, must the operator 2-norm of A be at most the sum of the operator 2-norms of the restrictions to those rectangles?",
+    "decisive_test": "Search cross-intersecting incidence families (rows and columns labelled by r-subsets of [2r−1]; rectangle t means both subsets contain t). For test matrices A depending only on intersection size the blocks lie in the Johnson association scheme. Maximize the uniform-vector Rayleigh quotient with each block norm ≤1 via rational linear inequalities in the orbit coefficients. Any strict violation certifies an explicit finite counterexample by exact matrix inequalities; no finite miss can prove the universal claim.",
+    "prior_source": "https://mathoverflow.net/questions/338936/quantum-inspired-matrix-inequality/338942",
+    "blocker": "The original poster identifies cancellation in the existing purported proof. The question is quantum-inspired matrix analysis, not an experimental prediction. May need other rectangle covers or a new norm-decomposition theorem. Ensure witnesses control complex singular values exactly before publication.",
+    "queue_stage": "ready"
+  },
+  {
+    "problem": "oeis-a022444",
+    "title": "Rooted closed walks on the middle rail of a three-rail square-lattice strip",
+    "primary_source": "https://oeis.org/A022444",
+    "target": "For every n≥0 count the rooted oriented nearest-neighbor simple closed walks of length 2n with root (0,0) in {−1,0,1}×Z. Empty walk once, no out-and-back of length two. Prove the formal generating-function identity with numerator 1−4x+14x²−24x³+37x⁴−36x⁵+16x⁶−12x⁷ and denominator (1+x²)²(1−2x)².",
+    "decisive_test": "Generate polygons up to horizontal translation with a 3-tip cut, weight each edge by z, and mark every visited middle-rail vertex w. The derivative at w=1 counts which vertex is translated onto the origin. Multiply nonempty counts by 2 for orientation, add the empty walk, substitute x=z² and verify a rational identity. A022445 (outer rail) should use the same transfer with a different marked rail, not a separate discovery.",
+    "prior_source": "https://arxiv.org/abs/2607.27397",
+    "blocker": "Read Jacques Labelle, Self-avoiding walks and polyominoes in strips (Bull. ICA 23, 1998), and Michael von Thaden’s 2026 three-row polygon enumeration before claims of novelty. The distinction is a specified starting rail rather than unrooted polygons up to translation. Confirm whether a prior paper already supplies the marking.",
+    "queue_stage": "ready"
+  },
+  {
+    "problem": "oeis-a284230",
+    "title": "Five-step directed walks constrained by the diagonal",
+    "primary_source": "https://oeis.org/A284230",
+    "target": "Let a(n) count first-quadrant vertex-self-avoiding walks from (0,0) to (n,0) with steps (0,1),(1,0),(1,1),(−1,1),(1,−1). At the departure vertex forbid vertical steps below y=x and horizontal steps above it. For all n≥4 prove a(n)−a(n−1)+(−n²−n+3)a(n−2)+(2−n)a(n−3)+(n−2)(n−3)a(n−4)=0, or give an exact counterexample.",
+    "decisive_test": "The sum x+y never decreases. On each antidiagonal the walk therefore traverses just one interval, monotonically. Enumerate by entry and exit of that interval using integer arithmetic; derive from this a smaller parity-dependent transition or exhibit the first failure. A short parity recurrence is already posted as code: establish its combinatorial validity before eliminating parity.",
+    "prior_source": "https://oeis.org/A284414",
+    "blocker": "Proving the parity formula depends on a walk-to-recurrence derivation. Existing Maple code implements the counts but gives no derivation in the OEIS entry. Check the author’s related row-refined triangle and literature. Do not count algebraic elimination by itself as a proof from the walk definition.",
+    "queue_stage": "ready"
+  }
+]
