@@ -1,6 +1,46 @@
 {
-  "checked_at": "2026-11-27T08:21:08+00:00",
+  "checked_at": "2026-11-27T09:31:58+00:00",
   "targets": [
+    {
+      "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
+      "title": "Erd\u0151s Problem 1166 \u2014 dembo peres rosen zeitouni \u00b7 step 2",
+      "kind": "step",
+      "points": 9,
+      "statement": "\u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)]\n    {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124}, IsSimpleRandomWalkSteps X \u2192\n    \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192\n      (\u2211' k : \u2115, \u2119 {\u03c9 | (maxLocalTime X (2 ^ k) \u03c9 : \u211d) /\n        (Real.log ((2 ^ k : \u2115) : \u211d)) ^ 2 < 1 / \u03c0 - \u03b5}) \u2260 \u221e",
+      "source": "https://www.erdosproblems.com/1166",
+      "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
+      "difficulty": 32
+    },
+    {
+      "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
+      "title": "The Maxwell conjecture \u2014 three charges \u00b7 step 1",
+      "kind": "step",
+      "points": 24,
+      "statement": "\u2200 (q : Fin 3 \u2192 \u211d) (a : Fin 3 \u2192 (EuclideanSpace \u211d (Fin 3))),\n    AffineIndependent \u211d a \u2192 (\u2200 i, q i \u2260 0) \u2192\n    (\u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) \u2192\n    {x : (EuclideanSpace \u211d (Fin 3)) | x \u2208 affineSpan \u211d (Set.range a) \u2227 x \u2209 Set.range a \u2227\n      (\u2211 i, (-q i / \u2016x - a i\u2016 ^ 3) \u2022 (x - a i)) = 0}.encard \u2264 4\n\n/-- The count when the three distinct sites are collinear. -/",
+      "source": "https://arxiv.org/abs/2607.27197",
+      "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges",
+      "difficulty": 47
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 68 \u00b7 step 1",
+      "kind": "step",
+      "points": 33,
+      "statement": "let e := fun (t : ZMod 68) => ZMod.stdAddChar t\n  let q := fun (i j : ZMod 68) => e (i^2 - i*j + j^2)\n  let u : \u211d := (67 + Real.sqrt 4485) / 2\n  \u2203 (F : ZMod 68 \u2192 ZMod 68 \u2192 \u2102) (\u03c4 : \u2102 \u2192+* \u2102),\n  F 0 0 = ((Real.sqrt u : \u2102) ^ 3) \u2227\n  (\u2200 i j, (i, j) \u2260 (0, 0) \u2192 F i j * F (-i) (-j) = (q i j)\u207b\u00b9) \u2227\n  (\u2200 r s, (68 : \u2102)\u207b\u00b9 * \u2211 i, \u2211 j, F i j * F (r-i) (s-j) * q i j * e (-i*r+j*(r-s)) =\n      (Real.sqrt 65 : \u2102) * F r s + if (r,s) = (0,0) then 68 else 0) \u2227\n  (\u2200 i j, (i,j) \u2260 (0,0) \u2192 \u2016\u03c4 (F i j)\u2016 = 1)\n\n-- The finite algebraic conversion from these values to a rank-one Weyl fiducial.",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_68",
+      "difficulty": 58
+    },
+    {
+      "id": "OpenQuantumProblem23.hasSICPOVM_68.R1.H2",
+      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 68 \u00b7 step 2",
+      "kind": "step",
+      "points": 33,
+      "statement": "let e := fun (t : ZMod 68) => ZMod.stdAddChar t\n  let q := fun (i j : ZMod 68) => e (i^2 - i*j + j^2)\n  let u : \u211d := (67 + Real.sqrt 4485) / 2\n  \u2200 (F : ZMod 68 \u2192 ZMod 68 \u2192 \u2102) (\u03c4 : \u2102 \u2192+* \u2102),\n  F 0 0 = ((Real.sqrt u : \u2102) ^ 3) \u2192\n  (\u2200 i j, (i, j) \u2260 (0, 0) \u2192 F i j * F (-i) (-j) = (q i j)\u207b\u00b9) \u2192\n  (\u2200 r s, (68 : \u2102)\u207b\u00b9 * \u2211 i, \u2211 j, F i j * F (r-i) (s-j) * q i j * e (-i*r+j*(r-s)) =\n      (Real.sqrt 65 : \u2102) * F r s + if (r,s) = (0,0) then 68 else 0) \u2192\n  (\u2200 i j, (i,j) \u2260 (0,0) \u2192 \u2016\u03c4 (F i j)\u2016 = 1) \u2192\n  \u2203 A : Matrix (ZMod 68) (ZMod 68) \u2102, A.IsHermitian \u2227 A * A = A \u2227 A.trace = 1 \u2227\n    \u2200 a b : ZMod 68, (a,b) \u2260 (0,0) \u2192\n      Complex.normSq (\u2211 t, A (t+a) t * e (b*t)) = (69 : \u211d)\u207b\u00b9",
+      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+      "parent": "OpenQuantumProblem23.hasSICPOVM_68",
+      "difficulty": 58
+    },
     {
       "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
       "title": "The Maxwell conjecture \u2014 three equal magnitudes",
