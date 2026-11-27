@@ -1,6 +1,5 @@
 {
-  "lane": "rotation",
-  "problem_id": "e27-schmidt",
-  "stage": "math_review",
-  "at": "2026-11-26T23:38:14+00:00"
+  "lane": "scout",
+  "source": "https://github.com/jgmcm/problems/blob/6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4/catalogue/problems/034_smallest_open_ame_cases.txt",
+  "at": "2026-11-27T00:39:45+00:00"
 }

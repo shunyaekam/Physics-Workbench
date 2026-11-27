@@ -1,0 +1,18 @@
+{
+  "lead": {
+    "id": "jgmcm:034",
+    "source": "https://github.com/jgmcm/problems/blob/6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4/catalogue/problems/034_smallest_open_ame_cases.txt",
+    "question": "The smallest unresolved absolutely maximally entangled states",
+    "title": "The smallest unresolved absolutely maximally entangled states",
+    "catalogue": "jgmcm/problems",
+    "listed_status": "open"
+  },
+  "review": {
+    "statement": "For each pair (n,d) \u2208 {(8,4),(7,6)}, set k = \u230an/2\u230b. Does there exist a unit vector \u03c8 \u2208 (\u2102\u1d48)\u2297\u207f such that, for every k-party subset S, Tr_{S\u1d9c}(|\u03c8\u27e9\u27e8\u03c8|) = I_{d\u1d4f}/d\u1d4f? The catalogue asks for a decision on either pair and treats the two cases separately. [Pinned catalogue entry](https://raw.githubusercontent.com/jgmcm/problems/6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4/catalogue/problems/034_smallest_open_ame_cases.txt)",
+    "significance": "AME(7,6) exists. On 2 August 2026, after the catalogue\u2019s 20 July status check, Shi, Zhang, Zhao and Li gave an explicit construction. Setting q = 3 in their Eq. (40) gives local dimension 2q = 6. Their Theorem 1 establishes existence for every integer local dimension d \u2265 3 at seven parties. AME(8,4) remains open in the literature located through 26 November 2026, including Pandya\u2019s November update. [Seven-party construction](https://arxiv.org/abs/2608.01011) \u00b7 [November status discussion](https://arxiv.org/abs/2611.17216)",
+    "settlement_test": "A positive resolution requires one exact normalized state and a proof covering all required reductions: all 35 triples equal I\u2082\u2081\u2086/216 for AME(7,6), or all 70 four-party reductions equal I\u2082\u2085\u2086/256 for AME(8,4). A negative resolution requires proving that every normalized complex state fails at least one reduction. The cited construction meets the positive criterion for AME(7,6), which suffices for the catalogue\u2019s either-case request.",
+    "aliases": "AME(8,4) is an eight-party 4-uniform pure state of local dimension four, also called an eight-leg perfect tensor of bond dimension four. AME(7,6) is a seven-party 3-uniform pure state of local dimension six. Both are instances of Open Quantum Problem 35, \u201cExistence of absolutely maximally entangled pure states.\u201d",
+    "verdict": "prior_resolution",
+    "primary_sources": "[\"https://raw.githubusercontent.com/jgmcm/problems/6eea3514ab25dc2c3f19bc7bebbd80aef7066ce4/catalogue/problems/034_smallest_open_ame_cases.txt\",\"https://arxiv.org/abs/2608.01011\",\"https://arxiv.org/abs/2611.17216\"]"
+  }
+}
