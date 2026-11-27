@@ -1,0 +1,13 @@
+{
+  "id": "a7139c8e64a2db00ec15da5e3748970ee7feb72e45478fa05afd944088b012f5",
+  "problem": "endpoint-count",
+  "scope": "helper",
+  "method": "cardinality",
+  "status": "checked",
+  "seconds": 2.014,
+  "tokens": 0,
+  "diagnostic": "Try this:\n  [apply] exact joinEquiv A t x\nAttempt.lean:11:39: warning: Unused tactic linter: `exact?` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nAttempt.lean:11:39: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n'DiffusionSplit.endpoint_count' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e",
+  "proof": "import Split\nimport Mathlib.SetTheory.Cardinal.Finite\n\nopen DiffusionSplit\n\ntheorem DiffusionSplit.endpoint_count (A : Set (\u2124 \u00d7 \u2124)) (t : \u2115) (x : \u2124 \u00d7 \u2124) :\n    Nat.card {w : Word // w.sum = x \u2227 w.length = t \u2227 \u2200 a \u2208 w, a \u2208 A} =\n    Nat.card {uv : Word \u00d7 Word // FirstArrival x uv.1 \u2227 uv.2.sum = 0 \u2227\n      uv.1.length + uv.2.length = t \u2227 \u2200 a \u2208 uv.1 ++ uv.2, a \u2208 A} := by\n  apply Nat.card_congr\n  first | (apply Equiv.symm; exact?) | exact?\n"
+}

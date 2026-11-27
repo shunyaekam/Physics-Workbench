@@ -1,0 +1,12 @@
+{
+  "id": "96ea2407ea0e7695e623b31c4245671cc74e3d5563943fbaedc256e13fb101c1",
+  "problem": "endpoint-count",
+  "scope": "helper",
+  "method": "library",
+  "status": "miss",
+  "seconds": 2.321,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:10:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.\n'DiffusionSplit.endpoint_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

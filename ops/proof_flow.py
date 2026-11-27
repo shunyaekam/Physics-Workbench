@@ -247,6 +247,8 @@ def tick():
             method = "source-screen-and-notebook" if item.get("catalogue") == "Left to Solve" else "source-screen"
             if "prior_attempt" in item:
                 method = "continue-scored-lemma"
+            if item.get("checked_helper"):
+                method = "pinned-lean-repair"
             model, effort = model_for(item["id"], "scout")
             with measure(ROOT, item["id"], "scout", method, model=model, reasoning_effort=effort) as run:
                 screen(lead, partial(answer, problem_id=item["id"], stage="scout", metrics=run))

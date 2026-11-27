@@ -1,0 +1,12 @@
+{
+  "id": "b68ca6c696d5172ee65b97d079bae4d21a9add0f2bfebd3521fce8ef6a59e7bd",
+  "problem": "endpoint-count",
+  "scope": "helper",
+  "method": "simplify",
+  "status": "miss",
+  "seconds": 1.876,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:10:2: error: unsolved goals\nA : Set (\u2124 \u00d7 \u2124)\nt : \u2115\nx : \u2124 \u00d7 \u2124\n\u22a2 Nat.card { w // List.sum w = x \u2227 List.length w = t \u2227 \u2200 (a b : \u2124), (a, b) \u2208 w \u2192 (a, b) \u2208 A } =\n    Nat.card\n      { uv //\n        FirstArrival x uv.1 \u2227\n          List.sum uv.2 = 0 \u2227\n            List.length uv.1 + List.length uv.2 = t \u2227 \u2200 (a b : \u2124), (a, b) \u2208 uv.1 \u2228 (a, b) \u2208 uv.2 \u2192 (a, b) \u2208 A }\n'DiffusionSplit.endpoint_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

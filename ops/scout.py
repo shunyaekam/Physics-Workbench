@@ -39,13 +39,21 @@ def pending(root):
     if scored_path.exists():
         from ops.lts_standings import recent
         scored = load(scored_path)
-        if recent(scored, datetime.now(timezone.utc), 2):
-            for i, row in enumerate(scored["targets"]):
-                lead = dict(id="lts-"+row["id"], source="https://lefttosolve.com/p/"+row["id"],
-                            question=row["statement"], title=row["title"], catalogue="Left to Solve",
-                            listed_status="scored-proof", task_kind=row["kind"], primary_source=row["source"],
-                            points=row["points"], desk_difficulty=row["difficulty"], notebook=row.get("notebook", []))
-                pool.append((-10000+i,lead))
+        fresh = recent(scored, datetime.now(timezone.utc), 2)
+        from ops import lean_loop, proof_portfolio
+        for i, row in enumerate(scored["targets"]):
+            name = "lts-"+row["id"]
+            helper = proof_portfolio.checked_helper(root) if name == lean_loop.TARGET else None
+            if not fresh and not helper:
+                continue
+            lead = dict(id=name, source="https://lefttosolve.com/p/"+row["id"],
+                        question=row["statement"], title=row["title"], catalogue="Left to Solve",
+                        listed_status="scored-proof", task_kind=row["kind"], primary_source=row["source"],
+                        points=row["points"], desk_difficulty=row["difficulty"], notebook=row.get("notebook", []))
+            if helper:
+                lead["checked_helper"] = helper
+                lead["board_snapshot_fresh"] = fresh
+            pool.append((-10000+i,lead))
     for index in sorted((root/"campaign/catalogue-index").glob("*.json")):
         for row in load(index)["rows"]:
             if not eligible(row) or source_key(row["url"]) in catalogue_links:
@@ -89,15 +97,22 @@ def pending(root):
         key=fingerprint(identity)[:24]
         path=root/"campaign/scouting"/(key+".json")
         if not path.exists():
+            if lead.get("board_snapshot_fresh") is False:
+                continue
             return lead,path
         if lead.get("listed_status") == "scored-proof":
             # Resume an exact live declaration once. The identity binds the prior
             # result to this statement, so changed declarations start fresh.
             followup = path.with_name(key + "-lemma.json")
-            if followup.exists():
-                continue
             review = load(path)["review"]
-            if review["verdict"] == "shortlist" and all(
+            if followup.exists():
+                if not lead.get("checked_helper"):
+                    continue
+                review = load(followup)["review"]
+                followup = path.with_name(key + "-" + lead["checked_helper"][:16] + ".json")
+                if followup.exists() or review["verdict"] in {"duplicate", "prior_resolution"}:
+                    continue
+            if (review["verdict"] == "shortlist" or lead.get("checked_helper")) and all(
                     review.get(field, "").strip() for field in ("proof_or_witness", "remaining_obligation")):
                 lead["prior_attempt"] = {field: review[field] for field in
                                          ("primary_sources", "proof_or_witness", "remaining_obligation")}
@@ -126,16 +141,29 @@ def screen(job,ask):
                        "and existing proofs/PRs, then return the full Lean file in proof_or_witness "
                        "if you can close it. Cite earlier authors for a formalization. Record the exact "
                        "remaining lemma if unfinished. Only an independent kernel replay can certify it.")
+        prior_files = {}
         if "prior_attempt" in lead:
-            prompt = ("Continue the attributed proof attempt in the attached record. Verify that the "
-                      "desk still lists this exact target. Start with remaining_obligation and the "
+            prior_files["prior_proof"] = lead["prior_attempt"]["proof_or_witness"]
+            compact = dict(lead, prior_attempt=dict(lead["prior_attempt"], proof_or_witness="See PreviousAttempt.txt if needed"))
+            prompt = ("Continue the attributed proof attempt on this frozen declaration. Start with "
+                      "remaining_obligation and the "
                       "existing notebook. Produce Lean for that lemma and then the target if possible. "
                       "Reuse the cited literature unless a specific issue requires another source. "
                       "Distinguish compiled code from proposed code. Report the precise advance or "
                       "failure in attempt, the proof in proof_or_witness and any remaining obligation. "
                       "Use the same verdicts (shortlist, prior_resolution, duplicate, insufficient_evidence) "
-                      "and return primary_sources as a JSON list of consulted HTTPS URLs.\n" + json.dumps(lead))
-        result=ask(prompt,fields,sources=True,notebook=("checks/left_to_solve/targets.json", *lead.get("notebook", [])))
+                      "and return primary_sources as a JSON list of consulted HTTPS URLs.\n" + json.dumps(compact))
+        files = tuple(lead.get("notebook", []))
+        continued = "prior_attempt" in lead
+        if continued:
+            # The scout already reviewed these primary sources. Spend this slot on the named lemma.
+            prompt += ("\nThis is an offline continuation. The cited URLs are inherited from the prior "
+                       "scout. Return that provenance in primary_sources; do not claim a fresh search. "
+                       "Use the newest notebook and checked helpers wherever they supersede the old blocker.")
+        from ops import lean_loop
+        if not files and lead["id"] not in lean_loop.TARGETS:
+            files = ("checks/left_to_solve/targets.json",)
+        result=ask(prompt,fields,sources=not continued,notebook=files,**prior_files)
     else:
         result=ask(prompt,fields,sources=True)
     links=json.loads(result["primary_sources"])

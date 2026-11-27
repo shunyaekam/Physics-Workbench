@@ -1,0 +1,12 @@
+{
+  "id": "f8a224b61a8f4babca51186e054cca50e20a61c8f39be0e9e84964d8085e7952",
+  "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+  "scope": "board",
+  "method": "library",
+  "status": "miss",
+  "seconds": 8.658,
+  "tokens": 0,
+  "diagnostic": "Try this:\n  [apply] exact fun q a ha hq hq' hnd =>\n    Arxiv.\u00ab2607.27197\u00bb.maxwell_conjecture.variants.three_equal_magnitudes q a ha hq hq' hnd\n'OMA.solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nAttempt.lean:7:0: warning: This file has no module docstring (`/-! ... -/`). Add one after the imports to document the file.\n\nNote: This linter can be disabled with `set_option linter.style.moduleDocstring false`\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

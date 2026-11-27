@@ -106,10 +106,16 @@ def refresh(force=False):
     if (not force and path.exists() and queue_path.exists() and recent(load(path), now, 1)
             and recent(load(queue_path), now, 1)):
         return
-    html = subprocess.check_output(["curl","-fsSL","--max-time","20",SITE+"/contributors"],text=True)
-    board = standings(html)
+    for source in (SITE + "/contributors", "https://shipfastwith.me/contributors"):
+        try:
+            html = subprocess.check_output(["curl","-fsSL","--max-time","12",source],text=True)
+            board = standings(html)
+            break
+        except (ValueError,subprocess.CalledProcessError):
+            if source.startswith("https://shipfastwith.me/"):
+                raise
     stamp = now.isoformat(timespec="seconds")
-    write(path,dict(checked_at=stamp,source=SITE+"/contributors",**board))
+    write(path,dict(checked_at=stamp,source=source,**board))
     index = load(ROOT/"campaign/catalogue-index/left-to-solve.json")
     targets = [r for r in index["rows"] if r["physics"] and r["task_kind"] in {"known","warmup","open"}
                and r["status"] not in {"checked","prior resolution reported"}]

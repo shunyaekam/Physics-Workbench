@@ -1,0 +1,9 @@
+import Split
+import Mathlib.SetTheory.Cardinal.Finite
+
+open DiffusionSplit
+
+theorem DiffusionSplit.endpoint_count (A : Set (ℤ × ℤ)) (t : ℕ) (x : ℤ × ℤ) :
+    Nat.card {w : Word // w.sum = x ∧ w.length = t ∧ ∀ a ∈ w, a ∈ A} =
+    Nat.card {uv : Word × Word // FirstArrival x uv.1 ∧ uv.2.sum = 0 ∧
+      uv.1.length + uv.2.length = t ∧ ∀ a ∈ uv.1 ++ uv.2, a ∈ A} := by

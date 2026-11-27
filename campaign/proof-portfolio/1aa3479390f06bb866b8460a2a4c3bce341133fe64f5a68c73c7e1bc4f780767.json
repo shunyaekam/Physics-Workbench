@@ -1,0 +1,12 @@
+{
+  "id": "1aa3479390f06bb866b8460a2a4c3bce341133fe64f5a68c73c7e1bc4f780767",
+  "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "scope": "board",
+  "method": "library",
+  "status": "miss",
+  "seconds": 12.817,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:5:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.\nAttempt.lean:3:0: warning: This file has no module docstring (`/-! ... -/`). Add one after the imports to document the file.\n\nNote: This linter can be disabled with `set_option linter.style.moduleDocstring false`\n'OMA.solution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\nAttempt.lean:7:0: warning: This file has no module docstring (`/-! ... -/`). Add on",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

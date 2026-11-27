@@ -1,0 +1,12 @@
+{
+  "id": "05491fb8702eafdac43094712bba78e118a5994d00409879f456254cb5394a0b",
+  "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+  "scope": "board",
+  "method": "cardinality",
+  "status": "miss",
+  "seconds": 7.044,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:4:2: error: Tactic `apply` failed: could not unify the type of `@Nat.card_congr`\n  \u2200 {\u03b1 : Type ?u.3} {\u03b2 : Type ?u.2} (f : \u03b1 \u2243 \u03b2), Nat.card \u03b1 = Nat.card \u03b2\nwith the goal\n  \u2200 (q : Fin 3 \u2192 \u211d) (a : Fin 3 \u2192 EuclideanSpace \u211d (Fin 3)),\n    Function.Injective a \u2192\n      (\u2200 (j : Fin 3), q j \u2260 0) \u2192\n        (\u2200 (i j : Fin 3), |q i| = |q j|) \u2192\n          (\u2200 x \u2208 Arxiv.\u00ab2607.27197\u00bb.equilibria q a,\n              Arxiv.\u00ab2607.27197\u00bb.HasNondegenerateHessianAt (Arxiv.\u00ab2607.27197\u00bb.poten",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

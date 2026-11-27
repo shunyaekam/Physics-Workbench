@@ -11,6 +11,7 @@ import time
 
 from lab import ROOT, write
 from ops.method_runs import codex_usage
+from ops import lean_loop
 
 SERVICE = Path.home() / "Library/Application Support/Physics Workbench"
 MODEL = "gpt-6.2-sol"
@@ -59,7 +60,7 @@ def reserve(service, now):
         write(path, {"started_at": now})
 
 
-def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), sources=False, metrics=None):
+def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), sources=False, metrics=None, prior_proof=None):
     """Give solvers a disposable workspace; final verification runs separately."""
     model, effort = model_for(problem_id, stage)
     settings = json.loads((SERVICE / "settings.json").read_text())
@@ -83,16 +84,36 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
             dest = notebook_dir/name
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source,dest)
+        if prior_proof:
+            (notebook_dir/"PreviousAttempt.txt").write_text(prior_proof)
         (root / "schema.json").write_text(json.dumps(schema))
         # Keep private home directories, credentials, other scratch data, and the
         # output/schema paths outside the model-controlled shell's access.
         rules = {":root":"read",str(Path.home()):"deny","/Users":"deny","/Volumes":"deny",
                  "/private/var/folders":"deny","/private/tmp":"deny",str(root):"deny",
                  str(notebook_dir):"write"}
+        local_lean = problem_id in lean_loop.TARGETS and lean_loop.notebook(notebook_dir,problem_id)
+        if local_lean:
+            from ops.proof_portfolio import handoff
+            rules.update(local_lean)
+            handoff(notebook_dir, problem_id)
+            checkpoint = SERVICE/"proof-checkpoints"/problem_id/lean_loop.BOARD/lean_loop.library_dir().name/"Candidate.lean"
+            candidate = notebook_dir/"Candidate.lean"
+            if checkpoint.exists():
+                candidate.write_bytes(checkpoint.read_bytes())
+            original = candidate.read_bytes()
+            prompt += ("\nThe pinned Lean compiler is available. Edit Candidate.lean, run "
+                       "./check Candidate.lean, read the first compiler error and repair in this session. "
+                       "Count.lean, if present, contains a checked helper. You can compile scratch files "
+                       "with the same command. Use only the supplied imports for this target. "
+                       "A working helper or local import is progress only. Return the exact best source "
+                       "in proof_or_witness and identify anything still open. Use official replay before credit.")
+        if metrics is not None and problem_id in lean_loop.TARGETS:
+            metrics["local_compiler_available"] = bool(local_lean)
         table = ",".join(json.dumps(k)+"="+json.dumps(v) for k,v in rules.items())
         sandbox = (["-c",'default_permissions="lab"',"-c","permissions.lab.filesystem={"+table+"}",
                     "-c","permissions.lab.network.enabled=false","-c",'approval_policy="never"']
-                   if notebook else ["--sandbox","read-only"])
+                   if (notebook or local_lean) else ["--sandbox","read-only"])
         command = [executable, "exec", "--ignore-user-config", "--ephemeral", "--skip-git-repo-check", "--json",
                    *sandbox, "-c", 'model_provider="openai"', "--model", model, "-c", f'model_reasoning_effort="{effort}"',
                    "--disable", "apps", "--disable", "plugins", "--disable", "multi_agent",
@@ -100,7 +121,7 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
                    "-c", 'shell_environment_policy.inherit="none"',
                    "-c", 'web_search="live"' if sources else 'web_search="disabled"', "--output-schema", str(root/"schema.json"),
                    "-o", str(root/"answer.json"), "-"]
-        if not notebook:
+        if not (notebook or local_lean):
             command[2:2] = ["--disable", "shell_tool", "--disable", "unified_exec"]
         reserve(SERVICE, time.time())
         # JSONL can contain private tool calls. Keep it in an unnamed file,
@@ -119,6 +140,10 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
                 proc.communicate()
                 raise TimeoutError("Hosted Codex timed out")
             finally:
+                if local_lean:
+                    saved = lean_loop.save_progress(candidate,original,checkpoint)
+                    if metrics is not None:
+                        metrics["source_checkpoint_updated"] = saved
                 if metrics is not None:
                     metrics["hosted_elapsed_seconds"] = round(time.monotonic() - started, 6)
                     events.seek(0)

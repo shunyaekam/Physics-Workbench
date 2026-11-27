@@ -1,0 +1,12 @@
+{
+  "id": "25a7a81c60823db1c162f2a73dd562ca15b74f51d98eaa6fb542f69c2968e0ed",
+  "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+  "scope": "board",
+  "method": "arithmetic",
+  "status": "miss",
+  "seconds": 3.799,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:4:2: error: omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.\nAttempt.lean:3:0: warning: This file has no module docstring (`/-! ... -/`). Add one after the imports to document the file.\n\nNote: This linter can be disabled with `set_option linter.style.moduleDocstring fa",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

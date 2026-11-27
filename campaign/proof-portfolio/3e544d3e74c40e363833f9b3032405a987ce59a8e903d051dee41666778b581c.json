@@ -1,0 +1,12 @@
+{
+  "id": "3e544d3e74c40e363833f9b3032405a987ce59a8e903d051dee41666778b581c",
+  "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "scope": "board",
+  "method": "simplify",
+  "status": "miss",
+  "seconds": 4.585,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:5:2: error: unsolved goals\n\u22a2 \u2203 c,\n    0 < c \u2227\n      \u2200 {\u03a9 : Type} [inst : MeasureTheory.MeasureSpace \u03a9] [MeasureTheory.IsProbabilityMeasure MeasureTheory.volume]\n        {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124},\n        Erdos1165.IsSimpleRandomWalkSteps X \u2192\n          \u2200 (n d : \u2115),\n            4 \u2264 d \u2192\n              d \u2264 n \u2192\n                \u2200 (a : \u2124),\n                  2 \u2223 a \u2192\n                    \u2191d \u2264 |a| \u2192\n                      c * Real.log \u2191d / Real.log \u2191n \u2264\n                        1 -\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

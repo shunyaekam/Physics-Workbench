@@ -138,6 +138,10 @@ def run():
     except subprocess.TimeoutExpired:
         print("Score refresh timed out; retaining the last snapshot.",flush=True)
     try:
+        call([sys.executable,"ops/proof_portfolio.py"],timeout=85,check=False)
+    except subprocess.TimeoutExpired:
+        print("Local tactic budget exhausted; completed attempts remain recorded.",flush=True)
+    try:
         call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)

@@ -1,0 +1,12 @@
+{
+  "id": "1ff0ea6115dcb3e94e21afd0be4b2ee038c04c7360b9fc0511eafbdec09647dc",
+  "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "scope": "board",
+  "method": "cardinality",
+  "status": "timeout",
+  "seconds": 20.19,
+  "tokens": 0,
+  "diagnostic": "Timed out after 20 seconds",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

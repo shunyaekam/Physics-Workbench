@@ -1,0 +1,12 @@
+{
+  "id": "9ba41625756e4581903c042c4fb546e17b84e3f6ec0b3166c7cda66a4f200faa",
+  "problem": "endpoint-count",
+  "scope": "helper",
+  "method": "arithmetic",
+  "status": "miss",
+  "seconds": 1.156,
+  "tokens": 0,
+  "diagnostic": "Attempt.lean:10:2: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  b \u2265 0\n  a \u2265 0\n  a - b \u2265 1\nwhere\n a := \u2191(Nat.card\n    { uv //\n      FirstArrival x uv.1 \u2227 List.sum uv.2 = 0 \u2227 List.length uv.1 + List.length uv.2 = t \u2227 \u2200 a \u2208 uv.1 ++ uv.2, a \u2208 A })\n b := \u2191(Nat.card { w // List.sum w = x \u2227 List.length w = t \u2227 \u2200 a \u2208 w, a \u2208 A })\n'DiffusionSplit.endpoint_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+  "pin": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "board_revision": "2ae0f49893f50d0e23bda6d61d49bc44307d418e"
+}

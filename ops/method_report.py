@@ -80,6 +80,35 @@ def render(rows, certificates, trials):
     return "\n".join(lines)+"\n"
 
 
+def scored_cohort(runs, trials, accepted):
+    """Track the instrumented board cohort, including time spent on unfinished targets."""
+    credits = {entry["id"]:entry for entry in accepted["solutions"]}
+    grouped = defaultdict(list)
+    for _,row in runs:
+        if row["problem_id"].startswith("lts-"):
+            grouped[row["problem_id"][4:]].append(row)
+    for row in trials:
+        if row["scope"]=="board":
+            grouped.setdefault(row["problem"].removeprefix("lts-"),[])
+    cohort=[]
+    for name, attempts in sorted(grouped.items()):
+        credit=credits.get(name) or {}
+        finish=credit.get("accepted_at")
+        included=[r for r in attempts if not finish or stamp(r["started_at"])<=stamp(finish)]
+        hosted=[r for r in included if r.get("model") and r.get("hosted_invoked",True)]
+        measured=[r["usage"] for r in hosted if r.get("usage_complete") and r.get("usage")]
+        local=[r for r in trials if r["scope"]=="board" and r["problem"]=="lts-"+name]
+        start=min((r["started_at"] for r in included),default=None)
+        cohort.append(dict(problem=name, board_accepted_at=finish, board_outcome=credit.get("outcome"), first_logged_worker_attempt=start,
+                    observed_hours_to_credit=(round((stamp(finish)-stamp(start))/3600,3) if finish and start else None),
+                    hosted_calls=len(hosted), calls_with_usage=len(measured),
+                    measured_uncached_input=sum(u["input_tokens"]-u["cached_input_tokens"] for u in measured),
+                    measured_output=sum(u["output_tokens"] for u in measured),
+                    measured_hosted_seconds=round(sum(r.get("hosted_elapsed_seconds") or 0 for r in hosted),3),
+                    lifetime_local_tactic_seconds=round(sum(r["seconds"] for r in local),3)))
+    return cohort
+
+
 def build():
     campaign = ROOT/"campaign"
     def read(folder):
@@ -106,7 +135,13 @@ def build():
     peek = dict(week=trial["week"], best=trial["best"]["result"]["cnot_count"], target=trial["goal_cnot"],
                 circuits=4*trial["seeds_per_split"], seconds=round(trial["elapsed_seconds"],2),
                 changed=trial["next_incumbent"]!=trial["incumbent"]["tree_depth"]) if trial else None
-    write(campaign/"method-summary.json",dict(problems=problems,comparison=peek))
+    portfolio = [r for _,r in read("proof-portfolio")]
+    try:
+        board = json.loads(git("show","origin/main:site/left-to-solve/accepted.json"))
+    except subprocess.CalledProcessError:
+        board = None
+    cohort = scored_cohort(rows,portfolio,board) if board is not None else None
+    write(campaign/"method-summary.json",dict(problems=problems,comparison=peek,scored_cohort=cohort))
     output = render(rows,certificates,trials)
     (campaign/"research-methods.md").write_text(output)
 
