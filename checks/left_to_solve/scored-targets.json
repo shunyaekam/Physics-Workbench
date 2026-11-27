@@ -5,7 +5,8 @@
     "primary_source": "https://www.erdosproblems.com/1164",
     "notebook": [
       "checks/left_to_solve/attempts/diffusion/proof.md",
-      "checks/left_to_solve/attempts/diffusion/check.py"
+      "checks/left_to_solve/attempts/diffusion/check.py",
+      "checks/left_to_solve/attempts/diffusion/Bounds.lean"
     ]
   }
 ]

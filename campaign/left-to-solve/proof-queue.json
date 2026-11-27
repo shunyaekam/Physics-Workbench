@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T03:28:28+00:00",
+  "checked_at": "2026-11-27T03:32:35+00:00",
   "targets": [
     {
       "id": "Erdos1164.erdos_1164.R1.H2.R1.H1",
@@ -12,7 +12,8 @@
       "difficulty": null,
       "notebook": [
         "checks/left_to_solve/attempts/diffusion/proof.md",
-        "checks/left_to_solve/attempts/diffusion/check.py"
+        "checks/left_to_solve/attempts/diffusion/check.py",
+        "checks/left_to_solve/attempts/diffusion/Bounds.lean"
       ]
     },
     {
@@ -84,16 +85,6 @@
       "source": "https://www.erdosproblems.com/1166",
       "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
       "difficulty": 32
-    },
-    {
-      "id": "Arxiv.2607.27197.maxwell_conjecture.iterated",
-      "title": "Proposition 1",
-      "kind": "known",
-      "points": 29,
-      "statement": "theorem maxwell_conjecture.iterated (m : \u2115) :\n    \u2203 (q : Fin (3 + 2 * m) \u2192 \u211d) (a : Fin (3 + 2 * m) \u2192 EuclideanSpace \u211d (Fin 3)),\n      Function.Injective a \u2227 (\u2200 j, 0 < q j) \u2227\n      (\u2200 x \u2208 equilibria q a, HasNondegenerateHessianAt (potential q a) x) \u2227\n      (equilibria q a).Finite \u2227 4 + 20 * m \u2264 (equilibria q a).encard",
-      "source": "https://arxiv.org/abs/2607.27197",
-      "parent": "Arxiv.2607.27197.maxwell_conjecture.iterated",
-      "difficulty": 44
     },
     {
       "id": "Erdos1164.erdos_1164",
