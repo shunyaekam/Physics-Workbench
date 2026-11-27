@@ -1,0 +1,49 @@
+name: Optical proof development
+on:
+  push:
+    branches: [lts-kernel-review]
+    paths: ['checks/left_to_solve/Optics.lean', '.github/workflows/optical-contribution.yml']
+permissions:
+  contents: read
+jobs:
+  pinned-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: google-deepmind/formal-conjectures
+          ref: 9097e2f90e66d2f6244209cb1c07f7120d17ec53
+          path: fc
+      - id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            fc/.lake
+          key: lts-optics-9097e2f9
+      - name: Prepare the reduction library
+        working-directory: fc
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lean" ]; then
+            curl -fsSL --retry 3 https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            sh "$RUNNER_TEMP/elan.sh" -y --default-toolchain none
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake exe cache get
+          mkdir -p OMAReductions
+          curl -fsSL --retry 3 https://raw.githubusercontent.com/GuillaumeBAUD-coder/open-math-agents/79fd4c3d8dbfc9e8a1f1e621c19c0757b18c0dd9/reductions/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3.R1.lean -o OMAReductions/R_MonochromaticQuantumGraph_eqSystem6_no_solution_ge3_R1.lean
+          printf '\n[[lean_lib]]\nname = "OMAReductions"\nglobs = ["OMAReductions.+"]\n' >> lakefile.toml
+          lake build OMAReductions.R_MonochromaticQuantumGraph_eqSystem6_no_solution_ge3_R1
+      - uses: actions/cache/save@v4
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ~/.elan
+            fc/.lake
+          key: lts-optics-9097e2f9
+      - name: Compile physical proof
+        working-directory: fc
+        run: lake env lean ../checks/left_to_solve/Optics.lean
