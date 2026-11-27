@@ -1,0 +1,53 @@
+name: Check Left to Solve physics proofs
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - contributions/left-to-solve/CHSH.lean
+      - .github/workflows/physics-contributions.yml
+permissions:
+  contents: read
+jobs:
+  pinned-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out the Mathlib revision used by Left to Solve
+        uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/mathlib4
+          ref: 0df444a360eaa60ab8c11dca51a86af692955474
+          path: mathlib
+      - name: Restore pinned Lean and Mathlib cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            mathlib/.lake
+          key: lts-physics-0df444a360eaa60ab8c11dca51a86af692955474
+      - name: Prepare Lean
+        working-directory: mathlib
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lean" ]; then
+            curl --fail --silent --show-error --location --retry 3 https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+            sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lake" exe cache get
+      - name: Compile the complete CHSH series theorem and inspect its axioms
+        working-directory: mathlib
+        run: |
+          set -o pipefail
+          lean --version
+          lake env lean ../contributions/left-to-solve/CHSH.lean | tee "$RUNNER_TEMP/chsh.log"
+          python3 - "$RUNNER_TEMP/chsh.log" <<'PY'
+          from pathlib import Path
+          import re, sys
+          text = Path(sys.argv[1]).read_text()
+          audits = re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", text)
+          assert audits, 'No axiom audit found'
+          for name, entries in audits:
+              assert set(entries.split(', ')) <= {'propext', 'Classical.choice', 'Quot.sound'}, (name, entries)
+          PY
