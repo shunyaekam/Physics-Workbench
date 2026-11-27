@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "a0440661f3cc4a7faa84abaf2e78fdf7",
+  "problem_id": "refined-bmv",
+  "stage": "solve",
+  "method": "notebook-witness",
+  "model": "gpt-6.2-astra",
+  "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
+  "revision": "a31b3857a8a9fa0f3e90c03b57a303625f81e972",
+  "started_at": "2026-11-27T11:54:07.522+00:00",
+  "elapsed_seconds": 65.320285,
+  "status": "completed",
+  "outcome": "bounded_result",
+  "evidence": "campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
+  "usage": {
+    "input_tokens": 157093,
+    "cached_input_tokens": 131968,
+    "output_tokens": 1764
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "medium",
+  "hosted_elapsed_seconds": 61.066854,
+  "replay_elapsed_seconds": 0.142185,
+  "attempt_number": 2,
+  "witness_hash": "b1f40348667ab5f4f1361e7297c6127b46ae664741739a52af2ef37fa3a7e610"
+}

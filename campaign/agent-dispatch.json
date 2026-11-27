@@ -1,5 +1,6 @@
 {
-  "lane": "board_second",
-  "source": "https://lefttosolve.com/p/OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
-  "at": "2026-11-27T10:55:43+00:00"
+  "lane": "rotation",
+  "problem_id": "refined-bmv",
+  "stage": "solve",
+  "at": "2026-11-27T11:55:12+00:00"
 }

@@ -2,7 +2,7 @@
   "problem_id": "refined-bmv",
   "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
   "model": "gpt-6.2-astra",
-  "status": "solve",
+  "status": "math_review",
   "attempts": [
     {
       "proposal": {
@@ -66,7 +66,84 @@
         "model": "gpt-6.2-astra",
         "reasoning_effort": "medium"
       }
+    },
+    {
+      "proposal": {
+        "approach": "No counterexample was found. With n=m=4, I first screened six pairs using a Hadamard change of eigenbasis. All six numerical gaps were positive. I then tested 256 pairs of a different form, setting K equal to \u2212H plus a perturbation supported on a four-cycle. This cancels the diagonal of 4H+4K while preserving noncommutation. I certified the smallest numerical gap from the second search.",
+        "witness_json": "{\"H\":[[-12,0,0,0],[0,-4,0,0],[0,0,4,0],[0,0,0,12]],\"K\":[[12,1,0,-1],[1,4,1,0],[0,1,-4,1],[-1,0,1,-12]],\"den\":16,\"n\":4,\"m\":4}",
+        "derivation": "For this witness, the mean word trace minus Tr exp(4H+4K) lies strictly between 0.21227423577924 and 0.21227423577926. The four-cycle search varied the four edge magnitudes independently over {1,2,3,4}/16, with one edge negative. The selected pair has all four magnitudes equal to 1/16. Its maximum absolute row sums are 12/16 and 14/16. Both matrices have four distinct eigenvalues, since H is diagonal with distinct entries and the four Gershgorin intervals of K are disjoint. To certify the gap, I used the degree-32 exponential Taylor polynomial P and exact integer arithmetic with common denominator 16^32\u00b732!. Starting from W(0,0)=I, I computed W(i,j)=P(H)W(i\u22121,j)+P(K)W(i,j\u22121), omitting terms with negative indices. Grouping words by first factor counts each of the 70 words once. For G=Tr W(4,4)/70\u2212Tr P(4H+4K), exact division gave floor(10^14 G)=21227423577924. All three matrix arguments have infinity norm at most 1, so each exponential tail has norm below 2/33!, and each polynomial and exponential has norm below 3. Telescoping the eight factors and bounding the four-dimensional trace gives |\u0394\u2212G| < 4(1+8\u00b73^7)\u00b72/33! < 2\u00b710^\u221232, where \u0394 is the true gap. This yields the stated interval.",
+        "what_would_change": "A valid pair with a certified upper endpoint below zero would disprove the universal lower bound. The positive interval certifies the bound for this one pair. The other candidates were screened numerically, and the universal question remains open in this calculation."
+      },
+      "checked_at": "2026-11-27T11:55:12+00:00",
+      "witness": {
+        "H": [
+          [
+            -12,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            -4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            12
+          ]
+        ],
+        "K": [
+          [
+            12,
+            1,
+            0,
+            -1
+          ],
+          [
+            1,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            -4,
+            1
+          ],
+          [
+            -1,
+            0,
+            1,
+            -12
+          ]
+        ],
+        "den": 16,
+        "n": 4,
+        "m": 4
+      },
+      "witness_hash": "b1f40348667ab5f4f1361e7297c6127b46ae664741739a52af2ef37fa3a7e610",
+      "result": {
+        "decisive": false,
+        "gap_lower": "848889350355100558013151883676433604760650814605993338430563422222102546764740090855850747416968418742298588188450749402069262135434835042315570966099096649102694920435636481985246534992889745042144492161635573356354275404752888181672932899440494654084453562617901052366530251008019961211213918508058054611393581553858307054743950010684050723472209504272743413096417230052587112970600883893950198636830663254113505290907617735281426505373293718633761119703637260822592005072373507477/3999022053895887448224217398343811844386811098686069101283099325862180663093585089410613055400237484720309011535044940691162055295444487668882156246241946522481347191991294355527518482594924451357926458307810605603806942108776420923376531755891163494412343642596882293846935728405128234298047380248798194758158659878250046035948471098047932510130028355464337879489960804490351312545712532561438876325230036660938342400000000000000000000000000000000000000000000000000000000000000000000",
+        "gap_upper": "143462300210011994304222668341327857064196636659020911577744376218236575960595676869334349296893924041805402478003184376741071076353456739294658659831302216778027980651554172785393833658276701566510614827511183397191098145743264250996199234821446212609312683299513131998203574661373848494275959564132641592380527218791792533171087947780560023561831439071314465168800801998447417094436940090188084870217077823256011940329893121862265525552294808372643730968774557743702306091143974892637/675834727108404978749892740320104201701371075677945678116843786070708532062815880110393606362640134917732222949422594976806387344930118416041084405614888962299347675446528746084150623558542232279489571454019992347043373216383215136050633866745606630555686075598873107660132138100466671596370007262046894914128813519424257780075291615570100594211974792073473101633803375958869371820225418002883170098963876195698579865600000000000000000000000000000000000000000000000000000000000000000000",
+        "sign": "positive"
+      },
+      "replay_elapsed_seconds": 0.142185,
+      "origin": "gpt-6.2-astra hosted solver",
+      "model": "gpt-6.2-astra",
+      "reasoning_effort": "medium"
     }
   ],
-  "updated_at": "2026-11-27T02:52:16+00:00"
+  "updated_at": "2026-11-27T11:55:12+00:00"
 }
