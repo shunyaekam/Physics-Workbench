@@ -1,6 +1,5 @@
 {
-  "lane": "rotation",
-  "problem_id": "refined-bmv",
-  "stage": "math_review",
-  "at": "2026-11-27T15:10:56+00:00"
+  "lane": "board_first",
+  "source": "https://lefttosolve.com/p/Erdos1165.erdos_1165.R1.H2",
+  "at": "2026-11-27T16:13:39+00:00"
 }

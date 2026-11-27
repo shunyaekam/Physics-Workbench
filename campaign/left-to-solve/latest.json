@@ -1,5 +1,10 @@
 [
   {
+    "key": "d5db112f27cbcda20418ea29",
+    "title": "Erd\u0151s Problem 1165 \u00b7 step 2",
+    "verdict": "prior_resolution"
+  },
+  {
     "key": "995e00606ccea51732eff6e4-lemma",
     "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 68 \u00b7 step 1",
     "verdict": "insufficient_evidence"

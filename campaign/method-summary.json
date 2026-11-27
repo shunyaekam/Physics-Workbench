@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 71,
-      "seconds": "65.1",
+      "runs": 72,
+      "seconds": "65.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 71,
-      "seconds": "93.3",
+      "runs": 72,
+      "seconds": "93.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 267,
-      "seconds": "907.1",
+      "runs": 271,
+      "seconds": "945.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "search_receipt"
+      "outcome": "bounded_result"
     },
     {
       "problem": "golay43",
-      "runs": 143,
-      "seconds": "515.8",
+      "runs": 145,
+      "seconds": "516.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -73,6 +73,15 @@
       "outcome": "prior_resolution"
     },
     {
+      "problem": "lts-Erdos1165.erdos_1165.R1.H2",
+      "runs": 1,
+      "seconds": "143.0",
+      "tokens": "842,263 / 4,374",
+      "coverage": "1/1",
+      "stage": "scout",
+      "outcome": "prior_resolution"
+    },
+    {
       "problem": "lts-Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
       "runs": 1,
       "seconds": "91.9",
@@ -92,8 +101,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 74,
-      "seconds": "191.0",
+      "runs": 75,
+      "seconds": "191.1",
       "tokens": "284,541 / 4,116",
       "coverage": "3/3",
       "stage": "search",
@@ -119,8 +128,8 @@
     },
     {
       "problem": "thomson-11",
-      "runs": 17,
-      "seconds": "5.8",
+      "runs": 18,
+      "seconds": "6.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +155,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 143,
-      "seconds": "165.1",
+      "runs": 145,
+      "seconds": "166.0",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -213,6 +222,19 @@
       "measured_uncached_input": 107501,
       "measured_output": 4634,
       "measured_hosted_seconds": 145.676,
+      "lifetime_local_tactic_seconds": 0
+    },
+    {
+      "problem": "Erdos1165.erdos_1165.R1.H2",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T16:11:16.130+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 87959,
+      "measured_output": 4374,
+      "measured_hosted_seconds": 142.552,
       "lifetime_local_tactic_seconds": 0
     },
     {
