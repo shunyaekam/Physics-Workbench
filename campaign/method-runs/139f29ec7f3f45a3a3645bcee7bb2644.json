@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "139f29ec7f3f45a3a3645bcee7bb2644",
+  "problem_id": "werner-endpoint",
+  "stage": "search",
+  "method": "complex_search.search-4-copies",
+  "model": null,
+  "contract_hash": null,
+  "revision": "407ce236e0903176fd28fd5f3a4c5ce6577feec5",
+  "started_at": "2026-11-27T16:47:20.039+00:00",
+  "elapsed_seconds": 1.707244,
+  "status": "completed",
+  "outcome": "bounded_result",
+  "evidence": "campaign/rounds/00000304.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
