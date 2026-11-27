@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T05:07:39+00:00",
+  "checked_at": "2026-11-27T07:11:16+00:00",
   "targets": [
     {
       "id": "Erdos1164.erdos_1164.R1.H2.R1.H1",
@@ -13,7 +13,10 @@
       "notebook": [
         "checks/left_to_solve/attempts/diffusion/proof.md",
         "checks/left_to_solve/attempts/diffusion/check.py",
-        "checks/left_to_solve/attempts/diffusion/Bounds.lean"
+        "checks/left_to_solve/attempts/diffusion/Bounds.lean",
+        "checks/left_to_solve/attempts/diffusion/Cylinder.lean",
+        "checks/left_to_solve/attempts/diffusion/Discount.lean",
+        "checks/left_to_solve/attempts/diffusion/Split.lean"
       ]
     },
     {
@@ -257,13 +260,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_11_6_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 11 6 open",
+      "id": "OpenQuantumProblem35.ame_12_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 10 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_11_6_open :\n    ExistsAME 11 6",
+      "statement": "theorem ame_12_10_open :\n    ExistsAME 12 10",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_11_6_open",
+      "parent": "OpenQuantumProblem35.ame_12_10_open",
       "difficulty": 58
     },
     {
@@ -287,13 +290,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_12_10_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 10 open",
+      "id": "OpenQuantumProblem35.ame_12_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 6 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_12_10_open :\n    ExistsAME 12 10",
+      "statement": "theorem ame_12_6_open :\n    ExistsAME 12 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_12_10_open",
+      "parent": "OpenQuantumProblem35.ame_12_6_open",
       "difficulty": 58
     },
     {
@@ -317,13 +320,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_12_6_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 12 6 open",
+      "id": "OpenQuantumProblem35.ame_8_10_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 10 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_12_6_open :\n    ExistsAME 12 6",
+      "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_12_6_open",
+      "parent": "OpenQuantumProblem35.ame_8_10_open",
       "difficulty": 58
     },
     {
@@ -347,13 +350,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_10_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 10 open",
+      "id": "OpenQuantumProblem35.ame_8_4_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
+      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_10_open",
+      "parent": "OpenQuantumProblem35.ame_8_4_open",
       "difficulty": 58
     },
     {
@@ -367,14 +370,14 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_4_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
+      "id": "OpenQuantumProblem35.oqp_35",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
       "kind": "open",
-      "points": 66,
-      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
+      "points": 68,
+      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_4_open",
-      "difficulty": 58
+      "parent": "OpenQuantumProblem35.oqp_35",
+      "difficulty": 59
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_71",
@@ -387,16 +390,6 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_6_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 6 open",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
-      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_6_open",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_72",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 72",
       "kind": "open",
@@ -405,16 +398,6 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_72",
       "difficulty": 58
-    },
-    {
-      "id": "OpenQuantumProblem35.oqp_35",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 oqp 35",
-      "kind": "open",
-      "points": 68,
-      "statement": "theorem oqp_35 :\n    {nd : \u2115 \u00d7 \u2115 | 2 \u2264 nd.1 \u2227 2 \u2264 nd.2 \u2227 ExistsAME nd.1 nd.2} = oqp_35.answer",
-      "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.oqp_35",
-      "difficulty": 59
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_75",
