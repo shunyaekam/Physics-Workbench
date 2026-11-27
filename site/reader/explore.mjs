@@ -29,8 +29,9 @@ function chooseView() {
   else window.scrollTo(0,0);
 }
 
-try {
-  const {exhibits} = await import('./' + files[slug] + '.mjs');
+async function startExploration() {
+  const module = document.body.hasAttribute('data-contribution') ? '../left-to-solve/exhibit.mjs' : './' + files[slug] + '.mjs';
+  const {exhibits} = await import(module);
   const exhibit = exhibits[slug];
   id('exhibit-title').textContent = exhibit.title;
   id('lead').textContent = exhibit.lead;
@@ -43,10 +44,10 @@ try {
   const compact = matchMedia('(max-width:700px) and (max-height:680px)');
   function fitDetails() {
     more.hidden = !compact.matches;
-    if (compact.matches) more.append(id('scope'),credit);
+    if (compact.matches) more.append(id('scope'),...(credit ? [credit] : []));
     else {
       id('lead').after(id('scope'));
-      more.before(credit);
+      if (credit) more.before(credit);
       more.open = false;
     }
   }
@@ -55,8 +56,11 @@ try {
   toggle.hidden = false;
   window.addEventListener('hashchange',chooseView);
   chooseView();
-} catch (error) {
+}
+if (document.body.hasAttribute('data-article-only')) {
+  document.body.classList.add('reading');
+} else startExploration().catch(error => {
   console.error('Could not open the interactive edition:',error);
   exploration.hidden = true;
   article.hidden = false;
-}
+});

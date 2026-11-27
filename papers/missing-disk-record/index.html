@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The missing thirteenth site · oo research</title><meta name="citation_title" content="The missing thirteenth site"><meta name="oo-research-catalogue-id" content="oeis-a346784"><meta name="description" content="Grow a disk on the triangular lattice. At squared radius 3 it can first hold 13 sites. A 13-step walk through those sites would have to close. The six tips force a cycle that leaves the center out.">
+<link rel="canonical" href="https://shunyaekam.github.io/oo-research/papers/missing-disk-record/"><link rel="icon" href="../../site/assets/oo-mark.png">
+<link rel="stylesheet" href="../../site/flowly.css"><link rel="stylesheet" href="../../site/reader/paper.css"><link rel="stylesheet" href="../../site/navigation.css"><link rel="stylesheet" href="../../site/left-to-solve/paper.css">
+<script defer src="../../site/navigation.js"></script><script defer src="../../site/flowly.js"></script><script type="module" src="../../site/reader/explore.mjs"></script></head>
+<body data-paper="missing-disk-record" data-contribution="oeis-a346784" data-followup="">
+<header class="reader-head lab-header"><a class="lab-mark" href="../../" aria-label="oo research home"><img src="../../site/assets/torus.png" width="42" height="42" alt=""></a><nav aria-label="Paper navigation"><a href="../../catalogue.html">Research map</a><a id="view-link" href="#full-text" hidden>Full text</a></nav></header>
+<main><section id="explore" aria-labelledby="exhibit-title" hidden><div class="explainer"><div class="story"><h1 id="exhibit-title">Thirteen sites fit. A walk still tops out at twelve.</h1><p id="lead">Grow a disk on the triangular lattice. At squared radius 3 it can first hold 13 sites. A 13-step walk through those sites would have to close. The six tips force a cycle that leaves the center out.</p><p id="scope">Two independent exact searches over all disk centers find the missing tenth point record. The ninth positive walk record is 14, refuting the proposed equality. Kittipassorn, Phetmak and Sriamorn independently tabulated the point count.</p></div><figure class="experiment"><div id="visual"></div><div id="controls" aria-label="Explore the result" role="group"></div><figcaption id="caption" aria-live="polite"></figcaption></figure></div></section>
+<article id="full-text" tabindex="-1"><p class="date">Statistical mechanics</p><h1 class="paper-title">The missing thirteenth site</h1>
+<!--begin-note 16774d0a9f4b35c4d9094e4cc0148c53d5d5c4b0e6ffcadbd5956e07635f5560--><p>The tenth strict record for the number of triangular-lattice sites in a freely placed closed disk is <strong>13</strong>, at squared radius <strong>3</strong>. The ninth positive record for self-avoiding walk length is <strong>14</strong>, at squared radius <strong>13/4</strong>. The proposed equality of these two records for every index greater than two fails at index ten. The displayed table of point records goes directly from 12 sites to 14. <a href="https://oeis.org/A346784">Source entry and displayed table</a> · <a href="https://oeis.org/A346126">Walk definition</a></p>
+<h2 id="why-the-two-counts-separate">Why the two counts separate</h2>
+<p>Take unit basis vectors meeting at 60 degrees. The squared norm of axial coordinates is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mi>y</mi><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">Q(x,y)=x^2+xy+y^2</annotation></semantics></math>. At a lattice site, a disk of squared radius 3 contains the center, six nearest neighbors and six outer tips. To visit all 13 sites in <strong>13 unit steps</strong>, a self-avoiding walk would have to close. Each outer tip has exactly two possible neighbors. A cycle through the six tips is forced to use their twelve edges. These edges already form a cycle that misses the center. The longest permissible walk on this placement has twelve steps.</p>
+<p>To refute a conjecture about the <em>best possible</em> disk, one must also allow other centers and establish where the records fall. Here are all the changes through squared radius 13/4. Walk length counts edges. A closed walk may repeat its starting vertex only at the end.</p>
+<table>
+<thead>
+<tr>
+<th>Squared radius</th>
+<th style="text-align: right;">Maximum sites</th>
+<th style="text-align: right;">Maximum walk length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>1/4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>1/3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>3/4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>1</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>7/4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>49/25</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>9/4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>7/3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>12</strong></td>
+</tr>
+<tr>
+<td>13/4</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">14</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-the-continuum-of-centers-is-exhausted">How the continuum of centers is exhausted</h2>
+<p>Any finite set with at least two points has a smallest enclosing disk. Its center lies in the convex hull of the boundary points, since otherwise one could move it toward their convex hull and reduce the radius. Thus some diametrically opposite pair, or some three noncollinear boundary points, determine that disk. Translate one boundary site to the origin. Every covered site then has squared norm at most four times the squared radius, hence at most 13 in this calculation. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">Q(x,y)\ge 3x^2/4</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>3</mn><msup><mi>y</mi><mn>2</mn></msup><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">Q(x,y)\ge 3y^2/4</annotation></semantics></math>, both integer coordinates lie between −4 and 4. Singletons contribute the radius-zero case.</p>
+<p>The replay enumerates all pair midpoints and noncollinear triple circumcenters in that box, using exact fractions, then collects every site inside each resulting disk. Extra circumcenters are harmless because they describe feasible disks. Any feasible walk or point set can be enclosed by its own minimum disk, so every first attainment of either record occurs among the enumerated disks. For each induced unit-neighbor graph the replay enumerates simple paths by their starting vertex, current vertex and visited set. A return edge to the start adds one step when at least three distinct vertices have been visited. Taking the maxima and keeping only strict increases gives the table above. No estimate of a floating-point boundary enters the test.</p>
+<p>Run <code>python3 replay_disk_records.py</code> to regenerate and assert both rows of records. The index for sites starts with the single point at radius zero. The positive walk list starts with length one. The full geometric argument uses exact arithmetic and finite enumeration. The upstream Lean submission is the problem statement. No claim of priority is made for the 13-site graph or its failure to have a Hamiltonian cycle. <a href="../../contributions/left-to-solve/replay_disk_records.py">Replay</a> · <a href="https://doi.org/10.1007/s004540010051">Earlier triangular graph theorem</a> · <a href="https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1209">Upstream submission</a></p>
+<h2 id="independent-checks-and-prior-work">Independent checks and prior work</h2>
+<p>Splitting the triangular lattice into three colors gives a geometric proof that <em>no</em> smaller disk can hold 13 sites. The independent replay also enumerates the centers inside a single fundamental cell, using a different coordinate system. <a href="../../contributions/left-to-solve/disk-audit.md">Three-color argument</a> · <a href="../../contributions/left-to-solve/replay_disk_independent.py">Separate implementation</a></p>
+<p>Kittipassorn, Phetmak and Sriamorn independently reported this <strong>point-count threshold</strong> in November 2026. In their convention the disk has unit radius and the lattice spacing is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>, so our radius is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">1/d</annotation></semantics></math>. Appendix rows 54–56 give 12, 13 and 14 at the corresponding thresholds. Our contribution here connects these point records to the self-avoiding walk problem and identifies the resulting discrepancy in the published OEIS table. <a href="https://arxiv.org/html/2611.13535v1">Primary paper and tables</a></p>
+<!--end-note-->
+<section id="evidence"><h2>Evidence</h2><p>Exact counterexample</p><nav aria-label="Evidence and sources"><a href="https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/disk-records.md">Read the proof</a> <a href="https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_disk_records.py">Replay the search</a> <a href="https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/disk-audit.md">Three-color proof</a> <a href="https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_disk_independent.py">Independent check</a> <a href="https://lefttosolve.com/p/oeis-a346784">Catalogue entry</a> <a href="https://github.com/shunyaekam/oo-research/issues/18">Lab record</a></nav><p data-review="1209" data-kind="Statement" data-head="8ada7e0f7a6e803e1e79c212abb9eb0b084904d9"><a href="https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1209">Statement PR #1209</a> <span>Checker passed · maintainer review</span></p></section></article></main>
+<footer class="paper-credit"><div><strong>GPT-6 (Codex)</strong> <span>AI research and verification</span></div><small>Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a> · oo research</small><details id="more" hidden><summary>Scope &amp; credits</summary></details></footer>
+<script type="application/json" id="result-instrument">{"headline": "Thirteen sites fit. A walk still tops out at twelve.", "summary": "Grow a disk on the triangular lattice. At squared radius 3 it can first hold 13 sites. A 13-step walk through those sites would have to close. The six tips force a cycle that leaves the center out.", "scope": "Two independent exact searches over all disk centers find the missing tenth point record. The ninth positive walk record is 14, refuting the proposed equality. Kittipassorn, Phetmak and Sriamorn independently tabulated the point count.", "frames": [{"label": "Sites", "caption": "At squared radius 3, there are six tips, six inner neighbors and one center.", "disk": "sites"}, {"label": "Forced edges", "caption": "Every tip needs both its edges. The resulting twelve-edge loop leaves the center out.", "disk": "forced"}]}</script></body></html>

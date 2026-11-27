@@ -1,0 +1,946 @@
+[
+  {
+    "id": "oeis-a346784",
+    "slug": "missing-disk-record",
+    "title": "The missing thirteenth site",
+    "headline": "Thirteen sites fit. A walk still tops out at twelve.",
+    "field": "Statistical mechanics",
+    "method": "Exact counterexample",
+    "summary": "Grow a disk on the triangular lattice. At squared radius 3 it can first hold 13 sites. A 13-step walk through those sites would have to close. The six tips force a cycle that leaves the center out.",
+    "scope": "Two independent exact searches over all disk centers find the missing tenth point record. The ninth positive walk record is 14, refuting the proposed equality. Kittipassorn, Phetmak and Sriamorn independently tabulated the point count.",
+    "path": "papers/missing-disk-record/",
+    "source": "https://lefttosolve.com/p/oeis-a346784",
+    "note": "contributions/left-to-solve/disk-records.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/disk-records.md"
+      },
+      {
+        "label": "Replay the search",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_disk_records.py"
+      },
+      {
+        "label": "Three-color proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/disk-audit.md"
+      },
+      {
+        "label": "Independent check",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_disk_independent.py"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a346784"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/18"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1209",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1209",
+        "status": "Checker passed · maintainer review",
+        "head": "8ada7e0f7a6e803e1e79c212abb9eb0b084904d9",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Sites",
+        "caption": "At squared radius 3, there are six tips, six inner neighbors and one center.",
+        "disk": "sites"
+      },
+      {
+        "label": "Forced edges",
+        "caption": "Every tip needs both its edges. The resulting twelve-edge loop leaves the center out.",
+        "disk": "forced"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a145646",
+    "slug": "hydrogen-wavelengths",
+    "title": "A one-ångström discrepancy in the hydrogen sequence",
+    "headline": "At level 15, the recurrence misses by one ångström.",
+    "field": "Atomic physics",
+    "method": "Lean counterexample",
+    "summary": "The source’s rounding rule gives 205,035 Å. Barker’s recurrence predicts 205,034 Å. The discrepancy follows from just two tabulated levels, even if the Rydberg constant varies within their rounding bounds.",
+    "scope": "Two independent checks: a Lean certificate for the published program and a rational interval calculation for the tabulated values.",
+    "path": "papers/hydrogen-wavelengths/",
+    "source": "https://lefttosolve.com/p/oeis-a145646",
+    "note": "contributions/left-to-solve/hydrogen.md",
+    "links": [
+      {
+        "label": "Read the calculation",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/hydrogen.md"
+      },
+      {
+        "label": "Lean certificate",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/Hydrogen.lean"
+      },
+      {
+        "label": "Exact interval check",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_hydrogen.py"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a145646"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/13"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1074",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1074",
+        "status": "Checker passed · maintainer review",
+        "head": "37fb40ece5490340665f3fd45b390f00903b5c31",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "followup": "disproof",
+    "frames": [
+      {
+        "label": "Level 13",
+        "caption": "Both rules agree.",
+        "pair": [
+          [
+            "Rounded",
+            "154,004 Å"
+          ],
+          [
+            "Recurrence",
+            "154,004 Å"
+          ]
+        ]
+      },
+      {
+        "label": "Level 14",
+        "caption": "Both rules agree.",
+        "pair": [
+          [
+            "Rounded",
+            "178,608 Å"
+          ],
+          [
+            "Recurrence",
+            "178,608 Å"
+          ]
+        ]
+      },
+      {
+        "label": "Level 15",
+        "caption": "The recurrence falls one ångström short.",
+        "pair": [
+          [
+            "Rounded",
+            "205,035 Å"
+          ],
+          [
+            "Recurrence",
+            "205,034 Å"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oeis-a145647",
+    "slug": "hydrogen-gaps",
+    "title": "A one-ångström discrepancy in the wavelength gaps",
+    "headline": "The gap first misses by one ångström at level 14.",
+    "field": "Atomic physics",
+    "method": "Lean counterexample",
+    "summary": "The jump from level 14 to level 15 is 26,427 Å. The proposed recurrence for adjacent gaps gives 26,426 Å. Both hydrogen entries measure the same discrepancy.",
+    "scope": "Lean checks the proposed rule at every earlier index in its stated range and verifies the first failure.",
+    "path": "papers/hydrogen-gaps/",
+    "source": "https://lefttosolve.com/p/oeis-a145647",
+    "note": "contributions/left-to-solve/hydrogen.md",
+    "links": [
+      {
+        "label": "Read the calculation",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/hydrogen.md"
+      },
+      {
+        "label": "Lean certificate",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/Hydrogen.lean"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a145647"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/14"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1084",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1084",
+        "status": "Checker passed · maintainer review",
+        "head": "1eeb8a628bbd46cebab0d2e0e9a7b1a7c4aea075",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "followup": "disproof",
+    "frames": [
+      {
+        "label": "Level 12",
+        "caption": "Both rules agree.",
+        "pair": [
+          [
+            "Rounded",
+            "22,782 Å"
+          ],
+          [
+            "Recurrence",
+            "22,782 Å"
+          ]
+        ]
+      },
+      {
+        "label": "Level 13",
+        "caption": "Both rules agree.",
+        "pair": [
+          [
+            "Rounded",
+            "24,604 Å"
+          ],
+          [
+            "Recurrence",
+            "24,604 Å"
+          ]
+        ]
+      },
+      {
+        "label": "Level 14",
+        "caption": "The recurrence falls one ångström short.",
+        "pair": [
+          [
+            "Rounded",
+            "26,427 Å"
+          ],
+          [
+            "Recurrence",
+            "26,426 Å"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oeis-a293452",
+    "slug": "one-row-sandpile",
+    "title": "A shifted toppling count on the sandpile ring",
+    "headline": "The one-row sandpile count is shifted by one.",
+    "field": "Statistical mechanics",
+    "method": "Lean counterexample · prior solution",
+    "summary": "A two-site ring has one active pile. It fires once and then stops. The printed formula gives two. For a ring of length n ≥ 2, the correct count is A023855(n − 1).",
+    "scope": "The Omega Institute previously proved the corrected formula. Our standalone Lean proof refutes the printed indexing. A separate simulation checks 150 legal firing orders across 50 sizes.",
+    "path": "papers/one-row-sandpile/",
+    "source": "https://lefttosolve.com/p/oeis-a293452",
+    "note": "contributions/left-to-solve/sandpile.md",
+    "links": [
+      {
+        "label": "Earlier all-size proof",
+        "url": "https://www.trureturing.org/research/arndt-2017-a293452-torus-column-sandpile/"
+      },
+      {
+        "label": "Our derivation",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/sandpile.md"
+      },
+      {
+        "label": "Lean counterexample",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/Sandpile.lean"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a293452"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/11"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1071",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1071",
+        "status": "Checker passed · maintainer review",
+        "head": "88534900d2a1a12467d8485fe9e373e69857e780",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "followup": "disproof",
+    "frames": [
+      {
+        "label": "Before",
+        "caption": "On the two-site ring the active site starts with four grains. The other site is a sink.",
+        "pile": 4
+      },
+      {
+        "label": "After one firing",
+        "caption": "Two grains reach the sink. The two vertical self-loops return their grains, leaving the active site stable.",
+        "pile": 2
+      }
+    ]
+  },
+  {
+    "id": "oeis-a201488",
+    "slug": "chsh-theta-series",
+    "title": "A theta series for the CHSH winning probability",
+    "headline": "A theta series sums to the CHSH winning probability.",
+    "field": "Quantum information",
+    "method": "Lean proof",
+    "summary": "Split a Gaussian lattice sum into even and odd indices. The theta transformation fixes their ratio, giving the exact value of the proposed series.",
+    "scope": "Lean 4.33.1 checks the complete series identity, including absolute convergence. The statement is in upstream review. Somos recorded the equivalent theta quotient in 2022.",
+    "path": "papers/chsh-theta-series/",
+    "source": "https://lefttosolve.com/p/oeis-a201488",
+    "note": "contributions/left-to-solve/chsh.md",
+    "links": [
+      {
+        "label": "Read the derivation",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/chsh.md"
+      },
+      {
+        "label": "Full Lean proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/CHSH.lean"
+      },
+      {
+        "label": "Checker verdict",
+        "url": "https://github.com/shunyaekam/oo-research/actions/runs/45920326180"
+      },
+      {
+        "label": "Coefficient sequence",
+        "url": "https://oeis.org/A210066"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a201488"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/12"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1073",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1073",
+        "status": "Checker passed · maintainer review",
+        "head": "b566a652a532ccddc9af682f9e166653dc2be3b4",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "followup": "proof",
+    "frames": [
+      {
+        "label": "Even pairs",
+        "caption": "The transformed lattice sum splits into equal-parity pairs. Even–even pairs contribute A².",
+        "parity": 0
+      },
+      {
+        "label": "Odd pairs",
+        "caption": "Odd–odd pairs contribute B², where B = (√2 − 1)A.",
+        "parity": 1
+      },
+      {
+        "label": "Quotient",
+        "caption": "Combining the two sums gives A²/(A²+B²), the CHSH winning probability.",
+        "value": "(2 + √2) / 4"
+      }
+    ]
+  },
+  {
+    "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+    "slug": "six-photon-matchings",
+    "title": "Six photons and three target colors",
+    "headline": "Can six photons share three perfectly matched colors?",
+    "field": "Quantum optics",
+    "method": "Lean proof · prior physics result",
+    "summary": "In this pair-source model, the answer is no. Every higher-dimensional solution would restrict to three colors. Lean checks the complete six-photon theorem, including sources with arbitrary complex edge weights.",
+    "scope": "Lean checks the six-vertex theorem with arbitrary complex weights. The physics restriction was known; the rigidity proof is an attributed port of Rishi Rajasekaran’s work.",
+    "path": "papers/six-photon-matchings/",
+    "source": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+    "note": "contributions/left-to-solve/optical-matchings.md",
+    "links": [
+      {
+        "label": "Matching argument",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/optical-matchings.md"
+      },
+      {
+        "label": "Replay the complete theorem",
+        "url": "https://github.com/shunyaekam/oo-research/actions/runs/45922396593"
+      },
+      {
+        "label": "Replay all 960",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_optical_matchings.py"
+      },
+      {
+        "label": "Earlier physics result",
+        "url": "https://arxiv.org/html/2109.13273#S3.SS2"
+      },
+      {
+        "label": "Six-vertex certificate",
+        "url": "https://github.com/algal/krenn-gu-6x3-certificate"
+      },
+      {
+        "label": "Earlier general treatment",
+        "url": "https://github.com/rrajasek95/krenn-conjecture"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/15"
+      },
+      {
+        "label": "Editorial draft on Left to Solve",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1401"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Reduction PR #1077",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1077",
+        "status": "Reduction merged",
+        "head": "e500f07e76881047a2e0ba21533368bd72df22ff",
+        "kind": "Reduction"
+      },
+      {
+        "label": "First-step proof #1167",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1167",
+        "status": "Proof passed upstream Lean",
+        "head": "e5491fee6c7a1050a428425b922e52b97a665164",
+        "kind": "step"
+      },
+      {
+        "label": "Rigidity proof #1289",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1289",
+        "status": "Proof passed upstream Lean",
+        "head": "d8d7370dc10f2ac6114f7bf972cb48666e027677",
+        "kind": "step"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Pairing I",
+        "caption": "A perfect matching pairs each of the six output vertices exactly once.",
+        "matching": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "label": "Pairing II",
+        "caption": "Another way to pair the same outputs. There are fifteen possible pairings before amplitudes are assigned.",
+        "matching": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      },
+      {
+        "label": "Dimension",
+        "caption": "With three colors the matching equations are inconsistent. Restricting to three colors also rules out every higher dimension in this model.",
+        "value": "d ≤ 2"
+      }
+    ]
+  },
+  {
+    "id": "mo-283077",
+    "slug": "periodic-wave-trace",
+    "title": "When a periodic wave’s spectral trace can turn",
+    "headline": "Can a spectral band turn around inside its allowed range?",
+    "field": "Wave physics",
+    "method": "Analytic proof · scope split",
+    "summary": "With a real periodic potential the slope cannot vanish there. An imaginary cosine potential can produce a stationary point inside the band. The answer depends on an assumption left unstated in the question.",
+    "scope": "The catalogue leaves the potential’s range unstated. Lean checks the real matrix inequality; the full argument treats both cases.",
+    "path": "papers/periodic-wave-trace/",
+    "source": "https://lefttosolve.com/p/mo-283077",
+    "note": "contributions/left-to-solve/floquet.md",
+    "links": [
+      {
+        "label": "Read the argument",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/floquet.md"
+      },
+      {
+        "label": "Lean matrix lemma",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/FloquetTrace.lean"
+      },
+      {
+        "label": "Replay the example",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_floquet.py"
+      },
+      {
+        "label": "Original question",
+        "url": "https://mathoverflow.net/questions/283077"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/mo-283077"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/16"
+      }
+    ],
+    "reviews": [],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Real potential",
+        "caption": "For real, continuous, symmetric periodic potentials and real shear, the trace has no stationary point when |f(z)| < 1.",
+        "value": "f′(z) ≠ 0"
+      },
+      {
+        "label": "Complex potential",
+        "caption": "An imaginary cosine potential gives a stationary point with |f(z)| < 1. The distinction concerns the potential, not just the energy.",
+        "value": "f′(z) = 0"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a346126",
+    "slug": "record-walks",
+    "title": "Why every record walk closes",
+    "headline": "Every optimal record walk longer than one step closes.",
+    "field": "Statistical mechanics",
+    "method": "Graph-theoretic proof",
+    "summary": "At the smallest radius that fits a record-length walk, closing the loop is the only way to attain that length. A theorem of Reay and Zamfirescu covers large disks except for one 13-site star. A smaller explicit 12-cycle handles that exception.",
+    "scope": "Written proof for every record length. Lean checks the finite geometric witnesses. The general argument invokes the published Hamiltonian-cycle theorem.",
+    "path": "papers/record-walks/",
+    "source": "https://lefttosolve.com/p/oeis-a346126",
+    "note": "contributions/left-to-solve/record-walks.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/record-walks.md"
+      },
+      {
+        "label": "Lean witnesses",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/LatticeWitnesses.lean"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a346126"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/17"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1202",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1202",
+        "status": "Checker passed · maintainer review",
+        "head": "ca23a81d851214dd77c7d52160e09578c8f54b6a",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Exception",
+        "caption": "The six tips of this 13-site disk force a cycle around the center.",
+        "disk": "forced"
+      },
+      {
+        "label": "Smaller disk",
+        "caption": "A 12-edge cycle already fits at squared radius 7/3. It supplies paths of every length through twelve.",
+        "disk": "witness"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a122226",
+    "slug": "integer-diameter-walks",
+    "title": "Full disks and longest walks at integer diameters",
+    "headline": "At every integer diameter from two up, a cycle can visit every site in a fullest disk.",
+    "field": "Statistical mechanics",
+    "method": "Graph-theoretic corollary",
+    "summary": "The maximum number of steps equals the maximum number of sites among all disk placements. The only exceptional graph is too wide for diameters two and three. From diameter four onward, a competing disk already holds 19 sites.",
+    "scope": "This proves the proposed equality for both integer sequences using the same published graph theorem as the record-walk result.",
+    "path": "papers/integer-diameter-walks/",
+    "source": "https://lefttosolve.com/p/oeis-a122226",
+    "note": "contributions/left-to-solve/integer-diameters.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/integer-diameters.md"
+      },
+      {
+        "label": "Disk graph argument",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/record-walks.md"
+      },
+      {
+        "label": "Lean witnesses",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/LatticeWitnesses.lean"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a122226"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/19"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1217",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1217",
+        "status": "Checker passed · maintainer review",
+        "head": "11a0b30cb3bbaec17c03a9d38f92ecd5751b12d1",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Diameters 2–3",
+        "caption": "Opposite tips of the only exceptional graph are too far apart for either integer diameter.",
+        "value": "2√3 > 3"
+      },
+      {
+        "label": "Diameter 4",
+        "caption": "At diameter 4 a site-centered disk contains 19 sites. Any larger integer diameter retains this witness.",
+        "disk": "nineteen"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a358696",
+    "slug": "boundary-loops",
+    "title": "Boundary-covering loops on a five-row strip",
+    "headline": "Twenty states count loops on a strip of any length.",
+    "field": "Statistical mechanics",
+    "method": "Integer transfer certificate",
+    "summary": "Draw a single loop on a grid five vertices wide. It must visit every vertex along the boundary. A cut across the grid sees only twenty ways to connect the loose ends. One vector identity then proves Manyama’s proposed recurrence for every length from eleven onward.",
+    "scope": "Exact integer proof with an independent small-grid enumeration. Width five is fixed.",
+    "path": "papers/boundary-loops/",
+    "source": "https://lefttosolve.com/p/oeis-a358696",
+    "note": "contributions/left-to-solve/boundary-cycles.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/boundary-cycles.md"
+      },
+      {
+        "label": "Replay all 20 coordinates",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_boundary_cycles.py"
+      },
+      {
+        "label": "Independent review",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/boundary-cycle-audit.md"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a358696"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/20"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1281",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1281",
+        "status": "Checker passed · maintainer review",
+        "head": "89d77113aeae6fe4bfa9b3be0a7594752d50f972",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "2 columns",
+        "caption": "The unique boundary-covering cycle on two columns.",
+        "grid": [
+          2,
+          5
+        ],
+        "trail": "RDDDDLUUUU"
+      },
+      {
+        "label": "3 columns",
+        "caption": "Five cycles cover the boundary. The perimeter is one of them.",
+        "grid": [
+          3,
+          5
+        ],
+        "trail": "RRDDDDLLUUUU"
+      },
+      {
+        "label": "4 columns",
+        "caption": "There are 36 cycles on four columns. The example shown follows the perimeter.",
+        "grid": [
+          4,
+          5
+        ],
+        "trail": "RRRDDDDLLLUUUU"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a333686",
+    "slug": "midpoint-paths",
+    "title": "Corner-to-corner paths through the middle",
+    "headline": "Five states count self-avoiding paths through the center.",
+    "field": "Statistical mechanics",
+    "method": "Integer transfer certificate",
+    "summary": "Walk between opposite corners of a three-row grid and pass through the middle vertex. Adding one column on either side of the center acts on a space of dimension 25. That makes 25 exact zero checks enough to prove the recurrence for every length in Manyama’s conjecture.",
+    "scope": "Exact transfer proof for the stated fixed-width strip.",
+    "path": "papers/midpoint-paths/",
+    "source": "https://lefttosolve.com/p/oeis-a333686",
+    "note": "contributions/left-to-solve/strip-paths.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/strip-paths.md"
+      },
+      {
+        "label": "Replay the recurrence and generating function",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_strip_paths.py"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a333686"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/21"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1299",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1299",
+        "status": "Checker passed · maintainer review",
+        "head": "3eceb55b197a689989d09e76934f0403726da06e",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "1 column",
+        "caption": "The single path passes through the middle vertex.",
+        "grid": [
+          1,
+          3
+        ],
+        "trail": "DD"
+      },
+      {
+        "label": "3 columns",
+        "caption": "Ten paths qualify. Here the path reaches the center on its second step.",
+        "grid": [
+          3,
+          3
+        ],
+        "trail": "RDDR"
+      },
+      {
+        "label": "5 columns",
+        "caption": "There are 101 paths through the center. One qualifying path is highlighted.",
+        "grid": [
+          5,
+          3
+        ],
+        "trail": "RRDDRR"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a216211",
+    "slug": "four-column-paths",
+    "title": "Self-avoiding crossings of a four-column strip",
+    "headline": "Twelve states settle the four-column recurrence.",
+    "field": "Statistical mechanics",
+    "method": "Integer transfer certificate",
+    "summary": "Start at the northwest corner and finish at the southwest corner without revisiting a site. A cut between rows retains twelve possible connection patterns. They yield the order-twelve recurrence and generating function proposed by Colin Barker for Gottfried’s sequence.",
+    "scope": "Exact transfer proof for the stated fixed-width strip.",
+    "path": "papers/four-column-paths/",
+    "source": "https://lefttosolve.com/p/oeis-a216211",
+    "note": "contributions/left-to-solve/strip-paths.md",
+    "links": [
+      {
+        "label": "Read the proof",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/strip-paths.md"
+      },
+      {
+        "label": "Replay both formulas",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_strip_paths.py"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a216211"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/22"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1302",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1302",
+        "status": "Checker passed · maintainer review",
+        "head": "62ab78a1bb4a2386f851a51dfe7524e4d37cb815",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "1 row",
+        "caption": "Both corners coincide. The empty path counts once.",
+        "grid": [
+          4,
+          1
+        ],
+        "trail": ""
+      },
+      {
+        "label": "2 rows",
+        "caption": "Four paths qualify. This one crosses at the far right.",
+        "grid": [
+          4,
+          2
+        ],
+        "trail": "RRRDLLL"
+      },
+      {
+        "label": "3 rows",
+        "caption": "There are 28 paths between the two left corners. One example is highlighted.",
+        "grid": [
+          4,
+          3
+        ],
+        "trail": "RRRDDLLL"
+      }
+    ]
+  },
+  {
+    "id": "oeis-a191625",
+    "slug": "prudent-walks",
+    "title": "Counting prudent walks ending at a corner",
+    "headline": "An exact count for walks that refuse to step toward their own trail.",
+    "field": "Statistical mechanics",
+    "method": "Symbolic recurrence certificate",
+    "summary": "For two-sided prudent walks that end at the northeast corner of their bounding box, Mathar proposed a nine-term-lag relation. Its full verification reduces to a polynomial remainder of exactly zero. It holds at every length from nine onward.",
+    "scope": "The proof uses Mireille Bousquet-Mélou’s published generating function. The replay uses SymPy 1.14.0.",
+    "path": "papers/prudent-walks/",
+    "source": "https://lefttosolve.com/p/oeis-a191625",
+    "note": "contributions/left-to-solve/prudent-walks.md",
+    "links": [
+      {
+        "label": "Read the derivation",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/prudent-walks.md"
+      },
+      {
+        "label": "Replay the algebra",
+        "url": "https://github.com/shunyaekam/oo-research/blob/main/contributions/left-to-solve/replay_prudent_walks.py"
+      },
+      {
+        "label": "Catalogue entry",
+        "url": "https://lefttosolve.com/p/oeis-a191625"
+      },
+      {
+        "label": "Lab record",
+        "url": "https://github.com/shunyaekam/oo-research/issues/23"
+      }
+    ],
+    "reviews": [
+      {
+        "label": "Statement PR #1313",
+        "url": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/1313",
+        "status": "Checker passed · maintainer review",
+        "head": "7db226dac71ec9d5b856c16d0d5c4943a44f86d7",
+        "kind": "Statement"
+      }
+    ],
+    "credit": "GPT-6 (Codex)",
+    "director": "Aryan Singh",
+    "frames": [
+      {
+        "label": "Straight east",
+        "caption": "Four eastward steps never point toward a visited site. The endpoint is the northeast corner.",
+        "grid": [
+          5,
+          1
+        ],
+        "trail": "RRRR"
+      },
+      {
+        "label": "Turn south",
+        "caption": "East, south, east, north. Each successive endpoint stays on the top or right of its current box.",
+        "grid": [
+          3,
+          2
+        ],
+        "trail": "RDRU"
+      },
+      {
+        "label": "Turn west",
+        "caption": "North, west, north, east. This is another of the 24 qualifying four-step walks.",
+        "grid": [
+          2,
+          3
+        ],
+        "trail": "ULUR",
+        "start": [
+          1,
+          2
+        ]
+      }
+    ]
+  }
+]

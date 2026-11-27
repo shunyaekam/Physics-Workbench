@@ -1,0 +1,89 @@
+name: Publish accepted Left to Solve results
+on:
+  schedule:
+    - cron: '27 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: publish-left-to-solve
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Test credit and publication logic
+        run: python3 -m unittest test_left_to_solve_feed test_research_map_sync
+      - name: Restore immutable merged-file metadata
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/lts-pr-cache.json
+          key: lts-merged-files-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: lts-merged-files-v1-
+      - name: Reconcile public verdicts with merged files
+        id: sync
+        run: |
+          cache="$RUNNER_TEMP/lts-pr-cache.json"
+          before=$(sha256sum "$cache" 2>/dev/null || true)
+          python3 ops/sync_left_to_solve.py --pr-cache "$cache"
+          if [[ "$before" != "$(sha256sum "$cache")" ]]; then echo 'new_cache=true' >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/cache/save@v4
+        if: steps.sync.outputs.new_cache == 'true'
+        with:
+          path: ${{ runner.temp }}/lts-pr-cache.json
+          key: lts-merged-files-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Restore pinned Pandoc for curated readers
+        id: pandoc
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/pandoc-root
+          key: lts-pandoc-linux-amd64-3.8.3-v1
+      - name: Prepare Pandoc
+        if: steps.pandoc.outputs.cache-hit != 'true'
+        working-directory: ${{ runner.temp }}
+        run: |
+          curl --fail --silent --show-error --location --retry 3 -o pandoc.deb https://github.com/jgm/pandoc/releases/download/3.8.3/pandoc-3.8.3-1-amd64.deb
+          echo 'd7fac78b58b8c8da39254955eff321233ab97d74e8b2d461c0f0719a1fb5f357  pandoc.deb' | sha256sum --check
+          dpkg-deb --extract pandoc.deb pandoc-root
+      - name: Rebuild the research map and readers
+        run: |
+          export PATH="$RUNNER_TEMP/pandoc-root/usr/bin:$PATH"
+          python3 ops/build_research_map.py
+          git diff --check
+      - name: Publish changed pages
+        run: |
+          git add -- site/left-to-solve/accepted.json catalogue.html ':(glob)papers/*/index.html'
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Publish updated Left to Solve results"
+            git push origin HEAD:main
+          fi
+      - name: Request and confirm the branch-based Pages build
+        run: |
+          api="repos/$GITHUB_REPOSITORY/pages"
+          sha=$(git rev-parse HEAD)
+          latest() { gh api "$api/builds/latest" --jq '[.commit, .status] | join(" ")'; }
+          build=$(latest)
+          if [[ "$build" == "$sha built" ]]; then exit 0; fi
+          if [[ "$build" != "$sha building" && "$build" != "$sha queued" ]]; then
+            gh api --method POST "$api/builds"
+          fi
+          for attempt in {1..30}; do
+            build=$(latest)
+            if [[ "$build" == "$sha built" ]]; then exit 0; fi
+            if [[ "$build" == "$sha errored" ]]; then exit 1; fi
+            # A concurrent main update gets its own build and includes this commit.
+            if [[ "$(git ls-remote origin refs/heads/main | cut -f1)" != "$sha" ]]; then exit 0; fi
+            sleep 10
+          done
+          echo "::error::Pages has not confirmed the publication of $sha"
+          exit 1

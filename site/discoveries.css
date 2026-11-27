@@ -41,3 +41,11 @@ footer a{white-space:nowrap}
 .description h1{letter-spacing:-.058em}
 
 footer{justify-content:center}
+#lattice-figure svg{width:min(100%,46svh);height:auto}
+#lattice-figure .boundary{fill:#f2f7f8;stroke:#b9ccd2;stroke-width:.65}
+#lattice-figure line{stroke:#aabcc1;stroke-width:1.05}
+#lattice-figure .site,#lattice-figure .origin{fill:#264b55}
+#lattice-figure.traced .rim{stroke:#226976;stroke-width:2.3}
+#lattice-figure.traced .inside{opacity:.18}
+#lattice-figure.traced .origin{fill:#a64f30}
+@media(max-width:650px) and (min-height:501px){#lattice-figure svg{width:min(66vw,33svh)}}

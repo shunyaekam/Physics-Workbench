@@ -63,3 +63,13 @@ document.addEventListener('keydown', e => {
 });
 window.addEventListener('hashchange', selectResult);
 selectResult();
+for (const button of document.querySelectorAll('[data-lattice]')) {
+  button.addEventListener('click', () => {
+    const cycle = button.dataset.lattice === 'cycle';
+    document.getElementById('lattice-figure').classList.toggle('traced', cycle);
+    document.getElementById('lattice-caption').textContent = cycle ? '12 edges around the center' : '13 sites in the disk';
+    for (const option of document.querySelectorAll('[data-lattice]')) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+  });
+}

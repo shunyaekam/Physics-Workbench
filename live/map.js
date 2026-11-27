@@ -103,14 +103,16 @@ class ResearchMap {
     topics.forEach((n,i) => {
       const angle = -Math.PI / 2 + .17 + i * 2*Math.PI/topics.length;
       if (w < 550) {
-        const side = i < 4 ? -1 : 1, row = i % 4;
-        Object.assign(n,{angle:side < 0 ? Math.PI : 0,x:cx+side*.31*w,y:h*(.12+row*.25),phase:i+1});
+        const rows = Math.ceil(topics.length / 2);
+        const side = i < rows ? -1 : 1, row = i % rows;
+        Object.assign(n,{angle:side < 0 ? Math.PI : 0,x:cx+side*.31*w,y:h*(row+.5)/rows,phase:i+1});
       } else Object.assign(n,{angle, x:cx + .32*w*Math.cos(angle), y:cy + .32*h*Math.sin(angle),phase:i+1});
     });
     for (const parent of [root,...topics]) {
       const children = this.nodes.filter(n => n.type === 'record' && n.parent === parent.key);
       children.forEach((n,i) => {
-        const angle = (parent.angle ?? -.78) + (i-(children.length-1)/2)*.97;
+        const spacing = Math.min(.97, 2*Math.PI/children.length);
+        const angle = (parent.angle ?? -.78) + (i-(children.length-1)/2)*spacing;
         const rx = parent === root ? .18*w : Math.min(.12*w,100);
         const ry = parent === root ? .17*h : Math.min(.10*h,75);
         n.x = Math.max(22,Math.min(w-22,parent.x + rx*Math.cos(angle)));

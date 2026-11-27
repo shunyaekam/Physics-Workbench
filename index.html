@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>oo research · Discoveries</title>
 <meta name="description" content="Explore exact results from oo research. Turn a sphere, inspect a quantum code, or follow the lab's live research record.">
-<meta property="og:title" content="oo research · Discoveries"><meta property="og:description" content="418 points on a sphere. A wider gap. Explore the configuration and its exact certificate.">
+<meta property="og:title" content="oo research · Discoveries"><meta property="og:description" content="Explore verified results on triangular lattices, sphere packings and quantum codes.">
 <meta property="og:image" content="https://shunyaekam.github.io/oo-research/site/assets/research-preview.png?v=map4">
 <link rel="icon" href="site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="site/discoveries.css?v=white-view">
 <script src="site/discoveries.js?v=common-menu" defer></script><script src="site/sphere.js" defer></script>
@@ -14,7 +14,13 @@
 <nav aria-label="Lab navigation"><a href="catalogue.html">Research map</a></nav>
 </header>
 <main id="discoveries" aria-label="Discoveries">
-<section class="result" data-result="packing" aria-labelledby="packing-title">
+<section class="result" data-result="lattice" aria-labelledby="lattice-title">
+<div class="description"><h1 id="lattice-title">Thirteen sites.<br>Twelve steps.</h1>
+<p class="claim">A disk on the triangular lattice reaches its thirteenth site before a self-avoiding walk can take its thirteenth step. The six outer tips force a loop around the center.</p>
+<div class="measurement"><span>Squared radius</span><output>3</output></div>
+<a class="source" href="papers/missing-disk-record/">Read result <span aria-hidden="true">↗</span></a></div>
+<figure id="lattice-figure"><svg viewBox="0 0 200 180" role="img" aria-labelledby="disk-title"><title id="disk-title">The 13 sites in a triangular lattice disk. Six outer tips have two neighbors each.</title><circle class="boundary" cx="100" cy="90" r="77.942"/><line class="rim" x1="32.500" y1="51.029" x2="55.000" y2="90.000"/><line class="rim" x1="32.500" y1="51.029" x2="77.500" y2="51.029"/><line class="rim" x1="32.500" y1="128.971" x2="55.000" y2="90.000"/><line class="rim" x1="32.500" y1="128.971" x2="77.500" y2="128.971"/><line class="inside" x1="55.000" y1="90.000" x2="77.500" y2="51.029"/><line class="inside" x1="55.000" y1="90.000" x2="77.500" y2="128.971"/><line class="inside" x1="55.000" y1="90.000" x2="100.000" y2="90.000"/><line class="rim" x1="77.500" y1="51.029" x2="100.000" y2="12.058"/><line class="inside" x1="77.500" y1="51.029" x2="100.000" y2="90.000"/><line class="inside" x1="77.500" y1="51.029" x2="122.500" y2="51.029"/><line class="rim" x1="100.000" y1="12.058" x2="122.500" y2="51.029"/><line class="inside" x1="77.500" y1="128.971" x2="100.000" y2="90.000"/><line class="rim" x1="77.500" y1="128.971" x2="100.000" y2="167.942"/><line class="inside" x1="77.500" y1="128.971" x2="122.500" y2="128.971"/><line class="inside" x1="100.000" y1="90.000" x2="122.500" y2="51.029"/><line class="inside" x1="100.000" y1="90.000" x2="122.500" y2="128.971"/><line class="inside" x1="100.000" y1="90.000" x2="145.000" y2="90.000"/><line class="inside" x1="122.500" y1="51.029" x2="145.000" y2="90.000"/><line class="rim" x1="122.500" y1="51.029" x2="167.500" y2="51.029"/><line class="rim" x1="100.000" y1="167.942" x2="122.500" y2="128.971"/><line class="inside" x1="122.500" y1="128.971" x2="145.000" y2="90.000"/><line class="rim" x1="122.500" y1="128.971" x2="167.500" y2="128.971"/><line class="rim" x1="145.000" y1="90.000" x2="167.500" y2="51.029"/><line class="rim" x1="145.000" y1="90.000" x2="167.500" y2="128.971"/><circle class="site" cx="32.500" cy="51.029" r="3.7"/><circle class="site" cx="32.500" cy="128.971" r="3.7"/><circle class="site" cx="55.000" cy="90.000" r="3.7"/><circle class="site" cx="77.500" cy="51.029" r="3.7"/><circle class="site" cx="100.000" cy="12.058" r="3.7"/><circle class="site" cx="77.500" cy="128.971" r="3.7"/><circle class="origin" cx="100.000" cy="90.000" r="3.7"/><circle class="site" cx="122.500" cy="51.029" r="3.7"/><circle class="site" cx="100.000" cy="167.942" r="3.7"/><circle class="site" cx="122.500" cy="128.971" r="3.7"/><circle class="site" cx="145.000" cy="90.000" r="3.7"/><circle class="site" cx="167.500" cy="51.029" r="3.7"/><circle class="site" cx="167.500" cy="128.971" r="3.7"/></svg><figcaption><div class="switch" aria-label="Lattice view"><button data-lattice="sites" aria-pressed="true">Sites</button><button data-lattice="cycle" aria-pressed="false">Forced cycle</button></div><span id="lattice-caption" aria-live="polite">13 sites in the disk</span></figcaption></figure></section>
+<section class="result" data-result="packing" hidden aria-labelledby="packing-title">
 <div class="description">
 <h1 id="packing-title">418 points on<br>a sphere.</h1>
 <p class="claim">Our closest pair improves on Cohn’s November 25, 2026 entry.</p>
@@ -40,6 +46,6 @@
 <figcaption><span>Stabilizer weight</span><a class="record" href="certificates/wei-10-2-4.json">Census certificate ↗</a></figcaption></figure></section>
 <noscript><p>Explore the <a href="catalogue.html">research map</a> or the <a href="papers/sphere-packing/">packing result</a>.</p></noscript>
 </main>
-<footer><nav id="selector" aria-label="Choose a discovery"><a href="#packing" aria-current="true">Packing</a><a href="#code">Check weight</a><a href="#census">Code census</a></nav></footer>
+<footer><nav id="selector" aria-label="Choose a discovery"><a href="#lattice" aria-current="true">Lattice walks</a><a href="#packing">Packing</a><a href="#code">Check weight</a><a href="#census">Code census</a></nav></footer>
 
 </body></html>

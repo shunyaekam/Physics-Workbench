@@ -1,0 +1,13 @@
+body[data-contribution] #visual{min-height:clamp(8rem,33dvh,19rem);align-content:center}
+body[data-contribution] #visual svg{height:clamp(8rem,33dvh,19rem);width:100%}
+#visual .edge,#visual .boundary{stroke:#c4d0d3;stroke-width:1.6;fill:none}
+#visual .selected{stroke:#3b7284;stroke-width:4;stroke-linecap:round}
+#visual .point,#visual .active{fill:#365c68}#visual .faint{fill:#c9d4d7}
+#visual .unvisited{fill:#c06745}#visual text{font:14px var(--sans);fill:#546267}
+#visual .equation{font-weight:400;letter-spacing:-.05em;font-size:clamp(2.6rem,6.5vw,5.5rem)}
+body[data-contribution] #visual>div{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;width:min(94%,23rem);margin:.2rem auto}
+#visual>div small{font-size:.94rem;color:#617075}
+#visual>div strong{font-weight:400;font-size:clamp(1.5rem,3vw,2.7rem);font-variant-numeric:tabular-nums}
+#evidence nav{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem}
+#evidence p[data-review] span{display:block;color:#536066;font-size:.87em}
+@media(max-width:700px){body[data-contribution] #visual,body[data-contribution] #visual svg{min-height:0;height:clamp(7rem,22dvh,13rem)}}

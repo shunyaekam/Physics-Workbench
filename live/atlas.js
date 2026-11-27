@@ -158,8 +158,9 @@ function findPanel() {
     const select=make('select');select.setAttribute('aria-label',label);const all=make('option',label);all.value='';select.append(all);
     for(const v of values){const o=make('option',v);select.append(o);}select.value=params.get(param)||'';form.append(select);return select;
   }
-  const area=choose('area','All fields',['Quantum information','Quantum optics','Mathematical physics']);
-  const method=choose('method','All methods',['Partial Lean','Certificates','Analytic proof']);
+  const facets = key => [...new Set(paperRows.map(p => noteFor(p).dataset[key]).filter(Boolean))].sort();
+  const area=choose('area','All fields',facets('area'));
+  const method=choose('method','All methods',facets('method'));
   const results=make('ul',null,'find-results'),count=make('p',null,'find-count');
   count.setAttribute('role','status');body.append(form,count,results);
   function search(save){
