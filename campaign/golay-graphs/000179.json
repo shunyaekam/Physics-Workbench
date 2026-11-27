@@ -1,0 +1,261 @@
+{
+  "schema": 2,
+  "batch": 179,
+  "parent": 175,
+  "trials": 20000,
+  "cost": 44,
+  "frontier": 15,
+  "moves": [
+    [
+      "L",
+      19,
+      19
+    ],
+    [
+      "L",
+      19,
+      19
+    ],
+    [
+      "L",
+      6,
+      6
+    ],
+    [
+      "L",
+      10,
+      10
+    ],
+    [
+      "L",
+      19,
+      19
+    ],
+    [
+      "L",
+      21,
+      21
+    ],
+    [
+      "L",
+      5,
+      5
+    ],
+    [
+      "L",
+      10,
+      10
+    ],
+    [
+      "L",
+      1,
+      1
+    ],
+    [
+      "L",
+      4,
+      4
+    ],
+    [
+      "L",
+      3,
+      3
+    ],
+    [
+      "L",
+      22,
+      22
+    ],
+    [
+      "L",
+      18,
+      18
+    ],
+    [
+      "L",
+      6,
+      6
+    ],
+    [
+      "L",
+      16,
+      16
+    ],
+    [
+      "L",
+      11,
+      11
+    ],
+    [
+      "L",
+      4,
+      4
+    ],
+    [
+      "L",
+      21,
+      21
+    ],
+    [
+      "L",
+      13,
+      13
+    ],
+    [
+      "L",
+      9,
+      9
+    ],
+    [
+      "L",
+      11,
+      11
+    ],
+    [
+      "L",
+      2,
+      2
+    ],
+    [
+      "L",
+      18,
+      18
+    ],
+    [
+      "L",
+      3,
+      3
+    ],
+    [
+      "L",
+      8,
+      8
+    ],
+    [
+      "C",
+      22,
+      14
+    ],
+    [
+      "C",
+      21,
+      11
+    ],
+    [
+      "Z",
+      0,
+      15
+    ],
+    [
+      "C",
+      4,
+      1
+    ],
+    [
+      "C",
+      10,
+      4
+    ],
+    [
+      "Z",
+      1,
+      8
+    ],
+    [
+      "Z",
+      2,
+      16
+    ],
+    [
+      "Z",
+      2,
+      20
+    ],
+    [
+      "Z",
+      3,
+      9
+    ],
+    [
+      "Z",
+      3,
+      13
+    ],
+    [
+      "Z",
+      4,
+      5
+    ],
+    [
+      "Z",
+      4,
+      14
+    ],
+    [
+      "Z",
+      6,
+      15
+    ],
+    [
+      "Z",
+      6,
+      17
+    ],
+    [
+      "Z",
+      7,
+      20
+    ],
+    [
+      "Z",
+      9,
+      14
+    ],
+    [
+      "Z",
+      11,
+      12
+    ],
+    [
+      "Z",
+      11,
+      17
+    ],
+    [
+      "Z",
+      13,
+      18
+    ],
+    [
+      "Z",
+      16,
+      19
+    ],
+    [
+      "Z",
+      18,
+      21
+    ]
+  ],
+  "forward_stim": "H 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 21\nCX 18 21\nH 21 19\nCX 16 19\nH 19 18\nCX 13 18\nH 18 17\nCX 11 17\nH 17 12\nCX 11 12\nH 12 14\nCX 9 14\nH 14 20\nCX 7 20\nH 20 17\nCX 6 17\nH 17 15\nCX 6 15\nH 15 14\nCX 4 14\nH 14 5\nCX 4 5\nH 5 13\nCX 3 13\nH 13 9\nCX 3 9\nH 9 20\nCX 2 20\nH 20 16\nCX 2 16\nH 16 8\nCX 1 8\nH 8\nCX 10 4 4 1\nH 15\nCX 0 15\nH 15\nCX 21 11 22 14\nS 4 1\nSQRT_X_DAG 8\nS 13 9\nSQRT_X_DAG 3\nS 21 13\nSQRT_X_DAG 18\nS 20 16\nSQRT_X_DAG 2\nS 17 12\nSQRT_X_DAG 11\nS 22 14 13 3\nSQRT_X_DAG 9\nS 22 21 18 14 9\nSQRT_X_DAG 13\nS 22 17 14 13 12 9\nSQRT_X_DAG 21\nS 22 14 8 5 1\nSQRT_X_DAG 4\nS 17 12\nSQRT_X_DAG 11\nS 20 19 2\nSQRT_X_DAG 16\nS 17 15\nSQRT_X_DAG 6\nS 22 14 13 9\nSQRT_X_DAG 18\nS 21 18 17 14 13 12 10 8 5 4 3 1\nSQRT_X_DAG 22\nS 22 21 18 17 13 12 10 9 8 5 4 1\nSQRT_X_DAG 3\nS 9 8 5 3 1\nSQRT_X_DAG 4\nS 8 4\nSQRT_X_DAG 1\nS 9 5 3\nSQRT_X_DAG 10\nS 10 9 4 3\nSQRT_X_DAG 5\nS 17 13 12 3\nSQRT_X_DAG 21\nS 20 16 2\nSQRT_X_DAG 19\nS 5 4\nSQRT_X_DAG 10\nS 17 15\nSQRT_X_DAG 6\nS 20 16 2\nSQRT_X_DAG 19\nS 20 16 2\nSQRT_X_DAG 19\nX 3 4 8 22\nY 7 16 18 19 20\nZ 5 9 10 13 14 21\nS 19 20 22\nH 1 2 3 7 9 10 12 13 14 15 16 17\nS 2 14\nH 6 18\nCX 6 18\nH 18 6 14 0\nCX 14 0\nH 0 14 20 3\nCX 20 3\nH 3 20 19 19\nCX 8 19\nH 19 19 11 1\nCX 11 1\nH 1 11 0 0\nCX 11 0\nH 0 0 4 4\nCX 6 4\nH 4 4 12 5\nCX 12 5\nH 5 12 2 2\nCX 0 2\nH 2 2 16 12\nCX 16 12\nH 12 16 10 0\nCX 10 0\nH 0 10 8 8\nCX 22 8\nH 8 8 7 21\nCX 7 21\nH 21 7 18 19\nCX 18 19\nH 19 18 21 21\nCX 4 21\nH 21 21 6 2\nCX 6 2\nH 2 6 11 11\nCX 20 11\nH 11 11 9 9\nCX 4 9\nH 9 9 22 22\nCX 21 22\nH 22 22 4 11\nCX 4 11\nH 11 4 9 16\nCX 9 16\nH 16 9 21 21\nCX 2 21\nH 21 21 3 6\nCX 3 6\nH 6 3",
+  "forward_sha256": "f5e1a9763e223acdd485e1cf957fce810a5dcc4e22d5758b5a7a0b54882f3ccc",
+  "strategies": {
+    "rewire": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 45
+    },
+    "regrow": {
+      "frontiers": 48,
+      "trials": 7500,
+      "cost": 45
+    },
+    "deletion": {
+      "frontiers": 32,
+      "trials": 5000,
+      "cost": 44
+    }
+  },
+  "winning_strategy": "deletion",
+  "frontiers_sha256": "9863d55ab01f5fd8157971e9bc88328af6c6ae9f5631dce648d9db9c76e02852"
+}
