@@ -1,0 +1,16 @@
+# Audit of the tenth disk record on the triangular lattice
+
+The A346784 comment compares the **number of sites** covered at the nth record radius with **A346126(n−1)**, for n>2. The terms printed under the A346784 sequence title are numerators of squared radii. A346126 counts *edges* in nearest-neighbor walks, permits closed cycles, and has offset one. Its ninth term is 14. The site under consideration is the six-neighbor triangular lattice, also called the hexagonal lattice by these entries. [A346784](https://oeis.org/A346784) · [A346126](https://oeis.org/A346126)
+
+**A missing shell.** Color a site with axial coordinates (i,j) by i−j modulo 3. Each color forms a triangular lattice with spacing s=√3. A disk of radius s centered off one color contains at most four sites of that color. Indeed, a closest site is within s/√3, by the covering radius obtained from the equilateral lattice triangles. A point beyond its first shell is at least √3s−s/√3>s from the center. For a first-shell vector v to lie in the disk the displacement d from that nearest site to the center satisfies 2v·d ≥ |d|²>0. Each of the three antipodal pairs therefore supplies at most one neighbor. Together with the nearest site this gives four. If the center is itself such a site, a smaller radius than s covers only that site of its color.
+
+Consequently every radius below √3 covers at most 12 lattice sites. At radius √3 an off-lattice center still covers at most 12, while a lattice point as center covers 13 (the center, six nearest neighbors and six next-nearest neighbors). At that radius a 13-edge simple walk would have to be a cycle visiting all 13 sites. Each of the six outer sites is adjacent to exactly two inner sites. Using both edges at each outer site uses both cycle incidences at every inner site, leaving the center isolated. This rules out the cycle.
+
+**Index audit.** I independently recomputed the entire finite prefix using coordinates (X/2,√3Y/2), with X and Y integers of the same parity. Translate a minimum enclosing disk's center into 0≤Y<1 and 0≤X−Y<2 in these coordinates. For 4r²≤13 every possible site is among −3≤X≤6 and −2≤Y≤3. A smallest enclosing disk is supported by one point, two diametrically opposite points, or three noncollinear boundary points. I enumerated every eligible midpoint and triple circumcenter with rational arithmetic; for each circle I enumerated simple paths in its unit-distance graph. A cycle can return to its start only after at least three vertices, so a two-site traversal never counts as a two-edge cycle. Every record has a minimum enclosing disk of one of the three enumerated types.
+
+| Squared radius | 0 | 1/4 | 1/3 | 3/4 | 1 | 7/4 | 49/25 | 9/4 | 7/3 | 3 | 13/4 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Disk record, in sites | 1 | 2 | 3 | 4 | 7 | 8 | 9 | 10 | 12 | **13** | 14 |
+| Longest walk so far, in edges | 0 | 1 | 3 | 4 | 7 | 8 | 9 | 10 | 12 | **12** | 14 |
+
+The tenth disk record is 13, while the ninth positive walk record is 14. The table in A346784 skips the row for squared radius 3 and labels the next squared radius 13/4 as its tenth row. The discrepancy persists under the source's explicit convention allowing closed walks.
