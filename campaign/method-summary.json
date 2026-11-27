@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 92,
-      "seconds": "78.5",
+      "runs": 93,
+      "seconds": "79.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 92,
-      "seconds": "110.0",
+      "runs": 93,
+      "seconds": "110.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 346,
-      "seconds": "1,152.8",
+      "runs": 350,
+      "seconds": "1,158.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 185,
-      "seconds": "535.0",
+      "runs": 187,
+      "seconds": "535.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -47,12 +47,12 @@
     },
     {
       "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
-      "runs": 3,
-      "seconds": "496.3",
+      "runs": 4,
+      "seconds": "517.2",
       "tokens": "\u2014",
-      "coverage": "0/2",
+      "coverage": "0/3",
       "stage": "scout",
-      "outcome": "timeout"
+      "outcome": "failed"
     },
     {
       "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
@@ -101,8 +101,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 96,
-      "seconds": "216.2",
+      "runs": 97,
+      "seconds": "216.4",
       "tokens": "284,541 / 4,116",
       "coverage": "3/4",
       "stage": "search",
@@ -137,8 +137,8 @@
     },
     {
       "problem": "thomson-13",
-      "runs": 23,
-      "seconds": "11.4",
+      "runs": 24,
+      "seconds": "11.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -155,8 +155,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 185,
-      "seconds": "211.8",
+      "runs": 187,
+      "seconds": "213.7",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -191,11 +191,11 @@
       "board_outcome": null,
       "first_logged_worker_attempt": "2026-11-27T08:46:08.559+00:00",
       "observed_hours_to_credit": null,
-      "hosted_calls": 2,
+      "hosted_calls": 3,
       "calls_with_usage": 0,
       "measured_uncached_input": 0,
       "measured_output": 0,
-      "measured_hosted_seconds": 480.083,
+      "measured_hosted_seconds": 500.544,
       "lifetime_local_tactic_seconds": 36.22
     },
     {
