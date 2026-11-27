@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T09:31:58+00:00",
+  "checked_at": "2026-11-27T10:41:20+00:00",
   "targets": [
     {
       "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
@@ -27,16 +27,6 @@
       "kind": "step",
       "points": 33,
       "statement": "let e := fun (t : ZMod 68) => ZMod.stdAddChar t\n  let q := fun (i j : ZMod 68) => e (i^2 - i*j + j^2)\n  let u : \u211d := (67 + Real.sqrt 4485) / 2\n  \u2203 (F : ZMod 68 \u2192 ZMod 68 \u2192 \u2102) (\u03c4 : \u2102 \u2192+* \u2102),\n  F 0 0 = ((Real.sqrt u : \u2102) ^ 3) \u2227\n  (\u2200 i j, (i, j) \u2260 (0, 0) \u2192 F i j * F (-i) (-j) = (q i j)\u207b\u00b9) \u2227\n  (\u2200 r s, (68 : \u2102)\u207b\u00b9 * \u2211 i, \u2211 j, F i j * F (r-i) (s-j) * q i j * e (-i*r+j*(r-s)) =\n      (Real.sqrt 65 : \u2102) * F r s + if (r,s) = (0,0) then 68 else 0) \u2227\n  (\u2200 i j, (i,j) \u2260 (0,0) \u2192 \u2016\u03c4 (F i j)\u2016 = 1)\n\n-- The finite algebraic conversion from these values to a rank-one Weyl fiducial.",
-      "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
-      "parent": "OpenQuantumProblem23.hasSICPOVM_68",
-      "difficulty": 58
-    },
-    {
-      "id": "OpenQuantumProblem23.hasSICPOVM_68.R1.H2",
-      "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 68 \u00b7 step 2",
-      "kind": "step",
-      "points": 33,
-      "statement": "let e := fun (t : ZMod 68) => ZMod.stdAddChar t\n  let q := fun (i j : ZMod 68) => e (i^2 - i*j + j^2)\n  let u : \u211d := (67 + Real.sqrt 4485) / 2\n  \u2200 (F : ZMod 68 \u2192 ZMod 68 \u2192 \u2102) (\u03c4 : \u2102 \u2192+* \u2102),\n  F 0 0 = ((Real.sqrt u : \u2102) ^ 3) \u2192\n  (\u2200 i j, (i, j) \u2260 (0, 0) \u2192 F i j * F (-i) (-j) = (q i j)\u207b\u00b9) \u2192\n  (\u2200 r s, (68 : \u2102)\u207b\u00b9 * \u2211 i, \u2211 j, F i j * F (r-i) (s-j) * q i j * e (-i*r+j*(r-s)) =\n      (Real.sqrt 65 : \u2102) * F r s + if (r,s) = (0,0) then 68 else 0) \u2192\n  (\u2200 i j, (i,j) \u2260 (0,0) \u2192 \u2016\u03c4 (F i j)\u2016 = 1) \u2192\n  \u2203 A : Matrix (ZMod 68) (ZMod 68) \u2102, A.IsHermitian \u2227 A * A = A \u2227 A.trace = 1 \u2227\n    \u2200 a b : ZMod 68, (a,b) \u2260 (0,0) \u2192\n      Complex.normSq (\u2211 t, A (t+a) t * e (b*t)) = (69 : \u211d)\u207b\u00b9",
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_68",
       "difficulty": 58
@@ -352,13 +342,13 @@
       "difficulty": 58
     },
     {
-      "id": "OpenQuantumProblem35.ame_8_4_open",
-      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 4 open",
+      "id": "OpenQuantumProblem35.ame_8_6_open",
+      "title": "Open Quantum Problem 35: existence of absolutely maximally entangled pure states \u2014 ame 8 6 open",
       "kind": "open",
       "points": 66,
-      "statement": "theorem ame_8_4_open :\n    ExistsAME 8 4",
+      "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
-      "parent": "OpenQuantumProblem35.ame_8_4_open",
+      "parent": "OpenQuantumProblem35.ame_8_6_open",
       "difficulty": 58
     },
     {
