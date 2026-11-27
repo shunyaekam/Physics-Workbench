@@ -1,8 +1,8 @@
-const entries = [...document.querySelectorAll('article[data-pr]')];
+const entries = [...document.querySelectorAll('article[id]')];
 const topics = [...document.querySelectorAll('.topics a')];
 const checked = new Set();
 async function review(entry) {
-  if (checked.has(entry.id)) return;
+  if (!entry.dataset.pr || checked.has(entry.id)) return;
   checked.add(entry.id);
   try {
     const response = await fetch('https://api.github.com/repos/GuillaumeBAUD-coder/open-math-agents/pulls/' + entry.dataset.pr, {signal: AbortSignal.timeout(6000)});
