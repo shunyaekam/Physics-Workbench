@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-27T03:37:02+00:00",
+  "checked_at": "2026-11-27T04:45:14+00:00",
   "source": "https://lefttosolve.com/contributors",
   "owner": {
-    "rank": 123,
+    "rank": 137,
     "handle": "shunyaekam",
     "points": 0,
     "solved": 0,
@@ -10,11 +10,11 @@
   },
   "cutoff": {
     "rank": 20,
-    "handle": "Halldon",
-    "points": 242,
-    "solved": 21,
-    "taken": 59
+    "handle": "ysanatomic",
+    "points": 264,
+    "solved": 17,
+    "taken": 32
   },
-  "points_to_pass": 243,
+  "points_to_pass": 265,
   "listed": 200
 }
