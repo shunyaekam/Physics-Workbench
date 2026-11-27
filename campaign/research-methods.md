@@ -4,14 +4,16 @@ Elapsed seconds sum the measured duration of recorded jobs. Input tokens include
 
 | Problem | Runs | Failed or timed out | Job seconds | Input / output tokens | Token coverage |
 |---|---:|---:|---:|---:|---:|
-| bernasconi-table2 | 2 | 0 | 0.5 | — | — |
-| e27-schmidt | 2 | 0 | 0.7 | — | — |
-| gagatsos-2026-c1 | 9 | 0 | 31.0 | — | — |
-| golay43 | 5 | 0 | 21.8 | — | — |
-| refined-bmv | 2 | 0 | 0.2 | — | — |
+| bernasconi-table2 | 3 | 0 | 0.8 | — | — |
+| e27-schmidt | 3 | 0 | 1.0 | — | — |
+| gagatsos-2026-c1 | 12 | 0 | 34.9 | — | — |
+| golay43 | 7 | 0 | 33.1 | — | — |
+| refined-bmv | 3 | 0 | 0.4 | — | — |
+| support-enumeration | 1 | 0 | 31.0 | — | — |
 | thomson-10 | 1 | 0 | 0.4 | — | — |
 | thomson-13 | 1 | 0 | 0.4 | — | — |
-| werner-endpoint | 4 | 0 | 2.9 | — | — |
+| thomson-14 | 1 | 0 | 0.4 | — | — |
+| werner-endpoint | 6 | 0 | 6.4 | — | — |
 
 ## Time to certificate
 
@@ -27,6 +29,18 @@ The endpoint is the first public commit containing a full target certificate. Ca
 
 | Started (UTC) | Problem | Stage | Method | Model / effort | Status / outcome | Job seconds | Input / output tokens |
 |---|---|---|---|---|---|---:|---:|
+| [2026-11-27T02:16:24.991+00:00](method-runs/0d8697cbff034263a8ef4baa8316cc8b.json) | support-enumeration | search | continuous.advance_frontier | — | completed / search_receipt | 31.0 | — |
+| [2026-11-27T02:16:24.611+00:00](method-runs/fe21f512e5994453bfd5288d5ba5a784.json) | thomson-14 | search | sphere_bounds.experiment | — | completed / bound_checked | 0.4 | — |
+| [2026-11-27T02:16:21.330+00:00](method-runs/80038a34ffbf4de6a35ad2b31a21895e.json) | werner-endpoint | search | complex_search.search-5-copies | — | completed / bounded_result | 1.8 | — |
+| [2026-11-27T02:16:19.733+00:00](method-runs/2245acc184bf4512bb57c5aa6c1acedd.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 1.6 | — |
+| [2026-11-27T02:16:17.915+00:00](method-runs/23827cc388d2400893c8f3a179706194.json) | gagatsos-2026-c1 | search | coherent_band_search.py | — | completed / search_receipt | 1.1 | — |
+| [2026-11-27T02:16:16.444+00:00](method-runs/72e2fc6eae5d43ca9682a111f1650a7d.json) | gagatsos-2026-c1 | search | three_level_search.py | — | completed / search_receipt | 1.5 | — |
+| [2026-11-27T02:16:15.134+00:00](method-runs/b86c77dd53c245528250657e3ce52d50.json) | gagatsos-2026-c1 | search | excited_pairs.py | — | completed / no_new_receipt | 1.3 | — |
+| [2026-11-27T02:16:04.784+00:00](method-runs/156af024ebf44063a5623f57a03653cf.json) | bernasconi-table2 | search | checks/finite_spins.py | — | completed / no_new_receipt | 0.3 | — |
+| [2026-11-27T02:16:04.652+00:00](method-runs/f01dce9c5a08468686170671c92c1c66.json) | refined-bmv | search | checks/bmv_search.py | — | completed / no_new_receipt | 0.1 | — |
+| [2026-11-27T02:15:53.393+00:00](method-runs/844ab6b7a65544a89d30ab520617706c.json) | golay43 | search | checks/golay/advance.py | — | completed / search_receipt | 11.3 | — |
+| [2026-11-27T02:15:53.282+00:00](method-runs/a4bb7485dfde4e61a4c02d3c6f2ed437.json) | golay43 | search | checks/golay43.py | — | completed / no_new_receipt | 0.1 | — |
+| [2026-11-27T02:15:52.996+00:00](method-runs/2ebabc3c6a3e46d68f4d07b1dca7df28.json) | e27-schmidt | search | checks/schmidt7/pair_search.py | — | completed / search_receipt | 0.3 | — |
 | [2026-11-27T02:05:24.638+00:00](method-runs/bbb2c41c93324ab0842fee437b559f5d.json) | thomson-10 | search | sphere_bounds.experiment | — | completed / bound_checked | 0.4 | — |
 | [2026-11-27T02:05:23.512+00:00](method-runs/b08dcdae13604ffaac9b0412b9613b71.json) | werner-endpoint | search | complex_search.search-5-copies | — | completed / bounded_result | 0.6 | — |
 | [2026-11-27T02:05:22.881+00:00](method-runs/777b80b969f44bffa1c80b71c566c0bc.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 0.6 | — |
