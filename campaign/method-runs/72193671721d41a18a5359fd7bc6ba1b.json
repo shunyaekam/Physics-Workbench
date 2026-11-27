@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "72193671721d41a18a5359fd7bc6ba1b",
+  "problem_id": "lts-OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
+  "stage": "scout",
+  "method": "continue-scored-lemma",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "8eb1f638f1b83122e72f7b1a633ff69c6b555042",
+  "started_at": "2026-11-27T14:06:31.844+00:00",
+  "elapsed_seconds": 147.206212,
+  "status": "completed",
+  "outcome": "insufficient_evidence",
+  "evidence": "campaign/scouting/995e00606ccea51732eff6e4-lemma.json",
+  "usage": {
+    "input_tokens": 198874,
+    "cached_input_tokens": 146816,
+    "output_tokens": 5293
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 145.831976
+}

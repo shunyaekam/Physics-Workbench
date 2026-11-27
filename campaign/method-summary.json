@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 61,
-      "seconds": "51.3",
+      "runs": 62,
+      "seconds": "51.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 61,
-      "seconds": "77.9",
+      "runs": 62,
+      "seconds": "80.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 230,
-      "seconds": "640.8",
+      "runs": 234,
+      "seconds": "654.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 123,
-      "seconds": "500.3",
+      "runs": 125,
+      "seconds": "501.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -83,17 +83,17 @@
     },
     {
       "problem": "lts-OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
-      "runs": 1,
-      "seconds": "190.8",
-      "tokens": "797,530 / 5,583",
-      "coverage": "1/1",
+      "runs": 2,
+      "seconds": "338.0",
+      "tokens": "996,404 / 10,876",
+      "coverage": "2/2",
       "stage": "scout",
-      "outcome": "shortlist"
+      "outcome": "insufficient_evidence"
     },
     {
       "problem": "refined-bmv",
-      "runs": 63,
-      "seconds": "131.2",
+      "runs": 64,
+      "seconds": "131.3",
       "tokens": "226,762 / 2,761",
       "coverage": "2/2",
       "stage": "search",
@@ -110,8 +110,8 @@
     },
     {
       "problem": "thomson-10",
-      "runs": 15,
-      "seconds": "8.4",
+      "runs": 16,
+      "seconds": "9.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 123,
-      "seconds": "144.3",
+      "runs": 125,
+      "seconds": "145.2",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -234,11 +234,11 @@
       "board_outcome": null,
       "first_logged_worker_attempt": "2026-11-27T10:52:32.506+00:00",
       "observed_hours_to_credit": null,
-      "hosted_calls": 1,
-      "calls_with_usage": 1,
-      "measured_uncached_input": 87514,
-      "measured_output": 5583,
-      "measured_hosted_seconds": 190.418,
+      "hosted_calls": 2,
+      "calls_with_usage": 2,
+      "measured_uncached_input": 139572,
+      "measured_output": 10876,
+      "measured_hosted_seconds": 336.25,
       "lifetime_local_tactic_seconds": 0
     }
   ]
