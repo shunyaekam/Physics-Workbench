@@ -1,5 +1,6 @@
 {
-  "lane": "scout",
-  "source": "https://lefttosolve.com/p/oeis-a022444",
-  "at": "2026-11-27T01:47:04+00:00"
+  "lane": "rotation",
+  "problem_id": "refined-bmv",
+  "stage": "math_review",
+  "at": "2026-11-27T02:52:16+00:00"
 }

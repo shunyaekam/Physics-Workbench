@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "run_id": "517a9f4a7330447d971618e67b0163d7",
+  "problem_id": "refined-bmv",
+  "stage": "math_review",
+  "method": "independent-challenge",
+  "model": "gpt-6.2-astra",
+  "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
+  "revision": "f8a7be01ab1f4e1086e02b98276600521151d78c",
+  "started_at": "2026-11-27T02:51:32.711+00:00",
+  "elapsed_seconds": 43.397543,
+  "status": "completed",
+  "outcome": "revise",
+  "evidence": "campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
+  "usage": {
+    "input_tokens": 69669,
+    "cached_input_tokens": 52224,
+    "output_tokens": 997
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "medium",
+  "hosted_elapsed_seconds": 43.036928,
+  "attempt_number": 1,
+  "witness_hash": "ef5360fad99096b2e5a4470cdba07177513011517f4589b295c4da1924b9c05c"
+}
