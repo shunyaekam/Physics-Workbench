@@ -54,21 +54,21 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-27T23:34:32+00:00",
+  "updated_at": "2026-11-27T23:47:19+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 92466765680,
+    "attempts": 92466775130,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 1374413,
+    "werner": 1383227,
     "coherent-cats": 31360,
-    "coherent-bands": 10352,
-    "three-level": 20789,
+    "coherent-bands": 10384,
+    "three-level": 20853,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
@@ -77,7 +77,7 @@
     "golay-repairs": 269543351,
     "golay-splices": 6275910630,
     "golay-splice-tails": 85915099424,
-    "schmidt-seven-pairs": 143100
+    "schmidt-seven-pairs": 143640
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -359,9 +359,9 @@
     {
       "id": "flow-refined-bmv",
       "title": "A lower bound for symmetrized quantum partition functions",
-      "status": "solve",
+      "status": "math_review",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
-      "detail": "2 recorded attempts. No counterexample was found. With n=m=4, I first screened six pairs using a Hadamard change of eigenbasis. All six numerical gaps were positive. I then tested 256 pairs of a different form, setting K equal to \u2212H plus a perturbation supported on a four-cycle. This cancels the diagonal of 4H+4K while preserving noncommutation. I certified the smallest numerical gap from the second search."
+      "detail": "3 recorded attempts. No counterexample was found. I screened 512 four-dimensional pairs with independently sampled diagonals, diagonal H, and six signed off-diagonal entries in K. After all numerical gaps were positive, I screened 512 more pairs with H and K supported off the diagonal on two disjoint three-edge paths. I ranked candidates by the gap divided by Tr exp(nH+mK), which makes the ranking invariant under scalar shifts of either matrix. The witness below had the smallest relative gap across both screens, approximately 0.00092774."
     },
     {
       "id": "flow-golay43",
@@ -418,8 +418,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000264.json",
-      "detail": "143,100 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000265.json",
+      "detail": "143,640 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -479,28 +479,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-339",
-      "title": "Research round 339",
+      "id": "round-340",
+      "title": "Research round 340",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000339.json",
-      "detail": "2,195 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000340.json",
+      "detail": "8,814 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-27T23:34:14.370653+00:00"
+      "updated_at": "2026-11-27T23:46:10.918578+00:00"
     },
     {
-      "id": "coherent-bands-00000327",
+      "id": "coherent-bands-00000328",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000327.json",
-      "detail": "32 states tested on photon levels 2, 3, 4, 5, 6, 7.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000328.json",
+      "detail": "32 states tested on photon levels 0, 1, 3, 6, 9, 12.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000326",
+      "id": "three-level-batch-00000327",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000326.json",
-      "detail": "63 states tested on photon levels 0, 2, 4.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000327.json",
+      "detail": "64 states tested on photon levels 0, 2, 5.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
