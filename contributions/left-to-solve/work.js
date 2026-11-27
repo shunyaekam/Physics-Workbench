@@ -6,7 +6,7 @@ async function reviewStep(status) {
     const response = await fetch('https://api.github.com/repos/GuillaumeBAUD-coder/open-math-agents/pulls/' + status.dataset.stepStatus, {signal: AbortSignal.timeout(6000)});
     if (!response.ok) return;
     const pr = await response.json();
-    status.textContent = pr.merged_at ? 'Step proof merged' : pr.state === 'closed' ? 'Closed · see review' : pr.labels.some(label => label.name === 'needs-human-review') ? 'Proof passed · maintainer review' : 'Open · see upstream checker';
+    status.textContent = pr.merged_at ? 'Step proof merged' : pr.state === 'closed' ? 'Closed · see review' : (pr.head.sha === status.dataset.checkedHead || pr.labels.some(label => label.name === 'needs-human-review')) ? 'Proof passed · maintainer review' : 'Open · see upstream checker';
   } catch { /* The submitted proof links directly to its review. */ }
 }
 async function reviewFollowup(entry) {
@@ -34,7 +34,7 @@ async function review(entry) {
     const kind = entry.dataset.kind;
     const labels = new Set(pr.labels.map(label => label.name));
     const status = pr.merged_at ? kind + ' merged' : pr.state === 'closed' ? 'Closed without merge · see review' :
-      labels.has('needs-human-review') ? 'Checker passed · maintainer review' : 'Open · see checker and review';
+      (pr.head.sha === entry.dataset.checkedHead || labels.has('needs-human-review')) ? 'Checker passed · maintainer review' : 'Open · see checker and review';
     entry.querySelector('.status').textContent = status;
     if (pr.merged_at) await reviewFollowup(entry);
   } catch { /* The direct pull request link always carries the authoritative verdict. */ }
