@@ -125,5 +125,46 @@
     "circuits": 48,
     "seconds": 3.22,
     "changed": false
-  }
+  },
+  "scored_cohort": [
+    {
+      "problem": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": null,
+      "observed_hours_to_credit": null,
+      "hosted_calls": 0,
+      "calls_with_usage": 0,
+      "measured_uncached_input": 0,
+      "measured_output": 0,
+      "measured_hosted_seconds": 0,
+      "lifetime_local_tactic_seconds": 36.22
+    },
+    {
+      "problem": "Erdos1164.erdos_1164.R1.H2.R1.H1",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T03:59:26.582+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 2,
+      "calls_with_usage": 2,
+      "measured_uncached_input": 116252,
+      "measured_output": 8904,
+      "measured_hosted_seconds": 248.628,
+      "lifetime_local_tactic_seconds": 45.263
+    },
+    {
+      "problem": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T05:08:19.625+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 67655,
+      "measured_output": 3149,
+      "measured_hosted_seconds": 90.597,
+      "lifetime_local_tactic_seconds": 0
+    }
+  ]
 }
