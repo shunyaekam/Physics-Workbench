@@ -91,7 +91,7 @@ def run():
     # Fetch full question rows once per week per importer. Keep the last complete snapshot after a failure.
     week=datetime.datetime.now(datetime.timezone.utc).strftime("%G-W%V")
     marker_dir=RUNTIME/"campaign/catalogue-scans"
-    for importer in ("catalogue_index","extra_catalogues"):
+    for importer in ("catalogue_index","extra_catalogues","left_to_solve_index"):
         marker=marker_dir/(importer+"-"+week+".done")
         if not marker.exists():
             try:

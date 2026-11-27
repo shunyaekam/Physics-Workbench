@@ -42,6 +42,14 @@ def pending(root):
             lead=dict(id=row["id"],source=row["url"],question=row["title"],title=row["title"],
                       catalogue=row["source"],listed_status=row.get("status"))
             manageable=str(row.get("difficulty","")).startswith(("1/5","2/5"))
+            if row["source"] == "Left to Solve":
+                lead["primary_source"] = row.get("primary_source")
+                lead["task_kind"] = row["task_kind"]
+                # An existing exact target or an elementary OEIS claim can be checked first.
+                if row.get("difficulty") is not None and row["difficulty"] <= 45 and (
+                        row["task_kind"] in {"known", "warmup"} or row["origin"].startswith("OEIS")):
+                    pool.append((0,lead))
+                    continue
             pool.append((0 if manageable and concrete else 1 if concrete else 3,lead))
     for batch in sorted((root/"campaign/intake").glob("*.json"),reverse=True):
         pool.extend((2,lead) for lead in load(batch))
