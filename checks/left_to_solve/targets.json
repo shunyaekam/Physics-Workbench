@@ -14,7 +14,10 @@
     "target": "Does the series with A210066 coefficients at exp(−π) converge to (2+√2)/4?",
     "source": "https://oeis.org/A201488",
     "submission": 1073,
-    "issue": "https://github.com/shunyaekam/oo-research/issues/12"
+    "issue": "https://github.com/shunyaekam/oo-research/issues/12",
+    "statement_sha256": "04907cccbae9b9cff9b1eb46cfe426323509f112f54b5e9207225979944e58d9",
+    "proof_kind": "proof",
+    "verification": "https://github.com/shunyaekam/oo-research/actions/runs/45920326180"
   },
   {
     "problem": "oeis-a145646",

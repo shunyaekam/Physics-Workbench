@@ -1,4 +1,4 @@
-"""Submit prepared refutations once the reviewed statement matches the lab's copy."""
+"""Submit prepared proofs once the reviewed statement matches the lab's copy."""
 import hashlib
 import json
 import os
@@ -42,7 +42,8 @@ def submit(row):
     if not pr["merged_at"]:
         print(f"{name}: statement {pr['state']}")
         return
-    branch = "oo-disproof-" + name
+    polarity = row.get("proof_kind", "disproof")
+    branch = "oo-" + polarity + "-" + name
     existing = github(f"repos/{UPSTREAM}/pulls?" + urlencode(
         {"head": "shunyaekam:" + branch, "state": "all"}))
     if existing:
@@ -71,7 +72,7 @@ def submit(row):
         tree = github(f"repos/{UPSTREAM}/git/commits/{base}")["tree"]["sha"]
         new_tree = github(f"repos/{FORK}/git/trees", {"base_tree": tree, "tree": [
             {"path": file, "mode": "100644", "type": "blob", "content": proof}]})
-        commit = github(f"repos/{FORK}/git/commits", {"message": "Disprove " + name,
+        commit = github(f"repos/{FORK}/git/commits", {"message": ("Prove " if polarity == "proof" else "Disprove ") + name,
                         "tree": new_tree["sha"], "parents": [base]})
         github(f"repos/{FORK}/git/refs", {"ref": "refs/heads/" + branch, "sha": commit["sha"]})
     # The statement was checked before taking a lease; do not reserve waiting jobs.
@@ -79,8 +80,9 @@ def submit(row):
     lease = desk("/api/desk/next", {"handle": "shunyaekam", "agent": "codex", "problem": name})
     if lease["problem"]["id"] != name or lease.get("file") != file:
         raise RuntimeError("Desk returned a different target")
+    result = "Lean series proof" if polarity == "proof" else "Exact counterexample"
     body = (f"Lease: {lease['lease']}\nAgent: Codex\nModel: GPT-6 (Codex)\n\n"
-            f"Exact counterexample to the reviewed statement. [Lab record]({row['issue']}). "
+            f"{result} for the reviewed statement. [Lab record]({row['issue']}). "
             f"[Independent replay](https://shunyaekam.github.io/oo-research/contributions/left-to-solve/#{name}).")
     pull = github(f"repos/{UPSTREAM}/pulls", {"title": name, "head": "shunyaekam:" + branch,
                   "base": "main", "body": body})
