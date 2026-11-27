@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The optimal check weight of an [[11,5,3]] binary stabilizer code is seven · oo research</title>
-<meta name="citation_title" content="The optimal check weight of an [[11,5,3]] binary stabilizer code is seven">
+<title>The optimal check weight of an [[11,5,3]] binary stabilizer code is seven · oo research</title><meta name="citation_title" content="The optimal check weight of an [[11,5,3]] binary stabilizer code is seven">
 <meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/eleven-five.pdf">
-<link rel="icon" href="../../site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="../../site/reader/paper.css?v=map"><link rel="stylesheet" href="../../site/flowly.css?v=edition3">
-<script src="../../site/flowly.js" defer></script><script src="../../site/reader/paper.js?v=lab-navigation" defer></script>
-<link rel="stylesheet" href="../../site/navigation.css?v=1"><script defer src="../../site/navigation.js?v=1"></script><script defer src="../../site/flowly.js"></script></head>
-<body><header class="reader-head lab-header"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav aria-label="Paper navigation"><a href="../../catalogue.html">Research map</a><a href="../eleven-five.pdf">PDF ↗</a><button id="contents" hidden aria-haspopup="dialog">Contents</button></nav></header>
-<main id="reader" aria-label="Paper"><article id="text">
+<link rel="icon" href="../../site/assets/oo-mark.png?v=torus">
+<link rel="stylesheet" href="../../site/flowly.css?v=edition3"><link rel="stylesheet" href="../../site/reader/paper.css?v=exhibit1">
+<link rel="stylesheet" href="../../site/navigation.css?v=glass2"><script defer src="../../site/navigation.js?v=glass2"></script><script defer src="../../site/flowly.js"></script>
+<script type="module" src="../../site/reader/explore.mjs"></script></head>
+<body data-paper="eleven-five">
+<header class="reader-head lab-header"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav aria-label="Paper navigation"><a href="../../catalogue.html">Research map</a><a id="view-link" href="#full-text" hidden>Full text</a><a href="../eleven-five.pdf">PDF ↗</a></nav></header>
+<main>
+<section id="explore" aria-labelledby="exhibit-title" hidden>
+ <div class="explainer">
+  <div class="story"><h1 id="exhibit-title"></h1><p id="lead"></p><p id="scope"></p></div>
+  <figure class="experiment"><div id="visual"></div><div id="controls" aria-label="Explore the result" role="group"></div><figcaption id="caption" aria-live="polite"></figcaption></figure>
+ </div>
+</section>
+<article id="full-text" tabindex="-1">
 <h1 class="paper-title">The optimal check weight of an [[11,5,3]] binary stabilizer code is seven</h1>
-<div class="edition-model"><strong>GPT-6.2 Astra (high)</strong><span>AI manuscript author</span></div>
-<div class="project-credit">Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a>.<br>oo research · The Open University (student)</div>
 <p class="date">26 November 2026</p>
 <section aria-label="Abstract"><h2 id="abstract">Abstract</h2><p>How many data qubits must the largest stabilizer measurement touch when eleven physical qubits protect five logical qubits against an arbitrary single-qubit error? Wei et al. list the possible values as six through eight. Steane’s 1996 code already admits a weight-seven basis. Jing and Tu also settled the optimum using SAT certificates. We give an elementary proof of the same result. To rule out six, we count the syndromes of single-site Pauli errors. Minimum total incidence would force a distribution of syndrome weights incompatible with commutation. An adapted basis and a shortening argument cover degenerate codes. Both bounds concern arbitrary binary stabilizer codes, including non-CSS codes, with no geometric restriction.</p></section>
 <h2 class="unnumbered" id="an-attaining-code">An attaining code</h2>
@@ -73,8 +79,7 @@
 <p>GPT-6.2 Astra (high) helped draft the explanation of the weight-seven optimum. A separate project AI session checked the commutation argument and replayed the upper witness by signed Pauli multiplication. The arithmetic check of 28 cases depends on the written shortening and syndrome arguments. Jing and Tu had already obtained the optimum by a SAT proof. <a href="https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/checks/small_qec/math-review.md">Internal mathematical review</a>.</p>
 <p>Wei, Han, He, Li and Liu, <a href="https://arxiv.org/html/2601.19848v2#S7.T2"><em>Theory of low-weight quantum codes</em>, Table 2</a> (v2, September 2026) report the interval <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[6,8]</annotation></semantics></math>. The lower bound applies across all such codes. Reconstructing the code in Eq. (29) of <a href="https://arxiv.org/abs/quant-ph/9605021">Steane, <em>Simple quantum error-correcting codes</em></a> (1996) gives six independent weight-seven generators. It has 75 weight-three logical Pauli strings versus 79 here, so qubit permutations and single-qubit Clifford gates cannot relate the two. For comparison, the <a href="https://codetables.de/QECC.php?q=4&amp;n=11&amp;k=5">Grassl construction</a> and two entries in the <a href="https://qecchallenge.com/codes/11-5-3.html">QEC Challenge archive</a> have minimum basis weight eight, as checked by enumerating their stabilizer spans. Earlier work on weight-two clusters for the distinct <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">[</mo><mn>11</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[[11,3,3]]</annotation></semantics></math> question includes <a href="https://yuxuanzhang1995.github.io/agentic-research/lowweight-11-3-3/">Zhang’s analysis</a>. <a href="https://github.com/Ivann1242/optimal-check-weight-11-3-3/blob/b4df2d2a2a855f89f9aa9d7200a6f5582519e1fb/paper/main.tex">Jing and Tu</a> had already proved seven optimal with 37 certified unsatisfiable instances in September 2026. The counting argument above is an alternative proof.</p>
 <p><a href="https://github.com/shunyaekam/oo-research/tree/research/checks/small_qec">Reproduction package</a>: the upper-bound check enumerates all relevant Pauli strings, and the lower-bound check exhausts 28 arithmetic cases after the proved reduction. The note has not undergone external peer review. Check weight measures the support of a Pauli measurement. Circuit depth, connectivity, ancilla costs and physical noise performance require separate analysis.</p>
-</article></main>
-<footer class="reader-foot" hidden><button type="button" id="previous" data-cue="cancel" aria-label="Previous page" title="Previous page">←</button><span id="page" class="paper-counter" aria-live="polite"></span><button type="button" id="next" aria-label="Next page" title="Next page">→</button></footer>
-<dialog class="sheet" id="sections" aria-label="Contents"><form method="dialog"><button data-cue="cancel" aria-label="Close" title="Close">×</button></form><nav aria-label="Paper sections"></nav>
-<button data-sound-switch>Sound on</button></dialog>
+</article>
+</main>
+<footer class="paper-credit"><div><strong>GPT-6.2 Astra (high)</strong> <span>AI manuscript author</span></div><small>Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a> · oo research · The Open University (student)</small><details id="more" hidden><summary>Scope &amp; credits</summary></details></footer>
 </body></html>

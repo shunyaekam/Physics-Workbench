@@ -34,6 +34,6 @@
   document.body.append(dialog);
   button.onclick = () => dialog.showModal();
   dialog.querySelector('#menu-close').onclick = () => dialog.close();
-  dialog.addEventListener('click',e => { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('click',e => { if (e.target === dialog || e.target === dialog.firstElementChild) dialog.close(); });
   dialog.addEventListener('close',() => button.focus({preventScroll:true}));
 })();

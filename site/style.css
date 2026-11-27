@@ -51,7 +51,7 @@ button:hover,button[aria-pressed=true] {color:var(--ink)}
 #filters {margin-bottom:2rem}
 input[type=search],select {background:white;border:0;border-bottom:1px solid #aaa;border-radius:0;min-height:2.65rem;width:100%;padding:.5rem .1rem;font-size:.95rem}
 select {appearance:none;padding-right:1.65rem;background-image:linear-gradient(45deg,transparent 50%,#606060 50%),linear-gradient(135deg,#606060 50%,transparent 50%);background-size:5px 5px;background-position:calc(100% - 10px) 52%,calc(100% - 5px) 52%;background-repeat:no-repeat}
-#papers article {display:grid;grid-template-columns:minmax(9rem,.72fr) minmax(0,2.7fr);column-gap:clamp(1.5rem,5vw,5rem);row-gap:.7rem;padding:1.75rem 0;border-top:1px solid var(--rule);scroll-margin-top:1rem}
+#papers article {display:grid;grid-template-columns:minmax(9rem,.72fr) minmax(0,2.7fr);column-gap:clamp(1.5rem,5vw,5rem);row-gap:.7rem;padding:1.75rem 0;scroll-margin-top:1rem}
 #papers article:target {border-color:#222}
 .paper-meta {grid-row:1/span 4;align-self:start;flex-direction:column;align-items:start;gap:.22rem;padding-top:.2rem;font-size:.88rem}
 #papers article>:not(.paper-meta) {grid-column:2}
@@ -62,11 +62,11 @@ article p,.verify-inner p {max-width:70ch;color:var(--muted)}
 summary {cursor:pointer;width:fit-content;color:var(--muted);font-size:.875rem}
 details p {margin:.65rem 0}
 #empty {padding:2rem 0}#empty button {text-decoration:underline}
-.verify {margin-top:3rem;border-top:1px solid var(--rule)}
+.verify {margin-top:3rem}
 .verify-inner {display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);padding-block:3.5rem}
 .verify-inner h2,.verify-inner h3 {margin-bottom:.65rem}.method-notes p+h3 {margin-top:1.3rem}
 .cert-link {margin-bottom:.8rem}.cert-link a {font-size:.9rem}
-footer {border-top:1px solid var(--rule);flex-wrap:wrap;gap:.7rem 1.4rem;padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
+footer {flex-wrap:wrap;gap:.7rem 1.4rem;padding-block:1.5rem;font-size:.875rem;color:var(--muted)}
 .foot-name {margin-right:auto;color:var(--ink)}
 @media(max-width:680px){
  .head-inner {min-height:3.75rem}.entry{min-height:calc(100svh - 3.75rem)}

@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Exact finite maxima for positive coordinate supports at the Werner endpoint · oo research</title>
-<meta name="citation_title" content="Exact finite maxima for positive coordinate supports at the Werner endpoint">
+<title>Exact finite maxima for positive coordinate supports at the Werner endpoint · oo research</title><meta name="citation_title" content="Exact finite maxima for positive coordinate supports at the Werner endpoint">
 <meta name="citation_pdf_url" content="https://shunyaekam.github.io/oo-research/papers/finite-maxima.pdf">
-<link rel="icon" href="../../site/assets/oo-mark.png?v=torus"><link rel="stylesheet" href="../../site/reader/paper.css?v=map"><link rel="stylesheet" href="../../site/flowly.css?v=edition3">
-<script src="../../site/flowly.js" defer></script><script src="../../site/reader/paper.js?v=lab-navigation" defer></script>
-<link rel="stylesheet" href="../../site/navigation.css?v=1"><script defer src="../../site/navigation.js?v=1"></script><script defer src="../../site/flowly.js"></script></head>
-<body><header class="reader-head lab-header"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav aria-label="Paper navigation"><a href="../../catalogue.html">Research map</a><a href="../finite-maxima.pdf">PDF ↗</a><button id="contents" hidden aria-haspopup="dialog">Contents</button></nav></header>
-<main id="reader" aria-label="Paper"><article id="text">
+<link rel="icon" href="../../site/assets/oo-mark.png?v=torus">
+<link rel="stylesheet" href="../../site/flowly.css?v=edition3"><link rel="stylesheet" href="../../site/reader/paper.css?v=exhibit1">
+<link rel="stylesheet" href="../../site/navigation.css?v=glass2"><script defer src="../../site/navigation.js?v=glass2"></script><script defer src="../../site/flowly.js"></script>
+<script type="module" src="../../site/reader/explore.mjs"></script></head>
+<body data-paper="finite-maxima">
+<header class="reader-head lab-header"><a class="lab-mark" href="../../" aria-label="oo research home"><img width="42" height="42" src="../../site/assets/torus.png" alt=""></a><nav aria-label="Paper navigation"><a href="../../catalogue.html">Research map</a><a id="view-link" href="#full-text" hidden>Full text</a><a href="../finite-maxima.pdf">PDF ↗</a></nav></header>
+<main>
+<section id="explore" aria-labelledby="exhibit-title" hidden>
+ <div class="explainer">
+  <div class="story"><h1 id="exhibit-title"></h1><p id="lead"></p><p id="scope"></p></div>
+  <figure class="experiment"><div id="visual"></div><div id="controls" aria-label="Explore the result" role="group"></div><figcaption id="caption" aria-live="polite"></figcaption></figure>
+ </div>
+</section>
+<article id="full-text" tabindex="-1">
 <h1 class="paper-title">Exact finite maxima for positive coordinate supports at the Werner endpoint</h1>
-<div class="edition-model"><strong>GPT-6.2 Astra (high)</strong><span>AI manuscript author</span></div>
-<div class="project-credit">Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a>.<br>oo research · The Open University (student)</div>
 <p class="date">26 November 2026</p>
 <section aria-label="Abstract"><h2 id="abstract">Abstract</h2><p>For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> copies of a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>-dimensional Werner state at the one-copy distillability boundary, we compute the largest computational-basis support on Alice’s side for which the full compression is positive semidefinite. For three copies and every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">d\ge2</annotation></semantics></math> we derive the exact maximum <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mo>,</mo><mn>2</mn><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\max(8,2d)</annotation></semantics></math>. The finite table supplies witnesses and replayable upper-bound certificates. The object being maximized is the cardinality of a set of basis words. This finite calculation leaves distillability by Schmidt-rank-two vectors open.</p></section>
 <h2 class="unnumbered" id="certified-values">Certified values</h2>
@@ -66,8 +72,7 @@
 <h5 id="ai-contributions-and-verification.">AI contributions and verification.</h5>
 <p>GPT-6.2 Astra (high) helped draft the explanation of the support certificates. For each table entry, the auditor checks the deposited lower witness, verifies each color class and confirms that the branches cover the search. The separate matching argument gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mo>,</mo><mn>2</mn><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\max(8,2d)</annotation></semantics></math> at three copies, including dimensions outside the table. These checks concern sets of basis words. <a href="https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/continuous.py">Table and audit procedure</a> and <a href="https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/supports.py">Branch-certificate checker</a>.</p>
 <p>Related formulation: P. Costa Rico, <em>New partial trace inequalities and distillability of Werner states</em> (2025), <a href="https://doi.org/10.1007/s11005-025-01935-y">doi:10.1007/s11005-025-01935-y</a>. See also the companion manuscript, <em>Positive coordinate compressions of tensor powers of a partially transposed Werner state</em>, in this repository.</p>
-</article></main>
-<footer class="reader-foot" hidden><button type="button" id="previous" data-cue="cancel" aria-label="Previous page" title="Previous page">←</button><span id="page" class="paper-counter" aria-live="polite"></span><button type="button" id="next" aria-label="Next page" title="Next page">→</button></footer>
-<dialog class="sheet" id="sections" aria-label="Contents"><form method="dialog"><button data-cue="cancel" aria-label="Close" title="Close">×</button></form><nav aria-label="Paper sections"></nav>
-<button data-sound-switch>Sound on</button></dialog>
+</article>
+</main>
+<footer class="paper-credit"><div><strong>GPT-6.2 Astra (high)</strong> <span>AI manuscript author</span></div><small>Project initiated and directed by <a href="https://www.researchgate.net/profile/Aryan-Singh-101">Aryan Singh</a> · oo research · The Open University (student)</small><details id="more" hidden><summary>Scope &amp; credits</summary></details></footer>
 </body></html>

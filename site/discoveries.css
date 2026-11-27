@@ -22,7 +22,7 @@ figcaption{justify-content:center;gap:1.35rem;line-height:1.2;min-height:2.7rem;
 .focus-pair{font-size:.8rem}.focus-pair i{width:7px;height:7px;border-radius:50%;background:var(--blue)}.record{text-decoration:underline;text-underline-offset:3px}
 .code-figure{display:grid;align-items:center}.code-figure>div{display:grid;gap:3px}.pauli{display:flex;justify-content:space-between;align-items:center;gap:2px}.pauli span{width:7.5%;aspect-ratio:1;display:grid;place-items:center;font:clamp(.62rem,1.05vw,.94rem) ui-monospace,monospace;border-radius:50%;background:#edf0f2;color:#2b3640}.pauli .identity{color:#a0a7ac;background:transparent}.pauli:first-child span:not(.identity){background:#d4e5f8;color:#174674}
 .histogram{display:flex;align-items:flex-end;justify-content:center;gap:8%;padding:10% 4% 8%}.histogram div{height:100%;width:15%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}.histogram i{width:100%;height:var(--h);min-height:2px;background:#6d7982}.histogram div:nth-child(3) i{background:var(--blue)}.histogram b,.histogram small{font-size:.8rem;font-weight:400}
-footer{border-top:1px solid var(--rule);gap:1rem}footer nav{gap:clamp(1rem,3vw,3rem)}footer nav a{padding:.6rem 0;color:var(--muted);border-bottom:1px solid transparent}footer nav a[aria-current]{color:var(--ink);border-color:currentColor}
+footer{gap:1rem}footer nav{gap:clamp(1rem,3vw,3rem)}footer nav a{padding:.6rem 0;color:var(--muted);border-bottom:1px solid transparent}footer nav a[aria-current]{color:var(--ink);border-color:currentColor}
 @media(prefers-reduced-motion:no-preference){a,button{transition:color .15s,background .15s}}
 @media(max-width:650px) and (min-height:501px){
  .result{width:min(88%,29rem);grid-template-columns:1fr;gap:.5rem}

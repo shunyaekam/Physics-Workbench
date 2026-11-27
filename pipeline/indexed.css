@@ -4,7 +4,7 @@
 #index .controls {grid-template-columns:1.2fr 1fr 1fr;margin:2.5rem 0 1rem}
 .controls label {display:grid;gap:.2rem;font-size:.875rem;color:var(--muted)}
 #matches,#freshness,.meta {color:var(--muted);font-size:.875rem}
-.item {border-bottom:1px solid var(--rule);padding:.9rem 0}
+.item {padding:.9rem 0}
 .item a {font-size:1.05rem;text-decoration:none}.item a:hover{text-decoration:underline}
 .meta {margin-top:.15rem;overflow-wrap:anywhere}
 #more {margin-top:.8rem;text-decoration:underline}

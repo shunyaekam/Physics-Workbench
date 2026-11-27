@@ -61,7 +61,7 @@ def build(pandoc):
         target.parent.mkdir(exist_ok=True)
         command = [pandoc, "-f", input_format, "-t", "html5", "--mathml", "--standalone",
                    "--fail-if-warnings", "--shift-heading-level-by=1", "--wrap=none",
-                   "--template", str(TEMPLATE), "-V", "pdfpath=" + pdf.relative_to(PAPERS).as_posix(),
+                   "--template", str(TEMPLATE), "-V", "paperslug=" + pdf.stem, "-V", "pdfpath=" + pdf.relative_to(PAPERS).as_posix(),
                    "-V", "pdfhref=" + relpath(pdf, target.parent), "-o", str(target)]
         subprocess.run(command, input=body, text=True, cwd=PAPERS, check=True)
 

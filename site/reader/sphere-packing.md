@@ -8,23 +8,7 @@ abstract: |
 
 # The closest pair
 
-```{=html}
-<figure class="packing-figure">
-  <canvas id="sphere" data-coordinates="coordinates.json" tabindex="0" aria-label="Rotatable sphere with 418 equal caps. The closest pair is highlighted." aria-describedby="instructions"></canvas>
-  <figcaption>
-    <span class="packing-context">Three dimensions · 418 points</span>
-    <div class="packing-measure"><span>Minimum angular separation</span><output id="angle">10.3789768°</output></div>
-    <span id="pair">Centers 12 and 26</span>
-    <div class="packing-controls" role="group" aria-label="Choose a configuration">
-      <button type="button" id="prior" aria-pressed="false">Previous</button>
-      <button type="button" id="ours" aria-pressed="true">Ours</button>
-    </div>
-    <button type="button" id="center">Center closest pair</button>
-  </figcaption>
-</figure>
-```
-
-<p id="instructions"><span class="packing-gesture">Drag or use the arrow keys to rotate the sphere. </span>Each cap’s angular radius is half the closest-pair separation.</p>
+For 418 points in three dimensions, centers 12 and 26 set the minimum angular separation of 10.3789768°. Each cap’s angular radius is half the closest-pair separation.
 
 # All five comparisons
 

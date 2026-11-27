@@ -1,5 +1,5 @@
 /* Shared frame of the discoveries, map, index, pipeline and manuscript readers. */
-body header.lab-header{position:relative;top:auto;z-index:2;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;width:100%;height:clamp(3.25rem,7.4vh,4.5rem);min-height:3.25rem;margin:0;padding:0 clamp(1rem,4vw,4.25rem);border:0;border-bottom:1px solid #e3e6e6;background:white;font-family:var(--sans)}
+body header.lab-header{position:relative;top:auto;z-index:2;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;width:100%;height:clamp(3.25rem,7.4vh,4.5rem);min-height:3.25rem;margin:0;padding:0 clamp(1rem,4vw,4.25rem);border:0;background:white;font-family:var(--sans)}
 body header.lab-header nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:nowrap;gap:clamp(.6rem,2.2vw,1.7rem);margin:0;padding:0}
 body header.lab-header nav :is(a,button){display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0;border:0;background:transparent;color:#323a3e;font:400 .875rem/1.2 var(--sans);text-decoration:none}
 body header.lab-header nav :is(a,button):hover{color:#101719;text-decoration:underline;text-underline-offset:.24em}
@@ -7,16 +7,15 @@ body header.lab-header nav [hidden]{display:none}
 body header.lab-header .lab-mark{flex:0 0 44px;width:44px;height:44px;margin:0;padding:0}
 body header.lab-header .lab-menu-toggle{min-width:36px}
 body header.lab-header .lab-menu-toggle span{font-size:1rem}
-body dialog.lab-navigation{position:fixed;inset:0;width:min(23rem,calc(100% - 2rem));max-width:100%;max-height:calc(100dvh - 2rem);height:max-content;margin:auto;padding:0;border:1px solid #c8d0d4;border-radius:15px;overflow:auto;color:#20272b;background:#fffffff7;box-shadow:0 20px 65px #17252d26;font-family:var(--sans)}
-body dialog.lab-navigation::backdrop{background:#33455239;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
-.lab-navigation-body{padding:1.25rem 1.6rem 1.5rem;display:grid;gap:.85rem}
-.lab-navigation-body #menu-close{font:400 1.45rem/1 var(--sans);justify-self:end;min-height:32px;min-width:32px}
-.lab-navigation-body :is(a,button){color:inherit}.lab-navigation-body button{background:none;border:0;font:inherit;cursor:pointer}
-.lab-navigation-body nav{display:grid;gap:.42rem}.lab-navigation-body nav a{font:400 1.55rem/1.25 var(--sans);text-decoration:none;padding:.12rem 0}
-.lab-navigation-body nav a:hover,.lab-navigation-body nav a:focus-visible{text-decoration:underline;text-underline-offset:.15em}
-.lab-navigation-body nav [aria-current=page]{color:#435f70}
-.lab-navigation-body p{margin:.6rem 0 0;color:#566168;font:400 .83rem/1.45 var(--sans)}
-.lab-navigation-body #sound{justify-self:start;margin:0;padding:.25rem 0;color:#566168;font:.84rem var(--sans)}
-:where(.lab-header,.lab-navigation) :focus-visible{outline:2px solid #367da0;outline-offset:3px}
-@media(max-height:520px){body header.lab-header{height:2.8rem;min-height:2.8rem}.lab-navigation-body{gap:.24rem;padding:.5rem 1rem}.lab-navigation-body nav{gap:.15rem}.lab-navigation-body nav a{font-size:1.18rem}}
+body dialog.lab-navigation{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;border-radius:0;padding:0;overflow:auto;color:white;background:rgba(21,25,28,.63);box-shadow:none;backdrop-filter:blur(19px);-webkit-backdrop-filter:blur(19px);font-family:var(--sans)}
+body dialog.lab-navigation::backdrop{background:transparent}
+.lab-navigation-body{min-height:100%;display:grid;place-content:center;padding:3.5rem 1.5rem}
+.lab-navigation-body #menu-close{position:absolute;right:5%;top:4%;font:400 1.65rem/1 var(--sans);min-height:44px;min-width:44px}
+.lab-navigation-body :is(a,button){color:white}.lab-navigation-body button{font:inherit;border:0;background:none;cursor:pointer}
+.lab-navigation-body nav{display:grid;gap:.45rem}.lab-navigation-body nav a{font:400 clamp(1.8rem,5vw,4rem)/1.18 var(--sans);letter-spacing:-.055em;text-decoration:none;width:fit-content}
+.lab-navigation-body nav a:hover,.lab-navigation-body nav a:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
+.lab-navigation-body p{margin:1.45rem 0 0;font:.82rem/1.45 var(--sans);max-width:32ch;color:#f4f4f4}
+.lab-navigation-body #sound{justify-self:start;margin:.85rem 0 0;padding:.25rem 0;color:white;font:.86rem var(--sans)}
+.lab-header :focus-visible{outline:2px solid #367da0;outline-offset:3px}.lab-navigation :focus-visible{outline:2px solid white;outline-offset:3px}
+@media(max-height:520px){body header.lab-header{height:2.8rem;min-height:2.8rem}.lab-navigation-body{padding-block:1rem}.lab-navigation-body nav{gap:.1rem}.lab-navigation-body nav a{font-size:1.55rem}.lab-navigation-body p{margin-top:.5rem}}
 @media print{body header.lab-header,body dialog.lab-navigation{display:none!important}}
