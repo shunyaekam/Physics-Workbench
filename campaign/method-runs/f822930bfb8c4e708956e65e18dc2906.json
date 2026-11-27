@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "f822930bfb8c4e708956e65e18dc2906",
+  "problem_id": "refined-bmv",
+  "stage": "search",
+  "method": "checks/bmv_search.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "55e8301f969a754a171a69675c82b58b425bd14f",
+  "started_at": "2026-11-27T23:11:32.188+00:00",
+  "elapsed_seconds": 0.120307,
+  "status": "completed",
+  "outcome": "no_new_receipt",
+  "evidence": null,
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
