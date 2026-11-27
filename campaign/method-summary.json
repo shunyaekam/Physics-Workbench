@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 56,
-      "seconds": "44.8",
+      "runs": 57,
+      "seconds": "45.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 56,
-      "seconds": "66.7",
+      "runs": 57,
+      "seconds": "70.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 211,
-      "seconds": "509.3",
+      "runs": 215,
+      "seconds": "563.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 113,
-      "seconds": "488.8",
+      "runs": 115,
+      "seconds": "489.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -64,6 +64,15 @@
       "outcome": "timeout"
     },
     {
+      "problem": "lts-Erdos1165.erdos_1165.R1.H1",
+      "runs": 1,
+      "seconds": "146.0",
+      "tokens": "975,341 / 4,634",
+      "coverage": "1/1",
+      "stage": "scout",
+      "outcome": "prior_resolution"
+    },
+    {
       "problem": "lts-Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
       "runs": 1,
       "seconds": "91.9",
@@ -83,8 +92,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 58,
-      "seconds": "126.7",
+      "runs": 59,
+      "seconds": "126.8",
       "tokens": "226,762 / 2,761",
       "coverage": "2/2",
       "stage": "search",
@@ -119,8 +128,8 @@
     },
     {
       "problem": "thomson-13",
-      "runs": 14,
-      "seconds": "7.6",
+      "runs": 15,
+      "seconds": "7.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -137,8 +146,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 113,
-      "seconds": "136.1",
+      "runs": 115,
+      "seconds": "137.0",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -192,6 +201,19 @@
       "measured_output": 8904,
       "measured_hosted_seconds": 488.652,
       "lifetime_local_tactic_seconds": 45.263
+    },
+    {
+      "problem": "Erdos1165.erdos_1165.R1.H1",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T13:02:33.881+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 107501,
+      "measured_output": 4634,
+      "measured_hosted_seconds": 145.676,
+      "lifetime_local_tactic_seconds": 0
     },
     {
       "problem": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
