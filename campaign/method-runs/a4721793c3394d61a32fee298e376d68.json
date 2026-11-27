@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "a4721793c3394d61a32fee298e376d68",
+  "problem_id": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "08fc6aad24bb7025b3fd42e4479eea80d772b2fd",
+  "started_at": "2026-11-27T03:59:26.582+00:00",
+  "elapsed_seconds": 106.566356,
+  "status": "completed",
+  "outcome": "shortlist",
+  "evidence": "campaign/scouting/f2e17a16b71ebfe846f958a2.json",
+  "usage": {
+    "input_tokens": 392812,
+    "cached_input_tokens": 331264,
+    "output_tokens": 3390
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 106.173778
+}
