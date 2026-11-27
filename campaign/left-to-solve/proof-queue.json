@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T11:42:38+00:00",
+  "checked_at": "2026-11-27T12:48:53+00:00",
   "targets": [
     {
       "id": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
@@ -10,6 +10,16 @@
       "source": "https://www.erdosproblems.com/1166",
       "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
       "difficulty": 32
+    },
+    {
+      "id": "Erdos1165.erdos_1165.R1.H1",
+      "title": "Erd\u0151s Problem 1165 \u00b7 step 1",
+      "kind": "step",
+      "points": 14,
+      "statement": "let \u03bc := Measure.infinitePi (fun _ : \u2115 => ProbabilityTheory.cond (Measure.count : Measure (\u2124 \u00d7 \u2124)) steps)\n  let inc (i : \u2115) (w : \u2115 \u2192 \u2124 \u00d7 \u2124) := w i\n  let peak (n : \u2115) (w : \u2115 \u2192 \u2124 \u00d7 \u2124) := (Finset.range (n+1)).sup fun i =>\n    localTime inc n w (position inc i w)\n  let hit (m k : \u2115) : Set (\u2115 \u2192 \u2124 \u00d7 \u2124) := {w | \u2203 n, peak n w = m \u2227\n    (k : \u2115\u221e) \u2264 (favouriteSites inc n w).encard}\n  \u2203 b : \u2115 \u2192 \u2115, (\u2211' j : \u2115, \u03bc {w | \u00ac \u2203 m \u2208 Finset.Icc j (b j), w \u2208 hit m 3}) \u2260 \u221e\n\n/-- The probabilities of four-way ties on the good profiles are summable.\nAlmost every walk has a good profile at every sufficiently large level. -/",
+      "source": "https://www.erdosproblems.com/1165",
+      "parent": "Erdos1165.erdos_1165",
+      "difficulty": 44
     },
     {
       "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
@@ -30,6 +40,16 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_68",
       "difficulty": 58
+    },
+    {
+      "id": "Erdos1165.erdos_1165.R1.H2",
+      "title": "Erd\u0151s Problem 1165 \u00b7 step 2",
+      "kind": "step",
+      "points": 14,
+      "statement": "let \u03bc := Measure.infinitePi (fun _ : \u2115 => ProbabilityTheory.cond (Measure.count : Measure (\u2124 \u00d7 \u2124)) steps)\n  let inc (i : \u2115) (w : \u2115 \u2192 \u2124 \u00d7 \u2124) := w i\n  let peak (n : \u2115) (w : \u2115 \u2192 \u2124 \u00d7 \u2124) := (Finset.range (n+1)).sup fun i =>\n    localTime inc n w (position inc i w)\n  let hit (m k : \u2115) : Set (\u2115 \u2192 \u2124 \u00d7 \u2124) := {w | \u2203 n, peak n w = m \u2227\n    (k : \u2115\u221e) \u2264 (favouriteSites inc n w).encard}\n  \u2203 G : \u2115 \u2192 Set (\u2115 \u2192 \u2124 \u00d7 \u2124), (\u2200\u1d50 w \u2202\u03bc, \u2200\u1da0 m in atTop, w \u2208 G m) \u2227\n    (\u2211' m : \u2115, \u03bc (hit m 4 \u2229 G m)) \u2260 \u221e",
+      "source": "https://www.erdosproblems.com/1165",
+      "parent": "Erdos1165.erdos_1165",
+      "difficulty": 44
     },
     {
       "id": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",

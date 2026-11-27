@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-11-27T11:42:38+00:00",
+  "checked_at": "2026-11-27T12:48:53+00:00",
   "source": "https://lefttosolve.com/contributors",
   "owner": {
-    "rank": 188,
+    "rank": 105,
     "handle": "shunyaekam",
-    "points": 0,
-    "solved": 0,
+    "points": 34,
+    "solved": 1,
     "taken": 15
   },
   "cutoff": {
     "rank": 20,
-    "handle": "dk8827",
-    "points": 396,
-    "solved": 41,
-    "taken": 126
+    "handle": "philipsaint",
+    "points": 450,
+    "solved": 38,
+    "taken": 56
   },
-  "points_to_pass": 397,
+  "points_to_pass": 417,
   "listed": 200
 }
