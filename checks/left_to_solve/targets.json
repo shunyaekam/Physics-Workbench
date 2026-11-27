@@ -1,0 +1,45 @@
+[
+  {
+    "problem": "oeis-a293452",
+    "title": "One-row toroidal sandpiles",
+    "target": "For every positive n, is the common serial toppling count T(n,1) equal to A023855(n) at the printed offset?",
+    "source": "https://oeis.org/A293452",
+    "submission": 1071,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/11",
+    "statement_sha256": "dd932f75386e2ee0dc67e8fadb37c25d6740194700a157585c947cd5b9e9a99c"
+  },
+  {
+    "problem": "oeis-a201488",
+    "title": "CHSH theta series",
+    "target": "Does the series with A210066 coefficients at exp(−π) converge to (2+√2)/4?",
+    "source": "https://oeis.org/A201488",
+    "submission": 1073,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/12"
+  },
+  {
+    "problem": "oeis-a145646",
+    "title": "Hydrogen wavelength recurrence",
+    "target": "Do the three listed formulae hold for all positive levels (recurrence for n>5) under the listed rounding convention? Test both the source program and any scale compatible with its tabulated measurements.",
+    "source": "https://oeis.org/A145646",
+    "submission": 1074,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/13",
+    "statement_sha256": "d2d16262a309f1af36ea18ebc0f7d46ff915cc8cc67a42971c28b8775c8ec61d"
+  },
+  {
+    "problem": "oeis-a145647",
+    "title": "Hydrogen wavelength differences",
+    "target": "Do the three listed formulae hold for all forward wavelength differences (recurrence for n>4)? Linked to the same rounding obstruction as A145646.",
+    "source": "https://oeis.org/A145647",
+    "submission": 1084,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/14",
+    "statement_sha256": "cdd692507390598221bc4190e649460a0658c7a167710b9a74667d6aeb311a9a"
+  },
+  {
+    "problem": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+    "title": "Six-vertex quantum graphs",
+    "target": "For every D≥3, can any complex weighting realize the six-vertex monochromatic matching equation system? Track the reduction only and credit the existing results.",
+    "source": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+    "submission": 1077,
+    "issue": "https://github.com/shunyaekam/oo-research/issues/15"
+  }
+]
