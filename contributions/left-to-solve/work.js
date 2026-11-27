@@ -1,9 +1,20 @@
 const entries = [...document.querySelectorAll('article[id]')];
 const topics = [...document.querySelectorAll('.topics a')];
 const checked = new Set();
+async function reviewStep(entry) {
+  const status = entry.querySelector('[data-step-status]');
+  if (!status) return;
+  try {
+    const response = await fetch('https://api.github.com/repos/GuillaumeBAUD-coder/open-math-agents/pulls/1167', {signal: AbortSignal.timeout(6000)});
+    if (!response.ok) return;
+    const pr = await response.json();
+    status.textContent = pr.merged_at ? 'Step proof merged' : pr.state === 'closed' ? 'Closed · see review' : 'Open · see upstream checker';
+  } catch { /* The submitted proof links directly to its review. */ }
+}
 async function review(entry) {
   if (!entry.dataset.pr || checked.has(entry.id)) return;
   checked.add(entry.id);
+  reviewStep(entry);
   try {
     const response = await fetch('https://api.github.com/repos/GuillaumeBAUD-coder/open-math-agents/pulls/' + entry.dataset.pr, {signal: AbortSignal.timeout(6000)});
     if (!response.ok) return;
