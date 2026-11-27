@@ -1,5 +1,10 @@
 [
   {
+    "key": "f2e17a16b71ebfe846f958a2-lemma",
+    "title": "Discounted first arrival of a planar random walk \u00b7 step 1",
+    "verdict": "insufficient_evidence"
+  },
+  {
     "key": "036c758c0a94824d55494267",
     "title": "Erd\u0151s Problem 1166 \u2014 dembo peres rosen zeitouni \u00b7 step 2",
     "verdict": "prior_resolution"

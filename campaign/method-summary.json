@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 23,
-      "seconds": "18.5",
+      "runs": 24,
+      "seconds": "19.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 23,
-      "seconds": "18.4",
+      "runs": 24,
+      "seconds": "25.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 87,
-      "seconds": "147.8",
+      "runs": 91,
+      "seconds": "152.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "search_receipt"
+      "outcome": "bounded_result"
     },
     {
       "problem": "golay43",
-      "runs": 47,
-      "seconds": "355.6",
+      "runs": 49,
+      "seconds": "421.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -38,12 +38,12 @@
     },
     {
       "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
-      "runs": 1,
-      "seconds": "106.6",
-      "tokens": "392,812 / 3,390",
-      "coverage": "1/1",
+      "runs": 2,
+      "seconds": "249.3",
+      "tokens": "878,620 / 8,904",
+      "coverage": "2/2",
       "stage": "scout",
-      "outcome": "shortlist"
+      "outcome": "insufficient_evidence"
     },
     {
       "problem": "lts-Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
@@ -56,8 +56,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 24,
-      "seconds": "49.7",
+      "runs": 25,
+      "seconds": "49.8",
       "tokens": "69,669 / 997",
       "coverage": "1/1",
       "stage": "search",
@@ -83,8 +83,8 @@
     },
     {
       "problem": "thomson-11",
-      "runs": 5,
-      "seconds": "1.4",
+      "runs": 6,
+      "seconds": "1.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -110,8 +110,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 46,
-      "seconds": "49.5",
+      "runs": 48,
+      "seconds": "50.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",

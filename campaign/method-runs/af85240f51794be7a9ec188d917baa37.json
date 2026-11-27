@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "af85240f51794be7a9ec188d917baa37",
+  "problem_id": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "stage": "scout",
+  "method": "continue-scored-lemma",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "2fbc41d4cb7837c6e1af992f225037b9a4d913d7",
+  "started_at": "2026-11-27T06:20:01.012+00:00",
+  "elapsed_seconds": 142.776026,
+  "status": "completed",
+  "outcome": "insufficient_evidence",
+  "evidence": "campaign/scouting/f2e17a16b71ebfe846f958a2-lemma.json",
+  "usage": {
+    "input_tokens": 485808,
+    "cached_input_tokens": 431104,
+    "output_tokens": 5514
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 142.454295
+}
