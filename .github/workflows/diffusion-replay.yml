@@ -32,7 +32,9 @@ jobs:
           export PATH="$HOME/.elan/bin:$PATH"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           lake exe cache get
-          lake build FormalConjectures.ErdosProblems.1165
+          lake build FormalConjecturesUtil
+          mkdir -p .lake/build/lib/lean/FormalConjectures/ErdosProblems
+          lake env lean -o .lake/build/lib/lean/FormalConjectures/ErdosProblems/1165.olean FormalConjectures/ErdosProblems/1165.lean
       - uses: actions/cache/save@v4
         if: steps.restored.outputs.cache-hit != 'true'
         with:
