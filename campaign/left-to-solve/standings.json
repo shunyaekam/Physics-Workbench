@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-27T05:07:39+00:00",
-  "source": "https://lefttosolve.com/contributors",
+  "checked_at": "2026-11-27T06:45:28+00:00",
+  "source": "https://shipfastwith.me/contributors",
   "owner": {
-    "rank": 138,
+    "rank": 146,
     "handle": "shunyaekam",
     "points": 0,
     "solved": 0,
@@ -10,11 +10,11 @@
   },
   "cutoff": {
     "rank": 20,
-    "handle": "ysanatomic",
-    "points": 264,
-    "solved": 17,
-    "taken": 32
+    "handle": "MrSeizy",
+    "points": 285,
+    "solved": 19,
+    "taken": 50
   },
-  "points_to_pass": 265,
+  "points_to_pass": 286,
   "listed": 200
 }
