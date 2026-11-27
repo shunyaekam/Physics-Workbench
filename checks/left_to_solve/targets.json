@@ -41,5 +41,13 @@
     "source": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
     "submission": 1077,
     "issue": "https://github.com/shunyaekam/oo-research/issues/15"
+  },
+  {
+    "problem": "mo-283077",
+    "title": "A sheared Floquet discriminant",
+    "target": "For even continuous periodic potentials, can the half-trace have a stationary point in the open band? Track real and complex potentials separately.",
+    "source": "https://mathoverflow.net/questions/283077",
+    "issue": "https://github.com/shunyaekam/oo-research/issues/16",
+    "status": "scoped derivation"
   }
 ]

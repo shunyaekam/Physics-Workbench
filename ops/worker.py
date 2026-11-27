@@ -105,7 +105,10 @@ def run():
         call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)
-    call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
+    try:
+        call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
+    except subprocess.TimeoutExpired:
+        print("Left to Solve follow-up timed out; retry on the next eligible cycle.",flush=True)
     call([sys.executable,"ops/pipeline_feed.py"])
     git("add","--","campaign","papers")
     if git("diff","--cached","--quiet",check=False).returncode==1:
@@ -121,7 +124,10 @@ def run():
             if conflicts != ["campaign/pipeline.json"]:
                 git("merge","--abort",check=False)
                 raise RuntimeError("Research branch conflict; both histories preserved")
-            call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
+            try:
+        call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
+    except subprocess.TimeoutExpired:
+        print("Left to Solve follow-up timed out; retry on the next eligible cycle.",flush=True)
     call([sys.executable,"ops/pipeline_feed.py"])
             git("add","--","campaign/pipeline.json")
             git("commit","--no-edit")
