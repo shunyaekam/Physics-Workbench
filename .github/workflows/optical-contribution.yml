@@ -44,6 +44,21 @@ jobs:
             ~/.elan
             fc/.lake
           key: lts-optics-9097e2f9
-      - name: Compile physical proof
+      - name: Replay the two public proof files
         working-directory: fc
-        run: lake env lean ../checks/left_to_solve/Optics.lean
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 https://raw.githubusercontent.com/shunyaekam/open-math-agents/e5491fee6c7a1050a428425b922e52b97a665164/proofs/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3.R1.H1.lean -o H1.source
+          echo '24fb1d83c50531a810858756b8af9f2df2c787ae00d9bf9ad05409833879c5ce  H1.source' | sha256sum -c -
+          sed 's/^theorem OMA\.solution :/theorem OOReplay.h1 :/' H1.source > OOReplayH1.lean
+          lake env lean -o .lake/build/lib/lean/OOReplayH1.olean OOReplayH1.lean
+          curl -fsSL --retry 3 https://raw.githubusercontent.com/shunyaekam/open-math-agents/d8d7370dc10f2ac6114f7bf972cb48666e027677/proofs/MonochromaticQuantumGraph.eqSystem6_no_solution_ge3.R1.H2.lean -o H2.source
+          echo '244af9acb52ac401bcb271d4b9210517a137ee0b0a28241a2dfffa8488cdc494  H2.source' | sha256sum -c -
+          sed 's/^theorem OMA\.solution :/theorem OOReplay.h2 :/' H2.source > OOReplayH2.lean
+          lake env lean -o .lake/build/lib/lean/OOReplayH2.olean OOReplayH2.lean
+      - name: Audit the complete six-photon theorem
+        working-directory: fc
+        run: |
+          set -euo pipefail
+          lake env lean ../checks/left_to_solve/Optics.lean | tee "$RUNNER_TEMP/parent-proof.log"
+          grep -Fx "'OOReplay.sixPhotonNoGo' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/parent-proof.log"
