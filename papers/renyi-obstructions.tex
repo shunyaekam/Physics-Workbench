@@ -11,8 +11,10 @@
 \date{26 November 2026}
 \begin{document}\maketitle
 \begin{abstract}
-For one optical mode, consider the proposed bound of Wigner logarithmic negativity by the excess Husimi R\'enyi entropy above vacuum. A single photon violates it at every positive order below $a_*=0.288703\ldots$. At every fixed order above one half, including Shannon and min-entropy, a sequence of pure states violates it while its mean photon number tends to zero. This proves the dilute-superposition prediction of Gagatsos and raises the lower exclusion from the heuristic large-number-state estimate of approximately $0.17$. The possible interval left by these obstructions is $[a_*,1/2]$. We prove the bound throughout that interval on the full zero--one-photon Bloch ball and on photon-number mixtures through 144 photons.
+Can the spread of heterodyne outcomes bound the Wigner negativity of light? For one optical mode we determine two necessary conditions on the order $a$ of the vacuum-subtracted Husimi R\'enyi entropy. One photon violates the bound exactly when $0<a<a_*$, where $a_*=0.288703\ldots$ is the root of an explicit gamma-function equation. For each fixed $a>1/2$, including the Shannon and min-entropy limits, a weak coherent superposition violates the bound even as its mean photon number tends to zero. This proves a prediction of Gagatsos. Throughout the surviving interval $[a_*,1/2]$, we prove the inequality for every coherent or mixed state in the zero--one-photon subspace and for all photon-number-diagonal mixtures through 144 photons. The unrestricted order-one-half conjecture remains open.
 \end{abstract}
+
+A heterodyne detector samples a positive phase-space distribution, the Husimi density. The Wigner density of the same state can have negative regions. Its integral is one, so its absolute integral exceeds one by twice the mass of those regions. The physical question is whether the spread of the measured distribution puts a ceiling on this negative mass. The entropy order selects how much weight to give rare outcomes.
 
 Use the complex coherent amplitude $z$ as phase-space coordinate, with normalized densities $q(z)=\langle z|\rho|z\rangle/\pi$ and $W$ in $d^2z$. Put $h_a(q)=(1-a)^{-1}\log\int q^a$ and $\D_a=h_a(q)-h_a(q_0)$, with the usual Shannon and min-entropy definitions at $1$ and $\infty$. Entropy differences eliminate the constant coordinate Jacobian. Gagatsos asks at which orders $\log\|W\|_1\le\D_a$ holds for every state \cite{gag}. Equation (19) and Sec.~VI of \cite{gag} already exhibit violations at orders $1,2,\infty$ and identify dilute-cat interference as the mechanism. Section VII predicts failure at every fixed order above one half as the separation grows. Theorem~2 proves that prediction with a single family whose energy also tends to zero.
 
@@ -27,7 +29,7 @@ For number state $n$, integrating $q_n=\pi^{-1}e^{-|z|^2}|z|^{2n}/n!$ gives
  \D_a(n)=\frac{\log\Gamma(1+an)-a\log(n!)-an\log a}{1-a}.
 \]
 For $n\ge1$ its numerator $f(a)$ has $f(1)=0$ and
-$f''(a)=n^2\sum_{j\ge1}(na+j)^{-2}-n/a<0$, by comparing the sum with the integral from zero to infinity. Thus the negative secant slope $f(a)/(1-a)$ increases strictly, with its continuous extension at $a=1$ and limit at infinity. For $n=1$ it tends to zero at order zero, and at order $1/2$ it equals $\log(\pi/2)$. The known one-photon value $\|W_1\|_1=4e^{-1/2}-1$ \cite{kenfack} lies strictly between $1$ and $\pi/2$. This proves the root and the sign characterization. The accompanying certificate encloses the two endpoint signs using the Stirling remainder $-1/(360x^3)<\log\Gamma(x+1)-(x+1/2)\log x+x-\tfrac12\log(2\pi)-1/(12x)<0$, shifting both gamma arguments by an integer so the constant cancels \cite{dlmf}.
+$f''(a)=n^2\sum_{j\ge1}(na+j)^{-2}-n/a<0$, by comparing the sum with the integral from zero to infinity. Thus the negative secant slope $f(a)/(1-a)$ increases strictly, with its continuous extension at $a=1$ and limit at infinity. For $n=1$ it tends to zero at order zero, and at order $1/2$ it equals $\log(\pi/2)$. For a single photon put $u=2|z|^2$. Its Wigner density times the radial measure is $(2u-1)e^{-u}\,du$. The negative mass is $\int_0^{1/2}(1-2u)e^{-u}\,du=2e^{-1/2}-1$. Hence $\|W_1\|_1=4e^{-1/2}-1$ \cite{kenfack}, strictly between $1$ and $\pi/2$. This proves the root and the sign characterization. The accompanying certificate encloses the two endpoint signs using the Stirling remainder $-1/(360x^3)<\log\Gamma(x+1)-(x+1/2)\log x+x-\tfrac12\log(2\pi)-1/(12x)<0$, shifting both gamma arguments by an integer so the constant cancels \cite{dlmf}.
 
 \begin{theorem}For every fixed $a\in(1/2,\infty]$, the bound fails for pure states arbitrarily close in trace distance to vacuum with arbitrarily small mean photon number. The same sequence works eventually for each fixed order.
 \end{theorem}
@@ -105,9 +107,19 @@ The remaining rectangles are $[0.29,0.5]\times[0,9]$ and $[0.28870,0.29]\times[1
 \]
 Monotonicity follows from convexity of $a\mapsto\log\int q^a$ and normalization at $a=1$. Dyadically subdividing each rectangle until the lower bound exceeds $\log\|W\|_1$ exhausts both rectangles. The certificate is archived as \texttt{sharp-domain.json}; \texttt{checks/sharp\_qubit.py} rebuilds every leaf from its root using rational arithmetic with outward-rounded logs and exponentials. The two analytic regions close the domain. Concavity of $e^{\D_a}$ and convexity of the Wigner norm extend the result to mixed states. The unrestricted optical conjecture still permits other witnesses.
 
-\paragraph{Remaining issue.} The single-photon threshold specifies exactly where that witness stops violating the bound. Establishing the inequality, or finding a different violating state, for orders in $[a_*,1/2]$ remains a separate problem. The construction for high orders uses a diverging separation with vanishing occupation and supplies no violation at order one half.
+\paragraph{What remains open.}
+At $a=1/2$ a separated component of amplitude $t$ contributes to the integral of $\sqrt q$ at order $t$. This is the same order as the Wigner interference term. The argument of Theorem~2 therefore stops precisely where Gagatsos's conjecture begins. A counterexample anywhere in $[a_*,1/2]$ must leave the zero--one-photon subspace and the tested class of diagonal mixtures.
 
-\paragraph{AI contributions and verification.} GPT-6.2 Astra (high) helped draft the distinction between an excluded entropy order and a bound proved on a restricted class of states. For each fixed order above one half, the dilute-state argument supplies a violation. Within $[a_*,1/2]$, the optical-qubit proof uses interval enclosures on a compact domain and analytic estimates at its boundaries. The extension to number-diagonal mixtures through 144 photons uses separate number-state bounds. \href{https://github.com/shunyaekam/oo-research/blob/a5cde30636afbfe599efab6bf8bbbafe9c640c22/checks/sharp_qubit.py}{Optical-qubit interval checker}.
+\paragraph{Computational record.}
+The two compact covers contain 18 strips and 10,467 certified leaves. In a checkout of the \href{https://github.com/shunyaekam/oo-research/tree/f043c097d8de06399ba3b95c753af113e436df9a}{archived verifier revision}, with Python and SciPy installed, run
+\begin{verbatim}
+python checks/sharp_qubit.py
+python renyi_scan.py
+\end{verbatim}
+The first command reconstructs the compact covers and compares the counts strip by strip. The second reconstructs all 144 number-state brackets and checks their ordering. SciPy proposes roots. Rational sign tests and outward enclosures certify the comparisons. The asymptotic and boundary arguments are given in the text.
+
+\paragraph{Contributions.}
+Aryan Singh initiated and directed the oo research project. GPT-6.2 Astra (high) was used for mathematical reasoning and manuscript preparation. The computer-assisted portions of the proof are identified above.
 
 \begin{thebibliography}{9}
 \bibitem{gag} C. N. Gagatsos, \emph{Wigner negativity costs phase-space area}, Secs. VI--VII, especially open question (iv) (2026). \href{https://arxiv.org/abs/2611.30969}{arXiv:2611.30969v1}.
