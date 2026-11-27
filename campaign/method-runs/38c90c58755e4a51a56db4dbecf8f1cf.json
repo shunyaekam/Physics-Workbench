@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "38c90c58755e4a51a56db4dbecf8f1cf",
+  "problem_id": "gagatsos-2026-c1",
+  "stage": "search",
+  "method": "coherent_band_search.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "291e28655ad67bb6254bc6bffd09dd81d912b159",
+  "started_at": "2026-11-27T14:33:41.140+00:00",
+  "elapsed_seconds": 12.416962,
+  "status": "completed",
+  "outcome": "search_receipt",
+  "evidence": "campaign/coherent-bands/00000281.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true,
+  "evidence_paths": [
+    "campaign/coherent-bands/00000281.json"
+  ]
+}
