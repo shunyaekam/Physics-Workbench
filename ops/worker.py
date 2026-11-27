@@ -124,11 +124,7 @@ def run():
             if conflicts != ["campaign/pipeline.json"]:
                 git("merge","--abort",check=False)
                 raise RuntimeError("Research branch conflict; both histories preserved")
-            try:
-        call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
-    except subprocess.TimeoutExpired:
-        print("Left to Solve follow-up timed out; retry on the next eligible cycle.",flush=True)
-    call([sys.executable,"ops/pipeline_feed.py"])
+            call([sys.executable,"ops/pipeline_feed.py"])
             git("add","--","campaign/pipeline.json")
             git("commit","--no-edit")
         git("push","-u","origin","HEAD:research")

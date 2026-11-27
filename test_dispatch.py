@@ -3,6 +3,10 @@ from ops.proof_flow import dispatch
 
 
 class DispatchTests(unittest.TestCase):
+    def test_launchd_entrypoint_loads(self):
+        from ops import worker
+        self.assertTrue(callable(worker.run))
+
     def test_focus_shares_slots_and_yields_to_a_decisive_witness(self):
         focus=(True,False,"b","golay43")
         other=(True,False,"a","refined-bmv")
