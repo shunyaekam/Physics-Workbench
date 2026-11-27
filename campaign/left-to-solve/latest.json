@@ -1,5 +1,10 @@
 [
   {
+    "key": "e161945fc660f4add8dce1e5",
+    "title": "The Maxwell conjecture \u2014 three charges \u00b7 step 1",
+    "verdict": "prior_resolution"
+  },
+  {
     "key": "f2e17a16b71ebfe846f958a2-lemma",
     "title": "Discounted first arrival of a planar random walk \u00b7 step 1",
     "verdict": "insufficient_evidence"

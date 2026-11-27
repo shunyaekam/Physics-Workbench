@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 40,
-      "seconds": "31.3",
+      "runs": 41,
+      "seconds": "31.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 40,
-      "seconds": "48.4",
+      "runs": 41,
+      "seconds": "48.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 151,
-      "seconds": "265.0",
+      "runs": 155,
+      "seconds": "268.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,12 +29,21 @@
     },
     {
       "problem": "golay43",
-      "runs": 81,
-      "seconds": "459.9",
+      "runs": 83,
+      "seconds": "460.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
       "outcome": "failed"
+    },
+    {
+      "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
+      "runs": 1,
+      "seconds": "88.7",
+      "tokens": "337,260 / 3,220",
+      "coverage": "1/1",
+      "stage": "scout",
+      "outcome": "prior_resolution"
     },
     {
       "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
@@ -65,8 +74,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 41,
-      "seconds": "55.9",
+      "runs": 42,
+      "seconds": "56.0",
       "tokens": "69,669 / 997",
       "coverage": "1/1",
       "stage": "search",
@@ -101,8 +110,8 @@
     },
     {
       "problem": "thomson-13",
-      "runs": 10,
-      "seconds": "4.3",
+      "runs": 11,
+      "seconds": "4.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -119,8 +128,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 81,
-      "seconds": "108.1",
+      "runs": 83,
+      "seconds": "109.7",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -136,6 +145,19 @@
     "changed": false
   },
   "scored_cohort": [
+    {
+      "problem": "Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T09:43:38.348+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 59884,
+      "measured_output": 3220,
+      "measured_hosted_seconds": 88.382,
+      "lifetime_local_tactic_seconds": 0
+    },
     {
       "problem": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
       "board_accepted_at": null,

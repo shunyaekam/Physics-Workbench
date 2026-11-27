@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "af81a28261224a4699f6714471a9b573",
+  "problem_id": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "4161ce5923a0853748d8f4b236c0f1690968a1bb",
+  "started_at": "2026-11-27T09:43:38.348+00:00",
+  "elapsed_seconds": 88.668607,
+  "status": "completed",
+  "outcome": "prior_resolution",
+  "evidence": "campaign/scouting/e161945fc660f4add8dce1e5.json",
+  "usage": {
+    "input_tokens": 337260,
+    "cached_input_tokens": 277376,
+    "output_tokens": 3220
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 88.382455
+}
