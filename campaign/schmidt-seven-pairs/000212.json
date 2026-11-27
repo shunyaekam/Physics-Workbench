@@ -1,0 +1,48 @@
+{
+  "batch": 212,
+  "dimension": 16,
+  "domain": "real rational orthonormal seven-frames",
+  "evaluations": 540,
+  "maximum": "206273664/112890625",
+  "violates_sufficient_bound": false,
+  "initial_frame": [
+    11,
+    8,
+    7,
+    0,
+    12,
+    10,
+    13
+  ],
+  "rotations": [
+    [
+      3,
+      11,
+      7,
+      24,
+      25
+    ],
+    [
+      4,
+      8,
+      7,
+      24,
+      25
+    ],
+    [
+      8,
+      15,
+      15,
+      -8,
+      17
+    ],
+    [
+      11,
+      13,
+      8,
+      15,
+      17
+    ]
+  ],
+  "version": 2
+}

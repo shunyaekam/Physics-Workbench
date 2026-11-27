@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 57,
-      "seconds": "45.1",
+      "runs": 58,
+      "seconds": "48.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 57,
-      "seconds": "70.6",
+      "runs": 58,
+      "seconds": "74.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 215,
-      "seconds": "563.5",
+      "runs": 219,
+      "seconds": "571.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 115,
-      "seconds": "489.3",
+      "runs": 117,
+      "seconds": "494.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -92,8 +92,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 59,
-      "seconds": "126.8",
+      "runs": 60,
+      "seconds": "128.9",
       "tokens": "226,762 / 2,761",
       "coverage": "2/2",
       "stage": "search",
@@ -110,8 +110,8 @@
     },
     {
       "problem": "thomson-10",
-      "runs": 14,
-      "seconds": "7.4",
+      "runs": 15,
+      "seconds": "8.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 115,
-      "seconds": "137.0",
+      "runs": 117,
+      "seconds": "137.8",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
