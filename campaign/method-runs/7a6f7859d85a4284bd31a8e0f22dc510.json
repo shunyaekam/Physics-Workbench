@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "7a6f7859d85a4284bd31a8e0f22dc510",
+  "problem_id": "refined-bmv",
+  "stage": "solve",
+  "method": "notebook-witness",
+  "model": "gpt-6.2-astra",
+  "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
+  "revision": "e3942aa31e7539b234ec7c4547af5fb0a0c75dfc",
+  "started_at": "2026-11-27T18:15:34.578+00:00",
+  "elapsed_seconds": 19.798502,
+  "status": "failed",
+  "outcome": null,
+  "evidence": null,
+  "usage": null,
+  "usage_complete": false,
+  "hosted_invoked": true,
+  "reasoning_effort": "medium",
+  "hosted_elapsed_seconds": 19.575333,
+  "error_type": "RuntimeError"
+}
