@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "37dbd5ccc8d64019b2b6d5dd18bf9d4d",
+  "problem_id": "lts-Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "780e99331efbb7c5b90c1e800af78729379c0ed8",
+  "started_at": "2026-11-27T05:08:19.625+00:00",
+  "elapsed_seconds": 91.853078,
+  "status": "completed",
+  "outcome": "prior_resolution",
+  "evidence": "campaign/scouting/036c758c0a94824d55494267.json",
+  "usage": {
+    "input_tokens": 494151,
+    "cached_input_tokens": 426496,
+    "output_tokens": 3149
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 90.597209
+}

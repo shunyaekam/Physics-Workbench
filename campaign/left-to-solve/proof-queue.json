@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T03:37:02+00:00",
+  "checked_at": "2026-11-27T05:07:39+00:00",
   "targets": [
     {
       "id": "Erdos1164.erdos_1164.R1.H2.R1.H1",
@@ -25,16 +25,6 @@
       "source": "https://www.erdosproblems.com/1166",
       "parent": "Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni",
       "difficulty": 32
-    },
-    {
-      "id": "Erdos1164.erdos_1164.R1.H1",
-      "title": "Erd\u0151s Problem 1164 \u00b7 step 1",
-      "kind": "step",
-      "points": 14,
-      "statement": "\u2200 {\u03a9 : Type} [MeasureSpace \u03a9] [IsProbabilityMeasure (\u2119 : Measure \u03a9)] {X : \u2115 \u2192 \u03a9 \u2192 \u2124 \u00d7 \u2124},\n    IsSimpleRandomWalkSteps X \u2192 \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2203 c : \u211d, 0 < c \u2227 \u2200\u1da0 n : \u2115 in atTop,\n      1 - \u03b5 \u2264 (\u2119 {\u03c9 | c * Real.sqrt (Real.log n) \u2264 Real.log (coveringRadius X n \u03c9)}).toReal\n\n-- H2 (upper half: some site within radius e^{C \u221a(log n)} is missed). R\u00e9v\u00e9sz (1990) and Kesten; DPRZ04,\n-- Section 1.3: the probability that the disc of radius r is covered by time e^{t (log r)^2} has limsup\n-- at most e^{-a/t}, which tends to 0 as t \u2192 0. DPRZ04, Theorem 1.4, gives the exact limit e^{-4/t}.",
-      "source": "https://www.erdosproblems.com/1164",
-      "parent": "Erdos1164.erdos_1164",
-      "difficulty": 44
     },
     {
       "id": "Erdos1164.erdos_1164.R1.H2",
@@ -127,16 +117,6 @@
       "difficulty": 47
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d3",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 10 3 \u2102, EqSystemN 10 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_56",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 56",
       "kind": "open",
@@ -157,13 +137,13 @@
       "difficulty": 58
     },
     {
-      "id": "AtiyahSutcliffe.conjecture_one",
-      "title": "The first Atiyah--Sutcliffe conjecture",
+      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3",
       "kind": "open",
       "points": 68,
-      "statement": "theorem conjecture_one {n : \u2115} (x : Fin n \u2192 Point) (hx : Function.Injective x) :\n    LinearIndependent \u2102 (pointPolynomial x)",
-      "source": "https://doi.org/10.1098/rspa.2001.0913",
-      "parent": "AtiyahSutcliffe.conjecture_one",
+      "statement": "theorem eqSystem6_no_solution_ge3 :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u2102, EqSystemN 6 D W",
+      "source": "https://mathoverflow.net/questions/311325",
+      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
       "difficulty": 59
     },
     {
@@ -195,16 +175,6 @@
       "source": "https://arxiv.org/abs/2607.27197",
       "parent": "Arxiv.2607.27197.maxwell_conjecture.variants.polynomial_bound",
       "difficulty": 48
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3_real",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d3 real",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 10 3 \u211d, EqSystemN 10 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d3_real",
-      "difficulty": 58
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_58",
@@ -247,16 +217,6 @@
       "difficulty": 100
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d4",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d4",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d4 :\n    \u00ac \u2203 W : WeightsN 10 4 \u2102, EqSystemN 10 4 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d4",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_59",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 59",
       "kind": "open",
@@ -285,16 +245,6 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
       "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim12",
       "difficulty": 59
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d5",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d5",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d5 :\n    \u00ac \u2203 W : WeightsN 10 5 \u2102, EqSystemN 10 5 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d5",
-      "difficulty": 58
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_60",
@@ -327,16 +277,6 @@
       "difficulty": 59
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d6",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d6",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d6 :\n    \u00ac \u2203 W : WeightsN 10 6 \u2102, EqSystemN 10 6 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d6",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_64",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 64",
       "kind": "open",
@@ -365,16 +305,6 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/mutually-unbiased-bases",
       "parent": "OpenQuantumProblem13.mutuallyUnbiasedBases_dim15",
       "difficulty": 59
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem10_no_solution_d7",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem10 no solution d7",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem10_no_solution_d7 :\n    \u00ac \u2203 W : WeightsN 10 7 \u2102, EqSystemN 10 7 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem10_no_solution_d7",
-      "difficulty": 58
     },
     {
       "id": "OpenQuantumProblem23.hasSICPOVM_68",
@@ -407,16 +337,6 @@
       "difficulty": 59
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem12_no_solution_d3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem12 no solution d3",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem12_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 12 3 \u2102, EqSystemN 12 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem12_no_solution_d3",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_69",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 69",
       "kind": "open",
@@ -434,16 +354,6 @@
       "statement": "theorem ame_8_10_open :\n    ExistsAME 8 10",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
       "parent": "OpenQuantumProblem35.ame_8_10_open",
-      "difficulty": 58
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem14_no_solution_d3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem14 no solution d3",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem14_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 14 3 \u2102, EqSystemN 14 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem14_no_solution_d3",
       "difficulty": 58
     },
     {
@@ -467,16 +377,6 @@
       "difficulty": 58
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem16_no_solution_d3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem16 no solution d3",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem16_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 16 3 \u2102, EqSystemN 16 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem16_no_solution_d3",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_71",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 71",
       "kind": "open",
@@ -494,16 +394,6 @@
       "statement": "theorem ame_8_6_open :\n    ExistsAME 8 6",
       "source": "https://oqp.iqoqi.oeaw.ac.at/existence-of-absolutely-maximally-entangled-pure-states",
       "parent": "OpenQuantumProblem35.ame_8_6_open",
-      "difficulty": 58
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_d3_real",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution d3 real",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem6_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 6 3 \u211d, EqSystemN 6 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_d3_real",
       "difficulty": 58
     },
     {
@@ -527,16 +417,6 @@
       "difficulty": 59
     },
     {
-      "id": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem8 no solution d3",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem8_no_solution_d3 :\n    \u00ac \u2203 W : WeightsN 8 3 \u2102, EqSystemN 8 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3",
-      "difficulty": 58
-    },
-    {
       "id": "OpenQuantumProblem23.hasSICPOVM_75",
       "title": "Open Quantum Problem 23: SIC-POVMs \u2014 hasSICPOVM 75",
       "kind": "open",
@@ -544,16 +424,6 @@
       "statement": "theorem hasSICPOVM_75 : HasSICPOVM 75",
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.hasSICPOVM_75",
-      "difficulty": 58
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3_real",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem8 no solution d3 real",
-      "kind": "open",
-      "points": 66,
-      "statement": "theorem eqSystem8_no_solution_d3_real :\n    \u00ac \u2203 W : WeightsN 8 3 \u211d, EqSystemN 8 3 W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem8_no_solution_d3_real",
       "difficulty": 58
     },
     {
@@ -565,36 +435,6 @@
       "source": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
       "parent": "OpenQuantumProblem23.sicPOVMs",
       "difficulty": 58
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3",
-      "kind": "open",
-      "points": 68,
-      "statement": "theorem eqSystem6_no_solution_ge3 :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u2102, EqSystemN 6 D W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3",
-      "difficulty": 59
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3_real",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem6 no solution ge3 real",
-      "kind": "open",
-      "points": 68,
-      "statement": "theorem eqSystem6_no_solution_ge3_real :\n    \u2200 D : Nat, D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN 6 D \u211d, EqSystemN 6 D W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem6_no_solution_ge3_real",
-      "difficulty": 59
-    },
-    {
-      "id": "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3_real",
-      "title": "Monochromatic quantum graphs (inherited vertex colorings) \u2014 eqSystem no solution ge6 ge3 real",
-      "kind": "open",
-      "points": 68,
-      "statement": "theorem eqSystem_no_solution_ge6_ge3_real :\n    \u2200 N D : Nat, N \u2265 6 \u2192 Even N \u2192 D \u2265 3 \u2192\n      \u00ac \u2203 W : WeightsN N D \u211d, EqSystemN N D W",
-      "source": "https://mathoverflow.net/questions/311325",
-      "parent": "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3_real",
-      "difficulty": 59
     }
   ]
 }
