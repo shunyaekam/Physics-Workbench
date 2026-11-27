@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "6e675abc7bdf47d2a31e65a57d99261b",
+  "problem_id": "thomson-14",
+  "stage": "search",
+  "method": "sphere_bounds.experiment",
+  "model": null,
+  "contract_hash": null,
+  "revision": "cb3f87066f820d7b8cf93a0a25513281720be33d",
+  "started_at": "2026-11-27T11:42:05.708+00:00",
+  "elapsed_seconds": 0.122365,
+  "status": "completed",
+  "outcome": "bound_checked",
+  "evidence": "campaign/rounds/00000280.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
