@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "7107449b3246486a8c8d9e6af9b3529a",
+  "problem_id": "bernasconi-table2",
+  "stage": "search",
+  "method": "checks/finite_spins.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "9e3e1e82f8814d301b71cc0b0567f5eda88fae4d",
+  "started_at": "2026-11-27T04:56:10.872+00:00",
+  "elapsed_seconds": 0.517758,
+  "status": "completed",
+  "outcome": "no_new_receipt",
+  "evidence": null,
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
