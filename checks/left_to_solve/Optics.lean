@@ -97,7 +97,8 @@ redistributed under Apache 2.0; original notices and the license text are includ
 The six-vertex platform specialization and single-file adaptation are by @shunyaekam.
 Changes: group imports, concatenate prerequisite modules in dependency order, condense
 doc comments, replace two reducible definitions with abbrevs, omit source style settings
-and independent diagnostic print statements, and specialize the existing diagonal theorem.
+and independent diagnostic print statements, make four local proof/elaboration choices explicit
+under the larger combined import context, and specialize the existing diagonal theorem.
 The original source paths appear at their respective boundaries.
 -/
 
@@ -3636,10 +3637,12 @@ noncomputable def bilinearPairing : Tensor ι R →ₗ[R] Tensor ι R →ₗ[R] 
     map_add' Q U := pairing_add_right P Q U
     map_smul' c Q := pairing_smul_right c P Q }
   map_add' P Q := by
-    ext U
+    apply LinearMap.ext
+    intro U
     exact pairing_add_left P Q U
   map_smul' c P := by
-    ext Q
+    apply LinearMap.ext
+    intro Q
     exact pairing_smul_left c P Q
 
 theorem pairing_pure_combinations [Nonempty ι] (a b c d : R) :
@@ -4246,10 +4249,10 @@ theorem subsetExponent_degree (s : Finset ι) : (subsetExponent s).degree = s.ca
   simp [Finset.sum_const]
 
 theorem antidiagonal_top_eq :
-    Finset.antidiagonal (topExponent ι) =
+    Finset.HasAntidiagonal.antidiagonal (topExponent ι) =
       Finset.univ.image (fun s : Finset ι => (subsetExponent s, subsetExponent sᶜ)) := by
   ext ⟨a, b⟩
-  simp only [Finset.mem_antidiagonal, Finset.mem_image, Finset.mem_univ, true_and,
+  simp only [Finset.HasAntidiagonal.mem_antidiagonal, Finset.mem_image, Finset.mem_univ, true_and,
     Prod.mk.injEq]
   constructor
   · intro h
@@ -6237,7 +6240,8 @@ theorem fromLightCone_comp_lightGramMap {i : K} (hi : i ^ 2 = -1) :
       simp [lightGramMap, gramMap, doubleThird, lightOfCartesian, dot₂,
         parameterP, parameterQ, map_add, map_mul, MvPolynomial.eval_X]
     all_goals
-      ring_nf; norm_num [hi]
+      ring_nf
+      norm_num [hi, map_ofNat]
 
 variable [IsAlgClosed K]
 
@@ -9878,14 +9882,15 @@ theorem exists_actual_pure_factors (m : ℕ)
       q 0 = 1 := by
   classical
   have hex (r : ℕ) : ∃ q : MvPolynomial (Fin 3) K,
-      r ≤ m → ∀ i : Fin 3, oddResponsePolynomial W p m r (fun _ => i) = X i * q := by
+      (r ≤ m → ∀ i : Fin 3, oddResponsePolynomial W p m r (fun _ => i) = X i * q) ∧ True := by
     by_cases hr : r ≤ m
     · obtain ⟨q, hq⟩ := pure_response_common_factor W p m r
         (a := (0 : Fin 3)) (b := (1 : Fin 3)) (by decide)
         (PhysicalReflection.pure_response_cross m r hr W hW p)
-      exact ⟨q, fun _ => hq⟩
-    · exact ⟨0, fun h => False.elim (hr h)⟩
-  choose q hq using hex
+      exact ⟨q, (fun _ => hq), trivial⟩
+    · exact ⟨0, (fun h => False.elim (hr h)), trivial⟩
+  choose q ho using hex
+  have hq (r : ℕ) := (ho r).1
   refine ⟨q, hq, ?_, ?_⟩
   · intro r hr
     exact pure_response_factor_homogeneous W p m r (0 : Fin 3) (q r) (hq r hr 0)
