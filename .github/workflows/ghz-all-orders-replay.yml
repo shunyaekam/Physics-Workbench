@@ -1,0 +1,42 @@
+name: Replay all-orders GHZ proof
+on:
+  push:
+    branches: [lts-ghz-all-orders-replay]
+permissions:
+  contents: read
+jobs:
+  pinned-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: google-deepmind/formal-conjectures
+          ref: 9097e2f90e66d2f6244209cb1c07f7120d17ec53
+          path: fc
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            fc/.lake
+          key: lts-optics-9097e2f9
+      - name: Prepare pinned Lean
+        working-directory: fc
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lean" ]; then
+            curl -fsSL --retry 3 https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            sh "$RUNNER_TEMP/elan.sh" -y --default-toolchain none
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake exe cache get
+          lake build FormalConjectures.Paper.MonochromaticQuantumGraph
+      - name: Prove exact pinned theorem and inspect its axioms
+        working-directory: fc
+        run: |
+          set -o pipefail
+          cp ../checks/left_to_solve/AllOrders.lean AllOrders.lean
+          printf '\n#print axioms OMA.solution\n' >> AllOrders.lean
+          timeout 1800 lake env lean AllOrders.lean | tee "$RUNNER_TEMP/all-orders.log"
+          grep -Fx "'OMA.solution' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/all-orders.log"
