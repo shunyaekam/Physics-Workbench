@@ -32,3 +32,5 @@ $$
 this forces $B=-C$. The real implicit function theorem applied to $D_E(E,it)=0$ gives a real stationary energy $E(t)=1+O(t^2)$ by evenness. Its half-trace is $-1+Ct^2+O(|t|^3)$, strictly inside $(-1,1)$ for small nonzero $t$. Reflection symmetry makes this half-trace exactly $y_1(1,z)$ in the original question. [Mathieu characteristic value, NIST DLMF 28.6.2](https://dlmf.nist.gov/28.6.E2)
 
 **Context.** The real-band argument is an application of classical one-dimensional Floquet theory. Rabinovich's work treats real periodic potentials with real determinant-one point-interaction matrices, including this shear. It supplies prior context for this reduction. The self-contained calculation above answers a catalogue question and makes no priority claim for the underlying spectral result. [Rabinovich, Frontiers in Physics](https://doi.org/10.3389/fphy.2019.00057) · [Left to Solve](https://lefttosolve.com/p/mo-283077)
+
+[Lean verification of the real matrix inequality](FloquetTrace.lean) · [Numerical replay of the complex-potential example](replay_floquet.py)

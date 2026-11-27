@@ -9,3 +9,5 @@ Set A = F(2) and B = F(1/2) − A. The even indices in F(1/2) contribute A, so t
 (F(2)/F(1))² = 1/(1+(√2−1)²) = (2+√2)/4.
 
 To justify the Taylor evaluation, on |z| ≤ 1/8 we have |φ(z)−1| ≤ 2Σ_{k≥1} (1/8)^{k²} ≤ 2/7. The quotient is therefore analytic on |z| < 1/8, and formal series division gives its Taylor coefficients. As e^(−π) < 1/8, its Taylor series converges absolutely there to (F(2)/F(1))².
+
+The [Lean 4.19 proof of the Gaussian quotient](ThetaQuotient.lean) checks the lattice change of variables and the theta transformation. The conversion from the specified OEIS integer coefficients to this analytic quotient at exp(−π) is the Taylor-series argument above.
