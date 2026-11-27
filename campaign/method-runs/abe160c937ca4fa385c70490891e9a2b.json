@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "abe160c937ca4fa385c70490891e9a2b",
+  "problem_id": "e27-schmidt",
+  "stage": "search",
+  "method": "checks/schmidt7/pair_search.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "c12ccbd7f877817a447ab0d96c4132e447836390",
+  "started_at": "2026-11-27T03:46:56.803+00:00",
+  "elapsed_seconds": 0.382061,
+  "status": "completed",
+  "outcome": "search_receipt",
+  "evidence": "campaign/schmidt-seven-pairs/000165.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true,
+  "evidence_paths": [
+    "campaign/schmidt-seven-pairs/000165.json"
+  ]
+}
