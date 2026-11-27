@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 66,
-      "seconds": "58.5",
+      "runs": 67,
+      "seconds": "58.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 66,
-      "seconds": "87.8",
+      "runs": 67,
+      "seconds": "88.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 249,
-      "seconds": "757.7",
+      "runs": 252,
+      "seconds": "782.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 133,
-      "seconds": "509.3",
+      "runs": 135,
+      "seconds": "509.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -92,17 +92,17 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 68,
-      "seconds": "133.1",
-      "tokens": "226,762 / 2,761",
-      "coverage": "2/2",
-      "stage": "search",
-      "outcome": "no_new_receipt"
+      "runs": 70,
+      "seconds": "188.1",
+      "tokens": "284,541 / 4,116",
+      "coverage": "3/3",
+      "stage": "math_review",
+      "outcome": "revise"
     },
     {
       "problem": "support-enumeration",
-      "runs": 8,
-      "seconds": "261.1",
+      "runs": 9,
+      "seconds": "295.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -137,8 +137,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 16,
-      "seconds": "8.0",
+      "runs": 17,
+      "seconds": "9.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 133,
-      "seconds": "154.9",
+      "runs": 135,
+      "seconds": "158.9",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
