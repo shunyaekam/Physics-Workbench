@@ -5,7 +5,7 @@
   const base = new URL('../',document.currentScript.src);
   const destinations = [
     ['Discoveries',''], ['Research map','catalogue.html'],
-    ['Open problems','pipeline/indexed.html'], ['Pipeline','pipeline/'],
+    ['Left to Solve','contributions/left-to-solve/'], ['Open problems','pipeline/indexed.html'], ['Pipeline','pipeline/'],
     ['GitHub','https://github.com/shunyaekam/oo-research']
   ];
   const button = document.createElement('button');
