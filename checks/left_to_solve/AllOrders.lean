@@ -12011,12 +12011,15 @@ lemma restrict_chain {N D : ℕ} (embed : Fin 3 → Fin D)
     cases L with
     | nil => simp
     | cons b L =>
-      simp only [List.isChain_cons_cons, hi.eq_iff, ih]
+      simp only [List.isChain_cons_cons, hi.eq_iff]
 
 lemma restrict_palette {N D : ℕ} (hD : 3 ≤ D) (W : WeightsN N D ℂ)
     (hW : EqSystemN N D W) : ∃ U : WeightsN N 3 ℂ, EqSystemN N 3 U := by
   let embed : Fin 3 → Fin D := fun i => ⟨i.val, Nat.lt_of_lt_of_le i.isLt hD⟩
-  have hi : Function.Injective embed := fun _ _ h => Fin.ext (congrArg Fin.val h)
+  have hi : Function.Injective embed := by
+    intro a b h
+    apply Fin.ext
+    exact congrArg (fun i : Fin D => i.val) h
   refine ⟨fun e => W (mkEdge e.u e.v (embed e.i) (embed e.j)), ?_⟩
   intro σ
   have hmono : allEqual (fun v : V N => embed (σ v)) ↔ allEqual σ :=
