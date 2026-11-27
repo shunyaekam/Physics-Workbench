@@ -166,8 +166,12 @@ def run():
         git("push","-u","origin","HEAD:research")
     call([sys.executable,"ops/publish_checked.py"],timeout=300)
     local=Path(json.loads((SERVICE/"settings.json").read_text())["editable"])
-    synchronize(ref,local,"main")
-    synchronize(ref,local/".runtime"/"research","research")
+    for checkout, branch in ((local,"main"), (local/".runtime"/"research","research")):
+        try:
+            synchronize(ref,checkout,branch)
+        except (OSError, subprocess.SubprocessError) as exc:
+            # GitHub is already synchronized. Retry the optional editable copy next cycle.
+            print(f"Editable {branch} copy deferred ({type(exc).__name__}).",flush=True)
 
 
 if __name__=="__main__":
