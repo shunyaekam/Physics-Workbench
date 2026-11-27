@@ -1,0 +1,509 @@
+{
+  "round": 297,
+  "utc": "2026-11-27T15:22:18.295700+00:00",
+  "allocation": {
+    "trials4": 1500,
+    "trials5": 1500
+  },
+  "model": {},
+  "code": {
+    "supports.py": "55af07f94364ee782347158ab06acbe431b5068274a676fa33ac8b5b9a54ca0e",
+    "archive_supports.py": "58722a294aa734504ec579f498241b60aabe5966ea52f803d62b084d70822ed4",
+    "complex_search.py": "e3eb6537f7eac89eb98ee86ca59e728b30be640ca0dbf08789972d3d1aa9a564",
+    "continuous.py": "29b749761dcf30fea5d25ada5a760af86455bc63decd4d5d393c487e967c6905",
+    "sphere_bounds.py": "d1326c0511c4d9d083b183c0cc7904fb0a27b0ff4907a305be174763a7aa8b7d",
+    "wigner_search.py": "07e7ad36686162e2f75434c7b44f843a7aa3fd36b15a2758e7b53270ea0bf0b8",
+    "discovery_queue.py": "1a7336bd75e69ca167054201fabbda157bfddbb6a2461f3b3928a7a366bb4f60",
+    "discovery/targets.json": "73ad0bfc4b9662fde61f002f6db419647d02157f1f73a3e46820b79a4ccf1550"
+  },
+  "quantum": [
+    {
+      "d": 3,
+      "k": 4,
+      "seed": 17297,
+      "trials": 1500,
+      "evaluated": 1119,
+      "excluded_fixed_site": 185,
+      "arm": "full-site-variation-v1",
+      "witness": [
+        [
+          [
+            [
+              61,
+              0,
+              -1
+            ],
+            [
+              67,
+              9,
+              2
+            ],
+            [
+              75,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              67,
+              21,
+              2
+            ],
+            [
+              7,
+              -1,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              67,
+              0,
+              0
+            ],
+            [
+              75,
+              5,
+              24
+            ],
+            [
+              48,
+              0,
+              -1
+            ]
+          ],
+          [
+            [
+              12,
+              0,
+              0
+            ],
+            [
+              67,
+              -1,
+              0
+            ],
+            [
+              75,
+              -4,
+              7
+            ]
+          ]
+        ]
+      ],
+      "score": "1429/620368"
+    },
+    {
+      "d": 3,
+      "k": 5,
+      "seed": 17297,
+      "trials": 1500,
+      "evaluated": 1094,
+      "excluded_fixed_site": 186,
+      "arm": "full-site-variation-v1",
+      "witness": [
+        [
+          [
+            [
+              80,
+              0,
+              0
+            ],
+            [
+              65,
+              -16,
+              -34
+            ]
+          ],
+          [
+            [
+              236,
+              0,
+              0
+            ],
+            [
+              65,
+              -10,
+              -5
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              65,
+              0,
+              0
+            ],
+            [
+              196,
+              0,
+              1
+            ],
+            [
+              79,
+              -17,
+              -8
+            ]
+          ],
+          [
+            [
+              196,
+              1,
+              0
+            ],
+            [
+              43,
+              0,
+              0
+            ],
+            [
+              79,
+              -9,
+              -20
+            ]
+          ]
+        ]
+      ],
+      "score": "2541/5554048"
+    }
+  ],
+  "sphere": {
+    "n": 11,
+    "degree": 11,
+    "seed": 17297,
+    "lp_solves": 8,
+    "coeff": [
+      829211113,
+      514904762,
+      269706013,
+      109370123,
+      26812135,
+      0,
+      0,
+      3654093,
+      3112599,
+      913752,
+      0,
+      0
+    ],
+    "lower": "81000014183/2000000000"
+  },
+  "frontier": {
+    "status": "support enumeration deferred to eighth-round benchmark slot"
+  },
+  "dispatch": {
+    "primary": "gagatsos-2026-c1",
+    "reason": "three unchanged Werner incumbent pairs",
+    "support_benchmark_due": false
+  },
+  "wigner": [
+    {
+      "target": "gagatsos-2026-c1",
+      "role": "numerical_triage",
+      "states": 32,
+      "sobol_start": 37889,
+      "finalists": [
+        {
+          "state": {
+            "b": 0.6384757995605469,
+            "u": 0.09853037113889401,
+            "phase": 0.6858332228837459,
+            "squeeze": 0.027313232421875
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0000000689722148,
+              "husimi_bound": 1.0016620569181585,
+              "residual": -0.0016619879459436326
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0000000690920872,
+              "husimi_bound": 1.0016620569187678,
+              "residual": -0.0016619878266805888
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 0.7587882995605469,
+            "u": 0.37184973596364934,
+            "phase": 2.7475034018020477,
+            "squeeze": -0.035186767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.055705764335377,
+              "husimi_bound": 1.087740716819444,
+              "residual": -0.03203495248406685
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.055704379850566,
+              "husimi_bound": 1.087739844220831,
+              "residual": -0.03203546437026494
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 1.119725799560547,
+            "u": 0.2516061170393074,
+            "phase": 1.8639304679799182,
+            "squeeze": -0.222686767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0307899535033516,
+              "husimi_bound": 1.066801094516878,
+              "residual": -0.036011141013526426
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0307880465778632,
+              "husimi_bound": 1.066801146356751,
+              "residual": -0.03601309977888789
+            }
+          ]
+        }
+      ],
+      "status": "no_positive_refined_residual",
+      "scope": "Top three coarse candidates refined. Both grids use midpoint quadrature; tail and integration errors are uncertified."
+    },
+    {
+      "target": "gagatsos-2026-c1",
+      "role": "numerical_triage",
+      "states": 32,
+      "sobol_start": 37921,
+      "finalists": [
+        {
+          "state": {
+            "b": 0.5783195495605469,
+            "u": 0.0876347261903445,
+            "phase": 1.4221440010688537,
+            "squeeze": -0.003936767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.000000108927959,
+              "husimi_bound": 1.0003830185701374,
+              "residual": -0.0003829096421783529
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.000000108988524,
+              "husimi_bound": 1.0003830185699607,
+              "residual": -0.00038290958143671894
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 0.24746017456054686,
+            "u": 0.6551708799874693,
+            "phase": 1.643037234524386,
+            "squeeze": -0.082061767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0000000003483862,
+              "husimi_bound": 1.001667596625565,
+              "residual": -0.0016675962771788289
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0000000003468403,
+              "husimi_bound": 1.001667596625552,
+              "residual": -0.0016675962787116028
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 0.45800704956054683,
+            "u": 0.3307300015057275,
+            "phase": 1.9130178531922588,
+            "squeeze": 0.058563232421875
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0001130631024724,
+              "husimi_bound": 1.006176676337048,
+              "residual": -0.0060636132345757154
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0001128869531863,
+              "husimi_bound": 1.0061766775615986,
+              "residual": -0.006063790608412223
+            }
+          ]
+        }
+      ],
+      "status": "no_positive_refined_residual",
+      "scope": "Top three coarse candidates refined. Both grids use midpoint quadrature; tail and integration errors are uncertified."
+    },
+    {
+      "target": "gagatsos-2026-c1",
+      "role": "numerical_triage",
+      "states": 32,
+      "sobol_start": 37953,
+      "finalists": [
+        {
+          "state": {
+            "b": 0.36777267456054685,
+            "u": 0.20296247040286833,
+            "phase": 1.3485129232503428,
+            "squeeze": 0.105438232421875
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0000000000736593,
+              "husimi_bound": 1.007234999162699,
+              "residual": -0.007234999089039684
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.000000000073449,
+              "husimi_bound": 1.0072349991626999,
+              "residual": -0.007234999089250849
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 1.8115226745605468,
+            "u": 0.1484905154363587,
+            "phase": 2.526610168346515,
+            "squeeze": -0.144561767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0664609632591464,
+              "husimi_bound": 1.1002952900674556,
+              "residual": -0.03383432680830922
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.066427283717872,
+              "husimi_bound": 1.1002953273676135,
+              "residual": -0.033868043649741386
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 2.894335174560547,
+            "u": 0.0859397171496461,
+            "phase": 3.0174840204699205,
+            "squeeze": 0.042938232421875
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0689036880965181,
+              "husimi_bound": 1.11048327068624,
+              "residual": -0.04157958258972183
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.069004058520182,
+              "husimi_bound": 1.1104866137380593,
+              "residual": -0.04148255521787725
+            }
+          ]
+        }
+      ],
+      "status": "no_positive_refined_residual",
+      "scope": "Top three coarse candidates refined. Both grids use midpoint quadrature; tail and integration errors are uncertified."
+    },
+    {
+      "target": "gagatsos-2026-c1",
+      "role": "numerical_triage",
+      "states": 32,
+      "sobol_start": 37985,
+      "finalists": [
+        {
+          "state": {
+            "b": 0.9091789245605469,
+            "u": 0.16695237416240255,
+            "phase": 0.514027374640554,
+            "squeeze": -0.113311767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0002048769229614,
+              "husimi_bound": 1.003339583455493,
+              "residual": -0.0031347065325315615
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0002050783965541,
+              "husimi_bound": 1.0033395749646874,
+              "residual": -0.0031344965681332493
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 0.20234298706054688,
+            "u": 0.7887449111845501,
+            "phase": 0.3544933727004474,
+            "squeeze": 0.144500732421875
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0000000000000002,
+              "husimi_bound": 1.012018816723064,
+              "residual": -0.012018816723063708
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 0.9999999999999999,
+              "husimi_bound": 1.012018816723064,
+              "residual": -0.01201881672306404
+            }
+          ]
+        },
+        {
+          "state": {
+            "b": 2.232616424560547,
+            "u": 0.09662462124813673,
+            "phase": 2.182998471860132,
+            "squeeze": -0.050811767578125
+          },
+          "checks": [
+            {
+              "grid": 240,
+              "wigner_l1": 1.0514458633684056,
+              "husimi_bound": 1.0767173550313407,
+              "residual": -0.025271491662935075
+            },
+            {
+              "grid": 480,
+              "wigner_l1": 1.0514020513813682,
+              "husimi_bound": 1.0767165373457075,
+              "residual": -0.025314485964339273
+            }
+          ]
+        }
+      ],
+      "status": "no_positive_refined_residual",
+      "scope": "Top three coarse candidates refined. Both grids use midpoint quadrature; tail and integration errors are uncertified."
+    }
+  ]
+}
