@@ -6,7 +6,9 @@
     "notebook": [
       "checks/left_to_solve/attempts/diffusion/proof.md",
       "checks/left_to_solve/attempts/diffusion/check.py",
-      "checks/left_to_solve/attempts/diffusion/Bounds.lean"
+      "checks/left_to_solve/attempts/diffusion/Bounds.lean",
+      "checks/left_to_solve/attempts/diffusion/Cylinder.lean",
+      "checks/left_to_solve/attempts/diffusion/Discount.lean"
     ]
   }
 ]
