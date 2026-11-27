@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "1f59456aa0194d238b113631d5782612",
+  "problem_id": "gagatsos-2026-c1",
+  "stage": "replay",
+  "method": "checks/sharp_qubit.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "d75a39da44f4822ab9cb32a09da12228b3ffc8e6",
+  "started_at": "2026-11-27T01:51:52.054+00:00",
+  "elapsed_seconds": 22.645097,
+  "status": "completed",
+  "outcome": "single_rail_order_cover_replayed",
+  "evidence": "campaign/single-rail/sharp-domain.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}

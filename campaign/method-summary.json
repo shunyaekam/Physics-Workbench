@@ -1,5 +1,24 @@
 {
-  "problems": [],
+  "problems": [
+    {
+      "problem": "gagatsos-2026-c1",
+      "runs": 1,
+      "seconds": "22.6",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "replay",
+      "outcome": "single_rail_order_cover_replayed"
+    },
+    {
+      "problem": "golay43",
+      "runs": 1,
+      "seconds": "0.0",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "replay",
+      "outcome": "signed_47_cnot_witness"
+    }
+  ],
   "comparison": {
     "week": "2026-W48",
     "best": 47,

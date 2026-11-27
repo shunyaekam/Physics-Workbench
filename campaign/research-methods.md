@@ -4,8 +4,8 @@ Elapsed seconds sum the measured duration of recorded jobs. Input tokens include
 
 | Problem | Runs | Failed or timed out | Job seconds | Input / output tokens | Token coverage |
 |---|---:|---:|---:|---:|---:|
-
-The first instrumented worker cycle is pending.
+| gagatsos-2026-c1 | 1 | 0 | 22.6 | — | — |
+| golay43 | 1 | 0 | 0.0 | — | — |
 
 ## Time to certificate
 
@@ -21,6 +21,8 @@ The endpoint is the first public commit containing a full target certificate. Ca
 
 | Started (UTC) | Problem | Stage | Method | Status / outcome | Job seconds | Input / output tokens |
 |---|---|---|---|---|---:|---:|
+| [2026-11-27T01:51:52.054+00:00](method-runs/1f59456aa0194d238b113631d5782612.json) | gagatsos-2026-c1 | replay | checks/sharp_qubit.py | completed / single_rail_order_cover_replayed | 22.6 | — |
+| [2026-11-27T01:51:52.052+00:00](method-runs/e0579a7492f74eda8d7bd1368d55c945.json) | golay43 | replay | checks/golay_certificate.py | completed / signed_47_cnot_witness | 0.0 | — |
 
 ## Search policy experiments
 

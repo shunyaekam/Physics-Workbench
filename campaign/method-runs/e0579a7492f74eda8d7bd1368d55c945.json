@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "e0579a7492f74eda8d7bd1368d55c945",
+  "problem_id": "golay43",
+  "stage": "replay",
+  "method": "checks/golay_certificate.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "d75a39da44f4822ab9cb32a09da12228b3ffc8e6",
+  "started_at": "2026-11-27T01:51:52.052+00:00",
+  "elapsed_seconds": 0.015454,
+  "status": "completed",
+  "outcome": "signed_47_cnot_witness",
+  "evidence": "campaign/method-trials/v1-2026-W48.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
