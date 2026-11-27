@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_id": "79cafe0d8fe547afa5906ce966aef085",
+  "problem_id": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
+  "stage": "scout",
+  "method": "pinned-lean-repair",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "56ae60078b8069c529df9a11f57038d59d228eac",
+  "started_at": "2026-11-27T07:22:19.417+00:00",
+  "elapsed_seconds": 240.324141,
+  "status": "timeout",
+  "outcome": null,
+  "evidence": null,
+  "usage": null,
+  "usage_complete": false,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "local_compiler_available": true,
+  "source_checkpoint_updated": true,
+  "hosted_elapsed_seconds": 240.024025,
+  "error_type": "TimeoutError"
+}
