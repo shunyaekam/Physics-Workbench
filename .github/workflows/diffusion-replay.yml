@@ -1,0 +1,50 @@
+name: Replay planar first-hit counting proof
+on:
+  push:
+    branches: [lts-diffusion-count-replay]
+permissions:
+  contents: read
+jobs:
+  pinned-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: google-deepmind/formal-conjectures
+          ref: 9097e2f90e66d2f6244209cb1c07f7120d17ec53
+          path: fc
+      - id: restored
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            fc/.lake
+          key: lts-optics-9097e2f9
+      - name: Prepare pinned Lean
+        working-directory: fc
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lean" ]; then
+            curl -fsSL --retry 3 https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            sh "$RUNNER_TEMP/elan.sh" -y --default-toolchain none
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake exe cache get
+          lake build FormalConjectures.ErdosProblems.1165
+      - uses: actions/cache/save@v4
+        if: steps.restored.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ~/.elan
+            fc/.lake
+          key: lts-optics-9097e2f9
+      - name: Prove exact pinned theorem and inspect its axioms
+        working-directory: fc
+        run: |
+          set -o pipefail
+          cp ../checks/left_to_solve/attempts/diffusion/Cylinder.lean Cylinder.lean
+          printf '\n#print axioms DiffusionCylinder.first_hit_count\n' >> Cylinder.lean
+          lake env lean Cylinder.lean | tee "$RUNNER_TEMP/cylinder.log"
+          grep -Fx "'DiffusionCylinder.first_hit_count' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/cylinder.log"
