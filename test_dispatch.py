@@ -7,13 +7,11 @@ class DispatchTests(unittest.TestCase):
         from ops import worker
         self.assertTrue(callable(worker.run))
 
-    def test_focus_shares_slots_and_yields_to_a_decisive_witness(self):
-        focus=(True,False,"b","golay43")
-        other=(True,False,"a","refined-bmv")
+    def test_physics_rotation_and_intake_share_slots(self):
+        golay=(True,False,"b","golay43")
+        older=(True,False,"a","refined-bmv")
         ready=(False,False,"z","e27-schmidt")
-        self.assertEqual(dispatch([focus,other],True,None),("focus",focus))
-        self.assertEqual(dispatch([focus,other],True,"focus"),("scout",None))
-        self.assertEqual(dispatch([focus,other],False,"focus"),("rotation",other))
-        self.assertEqual(dispatch([focus,other,ready],True,None),("review",ready))
-        self.assertEqual(dispatch([other],False,None),("rotation",other))
+        self.assertEqual(dispatch([golay,older],True,None),("scout",None))
+        self.assertEqual(dispatch([golay,older],True,"scout"),("rotation",older))
+        self.assertEqual(dispatch([golay,older,ready],True,None),("review",ready))
         self.assertEqual(dispatch([],False,None),("idle",None))

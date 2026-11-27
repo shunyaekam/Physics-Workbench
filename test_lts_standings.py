@@ -30,6 +30,37 @@ class ScoringTests(unittest.TestCase):
     def test_decisive_reviews_still_win(self):
         focus = (True,False,"b","golay43")
         positive = (False,False,"z","other")
-        self.assertEqual(dispatch([focus],True,"focus",scored=True),("scout",None))
-        self.assertEqual(dispatch([focus],True,"scout",scored=True),("focus",focus))
+        self.assertEqual(dispatch([focus],True,"focus",scored=True),("board_first",None))
+        self.assertEqual(dispatch([focus],True,"board_first",scored=True),("board_second",None))
+        self.assertEqual(dispatch([focus],True,"board_second",scored=True),("rotation",focus))
+        self.assertEqual(dispatch([],True,"board_second",scored=True),("board_first",None))
         self.assertEqual(dispatch([focus,positive],True,"focus",scored=True),("review",positive))
+
+    def test_resume_same_scored_statement_once(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from lab import write
+        from ops.scout import pending
+
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ("discovery", "campaign/left-to-solve", "campaign/scouting"):
+                (root/name).mkdir(parents=True)
+            write(root/"discovery/targets.json", [])
+            row = dict(id="x", statement="claim one", title="Lattice", kind="step",
+                       points=7, difficulty=5, source="https://example.org/paper")
+            queue = root/"campaign/left-to-solve/proof-queue.json"
+            stamp = datetime.now(timezone.utc).isoformat()
+            write(queue, dict(checked_at=stamp, targets=[row]))
+            _, first = pending(root)
+            review = dict(verdict="shortlist", proof_or_witness="reduction",
+                          remaining_obligation="prove the finite cylinder identity",
+                          primary_sources='["https://example.org/paper"]')
+            write(first, dict(review=review))
+            lead, second = pending(root)
+            self.assertNotEqual(first, second)
+            self.assertEqual(lead["prior_attempt"]["remaining_obligation"], review["remaining_obligation"])
+            write(second, dict(review=review))
+            self.assertIsNone(pending(root))
+            write(queue, dict(checked_at=stamp, targets=[dict(row, statement="changed")]))
+            self.assertNotIn("prior_attempt", pending(root)[0])

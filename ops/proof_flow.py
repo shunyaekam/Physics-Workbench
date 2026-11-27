@@ -188,23 +188,20 @@ def add_discovered_circuit(rec,contract):
 
 
 def dispatch(docket, scout_due, previous, scored=False):
-    """Review a decisive witness first. Alternate the focus investigation with the other work."""
-    positives=[row for row in docket if not row[0]]
+    """Give scored physics two of three available slots. Decisive review comes first."""
+    positives = [row for row in docket if not row[0]]
     if positives:
-        return "review",min(positives)
-    if scored and scout_due and previous != "scout":
-        return "scout",None
-    focus=[row for row in docket if row[3]=="golay43"]
-    others=[row for row in docket if row[3]!="golay43"]
-    if focus and previous!="focus":
-        return "focus",min(focus)
-    if scout_due:
-        return "scout",None
-    if others:
-        return "rotation",min(others)
-    if focus:
-        return "focus",min(focus)
-    return "idle",None
+        return "review", min(positives)
+    if scored and scout_due:
+        if previous == "board_first":
+            return "board_second", None
+        if previous != "board_second" or not docket:
+            return "board_first", None
+    elif scout_due and (previous != "scout" or not docket):
+        return "scout", None
+    if docket:
+        return "rotation", min(docket)
+    return "idle", None
 
 
 def tick():
@@ -244,10 +241,12 @@ def tick():
     history=ROOT/"campaign/agent-dispatch.json"
     previous=load(history).get("lane") if history.exists() else None
     lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous,scored=scored)
-    if lane=="scout":
+    if lane in {"board_first", "board_second", "scout"}:
         try:
             item, receipt = lead
             method = "source-screen-and-notebook" if item.get("catalogue") == "Left to Solve" else "source-screen"
+            if "prior_attempt" in item:
+                method = "continue-scored-lemma"
             model, effort = model_for(item["id"], "scout")
             with measure(ROOT, item["id"], "scout", method, model=model, reasoning_effort=effort) as run:
                 screen(lead, partial(answer, problem_id=item["id"], stage="scout", metrics=run))

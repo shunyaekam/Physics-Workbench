@@ -90,6 +90,18 @@ def pending(root):
         path=root/"campaign/scouting"/(key+".json")
         if not path.exists():
             return lead,path
+        if lead.get("listed_status") == "scored-proof":
+            # Resume an exact live declaration once. The identity binds the prior
+            # result to this statement, so changed declarations start fresh.
+            followup = path.with_name(key + "-lemma.json")
+            if followup.exists():
+                continue
+            review = load(path)["review"]
+            if review["verdict"] == "shortlist" and all(
+                    review.get(field, "").strip() for field in ("proof_or_witness", "remaining_obligation")):
+                lead["prior_attempt"] = {field: review[field] for field in
+                                         ("primary_sources", "proof_or_witness", "remaining_obligation")}
+                return lead,followup
     return None
 
 
@@ -114,6 +126,15 @@ def screen(job,ask):
                        "and existing proofs/PRs, then return the full Lean file in proof_or_witness "
                        "if you can close it. Cite earlier authors for a formalization. Record the exact "
                        "remaining lemma if unfinished. Only an independent kernel replay can certify it.")
+        if "prior_attempt" in lead:
+            prompt = ("Continue the attributed proof attempt in the attached record. Verify that the "
+                      "desk still lists this exact target. Start with remaining_obligation and the "
+                      "existing notebook. Produce Lean for that lemma and then the target if possible. "
+                      "Reuse the cited literature unless a specific issue requires another source. "
+                      "Distinguish compiled code from proposed code. Report the precise advance or "
+                      "failure in attempt, the proof in proof_or_witness and any remaining obligation. "
+                      "Use the same verdicts (shortlist, prior_resolution, duplicate, insufficient_evidence) "
+                      "and return primary_sources as a JSON list of consulted HTTPS URLs.\n" + json.dumps(lead))
         result=ask(prompt,fields,sources=True,notebook=("checks/left_to_solve/targets.json", *lead.get("notebook", [])))
     else:
         result=ask(prompt,fields,sources=True)
