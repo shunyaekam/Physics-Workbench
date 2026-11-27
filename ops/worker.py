@@ -91,7 +91,7 @@ def run():
     # Fetch full question rows once per week per importer. Keep the last complete snapshot after a failure.
     week=datetime.datetime.now(datetime.timezone.utc).strftime("%G-W%V")
     marker_dir=RUNTIME/"campaign/catalogue-scans"
-    for importer in ("catalogue_index","extra_catalogues"):
+    for importer in ("catalogue_index","extra_catalogues","left_to_solve_index"):
         marker=marker_dir/(importer+"-"+week+".done")
         if not marker.exists():
             try:
@@ -105,6 +105,7 @@ def run():
         call([sys.executable,"ops/proof_flow.py"],timeout=360,check=False)
     except subprocess.TimeoutExpired:
         print("Agent campaign timed out; completed research receipts will still synchronize.",flush=True)
+    call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
     call([sys.executable,"ops/pipeline_feed.py"])
     git("add","--","campaign","papers")
     if git("diff","--cached","--quiet",check=False).returncode==1:
@@ -120,7 +121,8 @@ def run():
             if conflicts != ["campaign/pipeline.json"]:
                 git("merge","--abort",check=False)
                 raise RuntimeError("Research branch conflict; both histories preserved")
-            call([sys.executable,"ops/pipeline_feed.py"])
+            call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
+    call([sys.executable,"ops/pipeline_feed.py"])
             git("add","--","campaign/pipeline.json")
             git("commit","--no-edit")
         git("push","-u","origin","HEAD:research")
