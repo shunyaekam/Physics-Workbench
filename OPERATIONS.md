@@ -54,3 +54,7 @@ Each cycle advances certified interval covers for excited photon pairs with leve
 Run `python3 checks/sharp_qubit.py`, `python3 renyi_scan.py`, `python3 fock_pairs.py`, `python3 excited_pairs.py replay` and `python3 formal/replay.py` for the current proof certificates. [Details of verification](checks/optical-sprint.md)
 
 The active worker follows the [research and publication protocol](discovery/proof-system.md). It keeps a ledger of executed attempts on the research branch and replays decisive certificates in an isolated main checkout.
+
+## Hosted model assignment
+
+The hourly research worker uses GPT-6.2 Sol at low reasoning by default, including for new catalogue problems, scouting and prior-art checks. The major-problem list in [ops/hosted.py](ops/hosted.py) assigns GPT-6.2 Astra at medium reasoning to solving and mathematical review of the full refined BMV trace conjecture. Finite cases and numerical screens have their own targets and use Sol. Both models share one hourly allowance.

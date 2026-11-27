@@ -1,6 +1,7 @@
 """Persist one executable attempt, independent reviews, and the next scientific decision."""
 from datetime import datetime, timezone
 import fcntl
+from functools import partial
 import json
 import subprocess
 import shutil
@@ -10,7 +11,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from lab import load, write
-from ops.hosted import generate, HourlyLimit, MODEL
+from ops.hosted import generate, HourlyLimit, model_for
 from ops.witness import contracts, fingerprint, replay
 
 OUT=ROOT/"campaign/proof-flow"
@@ -61,7 +62,7 @@ def execute(pid,contract,proposal,earlier):
 
 
 def new_record(pid,contract):
-    return dict(problem_id=pid,contract_hash=fingerprint(contract),model=MODEL,
+    return dict(problem_id=pid,contract_hash=fingerprint(contract),model=model_for(pid,"solve")[0],
                 status="solve",attempts=[],updated_at="")
 
 
@@ -74,6 +75,8 @@ def advance_one(record,contract,card):
     pid=record["problem_id"]
     attempts=record["attempts"]
     stage=record["status"]
+    ask = partial(answer, problem_id=pid, stage=stage)
+    model, effort = model_for(pid, stage)
     contract=dict(contract)
     if pid=="transport-polygon":
         from formal.transport_literal.attempt import statement
@@ -93,20 +96,20 @@ def advance_one(record,contract,card):
             prompt += ("\nUse the frontier report and the focus receipts if available. "
                        "The 44-gate circuit is the known control. Try a distinct construction "
                        "or a justified pruning argument that makes the 43-gate search smaller.")
-        proposal=answer(prompt,SOLVER_FIELDS,notebook=files)
+        proposal=ask(prompt,SOLVER_FIELDS,notebook=files)
         attempt=execute(pid,contract,proposal,attempts)
-        attempt["origin"]=MODEL+" hosted solver"
+        attempt.update(origin=model+" hosted solver", model=model, reasoning_effort=effort)
         attempts.append(attempt)
         record["status"]="math_review"
     elif stage=="math_review":
-        review=answer("Independently rederive the implication, test the hypotheses and try to falsify the last "
+        review=ask("Independently rederive the implication, test the hypotheses and try to falsify the last "
                       "candidate. Inspect its executed outcome. Return verdict pass, revise, or park. A pass "
                       "for a full answer requires a decisive exact result. Name the critical next test.\n"+packet,
                       MATH_FIELDS)
         if review["verdict"] not in ("pass","revise","park"):
             raise ValueError("Unknown mathematical verdict")
         last=attempts[-1]
-        last["math_review"]=review
+        last["math_review"]=dict(review, model=model, reasoning_effort=effort)
         positive=last.get("result",{}).get("decisive") is True
         if positive and review["verdict"]=="pass":
             record["status"]="priority_review"
@@ -117,7 +120,7 @@ def advance_one(record,contract,card):
         else:
             record["status"]="solve"
     elif stage=="priority_review":
-        audit=answer("Check original sources using web search. Search aliases, source identifiers and existing "
+        audit=ask("Check original sources using web search. Search aliases, source identifiers and existing "
                      "solutions. Compare the exact statement and witness to earlier work. Return verdict "
                      "clear_within_search, prior_resolution, or unresolved. The sources field must contain "
                      "a JSON array of primary HTTPS URLs actually consulted. State search limits.\n"+packet,
@@ -126,7 +129,7 @@ def advance_one(record,contract,card):
         if (audit["verdict"] not in ("clear_within_search","prior_resolution","unresolved") or
                 not isinstance(links,list) or not links or not all(isinstance(s,str) and s.startswith("https://") for s in links)):
             raise ValueError("Priority review lacks a verdict or source links")
-        attempts[-1]["priority_review"]=audit
+        attempts[-1]["priority_review"]=dict(audit, model=model, reasoning_effort=effort)
         record["status"]={"clear_within_search":"ready_for_replay","prior_resolution":"prior_resolution",
                           "unresolved":"priority_unresolved"}[audit["verdict"]]
     else:
@@ -227,7 +230,7 @@ def tick():
     lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous)
     if lane=="scout":
         try:
-            screen(lead,answer)
+            screen(lead,partial(answer,problem_id=lead[0]["id"],stage="scout"))
             write(marker,{"lead":lead[0]["source"]})
         except HourlyLimit as exc:
             print(exc)
