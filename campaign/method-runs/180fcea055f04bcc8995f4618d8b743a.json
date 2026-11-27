@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "180fcea055f04bcc8995f4618d8b743a",
+  "problem_id": "gagatsos-2026-c1",
+  "stage": "search",
+  "method": "three_level_search.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "8a2acc5585d1ab1b8e38d6eb8af1c1714fa655d3",
+  "started_at": "2026-11-27T09:08:38.369+00:00",
+  "elapsed_seconds": 1.32319,
+  "status": "completed",
+  "outcome": "search_receipt",
+  "evidence": "campaign/three-level/batch-00000254.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true,
+  "evidence_paths": [
+    "campaign/three-level/batch-00000254.json"
+  ]
+}
