@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 46,
-      "seconds": "33.1",
+      "runs": 47,
+      "seconds": "33.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 46,
-      "seconds": "50.9",
+      "runs": 47,
+      "seconds": "51.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 174,
-      "seconds": "291.2",
+      "runs": 177,
+      "seconds": "294.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 93,
-      "seconds": "461.8",
+      "runs": 95,
+      "seconds": "461.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -73,9 +73,18 @@
       "outcome": "prior_resolution"
     },
     {
+      "problem": "lts-OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
+      "runs": 1,
+      "seconds": "190.8",
+      "tokens": "797,530 / 5,583",
+      "coverage": "1/1",
+      "stage": "scout",
+      "outcome": "shortlist"
+    },
+    {
       "problem": "refined-bmv",
-      "runs": 47,
-      "seconds": "56.6",
+      "runs": 48,
+      "seconds": "56.7",
       "tokens": "69,669 / 997",
       "coverage": "1/1",
       "stage": "search",
@@ -119,8 +128,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 11,
-      "seconds": "5.0",
+      "runs": 12,
+      "seconds": "5.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -128,8 +137,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 93,
-      "seconds": "119.1",
+      "runs": 95,
+      "seconds": "122.3",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -195,6 +204,19 @@
       "measured_uncached_input": 67655,
       "measured_output": 3149,
       "measured_hosted_seconds": 90.597,
+      "lifetime_local_tactic_seconds": 0
+    },
+    {
+      "problem": "OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T10:52:32.506+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 87514,
+      "measured_output": 5583,
+      "measured_hosted_seconds": 190.418,
       "lifetime_local_tactic_seconds": 0
     }
   ]

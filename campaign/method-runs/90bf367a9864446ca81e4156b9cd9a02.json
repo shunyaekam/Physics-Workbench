@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "90bf367a9864446ca81e4156b9cd9a02",
+  "problem_id": "lts-OpenQuantumProblem23.hasSICPOVM_68.R1.H1",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "c785baae555ac8e9443c5658183be8a91e183b5b",
+  "started_at": "2026-11-27T10:52:32.506+00:00",
+  "elapsed_seconds": 190.762578,
+  "status": "completed",
+  "outcome": "shortlist",
+  "evidence": "campaign/scouting/995e00606ccea51732eff6e4.json",
+  "usage": {
+    "input_tokens": 797530,
+    "cached_input_tokens": 710016,
+    "output_tokens": 5583
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 190.417916
+}
