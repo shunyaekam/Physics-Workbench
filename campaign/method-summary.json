@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 34,
-      "seconds": "23.5",
+      "runs": 35,
+      "seconds": "24.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 34,
-      "seconds": "39.1",
+      "runs": 35,
+      "seconds": "39.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 129,
-      "seconds": "236.8",
+      "runs": 132,
+      "seconds": "241.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 69,
-      "seconds": "437.5",
+      "runs": 71,
+      "seconds": "437.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -56,8 +56,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 35,
-      "seconds": "51.2",
+      "runs": 36,
+      "seconds": "51.3",
       "tokens": "69,669 / 997",
       "coverage": "1/1",
       "stage": "search",
@@ -65,8 +65,8 @@
     },
     {
       "problem": "support-enumeration",
-      "runs": 4,
-      "seconds": "124.0",
+      "runs": 5,
+      "seconds": "167.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -101,8 +101,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 8,
-      "seconds": "4.3",
+      "runs": 9,
+      "seconds": "4.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -110,12 +110,12 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 68,
-      "seconds": "66.2",
-      "tokens": "\u2014",
-      "coverage": "\u2014",
-      "stage": "search",
-      "outcome": "bounded_result"
+      "runs": 71,
+      "seconds": "96.1",
+      "tokens": "67,096 / 624",
+      "coverage": "1/1",
+      "stage": "math_review",
+      "outcome": "park"
     }
   ],
   "comparison": {

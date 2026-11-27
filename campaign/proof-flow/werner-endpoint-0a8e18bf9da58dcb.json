@@ -2,7 +2,7 @@
   "problem_id": "werner-endpoint",
   "contract_hash": "0a8e18bf9da58dcb640986d9d1805c509c479c9f83702f78a1e7d1b8be1fd263",
   "model": "gpt-6.2-astra",
-  "status": "math_review",
+  "status": "parked",
   "attempts": [
     {
       "proposal": {
@@ -62,9 +62,15 @@
         "decisive": false,
         "scope": "strict negativity certifies distillability for this state and copy count"
       },
-      "origin": "executed during deployment"
+      "origin": "executed during deployment",
+      "math_review": {
+        "verdict": "park",
+        "hypotheses": "The supplied execution reports Schmidt rank at most two, squared norm 2, and exact score 0. I independently reproduced the zero by expanding all 16 terms of the four-copy endpoint operator. In the usual base-3 indexing, the two basis labels differ at one copy, so the witness factors into |00\u27e9 + |11\u27e9 on that copy and |00\u27e9 on each spectator copy. For the endpoint operator I \u2212 |\u03a9\u27e9\u27e8\u03a9|/2 with unnormalized |\u03a9\u27e9 = \u2211\u1d62|ii\u27e9, replacing the two coefficients by arbitrary complex a and b gives the four-copy score |a\u2212b|\u00b2/16. Thus even arbitrary amplitude and phase changes within this support cannot produce strict negativity. A strict negative score would certify distillability for this state at this copy count. The existence question quantifies over all NPT states and every finite copy count, so that certificate would leave it open.",
+        "weakest_step": "The control and its perturbations probe only one support. The critical next scoped test is to obtain an exact strictly negative score for a rank-two four- or five-copy candidate outside the verified nonnegative cases, after checking the current project results. I could inspect the supplied execution record and recompute its score, but the available tools provided no access to the repository checker or the live project sources. A full-answer pass requires an exact all-copy proof for an NPT state or a proof that every NPT state is distillable at some finite copy count.",
+        "model": "gpt-6.2-sol",
+        "reasoning_effort": "low"
+      }
     }
   ],
-  "updated_at": "2026-11-26T18:32:33+00:00",
-  "last_error": "Hosted Codex exited with status 1 (usage limit)"
+  "updated_at": "2026-11-27T08:34:43+00:00"
 }
