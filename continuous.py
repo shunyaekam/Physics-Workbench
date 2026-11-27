@@ -13,6 +13,7 @@ from paper_build import stage_paper_directory
 from archive_supports import read,save
 from complex_search import controls,direct,partial_traces,search
 from lab import ROOT,load,write
+from ops.method_runs import measure
 from supports import initial,advance,audit
 from verify import require
 
@@ -99,6 +100,7 @@ def round_once(nodes):
     number=int(previous[-1].stem)+1 if previous else 1
     seed=17000+number
     hist=[load(p) for p in previous[-3:]]
+    runs = []
     controls()
     plan=dict(trials4=6000,trials5=6000)
     from discovery_queue import select
@@ -107,16 +109,23 @@ def round_once(nodes):
     if dispatch["primary"]=="gagatsos-2026-c1":
         # Different Sobol blocks per round, including after a pause or restart.
         from wigner_search import search as search_wigner
-        for block in range(4*number-3,4*number+1):
-            wigner_runs.append(search_wigner(block))
+        with measure(ROOT, "gagatsos-2026-c1", "search", "wigner_search.search") as run:
+            runs.append(run)
+            for block in range(4*number-3,4*number+1):
+                wigner_runs.append(search_wigner(block))
+            run["outcome"] = ("candidate_for_enclosure" if any(r["status"] == "needs_interval_check"
+                                                              for r in wigner_runs) else "bounded_result")
         plan={name:min(n,1500) for name,n in plan.items()}
     if any(r["status"]=="needs_interval_check" for r in wigner_runs):
         write(DATA/f"wigner-needs-enclosure-{number}.json",wigner_runs)
     results=[]
     for k in (4,5):
         incumbent=next((r["witness"] for r in hist[-1]["quantum"] if r["k"]==k),None) if hist else None
-        r=search(3,k,seed,plan[f"trials{k}"],incumbent)
-        audit_score(r)
+        with measure(ROOT, "werner-endpoint", "search", f"complex_search.search-{k}-copies") as run:
+            runs.append(run)
+            r=search(3,k,seed,plan[f"trials{k}"],incumbent)
+            audit_score(r)
+            run["outcome"] = "negative_witness" if Fraction(r["score"]) < 0 else "bounded_result"
         results.append(r)
         if Fraction(r["score"])<0:
             # Preserve review material for every strict negative discovery.
@@ -131,17 +140,30 @@ def round_once(nodes):
     n=(11,13,10,14)[(number-1)%4]
     degree=(12,10,11,9,8,7,6,5)[((number-1)//4)%8]
     try:
-        sphere=experiment(n,degree,seed)
+        with measure(ROOT, f"thomson-{n}", "search", "sphere_bounds.experiment") as run:
+            runs.append(run)
+            sphere=experiment(n,degree,seed)
+            run["outcome"] = "bound_checked"
     except ValueError as exc:
         sphere={"n":n,"degree":degree,"seed":seed,"error":str(exc)}
-    frontier=(advance_frontier(nodes) if dispatch["support_benchmark_due"] else
-              {"status":"support enumeration deferred to eighth-round benchmark slot"})
+    if dispatch["support_benchmark_due"]:
+        with measure(ROOT, "support-enumeration", "search", "continuous.advance_frontier") as run:
+            runs.append(run)
+            frontier = advance_frontier(nodes)
+            run["outcome"] = "search_receipt" if "file" in frontier else "no_new_receipt"
+    else:
+        frontier = {"status":"support enumeration deferred to eighth-round benchmark slot"}
     render()
     receipt=dict(round=number,utc=datetime.now(timezone.utc).isoformat(),allocation=plan,model={},
                  code={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in
                        ("supports.py","archive_supports.py","complex_search.py","continuous.py","sphere_bounds.py","wigner_search.py","discovery_queue.py","discovery/targets.json")},
                  quantum=results,sphere=sphere,frontier=frontier,dispatch=dispatch,wigner=wigner_runs)
-    write(ROUNDS/f"{number:08}.json",receipt)
+    batch_file = ROUNDS / f"{number:08}.json"
+    write(batch_file, receipt)
+    # Only attach a batch link once every part of the shared receipt was saved.
+    for run in runs:
+        run["evidence"] = str(batch_file.relative_to(ROOT))
+        write(DATA / "method-runs" / (run["run_id"] + ".json"), run)
     print("Round",number,"direct/partial trace scores:",[r["score"] for r in results],frontier,flush=True)
 
 

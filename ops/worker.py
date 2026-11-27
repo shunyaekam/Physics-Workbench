@@ -10,6 +10,8 @@ import sys
 
 RUNTIME=Path(__file__).resolve().parents[1]
 SERVICE=RUNTIME.parent
+sys.path.insert(0, str(RUNTIME))
+from ops.method_runs import measure
 
 
 def call(args,root=RUNTIME,timeout=180,check=True):
@@ -19,6 +21,27 @@ def call(args,root=RUNTIME,timeout=180,check=True):
     if check:
         p.check_returncode()
     return p
+
+
+def search(problem, script, folders, args, *, timeout=180):
+    """Measure local work including no-op and failed dispatches. Credit stays with the checker."""
+    def snapshot():
+        return {path: path.stat().st_mtime_ns for folder in folders
+                for path in (RUNTIME / "campaign" / folder).glob("*.json")}
+
+    before = snapshot()
+    with measure(RUNTIME, problem, "search", script) as run:
+        try:
+            call(args, timeout=timeout)
+            run["outcome"] = "no_new_receipt"
+        finally:
+            changed = sorted(str(p.relative_to(RUNTIME)) for p, stamp in snapshot().items()
+                             if before.get(p) != stamp)
+            if changed:
+                run["evidence"] = changed[0]
+                run["evidence_paths"] = changed
+                if run["outcome"] == "no_new_receipt":
+                    run["outcome"] = "search_receipt"
 
 
 def git(*args,**options):
@@ -64,24 +87,33 @@ def run():
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
     call([sys.executable,"ops/paper_checks.py"],timeout=900)
-    call([sys.executable,"checks/schmidt7/pair_search.py","advance"])
-    call([sys.executable,"checks/golay43.py","advance"])
+    search("e27-schmidt", "checks/schmidt7/pair_search.py", ['schmidt-seven-pairs'],
+           [sys.executable,"checks/schmidt7/pair_search.py","advance"])
+    search("golay43", "checks/golay43.py", ['golay43'],
+           [sys.executable,"checks/golay43.py","advance"])
     uv=shutil.which("uv") or str(Path.home()/".local/bin/uv")
     try:
-        call([uv,"run","--offline","--with","stim==1.16.0","python","checks/golay/advance.py"],timeout=150)
+        search("golay43", "checks/golay/advance.py", ["golay-graphs", "golay-splices", "golay-splice-tails"],
+               [uv,"run","--offline","--with","stim==1.16.0","python","checks/golay/advance.py"],timeout=150)
     except (OSError,subprocess.SubprocessError) as exc:
         print(f"Golay graph search could not complete this cycle: {exc}",flush=True)
     closed = {entry["problem_id"] for entry in json.loads(
         (RUNTIME/"discovery/pipeline-results.json").read_text())["solutions"]}
     if "transport-polygon" not in closed:
-        call([sys.executable,"checks/transport_polygon.py","advance"])
-    call([sys.executable,"checks/bmv_search.py","advance"])
-    call([sys.executable,"checks/finite_spins.py","advance"],timeout=180)
+        search("transport-polygon", "checks/transport_polygon.py", ['transport-polygon'],
+               [sys.executable,"checks/transport_polygon.py","advance"])
+    search("refined-bmv", "checks/bmv_search.py", ['bmv-three-level'],
+           [sys.executable,"checks/bmv_search.py","advance"])
+    search("bernasconi-table2", "checks/finite_spins.py", ['finite-spins'],
+           [sys.executable,"checks/finite_spins.py","advance"],timeout=180)
     call([sys.executable,"checks/scrutiny.py"])
     call([sys.executable,"formal/replay.py"])
-    call([sys.executable,"excited_pairs.py","advance"],timeout=240)
-    call([sys.executable,"three_level_search.py","advance"],timeout=120)
-    call([sys.executable,"coherent_band_search.py"],timeout=120)
+    search("gagatsos-2026-c1", "excited_pairs.py", ['fock-pairs/excited'],
+           [sys.executable,"excited_pairs.py","advance"],timeout=240)
+    search("gagatsos-2026-c1", "three_level_search.py", ['three-level'],
+           [sys.executable,"three_level_search.py","advance"],timeout=120)
+    search("gagatsos-2026-c1", "coherent_band_search.py", ['coherent-bands'],
+           [sys.executable,"coherent_band_search.py"],timeout=120)
     call([sys.executable,"refresh_sparse_note.py"],timeout=180)
     call([sys.executable,"checks/sparse_table.py"])
     call([sys.executable,"continuous.py","run"],timeout=480)

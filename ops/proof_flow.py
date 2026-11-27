@@ -1,16 +1,19 @@
 """Persist one executable attempt, independent reviews, and the next scientific decision."""
 from datetime import datetime, timezone
 import fcntl
+from functools import partial
 import json
 import subprocess
 import shutil
 from pathlib import Path
 import sys
+import time
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from lab import load, write
 from ops.hosted import generate, HourlyLimit, MODEL
+from ops.method_runs import measure
 from ops.witness import contracts, fingerprint, replay
 
 OUT=ROOT/"campaign/proof-flow"
@@ -52,7 +55,11 @@ def execute(pid,contract,proposal,earlier):
         if any(e.get("witness_hash")==key for e in earlier):
             raise ValueError("This exact object was already tested")
         item.update(witness=data,witness_hash=key)
-        item["result"]=replay(pid,data)
+        started = time.monotonic()
+        try:
+            item["result"] = replay(pid, data)
+        finally:
+            item["replay_elapsed_seconds"] = round(time.monotonic() - started, 6)
         if item["result"]["decisive"] and not contract["mode"].startswith("full_"):
             raise ArithmeticError("Checker tried to exceed its registered scope")
     except (ValueError,KeyError,TypeError) as err:
@@ -70,7 +77,8 @@ def summaries(record):
             for item in record["attempts"][-LIMIT:]]
 
 
-def advance_one(record,contract,card):
+def advance_one(record,contract,card,ask=None):
+    ask = answer if ask is None else ask
     pid=record["problem_id"]
     attempts=record["attempts"]
     stage=record["status"]
@@ -93,13 +101,13 @@ def advance_one(record,contract,card):
             prompt += ("\nUse the frontier report and the focus receipts if available. "
                        "The 44-gate circuit is the known control. Try a distinct construction "
                        "or a justified pruning argument that makes the 43-gate search smaller.")
-        proposal=answer(prompt,SOLVER_FIELDS,notebook=files)
+        proposal=ask(prompt,SOLVER_FIELDS,notebook=files)
         attempt=execute(pid,contract,proposal,attempts)
         attempt["origin"]=MODEL+" hosted solver"
         attempts.append(attempt)
         record["status"]="math_review"
     elif stage=="math_review":
-        review=answer("Independently rederive the implication, test the hypotheses and try to falsify the last "
+        review=ask("Independently rederive the implication, test the hypotheses and try to falsify the last "
                       "candidate. Inspect its executed outcome. Return verdict pass, revise, or park. A pass "
                       "for a full answer requires a decisive exact result. Name the critical next test.\n"+packet,
                       MATH_FIELDS)
@@ -117,7 +125,7 @@ def advance_one(record,contract,card):
         else:
             record["status"]="solve"
     elif stage=="priority_review":
-        audit=answer("Check original sources using web search. Search aliases, source identifiers and existing "
+        audit=ask("Check original sources using web search. Search aliases, source identifiers and existing "
                      "solutions. Compare the exact statement and witness to earlier work. Return verdict "
                      "clear_within_search, prior_resolution, or unresolved. The sources field must contain "
                      "a JSON array of primary HTTPS URLs actually consulted. State search limits.\n"+packet,
@@ -231,7 +239,12 @@ def tick():
     lane,job=dispatch(docket,lead is not None and (not marker.exists() or not docket),previous)
     if lane=="scout":
         try:
-            screen(lead,answer)
+            item, receipt = lead
+            method = "source-screen-and-notebook" if item.get("catalogue") == "Left to Solve" else "source-screen"
+            with measure(ROOT, item["id"], "scout", method, model=MODEL) as run:
+                screen(lead, partial(answer, metrics=run))
+                run["evidence"] = str(receipt.relative_to(ROOT))
+                run["outcome"] = load(receipt)["review"]["verdict"]
             write(marker,{"lead":lead[0]["source"]})
         except HourlyLimit as exc:
             print(exc)
@@ -247,8 +260,22 @@ def tick():
     *_,pid,path,rec=job
     assigned_stage=rec["status"]
     try:
-        advance_one(rec,contracts()[pid],cards[pid])
-        rec.pop("last_error",None)
+        method = {"solve": "notebook-witness", "math_review": "independent-challenge",
+                  "priority_review": "prior-resolution-search"}[assigned_stage]
+        with measure(ROOT, pid, assigned_stage, method, model=MODEL, contract_hash=rec["contract_hash"]) as run:
+            advance_one(rec, contracts()[pid], cards[pid], partial(answer, metrics=run))
+            rec.pop("last_error", None)
+            last = rec["attempts"][-1]
+            if assigned_stage == "solve":
+                run["replay_elapsed_seconds"] = last.get("replay_elapsed_seconds")
+                run["outcome"] = ("candidate_rejected" if "rejection" in last else
+                                  "decisive_witness" if last["result"]["decisive"] else "bounded_result")
+            else:
+                run["outcome"] = last[assigned_stage]["verdict"]
+            run["attempt_number"] = len(rec["attempts"])
+            run["witness_hash"] = last.get("witness_hash")
+            run["evidence"] = str(path.relative_to(ROOT))
+            write(path, rec)
     except HourlyLimit as err:
         print(err)
         return
