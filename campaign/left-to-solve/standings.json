@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-11-27T16:59:15+00:00",
-  "source": "https://lefttosolve.com/contributors",
+  "checked_at": "2026-11-27T19:00:21+00:00",
+  "source": "https://shipfastwith.me/contributors",
   "owner": {
-    "rank": 129,
+    "rank": 84,
     "handle": "shunyaekam",
-    "points": 34,
-    "solved": 1,
+    "points": 102,
+    "solved": 2,
     "taken": 15
   },
   "cutoff": {
     "rank": 20,
-    "handle": "steveDOTdigital",
-    "points": 562,
-    "solved": 72,
-    "taken": 248
+    "handle": "Halldon",
+    "points": 710,
+    "solved": 36,
+    "taken": 112
   },
-  "points_to_pass": 529,
+  "points_to_pass": 609,
   "listed": 200
 }
