@@ -13,7 +13,15 @@ from lab import ROOT, write
 from ops.method_runs import codex_usage
 
 SERVICE = Path.home() / "Library/Application Support/Physics Workbench"
-MODEL = "gpt-6.2-astra"
+MODEL = "gpt-6.2-sol"
+MAJOR_PROBLEMS = frozenset({"refined-bmv"})
+
+
+def model_for(problem_id, stage):
+    """Only registered major targets receive Astra for solving and mathematical review."""
+    if problem_id in MAJOR_PROBLEMS and stage in {"solve", "math_review"}:
+        return "gpt-6.2-astra", "medium"
+    return MODEL, "low"
 
 
 class HourlyLimit(Exception):
@@ -51,8 +59,9 @@ def reserve(service, now):
         write(path, {"started_at": now})
 
 
-def generate(prompt, schema, *, notebook=(), sources=False, metrics=None):
+def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), sources=False, metrics=None):
     """Give solvers a disposable workspace; final verification runs separately."""
+    model, effort = model_for(problem_id, stage)
     settings = json.loads((SERVICE / "settings.json").read_text())
     executable = settings.get("hosted_codex")
     if not executable:
@@ -85,7 +94,7 @@ def generate(prompt, schema, *, notebook=(), sources=False, metrics=None):
                     "-c","permissions.lab.network.enabled=false","-c",'approval_policy="never"']
                    if notebook else ["--sandbox","read-only"])
         command = [executable, "exec", "--ignore-user-config", "--ephemeral", "--skip-git-repo-check", "--json",
-                   *sandbox, "-c", 'model_provider="openai"', "--model", MODEL,
+                   *sandbox, "-c", 'model_provider="openai"', "--model", model, "-c", f'model_reasoning_effort="{effort}"',
                    "--disable", "apps", "--disable", "plugins", "--disable", "multi_agent",
                    "-c", 'sandbox_workspace_write.network_access=false',
                    "-c", 'shell_environment_policy.inherit="none"',

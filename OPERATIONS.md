@@ -60,3 +60,7 @@ The [public board](https://shunyaekam.github.io/oo-research/pipeline/) reads cam
 The [research protocol](discovery/proof-system.md) describes admission, sandbox experiments, exact replay, separate source and mathematics reviews, and publication from a clean checkout. Active attempts are in `campaign/proof-flow`. Historical pilot transcripts remain in `campaign/agent-lanes`.
 
 Run `python3 ops/proof_flow.py` to advance an eligible research stage using the shared hourly quota. Run `python3 ops/witness.py PROBLEM witness.json` to replay a supplied object without using a model. The dedicated checkout runs `ops/publish_checked.py` after synchronizing research; it needs the existing repository credentials, GitHub CLI and Pages for publication and issue closure.
+
+## Hosted model assignment
+
+The hourly research worker uses GPT-6.2 Sol at low reasoning by default, including for new catalogue problems, scouting and prior-art checks. The major-problem list in [ops/hosted.py](ops/hosted.py) assigns GPT-6.2 Astra at medium reasoning to solving and mathematical review of the full refined BMV trace conjecture. Finite cases and numerical screens have their own targets and use Sol. Both models share one hourly allowance.

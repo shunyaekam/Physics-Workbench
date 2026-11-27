@@ -60,11 +60,12 @@ def render(rows, certificates, trials):
         elapsed = f"{span:.2f}" if span is not None else "Unmeasured"
         lines.append(f"| [{pid}]({url}) | {elapsed} | {clock} | {tokens} | {coverage} |")
     lines += ["", "## Latest attempts", "",
-              "| Started (UTC) | Problem | Stage | Method | Status / outcome | Job seconds | Input / output tokens |",
-              "|---|---|---|---|---|---:|---:|"]
+              "| Started (UTC) | Problem | Stage | Method | Model / effort | Status / outcome | Job seconds | Input / output tokens |",
+              "|---|---|---|---|---|---|---:|---:|"]
     for path,r in sorted(rows, key=lambda item:item[1]["started_at"],reverse=True)[:40]:
         clock,tokens,_ = cost([r])
-        lines.append(f"| [{r['started_at']}]({path}) | {r['problem_id']} | {r['stage']} | {r['method']} | "
+        assignment = " / ".join(filter(None, (r.get("model"), r.get("reasoning_effort")))) or "—"
+        lines.append(f"| [{r['started_at']}]({path}) | {r['problem_id']} | {r['stage']} | {r['method']} | {assignment} | "
                      f"{r['status']} / {r.get('outcome') or r.get('error_type') or '—'} | {clock} | {tokens} |")
     lines += ["", "## Search policy experiments", "",
               "Each Golay policy constructs 24 circuits, split between 12 development seeds and 12 fresh evaluation seeds. "

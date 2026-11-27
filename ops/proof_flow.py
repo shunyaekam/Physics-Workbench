@@ -12,7 +12,7 @@ import time
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from lab import load, write
-from ops.hosted import generate, HourlyLimit, MODEL
+from ops.hosted import generate, HourlyLimit, model_for
 from ops.method_runs import measure
 from ops.witness import contracts, fingerprint, replay
 
@@ -68,7 +68,7 @@ def execute(pid,contract,proposal,earlier):
 
 
 def new_record(pid,contract):
-    return dict(problem_id=pid,contract_hash=fingerprint(contract),model=MODEL,
+    return dict(problem_id=pid,contract_hash=fingerprint(contract),model=model_for(pid,"solve")[0],
                 status="solve",attempts=[],updated_at="")
 
 
@@ -82,6 +82,8 @@ def advance_one(record,contract,card,ask=None):
     pid=record["problem_id"]
     attempts=record["attempts"]
     stage=record["status"]
+    ask = partial(ask, problem_id=pid, stage=stage)
+    model, effort = model_for(pid, stage)
     contract=dict(contract)
     if pid=="transport-polygon":
         from formal.transport_literal.attempt import statement
@@ -103,7 +105,7 @@ def advance_one(record,contract,card,ask=None):
                        "or a justified pruning argument that makes the 43-gate search smaller.")
         proposal=ask(prompt,SOLVER_FIELDS,notebook=files)
         attempt=execute(pid,contract,proposal,attempts)
-        attempt["origin"]=MODEL+" hosted solver"
+        attempt.update(origin=model+" hosted solver", model=model, reasoning_effort=effort)
         attempts.append(attempt)
         record["status"]="math_review"
     elif stage=="math_review":
@@ -114,7 +116,7 @@ def advance_one(record,contract,card,ask=None):
         if review["verdict"] not in ("pass","revise","park"):
             raise ValueError("Unknown mathematical verdict")
         last=attempts[-1]
-        last["math_review"]=review
+        last["math_review"]=dict(review, model=model, reasoning_effort=effort)
         positive=last.get("result",{}).get("decisive") is True
         if positive and review["verdict"]=="pass":
             record["status"]="priority_review"
@@ -134,7 +136,7 @@ def advance_one(record,contract,card,ask=None):
         if (audit["verdict"] not in ("clear_within_search","prior_resolution","unresolved") or
                 not isinstance(links,list) or not links or not all(isinstance(s,str) and s.startswith("https://") for s in links)):
             raise ValueError("Priority review lacks a verdict or source links")
-        attempts[-1]["priority_review"]=audit
+        attempts[-1]["priority_review"]=dict(audit, model=model, reasoning_effort=effort)
         record["status"]={"clear_within_search":"ready_for_replay","prior_resolution":"prior_resolution",
                           "unresolved":"priority_unresolved"}[audit["verdict"]]
     else:
@@ -241,8 +243,9 @@ def tick():
         try:
             item, receipt = lead
             method = "source-screen-and-notebook" if item.get("catalogue") == "Left to Solve" else "source-screen"
-            with measure(ROOT, item["id"], "scout", method, model=MODEL) as run:
-                screen(lead, partial(answer, metrics=run))
+            model, effort = model_for(item["id"], "scout")
+            with measure(ROOT, item["id"], "scout", method, model=model, reasoning_effort=effort) as run:
+                screen(lead, partial(answer, problem_id=item["id"], stage="scout", metrics=run))
                 run["evidence"] = str(receipt.relative_to(ROOT))
                 run["outcome"] = load(receipt)["review"]["verdict"]
             write(marker,{"lead":lead[0]["source"]})
@@ -262,7 +265,9 @@ def tick():
     try:
         method = {"solve": "notebook-witness", "math_review": "independent-challenge",
                   "priority_review": "prior-resolution-search"}[assigned_stage]
-        with measure(ROOT, pid, assigned_stage, method, model=MODEL, contract_hash=rec["contract_hash"]) as run:
+        model, effort = model_for(pid, assigned_stage)
+        with measure(ROOT, pid, assigned_stage, method, model=model, reasoning_effort=effort,
+                     contract_hash=rec["contract_hash"]) as run:
             advance_one(rec, contracts()[pid], cards[pid], partial(answer, metrics=run))
             rec.pop("last_error", None)
             last = rec["attempts"][-1]

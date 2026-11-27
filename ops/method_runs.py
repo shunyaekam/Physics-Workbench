@@ -49,7 +49,7 @@ def revision(root):
 
 
 @contextmanager
-def measure(root, problem_id, stage, method, *, model=None, contract_hash=None):
+def measure(root, problem_id, stage, method, *, model=None, reasoning_effort=None, contract_hash=None):
     """Persist a start before the job, and atomically replace it with the terminal receipt."""
     from ops.hosted import HourlyLimit
     started = time.monotonic()
@@ -63,7 +63,7 @@ def measure(root, problem_id, stage, method, *, model=None, contract_hash=None):
                elapsed_seconds=None, status="running", outcome=None, evidence=None,
                usage=None if model else dict.fromkeys(TOKEN_FIELDS, 0), usage_complete=model is None)
     if model:
-        row["hosted_invoked"] = False
+        row.update(hosted_invoked=False, reasoning_effort=reasoning_effort)
     write(path, row)
     try:
         yield row
