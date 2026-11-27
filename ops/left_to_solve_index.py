@@ -16,6 +16,13 @@ SUBJECT = re.compile(r"\b(?:quantum|spin chain|sandpiles?|Ising|superconduct\w*|
                      r"Bose.Einstein|photons?|black holes?|electrostatics|Riemannian Penrose)\b", re.I)
 
 
+def lattice_diffusion(item):
+    # These probability titles are often just an Erdős problem number.
+    text = item.get("statement") or ""
+    return ("Probability" in item["fields"] and re.search(r"\brandom walks?\b", text, re.I)
+            and re.search(r"planar|lattice|ℤ|\\mathbb\s*\{?Z|two.dimensional",text,re.I))
+
+
 def index(checkout):
     data = checkout / "data"
     def read(name):
@@ -35,7 +42,7 @@ def index(checkout):
     rows = {}
     for item in core:
         key = item["id"]
-        if key in rows or not (FIELDS.intersection(item["fields"]) or SUBJECT.search(item["title"]) or key in active or key in active_candidates):
+        if key in rows or not (FIELDS.intersection(item["fields"]) or SUBJECT.search(item["title"]) or lattice_diffusion(item) or key in active or key in active_candidates):
             continue
         kind = item["kind"]
         if kind == "unformalized" and (checkout/"statements"/(key+".lean")).is_file():
@@ -55,7 +62,7 @@ def index(checkout):
     revision = subprocess.check_output(["git","rev-parse","HEAD"],cwd=checkout,text=True).strip()
     result = dict(schema_version=1, sources=[dict(name="Left to Solve", url=UPSTREAM+"/tree/"+revision,
                   revision=revision, count=len(rows), scope="Quantum Theory, Mechanics or Optics field, "
-                  "or physics terms in the title, plus enrolled targets and reviewed candidates. Catalogue leads require primary-source review.")],
+                  "or physics terms in the title, planar lattice random walks in probability statements, plus enrolled targets and reviewed candidates. Catalogue leads require primary-source review.")],
                   rows=sorted(rows.values(), key=lambda r:(r["difficulty"] is None,r["difficulty"] or 0,r["id"])))
     dest = ROOT/"campaign/catalogue-index/left-to-solve.json"
     temp = dest.with_suffix(".tmp")

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T03:24:37+00:00",
+  "checked_at": "2026-11-27T03:28:28+00:00",
   "source": "https://lefttosolve.com/contributors",
   "owner": {
     "rank": 122,
@@ -11,10 +11,10 @@
   "cutoff": {
     "rank": 20,
     "handle": "Halldon",
-    "points": 240,
-    "solved": 20,
-    "taken": 52
+    "points": 242,
+    "solved": 21,
+    "taken": 58
   },
-  "points_to_pass": 241,
+  "points_to_pass": 243,
   "listed": 200
 }

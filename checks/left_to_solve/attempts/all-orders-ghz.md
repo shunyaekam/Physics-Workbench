@@ -1,0 +1,5 @@
+# General complex GHZ graph target
+
+[Benchmark submission #2251](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/2251) adapts [Rishi Rajasekaran’s formal proof](https://github.com/google-deepmind/formal-conjectures/pull/6627) to the competition’s frozen graph definitions. The statement quantifies over every even number of outputs N ≥ 6, every dimension D ≥ 3 and every finite assignment of complex weights in the pair-source perfect-matching model. The benchmark listed 68 points for an accepted full proof. Its merge and the public standings determine actual credit.
+
+An [independent replay](https://github.com/shunyaekam/oo-research/actions/runs/45933802254) compiled the exact submitted file on Lean 4.33.1 with the pinned Mathlib. SHA-256 is `48438d420ac7e2b30061784315ad00df980a8c4c98bb1a7595eae670d7675fb9`. The kernel reports `propext`, `Classical.choice` and `Quot.sound` for `OMA.solution`. The source retains the proof authors’ attribution and license. [Official benchmark check](https://github.com/GuillaumeBAUD-coder/open-math-agents/actions/runs/45933839068).
