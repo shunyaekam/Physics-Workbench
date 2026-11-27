@@ -141,6 +141,8 @@ def run():
         call([sys.executable,"ops/left_to_solve.py"],timeout=300,check=False)
     except subprocess.TimeoutExpired:
         print("Left to Solve follow-up timed out; retry on the next eligible cycle.",flush=True)
+    call([sys.executable,"ops/method_trial.py"],timeout=120)
+    call([sys.executable,"ops/method_report.py"])
     call([sys.executable,"ops/pipeline_feed.py"])
     git("add","--","campaign","papers","checks/left_to_solve/lab-crosswalk.json")
     if git("diff","--cached","--quiet",check=False).returncode==1:
@@ -153,11 +155,13 @@ def run():
         merge = git("merge","--no-edit","origin/research",check=False)
         if merge.returncode:
             conflicts = git("diff","--name-only","--diff-filter=U").stdout.splitlines()
-            if conflicts != ["campaign/pipeline.json"]:
+            derived = {"campaign/pipeline.json","campaign/research-methods.md","campaign/method-summary.json"}
+            if not conflicts or not set(conflicts) <= derived:
                 git("merge","--abort",check=False)
                 raise RuntimeError("Research branch conflict; both histories preserved")
             call([sys.executable,"ops/pipeline_feed.py"])
-            git("add","--","campaign/pipeline.json")
+            call([sys.executable,"ops/method_report.py"])
+            git("add","--",*sorted(derived))
             git("commit","--no-edit")
         git("push","-u","origin","HEAD:research")
     call([sys.executable,"ops/publish_checked.py"],timeout=300)

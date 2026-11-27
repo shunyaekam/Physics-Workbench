@@ -20,7 +20,7 @@ def stamp(value):
 
 
 def cost(rows):
-    hosted = [r for r in rows if r.get("model")]
+    hosted = [r for r in rows if r.get("model") and r.get("hosted_invoked",True)]
     known = [r for r in hosted if r.get("usage_complete") and r.get("usage")
              and all(isinstance(r["usage"].get(k),int) for k in ("input_tokens","output_tokens"))]
     amounts = [sum(r["usage"][k] for r in known) for k in ("input_tokens", "output_tokens")]
@@ -65,7 +65,7 @@ def render(rows, certificates, trials):
     for path,r in sorted(rows, key=lambda item:item[1]["started_at"],reverse=True)[:40]:
         clock,tokens,_ = cost([r])
         lines.append(f"| [{r['started_at']}]({path}) | {r['problem_id']} | {r['stage']} | {r['method']} | "
-                     f"{r['status']} / {r.get('outcome') or 'pending'} | {clock} | {tokens} |")
+                     f"{r['status']} / {r.get('outcome') or r.get('error_type') or '—'} | {clock} | {tokens} |")
     lines += ["", "## Search policy experiments", "",
               "Each Golay policy constructs 24 circuits, split between 12 development seeds and 12 fresh evaluation seeds. "
               "Both policies receive the same seeds and the same number of pivot choices. Two signed stabilizer checks validate every circuit. "
