@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 98,
-      "seconds": "81.0",
+      "runs": 99,
+      "seconds": "81.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 98,
-      "seconds": "114.0",
+      "runs": 99,
+      "seconds": "114.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 369,
-      "seconds": "1,188.2",
+      "runs": 372,
+      "seconds": "1,193.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "bounded_result"
+      "outcome": "search_receipt"
     },
     {
       "problem": "golay43",
-      "runs": 197,
-      "seconds": "537.1",
+      "runs": 199,
+      "seconds": "537.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -100,9 +100,18 @@
       "outcome": "insufficient_evidence"
     },
     {
+      "problem": "lts-oeis-a284230",
+      "runs": 1,
+      "seconds": "19.7",
+      "tokens": "\u2014",
+      "coverage": "0/1",
+      "stage": "scout",
+      "outcome": "failed"
+    },
+    {
       "problem": "refined-bmv",
-      "runs": 102,
-      "seconds": "217.4",
+      "runs": 103,
+      "seconds": "217.6",
       "tokens": "284,541 / 4,116",
       "coverage": "3/4",
       "stage": "search",
@@ -110,8 +119,8 @@
     },
     {
       "problem": "support-enumeration",
-      "runs": 12,
-      "seconds": "480.8",
+      "runs": 13,
+      "seconds": "559.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -146,8 +155,8 @@
     },
     {
       "problem": "thomson-14",
-      "runs": 24,
-      "seconds": "11.7",
+      "runs": 25,
+      "seconds": "12.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -155,8 +164,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 197,
-      "seconds": "228.9",
+      "runs": 199,
+      "seconds": "236.5",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -261,6 +270,19 @@
       "measured_uncached_input": 139572,
       "measured_output": 10876,
       "measured_hosted_seconds": 336.25,
+      "lifetime_local_tactic_seconds": 0
+    },
+    {
+      "problem": "oeis-a284230",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-27T21:33:10.164+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 0,
+      "measured_uncached_input": 0,
+      "measured_output": 0,
+      "measured_hosted_seconds": 19.32,
       "lifetime_local_tactic_seconds": 0
     }
   ]

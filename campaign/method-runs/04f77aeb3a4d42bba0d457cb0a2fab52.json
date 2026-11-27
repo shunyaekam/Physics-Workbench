@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "04f77aeb3a4d42bba0d457cb0a2fab52",
+  "problem_id": "lts-oeis-a284230",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "fba2d687c04e9de3425e3b521e747013718b209d",
+  "started_at": "2026-11-27T21:33:10.164+00:00",
+  "elapsed_seconds": 19.724817,
+  "status": "failed",
+  "outcome": null,
+  "evidence": null,
+  "usage": null,
+  "usage_complete": false,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 19.319889,
+  "error_type": "RuntimeError"
+}
