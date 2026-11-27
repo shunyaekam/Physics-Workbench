@@ -31,6 +31,15 @@ def new_entry(row):
                 summary=summary, scope=row.get("variant_note") or "", source=row["source"],
                 method=KIND[row["outcome"]] + " · Lean " + action, path=f"papers/{slug}/",
                 proof=row["proof"], links=[dict(label="Accepted proof", url=row["proof"])])
+    if (ident == "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3"
+            and row["proof"] == "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/2251"):
+        entry.update(title="The GHZ obstruction for every even number of outputs from six onward",
+                     field="Quantum optics", method="Attributed proof port · Lean",
+                     summary="Rishi Rajasekaran proved the all-orders GHZ obstruction. We adapted his proof to the benchmark’s exact complex-weight graph definitions.",
+                     scope="The theorem concerns exact preparation in the pair-source perfect-matching model.")
+        entry["links"].extend([
+            dict(label="Rajasekaran’s original formalization",url="https://github.com/google-deepmind/formal-conjectures/pull/6627"),
+            dict(label="Independent pinned replay",url="https://github.com/shunyaekam/oo-research/actions/runs/45933802254")])
     entry["statement"] = row.get("statement") or ""
     if row.get("primary_source"):
         entry["links"].append(dict(label="Original source",url=row["primary_source"]))
