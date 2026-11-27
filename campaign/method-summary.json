@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 35,
-      "seconds": "24.0",
+      "runs": 36,
+      "seconds": "24.4",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 35,
-      "seconds": "39.5",
+      "runs": 36,
+      "seconds": "40.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,21 +20,30 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 132,
-      "seconds": "241.8",
+      "runs": 136,
+      "seconds": "246.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "search_receipt"
+      "outcome": "bounded_result"
     },
     {
       "problem": "golay43",
-      "runs": 71,
-      "seconds": "437.8",
+      "runs": 73,
+      "seconds": "438.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
       "outcome": "failed"
+    },
+    {
+      "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
+      "runs": 1,
+      "seconds": "15.6",
+      "tokens": "\u2014",
+      "coverage": "\u2014",
+      "stage": "scout",
+      "outcome": "timeout"
     },
     {
       "problem": "lts-Erdos1164.erdos_1164.R1.H2.R1.H1",
@@ -56,8 +65,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 36,
-      "seconds": "51.3",
+      "runs": 37,
+      "seconds": "51.4",
       "tokens": "69,669 / 997",
       "coverage": "1/1",
       "stage": "search",
@@ -83,8 +92,8 @@
     },
     {
       "problem": "thomson-11",
-      "runs": 8,
-      "seconds": "2.2",
+      "runs": 9,
+      "seconds": "2.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -110,12 +119,12 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 71,
-      "seconds": "96.1",
+      "runs": 73,
+      "seconds": "98.0",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
-      "stage": "math_review",
-      "outcome": "park"
+      "stage": "search",
+      "outcome": "bounded_result"
     }
   ],
   "comparison": {
@@ -131,7 +140,7 @@
       "problem": "Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes",
       "board_accepted_at": null,
       "board_outcome": null,
-      "first_logged_worker_attempt": null,
+      "first_logged_worker_attempt": "2026-11-27T08:46:08.559+00:00",
       "observed_hours_to_credit": null,
       "hosted_calls": 0,
       "calls_with_usage": 0,
