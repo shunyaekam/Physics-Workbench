@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "60b116e8d4924c20b1a53a72c0aa3c05",
+  "problem_id": "lts-oeis-a284230",
+  "stage": "scout",
+  "method": "source-screen-and-notebook",
+  "model": "gpt-6.2-sol",
+  "contract_hash": null,
+  "revision": "38db1580586f397f8fc478bcafa49c09f4b79768",
+  "started_at": "2026-11-28T00:57:44.734+00:00",
+  "elapsed_seconds": 91.331944,
+  "status": "completed",
+  "outcome": "shortlist",
+  "evidence": "campaign/scouting/417ef51804ba27a2ba07eaa1.json",
+  "usage": {
+    "input_tokens": 185342,
+    "cached_input_tokens": 148608,
+    "output_tokens": 2527
+  },
+  "usage_complete": true,
+  "hosted_invoked": true,
+  "reasoning_effort": "low",
+  "hosted_elapsed_seconds": 90.674563
+}

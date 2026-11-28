@@ -1,5 +1,10 @@
 [
   {
+    "key": "417ef51804ba27a2ba07eaa1",
+    "title": "A284230: Number of self-avoiding planar walks starting at (0,0), ending at (n,0), remaining in the first quadrant and using steps (0,1), (1",
+    "verdict": "shortlist"
+  },
+  {
     "key": "d5db112f27cbcda20418ea29",
     "title": "Erd\u0151s Problem 1165 \u00b7 step 2",
     "verdict": "prior_resolution"

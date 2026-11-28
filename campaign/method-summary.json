@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 116,
-      "seconds": "94.7",
+      "runs": 117,
+      "seconds": "98.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 116,
-      "seconds": "130.2",
+      "runs": 117,
+      "seconds": "132.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 436,
-      "seconds": "1,339.3",
+      "runs": 440,
+      "seconds": "1,344.6",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,8 +29,8 @@
     },
     {
       "problem": "golay43",
-      "runs": 233,
-      "seconds": "551.8",
+      "runs": 235,
+      "seconds": "556.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -101,17 +101,17 @@
     },
     {
       "problem": "lts-oeis-a284230",
-      "runs": 1,
-      "seconds": "19.7",
-      "tokens": "\u2014",
-      "coverage": "0/1",
+      "runs": 2,
+      "seconds": "111.1",
+      "tokens": "185,342 / 2,527",
+      "coverage": "1/2",
       "stage": "scout",
-      "outcome": "failed"
+      "outcome": "shortlist"
     },
     {
       "problem": "refined-bmv",
-      "runs": 122,
-      "seconds": "305.0",
+      "runs": 123,
+      "seconds": "305.9",
       "tokens": "446,095 / 6,119",
       "coverage": "4/6",
       "stage": "search",
@@ -146,8 +146,8 @@
     },
     {
       "problem": "thomson-13",
-      "runs": 29,
-      "seconds": "13.6",
+      "runs": 30,
+      "seconds": "14.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -164,8 +164,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 233,
-      "seconds": "270.8",
+      "runs": 235,
+      "seconds": "271.9",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -278,11 +278,11 @@
       "board_outcome": null,
       "first_logged_worker_attempt": "2026-11-27T21:33:10.164+00:00",
       "observed_hours_to_credit": null,
-      "hosted_calls": 1,
-      "calls_with_usage": 0,
-      "measured_uncached_input": 0,
-      "measured_output": 0,
-      "measured_hosted_seconds": 19.32,
+      "hosted_calls": 2,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 36734,
+      "measured_output": 2527,
+      "measured_hosted_seconds": 109.994,
       "lifetime_local_tactic_seconds": 0
     }
   ]
