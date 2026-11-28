@@ -94,6 +94,11 @@ def pending(root):
     last = max((b for b in briefs if b.get("completed_at") and isinstance(b.get("lead"), dict)),
                key=lambda b: b["completed_at"], default=None)
     prefer_lab = last is None or last["lead"].get("catalogue") == "Left to Solve"
+    if prefer_lab:
+        reply = human_followup(root)
+        if reply:
+            return reply
+
     def order(item):
         priority, lead = item
         lab = lead.get("catalogue") != "Left to Solve"
@@ -143,6 +148,26 @@ def pending(root):
                 lead["prior_attempt"] = {field: review[field] for field in
                                          ("primary_sources", "proof_or_witness", "remaining_obligation")}
                 return lead,followup
+    return None
+
+
+def human_followup(root):
+    # The filename binds Aryan's reply to the precise brief he read.
+    for note in sorted((root/"discovery/human-feedback").glob("*.md")):
+        if not re.fullmatch(r"[0-9a-f]{24}", note.stem):
+            continue
+        parent = root/"campaign/scouting"/(note.stem+".json")
+        idea = note.read_text().strip()
+        if not idea or not parent.is_file():
+            continue
+        receipt = load(parent)
+        lead, review = receipt["lead"], receipt["review"]
+        if lead.get("catalogue") == "Left to Solve" or review["verdict"] != "shortlist":
+            continue
+        dest = parent.with_name(note.stem+"-idea-"+fingerprint(idea)[:16]+".json")
+        if not dest.exists():
+            return dict(lead, human_idea=idea, prior_brief=review.get("human_brief",""),
+                        remaining_obligation=review.get("remaining_obligation","")), dest
     return None
 
 
@@ -198,6 +223,9 @@ def screen(job,ask):
                    "physical setup from scratch, give one worked toy example, and identify one choice "
                    "where an intuition or experimental constraint would change the next test. If the "
                    "source already settles the question, cite it and skip further search.")
+        if lead.get("human_idea"):
+            prompt += (" Test the human suggestion on the toy example first. Show what would "
+                       "falsify it, what happened, and whether the exact original target advances.")
         result=ask(prompt,fields,sources=True)
     links=json.loads(result["primary_sources"])
     if (result["verdict"] not in ("shortlist","prior_resolution","duplicate","insufficient_evidence")

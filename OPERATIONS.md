@@ -64,3 +64,7 @@ Run `python3 ops/proof_flow.py` to advance an eligible research stage using the 
 ## Hosted model assignment
 
 The hourly research worker uses GPT-6.2 Sol at low reasoning by default, including for new catalogue problems, scouting and prior-art checks. The major-problem list in [ops/hosted.py](ops/hosted.py) assigns GPT-6.2 Astra at medium reasoning to solving and mathematical review of the full refined BMV trace conjecture. Finite cases and numerical screens have their own targets and use Sol. Both models share one hourly allowance.
+
+## Human input on a foundations question
+
+Independent scouting briefs in `campaign/scouting/` include a short explanation, toy example, and open decision. To test an idea on a shortlisted question, save the suggestion in `discovery/human-feedback/<brief ID>.md` on the research branch, using the original 24-character receipt name. Only include material intended for the public repository. The next available independent scouting slot tests it against the same question. Each distinct reply runs once and the resulting receipt records the prior brief, idea and outcome. Board scouting keeps its turn and the hourly quota still applies.
