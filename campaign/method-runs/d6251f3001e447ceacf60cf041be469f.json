@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "d6251f3001e447ceacf60cf041be469f",
+  "problem_id": "refined-bmv",
+  "stage": "math_review",
+  "method": "independent-challenge",
+  "model": "gpt-6.2-astra",
+  "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
+  "revision": "0f8b7757eb9750fc59a9660b6296ae12ef7ee20e",
+  "started_at": "2026-11-28T01:58:30.745+00:00",
+  "elapsed_seconds": 19.418025,
+  "status": "failed",
+  "outcome": null,
+  "evidence": null,
+  "usage": null,
+  "usage_complete": false,
+  "hosted_invoked": true,
+  "reasoning_effort": "medium",
+  "hosted_elapsed_seconds": 19.149317,
+  "error_type": "RuntimeError"
+}

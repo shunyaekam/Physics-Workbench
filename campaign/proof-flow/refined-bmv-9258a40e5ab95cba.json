@@ -229,5 +229,6 @@
       "reasoning_effort": "medium"
     }
   ],
-  "updated_at": "2026-11-27T23:47:16+00:00"
+  "updated_at": "2026-11-28T01:58:50+00:00",
+  "last_error": "Hosted Codex exited with status 1"
 }
