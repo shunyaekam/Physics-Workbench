@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "da874f610cfc454183576cabd2ab8ec9",
+  "problem_id": "gagatsos-2026-c1",
+  "stage": "search",
+  "method": "excited_pairs.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "507594821d2ab1833ebe4cf2bfb46e9483146d87",
+  "started_at": "2026-11-28T03:25:00.247+00:00",
+  "elapsed_seconds": 0.774144,
+  "status": "completed",
+  "outcome": "no_new_receipt",
+  "evidence": null,
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
