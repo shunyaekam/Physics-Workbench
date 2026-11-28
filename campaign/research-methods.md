@@ -4,10 +4,10 @@ Elapsed seconds sum the measured duration of recorded jobs. Input tokens include
 
 | Problem | Runs | Failed or timed out | Job seconds | Input / output tokens | Token coverage |
 |---|---:|---:|---:|---:|---:|
-| bernasconi-table2 | 128 | 0 | 103.9 | — | — |
-| e27-schmidt | 128 | 0 | 140.2 | — | — |
-| gagatsos-2026-c1 | 481 | 0 | 1,400.3 | — | — |
-| golay43 | 257 | 93 | 716.4 | — | — |
+| bernasconi-table2 | 129 | 0 | 104.3 | — | — |
+| e27-schmidt | 129 | 0 | 140.8 | — | — |
+| gagatsos-2026-c1 | 485 | 0 | 1,405.9 | — | — |
+| golay43 | 259 | 93 | 730.9 | — | — |
 | lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1 | 1 | 0 | 88.7 | 337,260 / 3,220 | 1/1 |
 | lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_equal_magnitudes | 4 | 4 | 517.2 | — | 0/3 |
 | lts-Erdos1164.erdos_1164.R1.H2.R1.H1 | 3 | 1 | 489.7 | 878,620 / 8,904 | 2/3 |
@@ -16,13 +16,13 @@ Elapsed seconds sum the measured duration of recorded jobs. Input tokens include
 | lts-Erdos1166.erdos_1166.variants.dembo_peres_rosen_zeitouni.R1.H2 | 1 | 0 | 91.9 | 494,151 / 3,149 | 1/1 |
 | lts-OpenQuantumProblem23.hasSICPOVM_68.R1.H1 | 2 | 0 | 338.0 | 996,404 / 10,876 | 2/2 |
 | lts-oeis-a284230 | 2 | 1 | 111.1 | 185,342 / 2,527 | 1/2 |
-| refined-bmv | 135 | 3 | 327.1 | 446,095 / 6,119 | 4/7 |
+| refined-bmv | 136 | 3 | 327.3 | 446,095 / 6,119 | 4/7 |
 | support-enumeration | 16 | 0 | 655.0 | — | — |
 | thomson-10 | 32 | 0 | 16.6 | — | — |
 | thomson-11 | 32 | 0 | 9.9 | — | — |
-| thomson-13 | 32 | 0 | 14.5 | — | — |
+| thomson-13 | 33 | 0 | 14.9 | — | — |
 | thomson-14 | 32 | 0 | 15.7 | — | — |
-| werner-endpoint | 257 | 0 | 296.7 | 67,096 / 624 | 1/1 |
+| werner-endpoint | 259 | 0 | 298.6 | 67,096 / 624 | 1/1 |
 
 ## Time to certificate
 
@@ -38,6 +38,18 @@ The endpoint is the first public commit containing a full target certificate. Ca
 
 | Started (UTC) | Problem | Stage | Method | Model / effort | Status / outcome | Job seconds | Input / output tokens |
 |---|---|---|---|---|---|---:|---:|
+| [2026-11-28T02:53:30.139+00:00](method-runs/23319a50ec384e168291b03d88223e62.json) | thomson-13 | search | sphere_bounds.experiment | — | completed / bound_checked | 0.4 | — |
+| [2026-11-28T02:53:28.633+00:00](method-runs/0a95c13235964e17b47b4dd21bcaa00b.json) | werner-endpoint | search | complex_search.search-5-copies | — | completed / bounded_result | 0.9 | — |
+| [2026-11-28T02:53:27.706+00:00](method-runs/73043d6c36804c3c870507866205773c.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 0.9 | — |
+| [2026-11-28T02:53:27.436+00:00](method-runs/3bcc0c473a2f41319333b942df28b560.json) | gagatsos-2026-c1 | search | wigner_search.search | — | completed / bounded_result | 0.3 | — |
+| [2026-11-28T02:53:22.401+00:00](method-runs/d3162994e8fc493d888eeb2f1392035a.json) | gagatsos-2026-c1 | search | coherent_band_search.py | — | completed / search_receipt | 2.2 | — |
+| [2026-11-28T02:53:20.393+00:00](method-runs/26993ab6d77940a484ba8b698adb7b9c.json) | gagatsos-2026-c1 | search | three_level_search.py | — | completed / search_receipt | 2.0 | — |
+| [2026-11-28T02:53:19.222+00:00](method-runs/c52c78e5bd2b47c1a874b351bcd29af0.json) | gagatsos-2026-c1 | search | excited_pairs.py | — | completed / no_new_receipt | 1.2 | — |
+| [2026-11-28T02:53:05.478+00:00](method-runs/0157c55d1fc040ee9bee0f92ae375267.json) | bernasconi-table2 | search | checks/finite_spins.py | — | completed / no_new_receipt | 0.4 | — |
+| [2026-11-28T02:53:05.280+00:00](method-runs/74424bdd3050485f995c703d41ba6e4d.json) | refined-bmv | search | checks/bmv_search.py | — | completed / no_new_receipt | 0.2 | — |
+| [2026-11-28T02:52:50.990+00:00](method-runs/4abcd21baef14e4b98cd045b5d91f301.json) | golay43 | search | checks/golay/advance.py | — | completed / search_receipt | 14.3 | — |
+| [2026-11-28T02:52:50.774+00:00](method-runs/c480e5849820484a8d47b99ca22c173d.json) | golay43 | search | checks/golay43.py | — | completed / no_new_receipt | 0.2 | — |
+| [2026-11-28T02:52:50.206+00:00](method-runs/9556ef86ab234d81ac483c91d96e4d51.json) | e27-schmidt | search | checks/schmidt7/pair_search.py | — | completed / search_receipt | 0.6 | — |
 | [2026-11-28T02:42:27.981+00:00](method-runs/dcb6d89c5c224057bde2f357ab9d1f28.json) | thomson-11 | search | sphere_bounds.experiment | — | completed / bound_checked | 0.4 | — |
 | [2026-11-28T02:42:26.401+00:00](method-runs/525ae67efe4940a5b46a9ebb73ecf49c.json) | werner-endpoint | search | complex_search.search-5-copies | — | completed / bounded_result | 0.9 | — |
 | [2026-11-28T02:42:25.446+00:00](method-runs/5d648589b0844b778b8959afd21820c4.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 1.0 | — |
@@ -66,18 +78,6 @@ The endpoint is the first public commit containing a full target certificate. Ca
 | [2026-11-28T02:20:17.826+00:00](method-runs/14b003bea06e42569ec432285a3a3b2f.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 0.9 | — |
 | [2026-11-28T02:20:17.577+00:00](method-runs/a4b4a539b5024c91bb38e40ccfe92c62.json) | gagatsos-2026-c1 | search | wigner_search.search | — | completed / bounded_result | 0.4 | — |
 | [2026-11-28T02:20:12.420+00:00](method-runs/cd27f62094ca4755b7ce3ace82dd28fb.json) | gagatsos-2026-c1 | search | coherent_band_search.py | — | completed / search_receipt | 2.1 | — |
-| [2026-11-28T02:20:10.427+00:00](method-runs/f8b717381ba748cdb12e571b4c1a058e.json) | gagatsos-2026-c1 | search | three_level_search.py | — | completed / search_receipt | 2.0 | — |
-| [2026-11-28T02:20:09.114+00:00](method-runs/184cb11701f74fd694cf50798a194fc4.json) | gagatsos-2026-c1 | search | excited_pairs.py | — | completed / no_new_receipt | 1.3 | — |
-| [2026-11-28T02:19:55.649+00:00](method-runs/55bc5ec0888744de837cb38289351069.json) | bernasconi-table2 | search | checks/finite_spins.py | — | completed / no_new_receipt | 0.4 | — |
-| [2026-11-28T02:19:55.445+00:00](method-runs/966cb5c422fe4489947ac3f741131a7f.json) | refined-bmv | search | checks/bmv_search.py | — | completed / no_new_receipt | 0.2 | — |
-| [2026-11-28T02:19:41.377+00:00](method-runs/3a17224d2af6460693d1a93fd264cabe.json) | golay43 | search | checks/golay/advance.py | — | completed / search_receipt | 14.1 | — |
-| [2026-11-28T02:19:41.144+00:00](method-runs/c0225ecdfd4844b98de7e8ea92af7d7e.json) | golay43 | search | checks/golay43.py | — | completed / no_new_receipt | 0.2 | — |
-| [2026-11-28T02:19:40.507+00:00](method-runs/92504bf95e2b41dfb6af118d322bfb5f.json) | e27-schmidt | search | checks/schmidt7/pair_search.py | — | completed / search_receipt | 0.7 | — |
-| [2026-11-28T02:09:21.453+00:00](method-runs/bc03664ee5f546f28a4d429220f68499.json) | thomson-13 | search | sphere_bounds.experiment | — | completed / bound_checked | 0.3 | — |
-| [2026-11-28T02:09:20.700+00:00](method-runs/10eb6c3ce3fd48e98069ce584c2a718f.json) | werner-endpoint | search | complex_search.search-5-copies | — | completed / bounded_result | 0.4 | — |
-| [2026-11-28T02:09:20.292+00:00](method-runs/b443b87f3b15400c9dd0c13a7e943139.json) | werner-endpoint | search | complex_search.search-4-copies | — | completed / bounded_result | 0.4 | — |
-| [2026-11-28T02:09:20.163+00:00](method-runs/7ca2fba234ab43789e010c47e13ad4eb.json) | gagatsos-2026-c1 | search | wigner_search.search | — | completed / bounded_result | 0.2 | — |
-| [2026-11-28T02:09:17.621+00:00](method-runs/9ceb8fa542a84dbdac368df2d3cc7d0c.json) | gagatsos-2026-c1 | search | coherent_band_search.py | — | completed / search_receipt | 1.1 | — |
 
 ## Search policy experiments
 

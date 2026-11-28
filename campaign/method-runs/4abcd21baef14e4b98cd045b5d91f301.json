@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "run_id": "4abcd21baef14e4b98cd045b5d91f301",
+  "problem_id": "golay43",
+  "stage": "search",
+  "method": "checks/golay/advance.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "7151095bc0e4eba7f98d4efbb75ed1b19e39b5bd",
+  "started_at": "2026-11-28T02:52:50.990+00:00",
+  "elapsed_seconds": 14.286541,
+  "status": "completed",
+  "outcome": "search_receipt",
+  "evidence": "campaign/golay-graphs/000211.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true,
+  "evidence_paths": [
+    "campaign/golay-graphs/000211.json",
+    "campaign/golay-splice-tails/000211.json",
+    "campaign/golay-splices/000211.json"
+  ]
+}
