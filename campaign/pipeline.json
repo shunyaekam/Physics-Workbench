@@ -54,30 +54,30 @@
       "detail": "Every real relabeling is covered for the fixed square-root cost on levels 0, 9 and 25. The registered convex-power conjecture concerns q greater than one."
     }
   ],
-  "updated_at": "2026-11-28T07:12:43+00:00",
+  "updated_at": "2026-11-28T07:26:00+00:00",
   "counts": {
     "leads": 3,
     "problems": 9,
-    "attempts": 98349890534,
+    "attempts": 98533735542,
     "candidates": 0,
     "partial_results": 8,
     "solutions": 1,
     "exclusions": 3
   },
   "evaluations": {
-    "werner": 1527092,
-    "coherent-cats": 35072,
-    "coherent-bands": 11585,
-    "three-level": 23279,
+    "werner": 1529346,
+    "coherent-cats": 35200,
+    "coherent-bands": 11617,
+    "three-level": 23343,
     "agent-witnesses": 1,
     "bmv-three-level": 192,
     "transport-polygons": 1088,
     "golay-circuits": 322980,
-    "golay-graphs": 4948000,
+    "golay-graphs": 4968000,
     "golay-repairs": 269543351,
-    "golay-splices": 6675410214,
-    "golay-splice-tails": 91397903520,
-    "schmidt-seven-pairs": 164160
+    "golay-splices": 6687894576,
+    "golay-splice-tails": 91569241148,
+    "schmidt-seven-pairs": 164700
   },
   "attempts_definition": "Recorded search evaluations across the listed arms. Repeated states may occur.",
   "problems": [
@@ -359,7 +359,7 @@
     {
       "id": "flow-refined-bmv",
       "title": "A lower bound for symmetrized quantum partition functions",
-      "status": "math_review",
+      "status": "parked",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/proof-flow/refined-bmv-9258a40e5ab95cba.json",
       "detail": "4 recorded attempts. No counterexample was found. I first held K fixed at the previous witness and tested all 120 ordered choices of four distinct diagonal numerators for H from {\u221224,\u22128,0,8,24}, at (n,m)=(5,7). Every numerical gap was positive. I then tested 540 pairs of symmetric tridiagonal matrices at (6,6). The selected pair had the smallest numerical gap relative to Tr exp(6H+6K) in that search, about 4.34\u00d710\u207b\u00b9\u00b9."
     },
@@ -418,8 +418,8 @@
       "id": "schmidt-pair-search",
       "title": "Rank-seven frames in local dimension 16",
       "status": "under_investigation",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000303.json",
-      "detail": "164,160 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/schmidt-seven-pairs/000304.json",
+      "detail": "164,700 exact frame evaluations. Largest pair weight 2. A weight above 2 would defeat the proposed proof extension.",
       "problem_id": "e27-schmidt"
     },
     {
@@ -427,7 +427,7 @@
       "title": "Replace three Golay gates with two",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "91,397,903,520 edits with one insertion anywhere and one optional inverse-end gate across 233 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "91,569,241,148 edits with one insertion anywhere and one optional inverse-end gate across 234 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -435,7 +435,7 @@
       "title": "Replace two Golay gates with one",
       "status": "exact_search",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "6,675,410,214 edits across 233 records. No circuit reached the 43-gate target in these edits.",
+      "detail": "6,687,894,576 edits across 234 records. No circuit reached the 43-gate target in these edits.",
       "problem_id": "golay43"
     },
     {
@@ -451,7 +451,7 @@
       "title": "Rebuild the Golay circuit",
       "status": "under_investigation",
       "url": "https://github.com/shunyaekam/oo-research/blob/research/discovery/golay43.md",
-      "detail": "4,948,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
+      "detail": "4,968,000 graph construction trials. Best verified preparation uses 44 CNOTs.",
       "problem_id": "golay43"
     },
     {
@@ -479,28 +479,28 @@
       "problem_id": "refined-bmv"
     },
     {
-      "id": "round-378",
-      "title": "Research round 378",
+      "id": "round-379",
+      "title": "Research round 379",
       "status": "completed",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000378.json",
-      "detail": "2,214 Werner vectors evaluated.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/rounds/00000379.json",
+      "detail": "2,254 Werner vectors evaluated.",
       "problem_id": "werner-endpoint",
-      "updated_at": "2026-11-28T07:10:59.474100+00:00"
+      "updated_at": "2026-11-28T07:23:24.254327+00:00"
     },
     {
-      "id": "coherent-bands-00000366",
+      "id": "coherent-bands-00000367",
       "title": "Coherent-band screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000366.json",
-      "detail": "32 states tested on photon levels 0, 1, 2, 3, 4, 5, 6.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/coherent-bands/00000367.json",
+      "detail": "32 states tested on photon levels 2, 3, 4, 5, 6, 7.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
-      "id": "three-level-batch-00000365",
+      "id": "three-level-batch-00000366",
       "title": "Three-level screen",
       "status": "screen_only",
-      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000365.json",
-      "detail": "64 states tested on photon levels 0, 2, 3.",
+      "url": "https://github.com/shunyaekam/oo-research/blob/research/campaign/three-level/batch-00000366.json",
+      "detail": "64 states tested on photon levels 0, 2, 4.",
       "problem_id": "gagatsos-2026-c1"
     },
     {
