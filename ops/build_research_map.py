@@ -16,7 +16,8 @@ SUBJECTS = {
     "Atomic physics": ("atomic", "Atomic physics"),
     "Wave physics": ("waves", "Wave physics"),
 }
-KIND = {"open": "Catalogue result", "known": "Formalization", "warmup": "Warm-up"}
+KIND = {"open": "Catalogue result", "known": "Formalization", "warmup": "Warm-up",
+        "unclassified": "Accepted contribution"}
 
 
 def new_entry(row):

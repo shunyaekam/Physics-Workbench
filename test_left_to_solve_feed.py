@@ -89,6 +89,16 @@ class AcceptedFeedTest(unittest.TestCase):
         self.assertEqual(sync.collect(handle, desk.get, cache), feed)
         self.assertFalse(any("/pulls/" in u for u in desk.urls))
 
+    def test_reclassification_keeps_proof_without_claiming_novelty(self):
+        ident = "Example"
+        proof = sync.PULL + "1"
+        row = dict(step=False, outcome="known", handle="me", pr_url=proof,
+                   created_at="2026-11-27T00:00:00Z", polarity="proof")
+        meta = dict(id=ident, kind="open", title=ident, fields=["Quantum optics"])
+        result = sync.record(ident, row, {proof: ("proof", ident)}, "me", lambda url: (meta, ""))
+        self.assertEqual(result["proof"], proof)
+        self.assertEqual(result["outcome"], "unclassified")
+
     def test_cannot_promote_wrong_account_or_wrong_role(self):
         ident = "Parent"
         proof = sync.PULL + "1"

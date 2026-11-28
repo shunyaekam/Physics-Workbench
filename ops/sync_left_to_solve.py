@@ -234,7 +234,10 @@ def record(problem, row, evidence, handle, get):
     outcome = KINDS[meta["kind"]]
     variant = None
     if row:
-        require(outcome == row["outcome"], f"Inconsistent result category for {problem}")
+        # The desk may reclassify a problem after its verdict is recorded.
+        # Preserve evidence of acceptance without claiming a disputed category.
+        if outcome != row["outcome"]:
+            outcome = "unclassified"
         variant = row.get("variantOf")
     if not variant and re.search(r"\.variants?\.", problem):
         variant = f"A special case of {meta['title'].split(' — ')[0]}. The certificate covers this variant."
