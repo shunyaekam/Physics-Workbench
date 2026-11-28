@@ -1,4 +1,4 @@
-# Optical physics results for 2026-11-27
+# Optical physics results for 2026-11-28
 
 The sharp lower-order threshold for the full zero–one-photon qubit is proved. Four further vacuum-plus-photon subspaces, with 2, 3, 4 or 5 photons in the excited component, satisfy the order-one-half conjecture.
 
