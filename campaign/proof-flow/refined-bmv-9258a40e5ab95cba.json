@@ -2,7 +2,7 @@
   "problem_id": "refined-bmv",
   "contract_hash": "9258a40e5ab95cba1af89aea01047e776013dc526417c0802fe2277a34da8980",
   "model": "gpt-6.2-astra",
-  "status": "solve",
+  "status": "math_review",
   "attempts": [
     {
       "proposal": {
@@ -234,7 +234,79 @@
         "model": "gpt-6.2-astra",
         "reasoning_effort": "medium"
       }
+    },
+    {
+      "proposal": {
+        "approach": "No counterexample was found. I first held K fixed at the previous witness and tested all 120 ordered choices of four distinct diagonal numerators for H from {\u221224,\u22128,0,8,24}, at (n,m)=(5,7). Every numerical gap was positive. I then tested 540 pairs of symmetric tridiagonal matrices at (6,6). The selected pair had the smallest numerical gap relative to Tr exp(6H+6K) in that search, about 4.34\u00d710\u207b\u00b9\u00b9.",
+        "witness_json": "{\"H\":[[28,1,0,0],[1,-4,1,0],[0,1,-12,1],[0,0,1,-24]],\"K\":[[28,1,0,0],[1,-4,1,0],[0,1,-12,1],[0,0,1,-16]],\"den\":16,\"n\":6,\"m\":6}",
+        "derivation": "The certified absolute gap \u0394 satisfies 0.05856580214277504 < \u0394 < 0.05856580214277505. I constructed the second family by giving both numerator matrices the same first three diagonal entries (28,\u22124,\u221212) and the same three successive off-diagonal entries, each independently chosen from {1,2,3}. Their fourth diagonal entries were distinct ordered choices from {\u221224,\u221216,\u22128,0,8}. This places the difference three edges from the largest diagonal entry while preserving noncommutation. For the selected pair, [H,K]\u2083\u2084=1/32, both maximum absolute row sums are 29/16, and the counts give 924 words. To verify the sign, I replaced each exponential by its degree-112 Taylor polynomial P. Starting with W(0,0)=I and taking negative indices as zero, I computed W(i,j)=P(H)W(i\u22121,j)+P(K)W(i,j\u22121) for i+j>0. Grouping by first factor counts each word once. For G=Tr W(6,6)/924\u2212Tr P(6H+6K), exact integer arithmetic gave floor(10\u00b9\u2078G)=58565802142775046. The joint argument has infinity norm below 22. For t\u226422 the Taylor tail is at most 2t\u00b9\u00b9\u00b3/113!, and each individual exponential and polynomial has norm below 8. Telescoping each twelve-factor product and bounding its trace by four times its norm gives |\u0394\u2212G| \u2264 8(22\u00b9\u00b9\u00b3+12\u00b78\u00b9\u00b9\u00b72\u00b9\u00b9\u00b3)/113! < 10\u207b\u00b3\u2070, which yields the stated interval.",
+        "what_would_change": "A certified upper endpoint below zero for any admissible pair would disprove the universal lower bound. The interval here establishes a positive gap for the displayed pair. The other pairs received numerical screening only, and the universal inequality remains unresolved by this calculation."
+      },
+      "checked_at": "2026-11-28T06:22:21+00:00",
+      "witness": {
+        "H": [
+          [
+            28,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            -4,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            -12,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            -24
+          ]
+        ],
+        "K": [
+          [
+            28,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            -4,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            -12,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            -16
+          ]
+        ],
+        "den": 16,
+        "n": 6,
+        "m": 6
+      },
+      "witness_hash": "dd004c4b2316475e5f830ac99905c6f632f22185e6e40073b98fe5a3526ce9c4",
+      "replay_elapsed_seconds": 0.001412,
+      "rejection": "Expected a small square integer numerator matrix",
+      "origin": "gpt-6.2-astra hosted solver",
+      "model": "gpt-6.2-astra",
+      "reasoning_effort": "medium"
     }
   ],
-  "updated_at": "2026-11-28T04:12:58+00:00"
+  "updated_at": "2026-11-28T06:22:21+00:00"
 }

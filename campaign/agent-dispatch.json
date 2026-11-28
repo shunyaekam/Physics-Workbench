@@ -1,5 +1,6 @@
 {
-  "lane": "scout",
-  "source": "https://lefttosolve.com/p/mo-338936",
-  "at": "2026-11-28T05:19:03+00:00"
+  "lane": "rotation",
+  "problem_id": "refined-bmv",
+  "stage": "solve",
+  "at": "2026-11-28T06:22:21+00:00"
 }
