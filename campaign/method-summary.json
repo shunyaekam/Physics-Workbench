@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 139,
-      "seconds": "107.7",
+      "runs": 140,
+      "seconds": "108.0",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 139,
-      "seconds": "145.5",
+      "runs": 140,
+      "seconds": "145.8",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,17 +20,17 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 522,
-      "seconds": "1,451.8",
+      "runs": 526,
+      "seconds": "1,455.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "search_receipt"
+      "outcome": "bounded_result"
     },
     {
       "problem": "golay43",
-      "runs": 279,
-      "seconds": "848.4",
+      "runs": 281,
+      "seconds": "856.2",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -100,6 +100,15 @@
       "outcome": "insufficient_evidence"
     },
     {
+      "problem": "lts-mo-338936",
+      "runs": 1,
+      "seconds": "98.8",
+      "tokens": "263,468 / 3,920",
+      "coverage": "1/1",
+      "stage": "scout",
+      "outcome": "shortlist"
+    },
+    {
       "problem": "lts-oeis-a284230",
       "runs": 2,
       "seconds": "111.1",
@@ -119,8 +128,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 147,
-      "seconds": "354.8",
+      "runs": 148,
+      "seconds": "354.9",
       "tokens": "489,970 / 6,952",
       "coverage": "5/8",
       "stage": "search",
@@ -146,8 +155,8 @@
     },
     {
       "problem": "thomson-11",
-      "runs": 34,
-      "seconds": "10.5",
+      "runs": 35,
+      "seconds": "10.7",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -173,8 +182,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 279,
-      "seconds": "320.5",
+      "runs": 281,
+      "seconds": "321.3",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
@@ -279,6 +288,19 @@
       "measured_uncached_input": 139572,
       "measured_output": 10876,
       "measured_hosted_seconds": 336.25,
+      "lifetime_local_tactic_seconds": 0
+    },
+    {
+      "problem": "mo-338936",
+      "board_accepted_at": null,
+      "board_outcome": null,
+      "first_logged_worker_attempt": "2026-11-28T05:17:24.826+00:00",
+      "observed_hours_to_credit": null,
+      "hosted_calls": 1,
+      "calls_with_usage": 1,
+      "measured_uncached_input": 47276,
+      "measured_output": 3920,
+      "measured_hosted_seconds": 98.589,
       "lifetime_local_tactic_seconds": 0
     },
     {
