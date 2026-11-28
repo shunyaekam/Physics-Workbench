@@ -90,9 +90,10 @@ def pending(root):
     for batch in sorted((root/"campaign/intake").glob("*.json"),reverse=True):
         pool.extend((2,lead) for lead in load(batch))
     # Alternate completed scouting briefs; either queue can use an empty slot.
-    history = sorted((root/"campaign/scouting").glob("*.json"),
-                     key=lambda path: path.stat().st_mtime_ns, reverse=True)
-    prefer_lab = not history or load(history[0])["lead"].get("catalogue") == "Left to Solve"
+    briefs = (load(path) for path in (root/"campaign/scouting").glob("*.json"))
+    last = max((b for b in briefs if b.get("completed_at") and isinstance(b.get("lead"), dict)),
+               key=lambda b: b["completed_at"], default=None)
+    prefer_lab = last is None or last["lead"].get("catalogue") == "Left to Solve"
     def order(item):
         priority, lead = item
         lab = lead.get("catalogue") != "Left to Solve"
@@ -204,7 +205,7 @@ def screen(job,ask):
                                                               and urlsplit(u).hostname for u in links)):
         raise ValueError("Incomplete source screen")
     path.parent.mkdir(exist_ok=True)
-    write(path,dict(lead=lead,review=result))
+    write(path,dict(lead=lead,review=result,completed_at=datetime.now(timezone.utc).isoformat()))
 
     if lead.get("catalogue") == "Left to Solve":
         feed = path.parents[1]/"left-to-solve"/"latest.json"
