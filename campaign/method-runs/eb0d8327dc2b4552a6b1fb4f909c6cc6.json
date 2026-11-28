@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "eb0d8327dc2b4552a6b1fb4f909c6cc6",
+  "problem_id": "golay43",
+  "stage": "search",
+  "method": "checks/golay43.py",
+  "model": null,
+  "contract_hash": null,
+  "revision": "fa9edee450aa434f3db8e9a5658a9f645d3c09d1",
+  "started_at": "2026-11-28T02:09:00.962+00:00",
+  "elapsed_seconds": 0.107199,
+  "status": "completed",
+  "outcome": "no_new_receipt",
+  "evidence": null,
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}

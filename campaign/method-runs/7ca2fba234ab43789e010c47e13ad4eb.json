@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "7ca2fba234ab43789e010c47e13ad4eb",
+  "problem_id": "gagatsos-2026-c1",
+  "stage": "search",
+  "method": "wigner_search.search",
+  "model": null,
+  "contract_hash": null,
+  "revision": "fa9edee450aa434f3db8e9a5658a9f645d3c09d1",
+  "started_at": "2026-11-28T02:09:20.163+00:00",
+  "elapsed_seconds": 0.162859,
+  "status": "completed",
+  "outcome": "bounded_result",
+  "evidence": "campaign/rounds/00000354.json",
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0
+  },
+  "usage_complete": true
+}
