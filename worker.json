@@ -1,1 +1,1 @@
-{"state": "running", "task": "Running lab checks and preparing records", "field": "notebook", "observed_at": "2026-11-28T04:38:16.892102+00:00"}
+{"state": "failed", "task": "Running lab checks and preparing records", "field": "notebook", "observed_at": "2026-11-28T04:38:36.177207+00:00"}
