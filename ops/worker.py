@@ -12,9 +12,13 @@ RUNTIME=Path(__file__).resolve().parents[1]
 SERVICE=RUNTIME.parent
 sys.path.insert(0, str(RUNTIME))
 from ops.method_runs import measure
+from ops.worker_status import Heartbeat
+
+heartbeat = Heartbeat(SERVICE)
 
 
 def call(args,root=RUNTIME,timeout=180,check=True):
+    heartbeat.command(args)
     p=subprocess.run(args,cwd=root,timeout=timeout,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     if p.stdout:
         print(p.stdout.rstrip(),flush=True)
@@ -86,6 +90,7 @@ def run():
                 git("merge","--abort",check=False)
                 raise RuntimeError("conflicting edits in dedicated checkout; saved both histories")
     call([sys.executable,"-m","unittest","-q"])
+    call([sys.executable,"checks/small_qec/mean_check.py"])
     call([sys.executable,"ops/paper_checks.py"],timeout=900)
     search("e27-schmidt", "checks/schmidt7/pair_search.py", ['schmidt-seven-pairs'],
            [sys.executable,"checks/schmidt7/pair_search.py","advance"])
@@ -192,10 +197,13 @@ if __name__=="__main__":
         with log.open("a",buffering=1) as f:
             sys.stdout=sys.stderr=f
             print(datetime.datetime.now().astimezone().isoformat(),"starting")
+            heartbeat.start()
             try:
                 run()
+                heartbeat.finish("idle")
                 print("Cycle and GitHub synchronization complete.")
             except Exception:
+                heartbeat.finish("failed")
                 import traceback
                 traceback.print_exc()
                 sys.exit(1)

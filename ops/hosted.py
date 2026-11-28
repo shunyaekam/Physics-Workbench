@@ -130,6 +130,9 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
         with tempfile.TemporaryFile() as events, subprocess.Popen(
                 command, cwd=notebook_dir, env=env, stdin=subprocess.PIPE,
                 stdout=events, stderr=subprocess.PIPE, text=True, start_new_session=True) as proc:
+            status = os.environ.get("OO_WORKER_HOSTED_STATUS")
+            if status:
+                write(Path(status), {"pid":proc.pid, "model":model, "problem":problem_id or "research"})
             if metrics is not None:
                 metrics["hosted_invoked"] = True
             try:
@@ -140,6 +143,8 @@ def generate(prompt, schema, *, problem_id=None, stage=None, notebook=(), source
                 proc.communicate()
                 raise TimeoutError("Hosted Codex timed out")
             finally:
+                if status:
+                    Path(status).unlink(missing_ok=True)
                 if local_lean:
                     saved = lean_loop.save_progress(candidate,original,checkpoint)
                     if metrics is not None:

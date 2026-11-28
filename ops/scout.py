@@ -218,7 +218,7 @@ def screen(job,ask):
     else:
         fields += ("attempt", "remaining_obligation", "human_brief")
         prompt += (" For an open tractable case, try the smallest decisive calculation now. For a hard "
-                   "case, isolate one testable lemma. Report exactly what you checked in attempt and what "
+                   "case, isolate one testable lemma. Prefer a source that gives distinct lower and upper bounds; cite the table or theorem, state both bounds, and seek either a construction meeting the lower bound or an exclusion meeting the upper. Check later work first. Report exactly what you checked in attempt and what "
                    "remains in remaining_obligation. In human_brief use at most 120 words: teach the "
                    "physical setup from scratch, give one worked toy example, and identify one choice "
                    "where an intuition or experimental constraint would change the next test. If the "
