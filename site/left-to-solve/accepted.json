@@ -8,7 +8,7 @@
       "source": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3",
       "proof": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/2251",
       "field": "Algebraic Geometry",
-      "outcome": "unclassified",
+      "outcome": "known",
       "credit": "solver",
       "polarity": "proof",
       "accepted_at": "2026-11-27T17:08:20.833684+00:00",
