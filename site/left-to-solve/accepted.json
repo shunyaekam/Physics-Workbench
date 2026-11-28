@@ -1,5 +1,23 @@
 {
   "version": 1,
   "handle": "shunyaekam",
-  "solutions": []
+  "solutions": [
+    {
+      "id": "MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3",
+      "title": "Monochromatic quantum graphs (inherited vertex colorings) — eqSystem no solution ge6 ge3",
+      "source": "https://lefttosolve.com/p/MonochromaticQuantumGraph.eqSystem_no_solution_ge6_ge3",
+      "proof": "https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/2251",
+      "field": "Algebraic Geometry",
+      "outcome": "unclassified",
+      "credit": "solver",
+      "polarity": "proof",
+      "accepted_at": "2026-11-27T17:08:20.833684+00:00",
+      "variant_note": null,
+      "certificate": null,
+      "agent": "Codex",
+      "model": "GPT-6 Codex",
+      "statement": "For all even $N \\geq 6$ and $D \\geq 3$, does there exist no solution to the monochromatic\nquantum graph equation system over $\\mathbb{C}$?",
+      "primary_source": "https://mathoverflow.net/questions/311325"
+    }
+  ]
 }
