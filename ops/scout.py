@@ -62,7 +62,7 @@ def pending(root):
             # This is a reading order for a literature scout, not a difficulty estimate.
             concrete=any(word in title for word in ("counterexample","construction","circuit","finite-dimensional","smallest"))
             lead=dict(id=row["id"],source=row["url"],question=row["title"],title=row["title"],
-                      catalogue=row["source"],listed_status=row.get("status"))
+                      catalogue=row["source"],listed_status=row.get("status"),topics=row.get("topics",[]))
             manageable=str(row.get("difficulty","")).startswith(("1/5","2/5"))
             if row["source"] == "Left to Solve":
                 lead["primary_source"] = row.get("primary_source")
@@ -89,7 +89,18 @@ def pending(root):
             pool.append((0 if manageable and concrete else 1 if concrete else 3,lead))
     for batch in sorted((root/"campaign/intake").glob("*.json"),reverse=True):
         pool.extend((2,lead) for lead in load(batch))
-    for _,lead in sorted(pool,key=lambda pair:(pair[0],pair[1].get("desk_difficulty") or 100,pair[1]["id"])):
+    # Alternate completed scouting briefs; either queue can use an empty slot.
+    history = sorted((root/"campaign/scouting").glob("*.json"),
+                     key=lambda path: path.stat().st_mtime_ns, reverse=True)
+    prefer_lab = not history or load(history[0])["lead"].get("catalogue") == "Left to Solve"
+    def order(item):
+        priority, lead = item
+        lab = lead.get("catalogue") != "Left to Solve"
+        subject = " ".join([lead.get("catalogue",""), lead["title"], *lead.get("topics",[])]).lower()
+        focus = any(word in subject for word in ("quantum", "quant-ph", "gr-qc", "gravit", "spacetime",
+                                                 "black hole", "entangl", "foundations", "relativity"))
+        return (lab != prefer_lab, lab and not focus, priority, lead.get("desk_difficulty") or 100, lead["id"])
+    for _,lead in sorted(pool,key=order):
         if source_key(lead["source"]) in admitted:
             continue
         identity=([lead["catalogue"],lead["id"],lead["question"],lead["listed_status"]] if "catalogue" in lead
@@ -179,6 +190,13 @@ def screen(job,ask):
             files = ("checks/left_to_solve/targets.json",)
         result=ask(prompt,fields,sources=not continued,notebook=files,**prior_files)
     else:
+        fields += ("attempt", "remaining_obligation", "human_brief")
+        prompt += (" For an open tractable case, try the smallest decisive calculation now. For a hard "
+                   "case, isolate one testable lemma. Report exactly what you checked in attempt and what "
+                   "remains in remaining_obligation. In human_brief use at most 120 words: teach the "
+                   "physical setup from scratch, give one worked toy example, and identify one choice "
+                   "where an intuition or experimental constraint would change the next test. If the "
+                   "source already settles the question, cite it and skip further search.")
         result=ask(prompt,fields,sources=True)
     links=json.loads(result["primary_sources"])
     if (result["verdict"] not in ("shortlist","prior_resolution","duplicate","insufficient_evidence")

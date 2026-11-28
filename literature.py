@@ -9,7 +9,7 @@ from lab import ROOT,write
 
 BASE=ROOT/"campaign/intake"
 NS="{http://www.w3.org/2005/Atom}"
-QUERY='(cat:quant-ph OR cat:math-ph OR cat:cond-mat.stat-mech) AND (abs:"we conjecture" OR abs:"remains open")'
+QUERY='(cat:quant-ph OR cat:gr-qc OR cat:math-ph OR cat:cond-mat.stat-mech) AND (abs:"we conjecture" OR abs:"remains open")'
 
 
 def poll():
@@ -38,6 +38,7 @@ def poll():
             lead=next((s for s in sentences if re.search(r"conjectur|remains open",s,re.I)),None)
             if lead:
                 cards.append(dict(id="arxiv-"+locator.rsplit("/",1)[1],title=title,
+                    topics=[c.get("term", "") for c in e.findall(NS+"category")],
                     question="Extract a small falsifiable subproblem from this attributed abstract sentence: "+lead,
                     scope="Intake only. Verify definitions in the full text and check later work before accepting the conjecture.",
                     source=locator,prior_art=locator,checked_on=now.date().isoformat(),status="unreviewed_lead"))
