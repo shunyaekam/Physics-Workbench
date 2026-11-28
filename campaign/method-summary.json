@@ -2,8 +2,8 @@
   "problems": [
     {
       "problem": "bernasconi-table2",
-      "runs": 117,
-      "seconds": "98.6",
+      "runs": 118,
+      "seconds": "98.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -11,8 +11,8 @@
     },
     {
       "problem": "e27-schmidt",
-      "runs": 117,
-      "seconds": "132.1",
+      "runs": 118,
+      "seconds": "134.3",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -20,8 +20,8 @@
     },
     {
       "problem": "gagatsos-2026-c1",
-      "runs": 440,
-      "seconds": "1,344.6",
+      "runs": 444,
+      "seconds": "1,354.5",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -29,12 +29,12 @@
     },
     {
       "problem": "golay43",
-      "runs": 235,
-      "seconds": "556.9",
+      "runs": 237,
+      "seconds": "577.9",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
-      "outcome": "failed"
+      "outcome": "search_receipt"
     },
     {
       "problem": "lts-Arxiv.2607.27197.maxwell_conjecture.variants.three_charges.R1.H1",
@@ -110,8 +110,8 @@
     },
     {
       "problem": "refined-bmv",
-      "runs": 123,
-      "seconds": "305.9",
+      "runs": 124,
+      "seconds": "306.1",
       "tokens": "446,095 / 6,119",
       "coverage": "4/6",
       "stage": "search",
@@ -128,8 +128,8 @@
     },
     {
       "problem": "thomson-10",
-      "runs": 29,
-      "seconds": "16.0",
+      "runs": 30,
+      "seconds": "16.1",
       "tokens": "\u2014",
       "coverage": "\u2014",
       "stage": "search",
@@ -164,8 +164,8 @@
     },
     {
       "problem": "werner-endpoint",
-      "runs": 235,
-      "seconds": "271.9",
+      "runs": 237,
+      "seconds": "273.3",
       "tokens": "67,096 / 624",
       "coverage": "1/1",
       "stage": "search",
